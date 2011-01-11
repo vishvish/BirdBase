@@ -1,0 +1,75 @@
+package com.tfto.birdbase.controller.assets
+{
+	import com.tfto.birdbase.controller.abstract.BirdbaseCommand;
+	import com.tfto.birdbase.model.PreferencesModel;
+	
+	import org.assetloader.core.IAssetLoader;
+	import org.assetloader.signals.ErrorSignal;
+	import org.assetloader.signals.LoaderSignal;
+	import org.robotlegs.mvcs.Command;
+	
+	/**
+	 *	// TODO LoadAssetsCommand 
+	 *	
+	 *	// TODO @example 
+	 *	
+	 *	// TODO @exampleText 
+	 *	
+	 *	@author 	Vish Vishvanath
+	 *	@email 		vish.vishvanath@gmail.com
+	 *	@since 		11 January 2011
+	 */
+	public class LoadAssetsCommand extends BirdbaseCommand
+	{
+		
+		[Inject]
+		public var assetLoader:IAssetLoader;
+		
+		[Inject]
+		public var pm:PreferencesModel;
+		
+		/**
+		 *	// TODO execute 
+		 *	
+		 *	@return void	
+		 */
+		override public function execute():void
+		{
+			logger.error( "LoadAssetsCommand::execute" );
+			
+			logger.debug( "Loading from: " + pm.assetBasePath + pm.getProperty( "assetsFile" ) );
+			
+			assetLoader.addConfig( pm.assetBasePath + pm.getProperty( "assetsFile" ) );
+			assetLoader.onConfigLoaded.add( handleConfigLoaded );
+		}
+		
+		private function handleConfigLoaded( signal:LoaderSignal ):void
+		{
+			logger.debug( "LoadAssetsCommand::handleConfigLoaded" );
+			logger.debug( "LoadAssetsCommand::loadingAssets" );
+			signal.loader.onProgress.add( handleProgress );
+			signal.loader.onComplete.add( handleComplete );
+			signal.loader.onError.add( handleError );
+			signal.loader.start();
+		}
+
+		private function handleProgress( signal:LoaderSignal ):void
+		{
+			//
+		}
+
+		private function handleError( signal:ErrorSignal ):void
+		{
+			logger.error( signal.message );
+		}
+
+		private function handleComplete( signal:LoaderSignal, data:* ):void
+		{
+			for( var o:Object in data )
+			{
+				logger.debug( "LoadAssetsCommand::loaded: " + o );
+			}
+			logger.debug( "LoadAssetsCommand::handleComplete()" );
+		}
+	}
+}

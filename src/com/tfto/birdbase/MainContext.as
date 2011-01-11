@@ -77,6 +77,7 @@ package com.tfto.birdbase
 			signalCommandMap.mapSignalClass( ModifyApplicationState, ChangeApplicationStateCommand );
 
 			commandMap.mapEvent( ContextEvent.STARTUP, ConfigureStateMachineCommand, ContextEvent, true );
+
 			dispatchEvent( new ContextEvent(ContextEvent.STARTUP ) );
 
         	super.startup();

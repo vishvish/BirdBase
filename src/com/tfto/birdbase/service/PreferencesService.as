@@ -63,7 +63,7 @@ package com.tfto.birdbase.service
 				FlashVarsManager.getInstance().vars( "preferencesFileName" ) 
 				? FlashVarsManager.getInstance().vars( "preferencesFileName" ) : "preferences.properties";
 
-			var preferences:URLRequest = new URLRequest( "assets/" + model.locale + "/" + model.preferencesFileName );
+			var preferences:URLRequest = new URLRequest( model.assetBasePath + model.preferencesFileName );
 			var loader:URLLoader = new URLLoader();
 			
 			loader.addEventListener( Event.COMPLETE, handleComplete );

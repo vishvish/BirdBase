@@ -41,6 +41,12 @@ package com.tfto.birdbase.model
 		{
 			_preferencesFileName = value;
 		}
+		
+		public function get assetBasePath():String
+		{
+			var result:String = "assets/" + this.locale + "/";
+			return result;
+		}
 
 	}
 }

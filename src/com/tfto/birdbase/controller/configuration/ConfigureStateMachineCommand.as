@@ -3,6 +3,7 @@ package com.tfto.birdbase.controller.configuration
 	import com.tfto.birdbase.controller.AppConfigStateConstants;
 	import com.tfto.birdbase.controller.ApplicationBootstrapCommand;
 	import com.tfto.birdbase.controller.abstract.BirdbaseCommand;
+	import com.tfto.birdbase.controller.assets.LoadAssetsCommand;
 	
 	import org.robotlegs.utilities.statemachine.FSMInjector;
 	import org.robotlegs.utilities.statemachine.StateEvent;
@@ -36,6 +37,7 @@ package com.tfto.birdbase.controller.configuration
 			commandMap.mapEvent( AppConfigStateConstants.CONFIGURE_COMMANDS, ConfigureCommandsCommand, StateEvent, true );
 			commandMap.mapEvent( AppConfigStateConstants.CONFIGURE_PREFERENCES, ConfigurePreferencesCommand, StateEvent, true );
 			commandMap.mapEvent( AppConfigStateConstants.CONFIGURE_LOCALIZATION, ConfigureLocalizationCommand, StateEvent, true );
+			commandMap.mapEvent( AppConfigStateConstants.LOAD_ASSETS, LoadAssetsCommand, StateEvent, true );
 			commandMap.mapEvent( AppConfigStateConstants.CONFIGURE_VIEWS, ConfigureViewsCommand, StateEvent, true );
 			commandMap.mapEvent( AppConfigStateConstants.GO, ApplicationBootstrapCommand, StateEvent, true );
 

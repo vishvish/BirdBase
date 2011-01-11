@@ -32,6 +32,11 @@ package com.tfto.birdbase.controller
 		public static const CONFIGURE_LOCALIZATION:String           = "event/configure/localization";
 		public static const CONFIGURE_LOCALIZATION_COMPLETE:String  = "action/configure/localization/complete";
 		public static const CONFIGURE_LOCALIZATION_FAILED:String    = "action/configure/localization/failed";
+		
+		public static const LOADING_ASSETS:String         			= "state/loading/assets";
+		public static const LOAD_ASSETS:String           			= "event/load/assets";
+		public static const LOAD_ASSETS_COMPLETE:String  			= "action/load/assets/complete";
+		public static const LOAD_ASSETS_FAILED:String    			= "action/load/assets/failed";
 
 		public static const CONFIGURING_VIEWS:String            = "state/configuring/views";
 		public static const CONFIGURE_VIEWS:String              = "event/configure/views";
@@ -81,9 +86,19 @@ package com.tfto.birdbase.controller
 				<state name={CONFIGURING_LOCALIZATION} changed={CONFIGURE_LOCALIZATION}>
 				
 				   <transition action={CONFIGURE_LOCALIZATION_COMPLETE} 
-						target={CONFIGURING_VIEWS}/>
+						target={LOADING_ASSETS}/>
 				
 				<transition action={CONFIGURE_LOCALIZATION_FAILED} 
+						target={FAILING}/>
+				
+				</state>
+
+				<state name={LOADING_ASSETS} changed={LOAD_ASSETS}>
+				
+				   <transition action={LOAD_ASSETS_COMPLETE} 
+						target={CONFIGURING_VIEWS}/>
+				
+				<transition action={LOAD_ASSETS_FAILED} 
 						target={FAILING}/>
 				
 				</state>

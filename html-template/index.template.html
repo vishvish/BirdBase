@@ -35,12 +35,16 @@
         <!${useBrowserHistory} END Browser History required section -->  
 		    
         <script type="text/javascript" src="swfobject.js"></script>
+        <script type="text/javascript" src="swfaddress.js"></script>
         <script type="text/javascript">
             <!-- For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. --> 
             var swfVersionStr = "${version_major}.${version_minor}.${version_revision}";
             <!-- To use express install, set to playerProductInstall.swf, otherwise the empty string. -->
             var xiSwfUrlStr = "${expressInstallSwf}";
-            var flashvars = {};
+            var flashvars = {
+                    applicationName: "dummyApp",
+                    strings: "assets/strings.properties"
+            };
             var params = {};
             params.quality = "high";
             params.bgcolor = "${bgcolor}";
