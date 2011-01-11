@@ -1,5 +1,7 @@
 package com.tfto.birdbase.view
 {
+	import com.tfto.utils.DynamicSprite;
+	
 	import flash.display.Sprite;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
@@ -57,12 +59,15 @@ package com.tfto.birdbase.view
 		{
 			logger.debug( "MainUI main" );
 			
+			var block:DynamicSprite = new DynamicSprite( "block" );
+			addChild( block );
+			
 			buildLogo();
 			
 			viewContainer = new Sprite();
 			viewContainer.x = 10;
 			viewContainer.y = 70;
-			addChild(viewContainer);
+			addChild( viewContainer );
 		
 		}
 		
@@ -73,10 +78,10 @@ package com.tfto.birdbase.view
 		 *	
 		 *	@return void	
 		 */
-		public function show(callback:Signal):void
+		public function show( callback:Signal ):void
 		{	
 			logger.debug( "MainUI show" );
-			if(callback)
+			if( callback )
 				callback.dispatch();
 		}
 		
@@ -90,7 +95,7 @@ package com.tfto.birdbase.view
 		public function hide(callback:Signal):void
 		{
 			logger.debug( "MainUI show" );
-			if(callback)
+			if( callback )
 				callback.dispatch();
 		}
 		
