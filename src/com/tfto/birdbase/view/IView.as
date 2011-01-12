@@ -1,7 +1,5 @@
 package com.tfto.birdbase.view
 {
-	import flash.display.DisplayObject;
-	
 	import org.osflash.signals.Signal;
 	
 	/**

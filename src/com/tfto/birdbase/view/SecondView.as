@@ -1,13 +1,9 @@
 package com.tfto.birdbase.view
 {
-	import com.greensock.TweenLite;
-	
 	import flash.display.Sprite;
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
 	import flash.text.TextFormat;
-	
-	import org.osflash.signals.Signal;
 
 	/**
 	 *	// TODO SecondView 

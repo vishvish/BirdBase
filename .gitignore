@@ -2,3 +2,4 @@ bin-debug
 /.actionScriptProperties
 /.project
 /.settings/
+/bin-release/
