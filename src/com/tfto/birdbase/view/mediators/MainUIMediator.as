@@ -1,5 +1,8 @@
 package com.tfto.birdbase.view.mediators
 {
+	import com.greensock.TweenMax;
+	import com.greensock.easing.Quad;
+	import com.greensock.easing.Quart;
 	import com.tfto.birdbase.model.L10nModel;
 	import com.tfto.birdbase.model.PreferencesModel;
 	import com.tfto.birdbase.model.ViewStateModel;
@@ -11,6 +14,7 @@ package com.tfto.birdbase.view.mediators
 	import com.tfto.birdbase.view.ThirdView;
 	
 	import flash.display.DisplayObject;
+	import flash.display.Sprite;
 	import flash.events.MouseEvent;
 	
 	import org.as3commons.logging.ILogger;
@@ -170,8 +174,17 @@ package com.tfto.birdbase.view.mediators
 		protected function showView(newView:IView):void
 		{
 			currentView = newView;
+
+//			Sprite( currentView ).alpha = 0;
+			
 			view.viewContainer.addChild(DisplayObject(currentView));
-			currentView.show(null);
+			currentView.show( null );
+//			beginShow();
+		}
+		
+		private function beginShow():void
+		{
+			TweenMax.to( currentView, 1, { alpha: 1, ease:Quart.easeOut } );
 		}
 	}
 }

@@ -1,5 +1,7 @@
 package com.tfto.birdbase.view
 {
+	import com.greensock.TweenLite;
+	
 	import flash.display.Sprite;
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
@@ -18,7 +20,7 @@ package com.tfto.birdbase.view
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class SecondView extends Sprite implements IView
+	public class SecondView extends AbstractTransitioningView
 	{
 		/**
 		 *	// TODO yellowPillButton 
@@ -52,7 +54,7 @@ package com.tfto.birdbase.view
 		 *	
 		 *	@return void	
 		 */
-		public function main():void
+		override public function main():void
 		{
 //			trace("SecondView main");
 			cleanup();
@@ -73,34 +75,6 @@ package com.tfto.birdbase.view
 			addChild(purplePillButton);
 			purplePillButton.y = 80;
 			purplePillButton.x = 110;
-		}
-		
-		/**
-		 *	// TODO show 
-		 *	
-		 *	@param callback 
-		 *	
-		 *	@return void	
-		 */
-		public function show(callback:Signal):void
-		{	
-//			trace("SecondView show");
-			if(callback)
-				callback.dispatch();
-		}
-		
-		/**
-		 *	// TODO hide 
-		 *	
-		 *	@param callback 
-		 *	
-		 *	@return void	
-		 */
-		public function hide(callback:Signal):void
-		{	
-//			trace("SecondView hide");
-			if(callback)
-				callback.dispatch();
 		}
 		
 		/**
@@ -129,17 +103,5 @@ package com.tfto.birdbase.view
 			
 			return s;
 		}
-		
-		/**
-		 *	// TODO cleanup 
-		 *	
-		 *	@return void	
-		 */
-		protected function cleanup():void
-		{
-			while(this.numChildren > 0)
-				this.removeChildAt(0);
-		}
-		
 	}
 }

@@ -1,5 +1,7 @@
 package com.tfto.birdbase.view
 {
+	import com.greensock.TweenLite;
+	
 	import flash.display.Sprite;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
@@ -17,9 +19,8 @@ package com.tfto.birdbase.view
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class ThirdView extends Sprite implements IView
+	public class ThirdView extends AbstractTransitioningView
 	{
-
 		/**
 		 *	// TODO option1 
 		 */
@@ -47,7 +48,7 @@ package com.tfto.birdbase.view
 		 *	
 		 *	@return void	
 		 */
-		public function main():void
+		override public function main():void
 		{
 //			trace("ThirdView main");
 			cleanup();
@@ -58,45 +59,5 @@ package com.tfto.birdbase.view
 			addChild(textTF);
 			
 		}
-		
-		/**
-		 *	// TODO show 
-		 *	
-		 *	@param callback 
-		 *	
-		 *	@return void	
-		 */
-		public function show(callback:Signal):void
-		{	
-//			trace("ThirdView show");
-			if(callback)
-				callback.dispatch();
-		}
-		
-		/**
-		 *	// TODO hide 
-		 *	
-		 *	@param callback 
-		 *	
-		 *	@return void	
-		 */
-		public function hide(callback:Signal):void
-		{	
-//			trace("ThirdView hide");
-			if(callback)
-				callback.dispatch();
-		}
-		
-		/**
-		 *	// TODO cleanup 
-		 *	
-		 *	@return void	
-		 */
-		protected function cleanup():void
-		{
-			while(this.numChildren > 0)
-				this.removeChildAt(0);
-		}
-		
 	}
 }
