@@ -10,6 +10,7 @@ package com.tfto.birdbase
 	import com.tfto.birdbase.service.PreferencesService;
 	import com.tfto.birdbase.signals.ModifyApplicationState;
 	import com.tfto.birdbase.signals.ViewStateChanged;
+	import com.tfto.utils.FlashVarsManager;
 	
 	import flash.display.DisplayObjectContainer;
 	
@@ -61,7 +62,11 @@ package com.tfto.birdbase
 			
 			injector.mapSingletonOf( IAssetLoader, AssetLoader );
 			
-        	injector.mapSingleton( SWFAddress );
+			injector.mapSingleton( SWFAddress );
+			
+			var fm:FlashVarsManager = new FlashVarsManager( contextView );
+
+			injector.mapValue( FlashVarsManager, fm );
 
 			injector.mapSingleton( ApplicationModel );
         	injector.mapSingleton( ViewStateModel );

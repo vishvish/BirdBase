@@ -29,7 +29,9 @@ Learn more about Flex at http://flex.org
         var swfName = "Main";
         var swfURL = (swfobject.getFlashPlayerVersion().major >= "9") ? "${swf}.swf": "expressinstall.swf";
 
-        var flashvars = {};
+        var flashvars = {
+			locale: "fr_FR"
+		};
         var params = { scale:'noScale', salign:'lt', wmode:"window" };
         var attributes = { id:swfName, name:swfName }; // give an id to the flash object
 

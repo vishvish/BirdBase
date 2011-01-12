@@ -28,6 +28,9 @@ package com.tfto.birdbase.service
 	public class L10nService extends Actor
 	{
 		[Inject]
+		public var fm:FlashVarsManager;
+		
+		[Inject]
 		/**
 		 *	// TODO model 
 		 */
@@ -56,12 +59,12 @@ package com.tfto.birdbase.service
 		public function init():void
 		{
 			model.locale = 
-				FlashVarsManager.getInstance().vars( "locale" ) 
-				? FlashVarsManager.getInstance().vars( "locale" ) : "en_GB";
+				fm.vars( "locale" ) 
+				? fm.vars( "locale" ) : "en_GB";
 			
 			model.l10nFilename = 
-				FlashVarsManager.getInstance().vars( "l10nFilename" ) 
-				? FlashVarsManager.getInstance().vars( "l10nFilename" ) : "l10n.properties";
+				fm.vars( "l10nFilename" ) 
+				? fm.vars( "l10nFilename" ) : "l10n.properties";
 			
 			var preferences:URLRequest = new URLRequest( "assets/" + model.locale + "/" + model.l10nFilename );
 			var loader:URLLoader = new URLLoader();
