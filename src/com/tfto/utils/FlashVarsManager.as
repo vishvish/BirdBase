@@ -1,5 +1,6 @@
 package com.tfto.utils
 {
+	import flash.display.DisplayObjectContainer;
 	import flash.display.Sprite;
 
 	/**
@@ -16,34 +17,12 @@ package com.tfto.utils
 	public class FlashVarsManager extends Sprite
 	{
 		/**
-		 *	// TODO _instance 
-		 */
-		private static var _instance:FlashVarsManager;
-		
-		/**
 		 *	// TODO FlashVarsManager 
 		 */
-		public function FlashVarsManager()
+		public function FlashVarsManager( contextView:DisplayObjectContainer )
 		{
 			super();
-		}
-		
-		/**
-		 *	// TODO getInstance 
-		 *	
-		 *	@return FlashVarsManager	
-		 */
-		public static function getInstance():FlashVarsManager
-		{
-			if( _instance )
-			{
-				return _instance;
-			}
-			else
-			{
-				_instance = new FlashVarsManager();
-				return _instance;
-			}
+			contextView.addChild( this );
 		}
 		
 		/**
@@ -51,10 +30,10 @@ package com.tfto.utils
 		 */
 		public function vars( varName:String ):*
 		{
-			if( !this.loaderInfo )
-			{
-				return null;
-			}
+//			if( !this.loaderInfo )
+//			{
+//				return null;
+//			}
 			var result:* = this.loaderInfo.parameters[ varName ];
 			if( !result )
 			{

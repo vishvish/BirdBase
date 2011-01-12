@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<loader base="assets/fr_FR/" preventCache="true" >
+	<!-- An asset with this special id, "dynamic-library", will be used with the DynamicSprite system -->
+	<asset id="dynamic-library" src="dynamic-library.swf" />
+	<asset id="font-asset-myriad" src="fonts/myriad.swf" />
+</loader>

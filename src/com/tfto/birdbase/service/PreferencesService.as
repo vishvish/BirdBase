@@ -28,6 +28,9 @@ package com.tfto.birdbase.service
 	public class PreferencesService extends Actor
 	{
 		[Inject]
+		public var fm:FlashVarsManager;
+		
+		[Inject]
 		/**
 		 *	// TODO model 
 		 */
@@ -56,12 +59,12 @@ package com.tfto.birdbase.service
 		public function init():void
 		{
 			model.locale = 
-				FlashVarsManager.getInstance().vars( "locale" ) 
-				? FlashVarsManager.getInstance().vars( "locale" ) : "en_GB";
+				fm.vars( "locale" ) 
+				? fm.vars( "locale" ) : "en_GB";
 			
 			model.preferencesFileName = 
-				FlashVarsManager.getInstance().vars( "preferencesFileName" ) 
-				? FlashVarsManager.getInstance().vars( "preferencesFileName" ) : "preferences.properties";
+				fm.vars( "preferencesFileName" ) 
+				? fm.vars( "preferencesFileName" ) : "preferences.properties";
 
 			var preferences:URLRequest = new URLRequest( model.assetBasePath + model.preferencesFileName );
 			var loader:URLLoader = new URLLoader();
