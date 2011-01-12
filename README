@@ -9,6 +9,9 @@ has plenty of room for confusion.
 library. Text Fields seem to default to the TLF layout in the Flash IDE, but when exported, the whole thing chokes
 when being loaded in - there's a security issue involved, it seems.
 
+4. Quite Important: update everything to latest RobotLegs, Signals and CommandSignal. There's a variety of issues, but
+I am going to create SWCs from sources to see what happens.
+
 
 // TINGS
 
