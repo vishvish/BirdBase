@@ -54,7 +54,7 @@ package com.tfto.birdbase
 		 */
 		override public function startup():void
         {
-			var logger:ILogger = LoggerFactory.getLogger( "application-logger" );
+			var logger:ILogger = LoggerFactory.getLogger( "birdbase-logger" );
 			logger.debug( "MainContext::startup" );
 
 			injector.mapValue( ILogger, logger );
@@ -75,10 +75,8 @@ package com.tfto.birdbase
 			
 			// maps a signal for SWFAddress
 			signalCommandMap.mapSignalClass( ModifyApplicationState, ChangeApplicationStateCommand );
-
-			commandMap.mapEvent( ContextEvent.STARTUP, ConfigureStateMachineCommand, ContextEvent, true );
-
-			dispatchEvent( new ContextEvent( ContextEvent.STARTUP ) );
+			
+			commandMap.mapEvent( ContextEvent.STARTUP_COMPLETE, ConfigureStateMachineCommand, ContextEvent, true );
 
         	super.startup();
         }

@@ -48,7 +48,7 @@ package com.tfto.birdbase.controller
 		 */
 		override public function execute():void
 		{
-			logger.debug( "ApplicationStartupCommand::execute" );
+			logger.debug( "ApplicationBootstrapCommand::execute" );
 			
 			logger.info( "Application Booting..." );
 			logger.info( "Author: " + pm.getProperty( "application.author" ) );
@@ -60,8 +60,7 @@ package com.tfto.birdbase.controller
 			s.add( function():void 
 			{
 				signalCommandMap.mapSignal( swfAddress.change, ApplicationStateChangedCommand );
-			}
-			);
+			});
 			view.show( s );	
 		}
 		
