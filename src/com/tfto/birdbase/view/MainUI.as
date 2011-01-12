@@ -41,6 +41,8 @@ package com.tfto.birdbase.view
 		 *	// TODO tf 
 		 */
 		public var tf:TextField;
+
+		public var block:DynamicSprite;
 		
 		/**
 		 *	// TODO MainUI 
@@ -59,8 +61,14 @@ package com.tfto.birdbase.view
 		{
 			logger.debug( "MainUI main" );
 			
-			var block:DynamicSprite = new DynamicSprite( "block" );
+			block = new DynamicSprite( "block" );
+			block.x = 300;
 			addChild( block );
+			
+			var hello:DynamicSprite = new DynamicSprite( "hello" );
+			hello.x = 100;
+			hello.y = 50;
+			addChild( hello );
 			
 			buildLogo();
 			

@@ -18,11 +18,16 @@ package com.tfto.utils
 	import flash.utils.Dictionary;
 	import flash.utils.getQualifiedSuperclassName;
 	
+	import org.as3commons.logging.ILogger;
+	
 	/**
 	 * DynamicSprite
 	 */
 	public class DynamicSprite extends Sprite 
 	{
+		[Inject]
+		public var logger:ILogger;
+		
 		//	----------------------------------------------------------------
 		//	CONSTANTS
 		//	----------------------------------------------------------------
@@ -178,19 +183,20 @@ package com.tfto.utils
 		{
 			var hasChanged : Boolean = false;
 			
-			for each ( var lib : DisplayObject in _libraries )
+			for each ( var lib:DisplayObject in _libraries )
 			{
+				logger.debug( "Loaded library symbol: " + lib )
 				if( lib.root.loaderInfo.applicationDomain.hasDefinition(_classDefinition) )
 				{
 					try
 					{
-						var type : Class = lib.root.loaderInfo.applicationDomain.getDefinition(_classDefinition) as Class;
+						var type:Class = lib.root.loaderInfo.applicationDomain.getDefinition( _classDefinition ) as Class;
 						
 						destroyAsset();
 						
-						if( getQualifiedSuperclassName(type) == "flash.display::BitmapData" )
+						if( getQualifiedSuperclassName( type ) == "flash.display::BitmapData" )
 						{
-							_asset = new Bitmap(new type(0, 0), PixelSnapping.AUTO, true);
+							_asset = new Bitmap( new type( 0, 0 ), PixelSnapping.AUTO, true );
 						}
 						else
 						{
@@ -198,13 +204,13 @@ package com.tfto.utils
 						}
 						
 						hasChanged = true;
-						addChild(_asset);
+						addChild( _asset );
 						
 						break;
 					}
-					catch( error : Error )
+					catch( error:Error )
 					{
-						trace(error.name + " : " + error.message);
+						trace( error.name + " : " + error.message );
 					}
 				}
 			}

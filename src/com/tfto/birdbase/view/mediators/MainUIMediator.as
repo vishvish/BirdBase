@@ -6,6 +6,7 @@ package com.tfto.birdbase.view.mediators
 	import com.tfto.birdbase.model.L10nModel;
 	import com.tfto.birdbase.model.PreferencesModel;
 	import com.tfto.birdbase.model.ViewStateModel;
+	import com.tfto.birdbase.signals.UpdateDynamicLibrary;
 	import com.tfto.birdbase.signals.ViewStateChanged;
 	import com.tfto.birdbase.view.FirstView;
 	import com.tfto.birdbase.view.IView;
@@ -50,6 +51,9 @@ package com.tfto.birdbase.view.mediators
 		public var viewStateChanged:ViewStateChanged;
 		
 		[Inject]
+		public var updateDynamicLibrary:UpdateDynamicLibrary;
+		
+		[Inject]
 		/**
 		 *	// TODO viewState 
 		 */
@@ -88,7 +92,7 @@ package com.tfto.birdbase.view.mediators
 		 *	// TODO currentView 
 		 */
 		protected var currentView:IView;
-		
+				
 		/**
 		 *	// TODO MainUIMediator 
 		 */
@@ -111,6 +115,9 @@ package com.tfto.birdbase.view.mediators
 			
 			view.tf.text = l10n.getProperty( "welcome" );
 			
+			var ns1:NativeSignal = new NativeSignal( view.block, MouseEvent.CLICK, MouseEvent );
+			ns1.add( updateDynamicLib );
+			
 			views = {};
 			views[""] = FirstView;
 			views["view2"] = SecondView;
@@ -120,6 +127,11 @@ package com.tfto.birdbase.view.mediators
 			ns.add(gotoHome);
 			
 		}
+
+		private function updateDynamicLib( evt:MouseEvent ):void
+		{
+			updateDynamicLibrary.dispatch();
+		}
 		
 		/**
 		 *	// TODO gotoHome 
@@ -128,11 +140,10 @@ package com.tfto.birdbase.view.mediators
 		 *	
 		 *	@return void	
 		 */
-		protected function gotoHome(myEvent:MouseEvent):void
+		protected function gotoHome( evt:MouseEvent ):void
 		{	
-			trace("GotoHome");
+//			trace("GotoHome");
 			swfAddress.setValue("/");
-			
 		}
 		/**
 		 *	// TODO onViewStateChange 
@@ -144,22 +155,22 @@ package com.tfto.birdbase.view.mediators
 			var viewName:String = viewState.viewName;
 			logger.debug( "MainUIMediator::onViewStateChanged: " + viewName );
 			
-			if(views.hasOwnProperty(viewName))
+			if( views.hasOwnProperty( viewName ) )
 			{
-				if(views[viewName] is Class)
+				if( views[ viewName ] is Class )
 				{
-					views[viewName] = new views[viewName];
+					views[ viewName ] = new views[ viewName ];
 				}
 				
-				if(currentView != null)
+				if( currentView != null )
 				{
 					var s:Signal = new Signal();
-					s.addOnce(function():void { view.viewContainer.removeChildAt(0); showView(views[viewName]);});
-					currentView.hide(s);
+					s.addOnce( function():void { view.viewContainer.removeChildAt( 0 ); showView( views[ viewName ] ); } );
+					currentView.hide( s );
 				}
 				else
 				{
-					showView(views[viewName]);
+					showView( views[ viewName ] );
 				}
 			}
 		}
@@ -171,13 +182,13 @@ package com.tfto.birdbase.view.mediators
 		 *	
 		 *	@return void	
 		 */
-		protected function showView(newView:IView):void
+		protected function showView( newView:IView ):void
 		{
 			currentView = newView;
 
 //			Sprite( currentView ).alpha = 0;
 			
-			view.viewContainer.addChild(DisplayObject(currentView));
+			view.viewContainer.addChild( DisplayObject( currentView ) );
 			currentView.show( null );
 //			beginShow();
 		}
@@ -185,6 +196,12 @@ package com.tfto.birdbase.view.mediators
 		private function beginShow():void
 		{
 			TweenMax.to( currentView, 1, { alpha: 1, ease:Quart.easeOut } );
+		}
+		
+		protected function changeDynamicLibrary():void
+		{
+			pm.setProperty( "dynamic-library", "assets2.swf" );
+			updateDynamicLibrary.dispatch();
 		}
 	}
 }

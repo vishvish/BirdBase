@@ -9,6 +9,7 @@ package com.tfto.birdbase
 	import com.tfto.birdbase.service.L10nService;
 	import com.tfto.birdbase.service.PreferencesService;
 	import com.tfto.birdbase.signals.ModifyApplicationState;
+	import com.tfto.birdbase.signals.UpdateDynamicLibrary;
 	import com.tfto.birdbase.signals.ViewStateChanged;
 	import com.tfto.utils.FlashVarsManager;
 	
@@ -67,19 +68,20 @@ package com.tfto.birdbase
 			var fm:FlashVarsManager = new FlashVarsManager( contextView );
 
 			injector.mapValue( FlashVarsManager, fm );
-
+			
+			// basic models
+			
 			injector.mapSingleton( ApplicationModel );
         	injector.mapSingleton( ViewStateModel );
-        	injector.mapSingleton( ViewStateChanged );
+			
+			// signals
+			injector.mapSingleton( ViewStateChanged );
 
+			// services
 			injector.mapSingleton( PreferencesModel );
 			injector.mapSingleton( PreferencesService );
-			
 			injector.mapSingleton( L10nModel );
 			injector.mapSingleton( L10nService );
-			
-			// maps a signal for SWFAddress
-			signalCommandMap.mapSignalClass( ModifyApplicationState, ChangeApplicationStateCommand );
 			
 			commandMap.mapEvent( ContextEvent.STARTUP_COMPLETE, ConfigureStateMachineCommand, ContextEvent, true );
 
