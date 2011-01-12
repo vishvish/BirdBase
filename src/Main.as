@@ -29,6 +29,7 @@ package
 		public function Main()
 		{
 			context = new MainContext( this );
+			trace( "MAIN::", this.loaderInfo.parameters[ "locale" ] );
 		}
 	}
 }
