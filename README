@@ -1,0 +1,18 @@
+// TODO
+
+1. Framework bootstrap could be cleaner - running around building paths from locales, flashvars and preferences 
+has plenty of room for confusion.
+
+2. New views for everything.
+
+3. A way to get around the new TLF layout issues when using TLF on a textField in the Flash IDE and exporting that
+library. Text Fields seem to default to the TLF layout in the Flash IDE, but when exported, the whole thing chokes
+when being loaded in - there's a security issue involved, it seems.
+
+
+// TINGS
+
+Preferences are a place to hold info you may need later. Such as the name of the correct asset that you wish to load.
+
+This works cloned out of the box, follow the logger statements to see what's going on during bootstrap.
+
