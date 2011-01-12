@@ -25,9 +25,6 @@ package com.tfto.utils
 	 */
 	public class DynamicSprite extends Sprite 
 	{
-		[Inject]
-		public var logger:ILogger;
-		
 		//	----------------------------------------------------------------
 		//	CONSTANTS
 		//	----------------------------------------------------------------
@@ -185,7 +182,6 @@ package com.tfto.utils
 			
 			for each ( var lib:DisplayObject in _libraries )
 			{
-				logger.debug( "Loaded library symbol: " + lib )
 				if( lib.root.loaderInfo.applicationDomain.hasDefinition(_classDefinition) )
 				{
 					try

@@ -32,11 +32,6 @@ package com.tfto.birdbase.view
 		 */
 		public var logo:Sprite;
 		
-		[Inject]
-		/**
-		 *	// TODO logger 
-		 */
-		public var logger:ILogger;
 		/**
 		 *	// TODO tf 
 		 */
@@ -59,8 +54,6 @@ package com.tfto.birdbase.view
 		 */
 		public function main():void
 		{
-			logger.debug( "MainUI main" );
-			
 			block = new DynamicSprite( "block" );
 			block.x = 300;
 			addChild( block );
@@ -88,7 +81,6 @@ package com.tfto.birdbase.view
 		 */
 		public function show( callback:Signal ):void
 		{	
-			logger.debug( "MainUI show" );
 			if( callback )
 				callback.dispatch();
 		}
@@ -102,7 +94,6 @@ package com.tfto.birdbase.view
 		 */
 		public function hide(callback:Signal):void
 		{
-			logger.debug( "MainUI show" );
 			if( callback )
 				callback.dispatch();
 		}
