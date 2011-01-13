@@ -36,9 +36,6 @@ package com.tfto.birdbase.model
 		protected var _props:Array;
 
 		[Inject]
-		/**
-		 *	// TODO logger 
-		 */
 		public var logger:ILogger;
 
 		/**
@@ -153,7 +150,5 @@ package com.tfto.birdbase.model
 		{
 			_locale = value;
 		}
-
-
 	}
 }

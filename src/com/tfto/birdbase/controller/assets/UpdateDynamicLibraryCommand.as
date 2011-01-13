@@ -1,14 +1,11 @@
 package com.tfto.birdbase.controller.assets
 {
-	import com.tfto.birdbase.controller.AppConfigStateConstants;
 	import com.tfto.birdbase.model.PreferencesModel;
 	
 	import org.as3commons.logging.ILogger;
 	import org.assetloader.core.IAssetLoader;
 	import org.assetloader.signals.ErrorSignal;
-	import org.assetloader.signals.LoaderSignal;
 	import org.robotlegs.mvcs.SignalCommand;
-	import org.robotlegs.utilities.statemachine.StateEvent;
 	
 	public class UpdateDynamicLibraryCommand extends SignalCommand
 	{

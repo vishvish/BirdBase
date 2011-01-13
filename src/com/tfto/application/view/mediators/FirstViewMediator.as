@@ -1,14 +1,14 @@
-package com.tfto.birdbase.view.mediators
+package com.tfto.application.view.mediators
 {
 	import com.tfto.birdbase.model.ApplicationModel;
 	import com.tfto.birdbase.model.ViewStateModel;
 	import com.tfto.birdbase.signals.ModifyApplicationState;
-	import com.tfto.birdbase.view.FirstView;
 	
 	import flash.events.MouseEvent;
 	
 	import org.osflash.signals.natives.NativeSignal;
 	import org.robotlegs.mvcs.Mediator;
+	import com.tfto.application.view.FirstView;
 
 	/**
 	 *	// TODO FirstViewMediator 

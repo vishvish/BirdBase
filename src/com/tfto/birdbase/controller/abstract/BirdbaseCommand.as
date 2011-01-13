@@ -17,9 +17,6 @@ package com.tfto.birdbase.controller.abstract
 	public class BirdbaseCommand extends Command
 	{
 		[Inject]
-		/**
-		 *	// TODO logger 
-		 */
 		public var logger:ILogger;
 		
 		/**

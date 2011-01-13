@@ -18,9 +18,6 @@ package com.tfto.birdbase.model
 	public class ViewStateModel extends Actor
 	{
 		[Inject]
-		/**
-		 *	// TODO viewStateChanged 
-		 */
 		public var viewStateChanged:ViewStateChanged;
 		
 		/**
@@ -31,16 +28,19 @@ package com.tfto.birdbase.model
 		/**
 		 * viewName // TODO 
 		 */
-		public function get viewName():String { return _viewName; };
-		/**
-		 * @private
-		 */
-		public function set viewName(val:String):void
+		public function get viewName():String
+		{
+			return _viewName;
+		}
+
+		public function set viewName( val:String ):void
 		{	
 			var changed:Boolean = val != _viewName;
 			_viewName = val;
-			if(changed)
+			if( changed )
+			{
 				viewStateChanged.dispatch();
+			}
 		}
 	}
 }

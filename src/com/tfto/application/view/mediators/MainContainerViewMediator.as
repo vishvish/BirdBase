@@ -1,4 +1,4 @@
-package com.tfto.birdbase.view.mediators
+package com.tfto.application.view.mediators
 {
 	import com.greensock.TweenMax;
 	import com.greensock.easing.Quad;
@@ -8,11 +8,6 @@ package com.tfto.birdbase.view.mediators
 	import com.tfto.birdbase.model.ViewStateModel;
 	import com.tfto.birdbase.signals.UpdateDynamicLibrary;
 	import com.tfto.birdbase.signals.ViewStateChanged;
-	import com.tfto.birdbase.view.FirstView;
-	import com.tfto.birdbase.view.IView;
-	import com.tfto.birdbase.view.MainUI;
-	import com.tfto.birdbase.view.SecondView;
-	import com.tfto.birdbase.view.ThirdView;
 	
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
@@ -24,6 +19,11 @@ package com.tfto.birdbase.view.mediators
 	import org.robotlegs.mvcs.Mediator;
 	
 	import swfaddress.SWFAddress;
+	import com.tfto.application.view.FirstView;
+	import com.tfto.application.view.IView;
+	import com.tfto.application.view.MainContainerView;
+	import com.tfto.application.view.SecondView;
+	import com.tfto.application.view.ThirdView;
 
 	/**
 	 *	// TODO MainUIMediator 
@@ -36,10 +36,10 @@ package com.tfto.birdbase.view.mediators
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class MainUIMediator extends Mediator
+	public class MainContainerViewMediator extends Mediator
 	{
 		[Inject]
-		public var view:MainUI;
+		public var view:MainContainerView;
 		
 		[Inject]
 		public var viewStateChanged:ViewStateChanged;
@@ -75,7 +75,7 @@ package com.tfto.birdbase.view.mediators
 		/**
 		 *	// TODO MainUIMediator 
 		 */
-		public function MainUIMediator()
+		public function MainContainerViewMediator()
 		{
 			super();
 		}
@@ -92,10 +92,13 @@ package com.tfto.birdbase.view.mediators
 			
 			view.main();
 			
-			view.tf.text = l10n.getProperty( "welcome" );
+			view.tagline.text = l10n.getProperty( "tagline" );
+			view.toggleAssetButton.text = l10n.getProperty( "swap-assets" );
+			
+			// set up the toggling of the asset library
 			pm.setProperty( "dynamic-library", "assets2.swf" );
-			var ns1:NativeSignal = new NativeSignal( view.block, MouseEvent.CLICK, MouseEvent );
-			ns1.add( updateDynamicLib );
+			var toggleSignal:NativeSignal = new NativeSignal( view.toggleAssetButton, MouseEvent.CLICK, MouseEvent );
+			toggleSignal.add( updateDynamicLib );
 			
 			views = {};
 			views[""] = FirstView;

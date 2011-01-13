@@ -1,20 +1,12 @@
 package com.tfto.birdbase.controller.assets
 {
 	import com.tfto.birdbase.controller.AppConfigStateConstants;
-	import com.tfto.birdbase.controller.abstract.BirdbaseCommand;
 	import com.tfto.birdbase.model.PreferencesModel;
-	import com.tfto.utils.DynamicSprite;
-	
-	import flash.display.DisplayObject;
-	import flash.display.MovieClip;
-	import flash.display.Sprite;
 	
 	import org.as3commons.logging.ILogger;
 	import org.assetloader.core.IAssetLoader;
-	import org.assetloader.loaders.SWFLoader;
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
-	import org.robotlegs.mvcs.Command;
 	import org.robotlegs.mvcs.SignalCommand;
 	import org.robotlegs.utilities.statemachine.StateEvent;
 	

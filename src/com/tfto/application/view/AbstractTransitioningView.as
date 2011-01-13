@@ -1,4 +1,4 @@
-package com.tfto.birdbase.view
+package com.tfto.application.view
 {
 	import com.greensock.TweenLite;
 	

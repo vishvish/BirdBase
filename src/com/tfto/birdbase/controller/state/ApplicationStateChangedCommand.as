@@ -22,27 +22,15 @@ package com.tfto.birdbase.controller.state
 	public class ApplicationStateChangedCommand extends SignalCommand
 	{
 		[Inject]
-		/**
-		 *	// TODO logger 
-		 */
 		public var logger:ILogger;
 		
 		[Inject]
-		/**
-		 *	// TODO viewState 
-		 */
 		public var viewState:ViewStateModel;
 		
 		[Inject]
-		/**
-		 *	// TODO appModel 
-		 */
 		public var appModel:ApplicationModel;
 		
 		[Inject]
-		/**
-		 *	// TODO swfAddress 
-		 */
 		public var swfAddress:SWFAddress;
 		
 		/**
@@ -55,12 +43,11 @@ package com.tfto.birdbase.controller.state
 			logger.debug( "ApplicationStateChangedCommand: execute" );
 			logger.info( "SWFAddress::" + swfAddress.getValue() );
 			
+			// this is where you configure your swfaddress option parameters
 			appModel.option1 = swfAddress.getParameter("op1") as String;
 			appModel.option2 = swfAddress.getParameter("op2") as String;
 					
 			viewState.viewName = swfAddress.getPath().substr(1);
-			
 		}
-		
 	}
 }

@@ -1,12 +1,7 @@
 package com.tfto.birdbase.controller.configuration
 {
-	import com.tfto.birdbase.controller.AppConfigStateConstants;
 	import com.tfto.birdbase.controller.abstract.BirdbaseCommand;
 	import com.tfto.birdbase.service.L10nService;
-	import com.tfto.birdbase.service.PreferencesService;
-	
-	import org.robotlegs.mvcs.Command;
-	import org.robotlegs.utilities.statemachine.StateEvent;
 	
 	/**
 	 *	// TODO ConfigureLocalizationCommand 

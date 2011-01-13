@@ -1,4 +1,4 @@
-package com.tfto.birdbase.view
+package com.tfto.application.view
 {
 	import flash.display.Sprite;
 	import flash.text.TextField;

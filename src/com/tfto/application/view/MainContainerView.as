@@ -1,9 +1,11 @@
-package com.tfto.birdbase.view
+package com.tfto.application.view
 {
+	import com.tfto.button.BasicButton;
 	import com.tfto.utils.DynamicSprite;
 	
 	import flash.display.Sprite;
 	import flash.text.TextField;
+	import flash.text.TextFieldAutoSize;
 	import flash.text.TextFormat;
 	
 	import org.as3commons.logging.ILogger;
@@ -21,7 +23,7 @@ package com.tfto.birdbase.view
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class MainUI extends Sprite implements IView
+	public class MainContainerView extends Sprite implements IView
 	{
 		[Inject]
 		public var logger:ILogger;
@@ -34,19 +36,16 @@ package com.tfto.birdbase.view
 		/**
 		 *	// TODO logo 
 		 */
-		public var logo:Sprite;
+		public var logo:DynamicSprite;
 		
-		/**
-		 *	// TODO tf 
-		 */
-		public var tf:TextField;
-
-		public var block:DynamicSprite;
+		public var tagline:TextField;
+		
+		public var toggleAssetButton:BasicButton;
 		
 		/**
 		 *	// TODO MainUI 
 		 */
-		public function MainUI()
+		public function MainContainerView()
 		{
 			super();
 			logger = LoggerFactory.getLogger( "com.tfto.birdbase" );
@@ -61,22 +60,26 @@ package com.tfto.birdbase.view
 		{
 			logger.debug( "MainUI::main" );
 			
-			block = new DynamicSprite( "block" );
-			block.x = 300;
-			addChild( block );
+			logo = new DynamicSprite( "logo" );
+			logo.x = logo.y = 5;
+			addChild( logo );
 			
-			var hello:DynamicSprite = new DynamicSprite( "hello" );
-			hello.x = 100;
-			hello.y = 50;
-			addChild( hello );
+			tagline = new TextField();
+			tagline.defaultTextFormat = new TextFormat( "Myriad Pro", 14, 0x00000000 );
+			tagline.x = 150;
+			tagline.y = 5;
+			tagline.autoSize = TextFieldAutoSize.LEFT;
+			addChild( tagline );
 			
-			buildLogo();
+			toggleAssetButton = new BasicButton();
+			toggleAssetButton.x = 150;
+			toggleAssetButton.y = 30;
+			addChild( toggleAssetButton );
 			
 			viewContainer = new Sprite();
-			viewContainer.x = 10;
-			viewContainer.y = 70;
+			viewContainer.x = 5;
+			viewContainer.y = 71;
 			addChild( viewContainer );
-		
 		}
 		
 		/**
@@ -104,32 +107,5 @@ package com.tfto.birdbase.view
 			if( callback )
 				callback.dispatch();
 		}
-		
-		/**
-		 *	// TODO buildLogo 
-		 *	
-		 *	@return void	
-		 */
-		protected function buildLogo():void
-		{
-			logo = new Sprite();
-			logo.x = 10;
-			logo.y = 10;
-			logo.graphics.beginFill(0xFFFF00);
-			logo.graphics.drawEllipse(0,0,75,45);
-			logo.graphics.endFill();
-			logo.buttonMode = true;
-			logo.mouseChildren = false;
-			tf = new TextField();
-			tf.defaultTextFormat = new TextFormat( "Arial", 18, 0x0, true );
-			tf.text = "LOGO";
-			logo.addChild( tf );
-			
-			tf.x = 10;
-			tf.y = 10;
-			
-			addChild(logo);
-		}
-		
 	}
 }

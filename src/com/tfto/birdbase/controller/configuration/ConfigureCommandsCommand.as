@@ -46,7 +46,6 @@ package com.tfto.birdbase.controller.configuration
 			signalCommandMap.mapSignalClass( UpdateDynamicLibrary, UpdateDynamicLibraryCommand );
 			// maps a signal for SWFAddress
 			signalCommandMap.mapSignalClass( ModifyApplicationState, ChangeApplicationStateCommand );
-			
 
 			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.CONFIGURE_COMMANDS_COMPLETE ) );
 		}

@@ -22,27 +22,15 @@ package com.tfto.birdbase.controller.state
 	public class ChangeApplicationStateCommand extends SignalCommand
 	{	
 		[Inject]
-		/**
-		 *	// TODO logger 
-		 */
 		public var logger:ILogger;
 		
 		[Inject]
-		/**
-		 *	// TODO appModel 
-		 */
 		public var appModel:ApplicationModel;
 		
 		[Inject]
-		/**
-		 *	// TODO viewState 
-		 */
 		public var viewState:ViewStateModel;
 		
 		[Inject]
-		/**
-		 *	// TODO swfAddress 
-		 */
 		public var swfAddress:SWFAddress;
 		
 		/**
@@ -56,6 +44,7 @@ package com.tfto.birdbase.controller.state
 
 			var url:String = "/" + viewState.viewName + "?";
 			
+			// update url with application options
 			if( appModel.option1 != null )
 			{
 				url += "op1=" + appModel.option1;

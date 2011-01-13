@@ -2,7 +2,7 @@ package com.tfto.birdbase.controller
 {
 	import com.tfto.birdbase.controller.state.ApplicationStateChangedCommand;
 	import com.tfto.birdbase.model.PreferencesModel;
-	import com.tfto.birdbase.view.MainUI;
+	import com.tfto.application.view.MainContainerView;
 	
 	import org.as3commons.logging.ILogger;
 	import org.osflash.signals.Signal;
@@ -54,7 +54,7 @@ package com.tfto.birdbase.controller
 			logger.info( "Author: " + pm.getProperty( "application.author" ) );
 			logger.info( "Version: " + pm.getProperty( "application.version" ) );
 			
-			var view:MainUI = new MainUI();
+			var view:MainContainerView = new MainContainerView();
 			contextView.addChild( view );
 			var s:Signal = new Signal();
 			s.add( function():void 

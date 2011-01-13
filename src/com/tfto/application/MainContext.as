@@ -1,16 +1,11 @@
-package com.tfto.birdbase
+package com.tfto.application
 {
+	import com.tfto.application.view.*;
+	import com.tfto.application.view.mediators.*;
 	import com.tfto.birdbase.controller.configuration.ConfigureStateMachineCommand;
-	import com.tfto.birdbase.controller.state.ChangeApplicationStateCommand;
-	import com.tfto.birdbase.model.ApplicationModel;
-	import com.tfto.birdbase.model.L10nModel;
-	import com.tfto.birdbase.model.PreferencesModel;
-	import com.tfto.birdbase.model.ViewStateModel;
-	import com.tfto.birdbase.service.L10nService;
-	import com.tfto.birdbase.service.PreferencesService;
-	import com.tfto.birdbase.signals.ModifyApplicationState;
-	import com.tfto.birdbase.signals.UpdateDynamicLibrary;
-	import com.tfto.birdbase.signals.ViewStateChanged;
+	import com.tfto.birdbase.model.*;
+	import com.tfto.birdbase.service.*;
+	import com.tfto.birdbase.signals.*;
 	import com.tfto.utils.FlashVarsManager;
 	
 	import flash.display.DisplayObjectContainer;
@@ -56,7 +51,6 @@ package com.tfto.birdbase
 		 */
 		override public function startup():void
         {
-//			var logger:ILogger = LoggerFactory.getLogger( "birdbase-logger" );
 			var logger:ILogger = LoggerFactory.getLogger( "com.tfto.birdbase" );
 			logger.debug( "MainContext::startup" );
 
@@ -86,7 +80,12 @@ package com.tfto.birdbase
 			
 			commandMap.mapEvent( ContextEvent.STARTUP_COMPLETE, ConfigureStateMachineCommand, ContextEvent, true );
 
-        	super.startup();
+			mediatorMap.mapView( MainContainerView, MainContainerViewMediator );
+			mediatorMap.mapView( FirstView, FirstViewMediator );
+			mediatorMap.mapView( SecondView, SecondViewMediator );
+			mediatorMap.mapView( ThirdView, ThirdViewMediator );
+
+			super.startup();
         }
 	}
 }

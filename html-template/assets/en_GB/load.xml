@@ -3,4 +3,5 @@
 	<!-- An asset with this special id, "dynamic-library", will be used with the DynamicSprite system -->
 	<asset id="dynamic-library" src="assets.swf" />
 	<asset id="font-asset-myriad" src="fonts/myriad.swf" />
+	<asset id="slideshow-data" src="slideshow.xml" />
 </loader>

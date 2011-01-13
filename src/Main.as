@@ -1,6 +1,6 @@
 package
 {
-	import com.tfto.birdbase.MainContext;
+	import com.tfto.application.MainContext;
 	
 	import flash.display.Sprite;
 	
@@ -15,7 +15,7 @@ package
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	[SWF(width="500", height="586", frameRate="31", backgroundColor="#666666")]
+	[SWF(width="500", height="586", frameRate="31", backgroundColor="#F6F6F6")]
 	public class Main extends Sprite
 	{
 		/**

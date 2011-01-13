@@ -1,17 +1,17 @@
-package com.tfto.birdbase.view.mediators
+package com.tfto.application.view.mediators
 {
 	import com.tfto.birdbase.model.ApplicationModel;
 	import com.tfto.birdbase.model.ViewStateModel;
 	import com.tfto.birdbase.signals.ModifyApplicationState;
-	import com.tfto.birdbase.view.ThirdView;
 	
 	import flash.events.MouseEvent;
 	
 	import org.osflash.signals.natives.NativeSignal;
 	import org.robotlegs.mvcs.Mediator;
+	import com.tfto.application.view.SecondView;
 
 	/**
-	 *	// TODO ThirdViewMediator 
+	 *	// TODO SecondViewMediator 
 	 *	
 	 *	// TODO @example 
 	 *	
@@ -21,13 +21,13 @@ package com.tfto.birdbase.view.mediators
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class ThirdViewMediator extends Mediator
+	public class SecondViewMediator extends Mediator
 	{
 		[Inject]
 		/**
 		 *	// TODO view 
 		 */
-		public var view:ThirdView;
+		public var view:SecondView;
 				
 		[Inject]
 		/**
@@ -48,9 +48,9 @@ package com.tfto.birdbase.view.mediators
 		public var modifyApplicationState:ModifyApplicationState;
 		
 		/**
-		 *	// TODO ThirdViewMediator 
+		 *	// TODO SecondViewMediator 
 		 */
-		public function ThirdViewMediator()
+		public function SecondViewMediator()
 		{
 			super();
 			
@@ -64,10 +64,41 @@ package com.tfto.birdbase.view.mediators
 		override public function onRegister():void
 		{
 			view.option1 = appModel.option1;
-			view.option2 = appModel.option2;
 			view.main();
 			
+			var ns:NativeSignal = new NativeSignal(view.yellowPillButton,MouseEvent.CLICK,MouseEvent);
+			ns.add(selectYellowPill);
+			
+			ns = new NativeSignal(view.purplePillButton,MouseEvent.CLICK,MouseEvent);
+			ns.add(selectPurplePill);
+		}
+		
+		/**
+		 *	// TODO selectYellowPill 
+		 *	
+		 *	@param e 
+		 *	
+		 *	@return void	
+		 */
+		protected function selectYellowPill(e:MouseEvent):void
+		{
+			appModel.option2 = "yellow";
+			viewState.viewName = "view3";
+			modifyApplicationState.dispatch();
+		}
+		
+		/**
+		 *	// TODO selectPurplePill 
+		 *	
+		 *	@param e 
+		 *	
+		 *	@return void	
+		 */
+		protected function selectPurplePill(e:MouseEvent):void
+		{
+			appModel.option2 = "purple";
+			viewState.viewName = "view3";
+			modifyApplicationState.dispatch();
 		}	
-	
 	}
 }
