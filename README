@@ -1,3 +1,26 @@
+BirdBase is an application framework, built from a number of reasonably-established tools.
+
+It:
+
+1. Is built on RobotLegs so you get a lightweight MVC structure and DI.
+
+2. Integrates SWFAddress for deep-linking and browser navigation.
+
+3. Provides Bootstrap control for loading preferences/configuration.
+
+4. Provides localization out of the box.
+
+5. Uses Joel Hooks Finite State Machine.
+
+6. Loads assets based on the configuration.
+
+7. Provides dead-easy access to assets in a SWF. No more creating classes for assets or mapping names. Builds on
+Justin Windle's DynamicSprite. Lovely.
+
+Now: ball = new DynamicSprite( "ball" );
+
+8. Allows runtime swapping of the asset library: watch all your assets change on stage the instant it loads.
+
 // TODO
 
 1. Framework bootstrap could be cleaner - running around building paths from locales, flashvars and preferences 
@@ -9,13 +32,27 @@ has plenty of room for confusion.
 library. Text Fields seem to default to the TLF layout in the Flash IDE, but when exported, the whole thing chokes
 when being loaded in - there's a security issue involved, it seems.
 
-4. Quite Important: update everything to latest RobotLegs, Signals and CommandSignal. There's a variety of issues, but
-I am going to create SWCs from sources to see what happens.
-
-
 // TINGS
+
+
 
 Preferences are a place to hold info you may need later. Such as the name of the correct asset that you wish to load.
 
 This works cloned out of the box, follow the logger statements to see what's going on during bootstrap.
 
+
+// CREDITS
+
+Builds on the work of (but not limited to)
+
+Team RobotLegs and especially Joel Hooks for the Finite State Machine
+
+Matan Uberstein - thanks for AssetLoader
+
+Robert Penner (and implicitly C# events + QT signals) - AS3 Signals
+
+Team AS3-Commons - thanks for the logging
+
+Kilometer0 Team - thanks for the SWFAddress and Signals integration
+
+Justin Windle - nice work on Dynamic Sprite
