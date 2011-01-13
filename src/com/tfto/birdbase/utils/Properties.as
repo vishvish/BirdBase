@@ -1,22 +1,10 @@
-package com.tfto.utils
+package com.tfto.birdbase.utils
 {
 	/**
 	 * @author Mike Almond - MadeByPi
 	 * @version 1.0
 	 *
 	 * Container for properties with replaceable numerical tokens - {1}, {2}, {3},... {n}
-	 */
-	
-	/**
-	 *	// TODO Properties 
-	 *	
-	 *	// TODO @example 
-	 *	
-	 *	// TODO @exampleText 
-	 *	
-	 *	@author 	Vish Vishvanath
-	 *	@email 		vish.vishvanath@gmail.com
-	 *	@since 		11 January 2011
 	 */
 	public class Properties {
 		

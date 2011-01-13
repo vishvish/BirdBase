@@ -2,8 +2,6 @@ package com.tfto.birdbase.controller.configuration
 {
 	import com.tfto.birdbase.controller.AppConfigStateConstants;
 	import com.tfto.birdbase.controller.assets.UpdateDynamicLibraryCommand;
-	import com.tfto.birdbase.controller.state.ChangeApplicationStateCommand;
-	import com.tfto.birdbase.signals.ModifyApplicationState;
 	import com.tfto.birdbase.signals.UpdateDynamicLibrary;
 	
 	import org.as3commons.logging.ILogger;
@@ -44,8 +42,6 @@ package com.tfto.birdbase.controller.configuration
 			logger.debug( "ConfigureCommandsCommand::execute" );
 			
 			signalCommandMap.mapSignalClass( UpdateDynamicLibrary, UpdateDynamicLibraryCommand );
-			// maps a signal for SWFAddress
-			signalCommandMap.mapSignalClass( ModifyApplicationState, ChangeApplicationStateCommand );
 
 			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.CONFIGURE_COMMANDS_COMPLETE ) );
 		}

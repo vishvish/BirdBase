@@ -1,6 +1,7 @@
 package com.tfto.application.view.mediators
 {
-	import com.tfto.birdbase.model.ApplicationModel;
+	import com.tfto.application.view.SecondView;
+	import com.tfto.birdbase.model.BirdbaseApplicationModel;
 	import com.tfto.birdbase.model.ViewStateModel;
 	import com.tfto.birdbase.signals.ModifyApplicationState;
 	
@@ -8,7 +9,6 @@ package com.tfto.application.view.mediators
 	
 	import org.osflash.signals.natives.NativeSignal;
 	import org.robotlegs.mvcs.Mediator;
-	import com.tfto.application.view.SecondView;
 
 	/**
 	 *	// TODO SecondViewMediator 
@@ -21,7 +21,7 @@ package com.tfto.application.view.mediators
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class SecondViewMediator extends Mediator
+	public class SecondViewMediator extends AbstractBirdbaseMediator
 	{
 		[Inject]
 		/**
@@ -29,24 +29,6 @@ package com.tfto.application.view.mediators
 		 */
 		public var view:SecondView;
 				
-		[Inject]
-		/**
-		 *	// TODO appModel 
-		 */
-		public var appModel:ApplicationModel;
-		
-		[Inject]
-		/**
-		 *	// TODO viewState 
-		 */
-		public var viewState:ViewStateModel;
-		
-		[Inject]
-		/**
-		 *	// TODO modifyApplicationState 
-		 */
-		public var modifyApplicationState:ModifyApplicationState;
-		
 		/**
 		 *	// TODO SecondViewMediator 
 		 */

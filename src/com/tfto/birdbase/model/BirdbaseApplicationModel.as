@@ -14,17 +14,8 @@ package com.tfto.birdbase.model
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class ApplicationModel extends Actor
+	public class BirdbaseApplicationModel extends Actor
 	{
-		/**
-		 *	// TODO option1 
-		 */
-		public var option1:String;
-		/**
-		 *	// TODO option2 
-		 */
-		public var option2:String;
-		
 		/**
 		 *	// TODO _locale 
 		 */
@@ -41,7 +32,7 @@ package com.tfto.birdbase.model
 		/**
 		 *	// TODO ApplicationModel 
 		 */
-		public function ApplicationModel()
+		public function BirdbaseApplicationModel()
 		{
 			super();
 		}

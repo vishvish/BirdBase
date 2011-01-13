@@ -1,4 +1,4 @@
-package com.tfto.utils
+package com.tfto.birdbase.utils
 {
 
 	/**
@@ -32,18 +32,6 @@ package com.tfto.utils
 	 * properties.getProperty("one.to.five", "apple", "bananna", "carrot", "date", "egg");
 	 * // returns "here are some things: apple, bananna, carrot, egg, date"
 	 *
-	 */
-
-	/**
-	 *	// TODO PropertiesParser 
-	 *	
-	 *	// TODO @example 
-	 *	
-	 *	// TODO @exampleText 
-	 *	
-	 *	@author 	Vish Vishvanath
-	 *	@email 		vish.vishvanath@gmail.com
-	 *	@since 		11 January 2011
 	 */
 	public class PropertiesParser
 	{
@@ -234,18 +222,7 @@ package com.tfto.utils
 	}
 }
 
-/**
- *	// TODO Lock 
- *	
- *	// TODO @example 
- *	
- *	// TODO @exampleText 
- *	
- *	@author 	Vish Vishvanath
- *	@email 		vish.vishvanath@gmail.com
- *	@since 		11 January 2011
- */
 internal class Lock
 {
+	//
 }
-;

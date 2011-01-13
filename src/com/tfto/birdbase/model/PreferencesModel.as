@@ -11,7 +11,7 @@ package com.tfto.birdbase.model
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class PreferencesModel extends ApplicationModel
+	public class PreferencesModel extends BirdbaseApplicationModel
 	{
 		/**
 		 *	// TODO _preferencesFileName 

@@ -1,14 +1,13 @@
-package com.tfto.birdbase.controller
+package com.tfto.application.controller
 {
-	import com.tfto.birdbase.controller.state.ApplicationStateChangedCommand;
-	import com.tfto.birdbase.model.PreferencesModel;
+	import com.tfto.application.controller.state.ApplicationStateChangedCommand;
 	import com.tfto.application.view.MainContainerView;
+	import com.tfto.birdbase.model.PreferencesModel;
+	import com.tfto.birdbase.utils.swfaddress.SWFAddress;
 	
 	import org.as3commons.logging.ILogger;
 	import org.osflash.signals.Signal;
 	import org.robotlegs.mvcs.SignalCommand;
-	
-	import swfaddress.SWFAddress;
 
 	/**
 	 *	// TODO ApplicationBootstrapCommand 

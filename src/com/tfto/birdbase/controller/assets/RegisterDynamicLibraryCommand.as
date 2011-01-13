@@ -1,6 +1,6 @@
 package com.tfto.birdbase.controller.assets
 {
-	import com.tfto.utils.DynamicSprite;
+	import com.tfto.birdbase.utils.DynamicSprite;
 	
 	import flash.display.MovieClip;
 	

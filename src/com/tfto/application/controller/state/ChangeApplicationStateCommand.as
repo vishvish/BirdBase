@@ -1,12 +1,12 @@
-package com.tfto.birdbase.controller.state
+package com.tfto.application.controller.state
 {
-	import com.tfto.birdbase.model.ApplicationModel;
+	import com.tfto.application.model.ApplicationModel;
+	import com.tfto.birdbase.model.BirdbaseApplicationModel;
 	import com.tfto.birdbase.model.ViewStateModel;
+	import com.tfto.birdbase.utils.swfaddress.SWFAddress;
 	
 	import org.as3commons.logging.ILogger;
 	import org.robotlegs.mvcs.SignalCommand;
-	
-	import swfaddress.SWFAddress;
 
 	/**
 	 *	// TODO ChangeApplicationStateCommand 

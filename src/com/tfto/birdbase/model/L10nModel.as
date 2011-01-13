@@ -11,7 +11,7 @@ package com.tfto.birdbase.model
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class L10nModel extends ApplicationModel
+	public class L10nModel extends BirdbaseApplicationModel
 	{
 		/**
 		 *	// TODO _l10nFilename 

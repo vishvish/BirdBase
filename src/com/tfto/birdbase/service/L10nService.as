@@ -2,8 +2,8 @@ package com.tfto.birdbase.service
 {
 	import com.tfto.birdbase.controller.AppConfigStateConstants;
 	import com.tfto.birdbase.model.L10nModel;
-	import com.tfto.utils.FlashVarsManager;
-	import com.tfto.utils.PropertiesParser;
+	import com.tfto.birdbase.utils.FlashVarsManager;
+	import com.tfto.birdbase.utils.PropertiesParser;
 	
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;

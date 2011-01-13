@@ -7,7 +7,7 @@
  *  
  **/
 
-package com.tfto.utils
+package com.tfto.birdbase.utils
 {
 	import flash.display.Bitmap;
 	import flash.display.DisplayObject;

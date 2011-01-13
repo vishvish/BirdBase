@@ -1,7 +1,7 @@
 package com.tfto.application.view
 {
 	import com.tfto.button.BasicButton;
-	import com.tfto.utils.DynamicSprite;
+	import com.tfto.birdbase.utils.DynamicSprite;
 	
 	import flash.display.Sprite;
 	import flash.text.TextField;

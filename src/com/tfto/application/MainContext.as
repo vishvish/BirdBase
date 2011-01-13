@@ -1,12 +1,15 @@
 package com.tfto.application
 {
+	import com.tfto.application.controller.state.ChangeApplicationStateCommand;
+	import com.tfto.application.model.ApplicationModel;
 	import com.tfto.application.view.*;
 	import com.tfto.application.view.mediators.*;
 	import com.tfto.birdbase.controller.configuration.ConfigureStateMachineCommand;
 	import com.tfto.birdbase.model.*;
 	import com.tfto.birdbase.service.*;
 	import com.tfto.birdbase.signals.*;
-	import com.tfto.utils.FlashVarsManager;
+	import com.tfto.birdbase.utils.FlashVarsManager;
+	import com.tfto.birdbase.utils.swfaddress.SWFAddress;
 	
 	import flash.display.DisplayObjectContainer;
 	
@@ -16,8 +19,6 @@ package com.tfto.application
 	import org.assetloader.core.IAssetLoader;
 	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.mvcs.SignalContext;
-	
-	import swfaddress.SWFAddress;
 	
 	/**
 	 *	// TODO MainContext 
@@ -66,6 +67,7 @@ package com.tfto.application
 			
 			// basic models
 			
+			injector.mapSingleton( BirdbaseApplicationModel );
 			injector.mapSingleton( ApplicationModel );
         	injector.mapSingleton( ViewStateModel );
 			
@@ -79,6 +81,9 @@ package com.tfto.application
 			injector.mapSingleton( L10nService );
 			
 			commandMap.mapEvent( ContextEvent.STARTUP_COMPLETE, ConfigureStateMachineCommand, ContextEvent, true );
+			
+			// maps a signal for SWFAddress
+			signalCommandMap.mapSignalClass( ModifyApplicationState, ChangeApplicationStateCommand );
 
 			mediatorMap.mapView( MainContainerView, MainContainerViewMediator );
 			mediatorMap.mapView( FirstView, FirstViewMediator );

@@ -12,7 +12,7 @@
  * @author Piotr Zema <http://felixz.marknaegeli.com>
  * @author Alex Petrescu <http://www.kilometer0.com>
  */
-package swfaddress {
+package com.tfto.birdbase.utils.swfaddress {
 	
 	import flash.events.TimerEvent;
 	import flash.external.ExternalInterface;

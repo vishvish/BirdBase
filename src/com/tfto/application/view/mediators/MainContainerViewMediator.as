@@ -3,11 +3,17 @@ package com.tfto.application.view.mediators
 	import com.greensock.TweenMax;
 	import com.greensock.easing.Quad;
 	import com.greensock.easing.Quart;
+	import com.tfto.application.view.FirstView;
+	import com.tfto.application.view.IView;
+	import com.tfto.application.view.MainContainerView;
+	import com.tfto.application.view.SecondView;
+	import com.tfto.application.view.ThirdView;
 	import com.tfto.birdbase.model.L10nModel;
 	import com.tfto.birdbase.model.PreferencesModel;
 	import com.tfto.birdbase.model.ViewStateModel;
 	import com.tfto.birdbase.signals.UpdateDynamicLibrary;
 	import com.tfto.birdbase.signals.ViewStateChanged;
+	import com.tfto.birdbase.utils.swfaddress.SWFAddress;
 	
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
@@ -17,13 +23,6 @@ package com.tfto.application.view.mediators
 	import org.osflash.signals.Signal;
 	import org.osflash.signals.natives.NativeSignal;
 	import org.robotlegs.mvcs.Mediator;
-	
-	import swfaddress.SWFAddress;
-	import com.tfto.application.view.FirstView;
-	import com.tfto.application.view.IView;
-	import com.tfto.application.view.MainContainerView;
-	import com.tfto.application.view.SecondView;
-	import com.tfto.application.view.ThirdView;
 
 	/**
 	 *	// TODO MainUIMediator 
@@ -36,7 +35,7 @@ package com.tfto.application.view.mediators
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class MainContainerViewMediator extends Mediator
+	public class MainContainerViewMediator extends AbstractBirdbaseMediator
 	{
 		[Inject]
 		public var view:MainContainerView;
@@ -46,9 +45,6 @@ package com.tfto.application.view.mediators
 		
 		[Inject]
 		public var updateDynamicLibrary:UpdateDynamicLibrary;
-		
-		[Inject]
-		public var viewState:ViewStateModel;
 		
 		[Inject]
 		public var swfAddress:SWFAddress;

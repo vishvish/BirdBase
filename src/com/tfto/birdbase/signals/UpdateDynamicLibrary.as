@@ -4,9 +4,6 @@ package com.tfto.birdbase.signals
 	
 	public class UpdateDynamicLibrary extends Signal
 	{
-//		[Inject]
-//		public var libraryID:String;
-		
 		public function UpdateDynamicLibrary()
 		{
 			super();
