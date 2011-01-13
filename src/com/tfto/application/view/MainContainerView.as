@@ -1,7 +1,7 @@
 package com.tfto.application.view
 {
-	import com.tfto.button.BasicButton;
 	import com.tfto.birdbase.utils.DynamicSprite;
+	import com.tfto.button.BasicButton;
 	
 	import flash.display.Sprite;
 	import flash.text.TextField;
@@ -37,6 +37,8 @@ package com.tfto.application.view
 		 *	// TODO logo 
 		 */
 		public var logo:DynamicSprite;
+		
+		public var block:DynamicSprite;
 		
 		public var tagline:TextField;
 		
@@ -75,6 +77,11 @@ package com.tfto.application.view
 			toggleAssetButton.x = 150;
 			toggleAssetButton.y = 30;
 			addChild( toggleAssetButton );
+			
+			block = new DynamicSprite( "block" );
+			block.x = 300;
+			block.y = 30;
+			addChild( block );
 			
 			viewContainer = new Sprite();
 			viewContainer.x = 5;
