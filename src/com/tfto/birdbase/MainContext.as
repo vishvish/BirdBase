@@ -56,7 +56,8 @@ package com.tfto.birdbase
 		 */
 		override public function startup():void
         {
-			var logger:ILogger = LoggerFactory.getLogger( "birdbase-logger" );
+//			var logger:ILogger = LoggerFactory.getLogger( "birdbase-logger" );
+			var logger:ILogger = LoggerFactory.getLogger( "com.tfto.birdbase" );
 			logger.debug( "MainContext::startup" );
 
 			injector.mapValue( ILogger, logger );

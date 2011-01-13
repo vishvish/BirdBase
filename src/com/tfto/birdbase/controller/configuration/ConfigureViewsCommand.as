@@ -43,7 +43,7 @@ package com.tfto.birdbase.controller.configuration
 		override public function execute():void
 		{
 			logger.debug( "ConfigureViewsCommand::execute" );
-			
+
 			mediatorMap.mapView( MainUI, MainUIMediator );
 			mediatorMap.mapView( FirstView, FirstViewMediator );
 			mediatorMap.mapView( SecondView, SecondViewMediator );

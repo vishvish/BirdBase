@@ -41,6 +41,10 @@ package com.tfto.birdbase.controller.assets
 			else
 			{
 				var newLibraryPath:String = pm.assetBasePath + newLibrary;
+				if( assetLoader.hasAsset( "dynamic-library" ) )
+				{
+					assetLoader.remove( "dynamic-library" );
+				}
 				assetLoader.addLazy( "dynamic-library", newLibraryPath );
 				assetLoader.onError.add( handleError );
 				signalCommandMap.mapSignal( assetLoader.onComplete, RegisterDynamicLibraryCommand, true );

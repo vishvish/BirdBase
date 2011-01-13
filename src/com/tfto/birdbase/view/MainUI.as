@@ -7,6 +7,7 @@ package com.tfto.birdbase.view
 	import flash.text.TextFormat;
 	
 	import org.as3commons.logging.ILogger;
+	import org.as3commons.logging.LoggerFactory;
 	import org.osflash.signals.Signal;
 
 	/**
@@ -22,6 +23,9 @@ package com.tfto.birdbase.view
 	 */
 	public class MainUI extends Sprite implements IView
 	{
+		[Inject]
+		public var logger:ILogger;
+		
 		/**
 		 *	// TODO viewContainer 
 		 */
@@ -45,6 +49,7 @@ package com.tfto.birdbase.view
 		public function MainUI()
 		{
 			super();
+			logger = LoggerFactory.getLogger( "com.tfto.birdbase" );
 		}
 		
 		/**
@@ -54,6 +59,8 @@ package com.tfto.birdbase.view
 		 */
 		public function main():void
 		{
+			logger.debug( "MainUI::main" );
+			
 			block = new DynamicSprite( "block" );
 			block.x = 300;
 			addChild( block );

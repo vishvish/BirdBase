@@ -39,48 +39,27 @@ package com.tfto.birdbase.view.mediators
 	public class MainUIMediator extends Mediator
 	{
 		[Inject]
-		/**
-		 *	// TODO view 
-		 */
 		public var view:MainUI;
 		
 		[Inject]
-		/**
-		 *	// TODO viewStateChanged 
-		 */
 		public var viewStateChanged:ViewStateChanged;
 		
 		[Inject]
 		public var updateDynamicLibrary:UpdateDynamicLibrary;
 		
 		[Inject]
-		/**
-		 *	// TODO viewState 
-		 */
 		public var viewState:ViewStateModel;
 		
 		[Inject]
-		/**
-		 *	// TODO swfAddress 
-		 */
 		public var swfAddress:SWFAddress;
 		
 		[Inject]
-		/**
-		 *	// TODO pm 
-		 */
 		public var pm:PreferencesModel;
 		
 		[Inject]
-		/**
-		 *	// TODO l10n 
-		 */
 		public var l10n:L10nModel;
 		
 		[Inject]
-		/**
-		 *	// TODO logger 
-		 */
 		public var logger:ILogger;
 		
 		/**
@@ -114,7 +93,7 @@ package com.tfto.birdbase.view.mediators
 			view.main();
 			
 			view.tf.text = l10n.getProperty( "welcome" );
-			
+			pm.setProperty( "dynamic-library", "assets2.swf" );
 			var ns1:NativeSignal = new NativeSignal( view.block, MouseEvent.CLICK, MouseEvent );
 			ns1.add( updateDynamicLib );
 			
