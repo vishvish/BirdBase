@@ -40,8 +40,8 @@ package org.birdbase.modules.slideshow
 		
 		public function SlideshowModule()
 		{
-			var injector:SwiftSuspendersInjector = new SwiftSuspendersInjector();
-			injector.mapSingletonOf( SlideshowLoaded, SlideshowLoaded );
+//			var injector:SwiftSuspendersInjector = new SwiftSuspendersInjector();
+//			injector.mapSingletonOf( SlideshowLoaded, SlideshowLoaded );
 		}
 		
 		[PostConstruct]
@@ -53,7 +53,8 @@ package org.birdbase.modules.slideshow
 		[Inject]
 		public function set parentInjector( value:IInjector ):void
 		{
-			context = new SlideshowContext( this, value );
+//			this.parentInjector = value;
+//			context = new SlideshowContext( this., value );
 		}
 
 		public function dispose():void

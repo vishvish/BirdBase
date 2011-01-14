@@ -16,6 +16,9 @@ package org.birdbase.modules.slideshow.view
 		override public function main():void
 		{
 			trace( "SlideshowView::main" );
+			this.graphics.beginFill( 0xFFFF00, 0.5 );
+			this.graphics.drawCircle( 200, 100, 50 );
+			this.graphics.endFill();
 		}
 	}
 }

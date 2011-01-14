@@ -2,7 +2,6 @@ package org.birdbase.application
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.as3commons.collections.ArrayList;
 	import org.birdbase.application.controller.state.ChangeApplicationStateCommand;
 	import org.birdbase.application.view.*;
 	import org.birdbase.application.view.mediators.*;
@@ -10,9 +9,6 @@ package org.birdbase.application
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.service.*;
 	import org.birdbase.framework.signals.*;
-	import org.birdbase.modules.slideshow.ISlideshowModule;
-	import org.birdbase.modules.slideshow.SlideshowContext;
-	import org.birdbase.modules.slideshow.SlideshowModule;
 	
 	/**
 	 *	// TODO MainContext 
@@ -27,8 +23,6 @@ package org.birdbase.application
 	 */
 	public class MainContext extends BirdbaseContext
 	{
-		protected var slideshowContext:SlideshowContext;
-		
 		/**
 		 *	// TODO MainContext 
 		 *	

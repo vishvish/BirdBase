@@ -8,6 +8,7 @@ package org.birdbase.modules.slideshow
 	import org.as3commons.collections.framework.core.SortedListIterator;
 	import org.as3commons.logging.ILogger;
 	import org.as3commons.logging.LoggerFactory;
+	import org.birdbase.modules.slideshow.signals.LoadSlideshow;
 	import org.birdbase.modules.slideshow.view.SlideshowView;
 	import org.birdbase.modules.slideshow.view.mediators.SlideshowMediator;
 	import org.robotlegs.core.IInjector;
@@ -28,6 +29,9 @@ package org.birdbase.modules.slideshow
 			logger.debug( "SlideshowContext::startup" );
 
 			injector.mapClass( ISlideshowModule, SlideshowModule );
+			injector.mapSingleton( LoadSlideshow );
+			
+			
 			injector.mapClass( SortedList, SortedList );
 			injector.mapClass( SortedListIterator, SortedListIterator );
 			injector.mapClass( ArrayList, ArrayList );

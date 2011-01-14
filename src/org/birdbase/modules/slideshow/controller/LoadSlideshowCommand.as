@@ -7,6 +7,7 @@ package org.birdbase.modules.slideshow.controller
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
 	import org.birdbase.framework.model.PreferencesModel;
+	import org.birdbase.modules.slideshow.ISlideshowModule;
 	import org.birdbase.modules.slideshow.signals.SlideshowLoaded;
 	import org.birdbase.modules.slideshow.view.SlideshowView;
 	import org.osflash.signals.Signal;
@@ -25,7 +26,7 @@ package org.birdbase.modules.slideshow.controller
 
 		[Inject]
 		public var list:ArrayList;
-
+		
 		// ideally inject this from the dependency name defined in the injector
 		public var name:String = "slideshow";
 

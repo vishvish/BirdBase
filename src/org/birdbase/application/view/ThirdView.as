@@ -29,7 +29,7 @@ package org.birdbase.application.view
 		 *	// TODO textTF 
 		 */
 		protected var textTF:TextField;
-				
+		
 		/**
 		 *	// TODO ThirdView 
 		 */
@@ -52,7 +52,6 @@ package org.birdbase.application.view
 			textTF.width = 500;
 			textTF.text = "This is the third view of the application. You've already selected: "+option1+" and "+option2+".";
 			addChild(textTF);
-			
 		}
 	}
 }

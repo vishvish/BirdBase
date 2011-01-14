@@ -33,6 +33,16 @@ package org.birdbase.framework.controller
 		public static const CONFIGURE_LOCALIZATION_COMPLETE:String  = "action/configure/localization/complete";
 		public static const CONFIGURE_LOCALIZATION_FAILED:String    = "action/configure/localization/failed";
 		
+		public static const BOOTSTRAPPING_APPLICATION:String         = "state/booting/application";
+		public static const BOOT_APPLICATION:String           		 = "event/boot/application";
+		public static const BOOT_APPLICATION_COMPLETE:String  		 = "action/boot/application/complete";
+		public static const BOOT_APPLICATION_FAILED:String     		 = "action/boot/application/failed";
+
+		public static const BOOTSTRAPPING_APPLICATION_MODULES:String         = "state/booting/application_modules";
+		public static const BOOT_APPLICATION_MODULES:String           		 = "event/boot/application_modules";
+		public static const BOOT_APPLICATION_MODULES_COMPLETE:String  		 = "action/boot/application_modules/complete";
+		public static const BOOT_APPLICATION_MODULES_FAILED:String     		 = "action/boot/application_modules/failed";
+
 		public static const LOADING_ASSETS:String         			= "state/loading/assets";
 		public static const LOAD_ASSETS:String           			= "event/load/assets";
 		public static const LOAD_ASSETS_COMPLETE:String  			= "action/load/assets/complete";
@@ -106,11 +116,31 @@ package org.birdbase.framework.controller
 				<state name={CONFIGURING_VIEWS} changed={CONFIGURE_VIEWS}>
 
 				   <transition action={CONFIGURE_VIEWS_COMPLETE} 
-							target={READY}/>
+							target={BOOTSTRAPPING_APPLICATION}/>
 					
 					<transition action={CONFIGURE_VIEWS_FAILED} 
 							target={FAILING}/>
 					
+				</state>
+
+				<state name={BOOTSTRAPPING_APPLICATION} changed={BOOT_APPLICATION}>
+				
+				   <transition action={BOOT_APPLICATION_COMPLETE} 
+						target={BOOTSTRAPPING_APPLICATION_MODULES}/>
+				
+				<transition action={BOOT_APPLICATION_FAILED} 
+						target={FAILING}/>
+				
+				</state>
+		
+				<state name={BOOTSTRAPPING_APPLICATION_MODULES} changed={BOOT_APPLICATION_MODULES}>
+				
+				   <transition action={BOOT_APPLICATION_MODULES_COMPLETE} 
+						target={READY}/>
+				
+				<transition action={BOOT_APPLICATION_MODULES_FAILED} 
+						target={FAILING}/>
+				
 				</state>
 
 				<!-- READY TO ACCEPT BROWSER OR USER NAVIGATION -->
