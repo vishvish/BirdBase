@@ -4,3 +4,5 @@ bin-debug
 /.settings/
 /bin-release/
 disabled
+
+/src/org/birdbase/modules/

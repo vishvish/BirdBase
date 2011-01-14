@@ -1,0 +1,18 @@
+<loader preventCache="false" >
+	<asset id="slide_1" src="http://localhost/vish-production/photos/581/581_small.jpg" />
+	<asset id="slide_2" src="http://localhost/vish-production/photos/589/589_small.jpg" />
+	<asset id="slide_3" src="http://localhost/vish-production/photos/563/563_small.jpg" />
+	<asset id="slide_4" src="http://localhost/vish-production/photos/560/560_small.jpg" />
+	<asset id="slide_5" src="http://localhost/vish-production/photos/557/557_small.jpg" />
+	<asset id="slide_6" src="http://localhost/vish-production/photos/552/552_small.jpg" />
+	<asset id="slide_7" src="http://localhost/vish-production/photos/578/578_small.jpg" />
+	<asset id="slide_8" src="http://localhost/vish-production/photos/584/584_small.jpg" />
+	<asset id="slide_9" src="http://localhost/vish-production/photos/549/549_small.jpg" />
+	<asset id="slide_10" src="http://localhost/vish-production/photos/566/566_small.jpg" />
+	<asset id="slide_11" src="http://localhost/vish-production/photos/547/547_small.jpg" />
+	<asset id="slide_12" src="http://localhost/vish-production/photos/585/585_small.jpg" />
+	<asset id="slide_13" src="http://localhost/vish-production/photos/577/577_small.jpg" />
+	<asset id="slide_14" src="http://localhost/vish-production/photos/568/568_small.jpg" />
+	<asset id="slide_15" src="http://localhost/vish-production/photos/572/572_small.jpg" />
+	<asset id="slide_16" src="http://localhost/vish-production/photos/579/579_small.jpg" />
+</loader>
