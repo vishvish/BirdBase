@@ -12,6 +12,7 @@ package org.birdbase.application.view.mediators
 	import org.birdbase.framework.signals.*;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
 	import org.birdbase.modules.slideshow.ISlideshowModule;
+	import org.birdbase.modules.slideshow.view.SlideshowView;
 	import org.osflash.signals.Signal;
 	import org.osflash.signals.natives.NativeSignal;
 
@@ -48,12 +49,6 @@ package org.birdbase.application.view.mediators
 		
 		[Inject]
 		public var logger:ILogger;
-
-		[Inject]
-		public var slideshow:ISlideshowModule;
-//		
-//		[Inject]
-//		public var slideshowLoaded:SlideshowLoaded;
 
 		/**
 		 *	// TODO views 

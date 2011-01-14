@@ -50,6 +50,7 @@ package org.birdbase.modules.slideshow
 			loadSlideshow.dispatch();
 		}
 
+		[Inject]
 		public function set parentInjector( value:IInjector ):void
 		{
 			context = new SlideshowContext( this, value );

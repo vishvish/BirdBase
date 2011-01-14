@@ -39,11 +39,10 @@ package org.birdbase.framework.controller.configuration
 			commandMap.mapEvent( AppConfigStateConstants.CONFIGURE_LOCALIZATION, ConfigureLocalizationCommand, StateEvent, true );
 			commandMap.mapEvent( AppConfigStateConstants.LOAD_ASSETS, LoadAssetsCommand, StateEvent, true );
 			commandMap.mapEvent( AppConfigStateConstants.CONFIGURE_VIEWS, ConfigureViewsCommand, StateEvent, true );
+			commandMap.mapEvent( AppConfigStateConstants.FAIL, ConfigurationFailedCommand, StateEvent, true );
 			
 			// This is the connection between BirdBase and your application
 			commandMap.mapEvent( AppConfigStateConstants.GO, ApplicationBootstrapCommand, StateEvent, true );
-
-			commandMap.mapEvent( AppConfigStateConstants.FAIL, ConfigurationFailedCommand, StateEvent, true );
 
 			smInjector.inject( sm );
 			

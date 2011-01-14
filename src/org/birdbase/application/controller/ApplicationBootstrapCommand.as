@@ -2,11 +2,12 @@ package org.birdbase.application.controller
 {
 	import org.as3commons.logging.ILogger;
 	import org.birdbase.application.controller.state.ApplicationStateChangedCommand;
-	import org.birdbase.modules.slideshow.signals.LoadSlideshow;
 	import org.birdbase.application.view.MainContainerView;
 	import org.birdbase.framework.model.PreferencesModel;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
+	import org.birdbase.modules.slideshow.SlideshowContext;
 	import org.birdbase.modules.slideshow.controller.LoadSlideshowCommand;
+	import org.birdbase.modules.slideshow.signals.LoadSlideshow;
 	import org.osflash.signals.Signal;
 	import org.robotlegs.mvcs.SignalCommand;
 
@@ -45,7 +46,7 @@ package org.birdbase.application.controller
 			logger.info( "Author: " + pm.getProperty( "application.author" ) );
 			logger.info( "Version: " + pm.getProperty( "application.version" ) );
 			
-			signalCommandMap.mapSignalClass( LoadSlideshow, LoadSlideshowCommand );
+//			signalCommandMap.mapSignalClass( LoadSlideshow, LoadSlideshowCommand );
 			
 			var view:MainContainerView = new MainContainerView();
 			contextView.addChild( view );
@@ -54,7 +55,10 @@ package org.birdbase.application.controller
 			{
 				signalCommandMap.mapSignal( swfAddress.change, ApplicationStateChangedCommand );
 			});
-			view.show( s );	
+			view.show( s );
+			
+//			var slideshowContext:SlideshowContext = new SlideshowContext( contextView, injector );
+//			injector.mapValue( SlideshowContext, slideshowContext );
 		}
 		
 	}

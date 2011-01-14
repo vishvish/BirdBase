@@ -8,6 +8,8 @@ package org.birdbase.modules.slideshow.controller
 	import org.assetloader.signals.LoaderSignal;
 	import org.birdbase.framework.model.PreferencesModel;
 	import org.birdbase.modules.slideshow.signals.SlideshowLoaded;
+	import org.birdbase.modules.slideshow.view.SlideshowView;
+	import org.osflash.signals.Signal;
 	import org.robotlegs.mvcs.SignalCommand;
 	
 	public class LoadSlideshowCommand extends SignalCommand
@@ -38,7 +40,6 @@ package org.birdbase.modules.slideshow.controller
 			assetLoader.onConfigLoaded.add( handleConfigLoaded );
 			assetLoader.onComplete.add( handleComplete );
 			assetLoader.onProgress.add( handleProgress );
-			
 			//signalCommandMap.mapSignal( assetLoader.onComplete, SlideshowLoadedCommand, true );
 		}
 		
@@ -68,6 +69,11 @@ package org.birdbase.modules.slideshow.controller
 			logger.debug( "LoadSlideshowCommand::handleComplete()" );
 			var ss:SlideshowLoaded = new SlideshowLoaded( list );
 			ss.dispatch();
+
+			var view:SlideshowView = new SlideshowView();
+			contextView.addChild( view );
+			var s:Signal = new Signal();
+			view.show( s );	
 		}
 		
 		private function handleProgress( signal:LoaderSignal ):void

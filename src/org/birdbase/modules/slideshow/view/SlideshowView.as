@@ -15,7 +15,7 @@ package org.birdbase.modules.slideshow.view
 		
 		override public function main():void
 		{
-			//
+			trace( "SlideshowView::main" );
 		}
 	}
 }
