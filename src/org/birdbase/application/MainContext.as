@@ -10,6 +10,8 @@ package org.birdbase.application
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.service.*;
 	import org.birdbase.framework.signals.*;
+	import org.birdbase.modules.slideshow.ISlideshowModule;
+	import org.birdbase.modules.slideshow.SlideshowModule;
 	
 	/**
 	 *	// TODO MainContext 
@@ -43,7 +45,7 @@ package org.birdbase.application
 		 */
 		override public function startup():void
         {
-//			injector.mapClass( ISlideshowModule, SlideshowModule );
+			injector.mapClass( ISlideshowModule, SlideshowModule );
 			
 			// will need collections to use modules
 			injector.mapClass( ArrayList, ArrayList );
