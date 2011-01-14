@@ -27,7 +27,7 @@ Learn more about Flex at http://flex.org
 <script type="text/javascript">
 
         var swfName = "Main";
-        var swfURL = (swfobject.getFlashPlayerVersion().major >= "9") ? "${swf}.swf": "expressinstall.swf";
+        var swfURL = (swfobject.getFlashPlayerVersion().major >= "10") ? "${swf}.swf": "expressinstall.swf";
 
         var flashvars = {
 			locale: "en_GB"
@@ -35,7 +35,7 @@ Learn more about Flex at http://flex.org
         var params = { scale:'noScale', salign:'lt', wmode:"window" };
         var attributes = { id:swfName, name:swfName }; // give an id to the flash object
 
-        swfobject.embedSWF(swfURL, "flashContent", "500", "586", "9.0.0", null, flashvars, params, attributes );
+        swfobject.embedSWF(swfURL, "flashContent", "960", "600", "10.0.0", null, flashvars, params, attributes );
 
 
 </script>

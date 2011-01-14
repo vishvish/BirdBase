@@ -32,6 +32,9 @@ has plenty of room for confusion.
 library. Text Fields seem to default to the TLF layout in the Flash IDE, but when exported, the whole thing chokes
 when being loaded in - there's a security issue involved, it seems.
 
+4. Fix a whole bunch of basic architectural annoyances, such as injector definition being in the application context,
+and ways to efficiently use multiple asset loaders.
+
 // TINGS
 
 
@@ -45,7 +48,9 @@ This works cloned out of the box, follow the logger statements to see what's goi
 
 Builds on the work of (but not limited to)
 
-Team RobotLegs and especially Joel Hooks for the Finite State Machine
+Team RobotLegs - Shaun Smith, and Joel Hooks for the Finite State Machine
+
+Till Schneidereit for SwiftSuspenders. That and Hamburg folk rock.
 
 Matan Uberstein - thanks for AssetLoader
 
