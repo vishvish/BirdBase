@@ -48,10 +48,10 @@ package org.birdbase.application.view.mediators
 			view.option1 = appModel.option1;
 			view.main();
 			
-			var ns:NativeSignal = new NativeSignal(view.yellowPillButton,MouseEvent.CLICK,MouseEvent);
+			var ns:NativeSignal = new NativeSignal(view.yellowButton,MouseEvent.CLICK,MouseEvent);
 			ns.add(selectYellowPill);
 			
-			ns = new NativeSignal(view.purplePillButton,MouseEvent.CLICK,MouseEvent);
+			ns = new NativeSignal(view.purpleButton,MouseEvent.CLICK,MouseEvent);
 			ns.add(selectPurplePill);
 		}
 		

@@ -42,7 +42,6 @@ package org.birdbase.application
 		 */
 		override public function startup():void
         {
-			// maps a signal for SWFAddress
 			signalCommandMap.mapSignalClass( ModifyApplicationState, ChangeApplicationStateCommand );
 
 			mediatorMap.mapView( MainContainerView, MainContainerViewMediator );
@@ -51,7 +50,6 @@ package org.birdbase.application
 			mediatorMap.mapView( ThirdView, ThirdViewMediator );
 
 			super.startup();
-
         }
 	}
 }

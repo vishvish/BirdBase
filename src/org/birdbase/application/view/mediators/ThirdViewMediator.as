@@ -1,6 +1,7 @@
 package org.birdbase.application.view.mediators
 {
 	import org.birdbase.application.view.ThirdView;
+	import org.birdbase.modules.slideshow.SlideshowModule;
 
 	/**
 	 *	// TODO ThirdViewMediator 
@@ -36,7 +37,8 @@ package org.birdbase.application.view.mediators
 			view.option1 = appModel.option1;
 			view.option2 = appModel.option2;
 			view.main();
+			
+			view.slideshowHolder.addChild( new SlideshowModule() );
 		}	
-	
 	}
 }

@@ -2,7 +2,6 @@ package org.birdbase.framework
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.as3commons.collections.ArrayList;
 	import org.as3commons.logging.ILogger;
 	import org.as3commons.logging.LoggerFactory;
 	import org.assetloader.AssetLoader;
@@ -26,7 +25,7 @@ package org.birdbase.framework
 		
 		override public function startup():void
 		{
-			var logger:ILogger = LoggerFactory.getLogger( "org.birdbase" );
+			var logger:ILogger = LoggerFactory.getLogger( "org.birdbase.framework" );
 			injector.mapValue( ILogger, logger );
 
 			var fm:FlashVarsManager = new FlashVarsManager( contextView );
