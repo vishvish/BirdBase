@@ -1,15 +1,7 @@
 package org.birdbase.application.view.mediators
 {
-	import flash.events.MouseEvent;
-	
 	import org.birdbase.application.view.ThirdView;
-	import org.birdbase.framework.model.BirdbaseApplicationModel;
-	import org.birdbase.framework.model.ViewStateModel;
-	import org.birdbase.framework.signals.ModifyApplicationState;
-	import org.birdbase.modules.slideshow.ISlideshowModule;
-	import org.birdbase.modules.slideshow.signals.LoadSlideshow;
-	import org.osflash.signals.natives.NativeSignal;
-	import org.robotlegs.mvcs.Mediator;
+	import org.birdbase.modules.slideshow.SlideshowModule;
 
 	/**
 	 *	// TODO ThirdViewMediator 
@@ -27,9 +19,6 @@ package org.birdbase.application.view.mediators
 		[Inject]
 		public var view:ThirdView;
 		
-		[Inject]
-		public var slideshow:ISlideshowModule;
-
 		/**
 		 *	// TODO ThirdViewMediator 
 		 */
@@ -45,11 +34,11 @@ package org.birdbase.application.view.mediators
 		 */
 		override public function onRegister():void
 		{
-			
 			view.option1 = appModel.option1;
 			view.option2 = appModel.option2;
 			view.main();
+			
+			view.slideshowHolder.addChild( new SlideshowModule() );
 		}	
-	
 	}
 }

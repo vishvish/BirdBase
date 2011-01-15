@@ -2,7 +2,6 @@ package org.birdbase.application
 {
 	import flash.display.DisplayObjectContainer;
 	
-	import org.as3commons.collections.ArrayList;
 	import org.birdbase.application.controller.state.ChangeApplicationStateCommand;
 	import org.birdbase.application.view.*;
 	import org.birdbase.application.view.mediators.*;
@@ -43,12 +42,6 @@ package org.birdbase.application
 		 */
 		override public function startup():void
         {
-//			injector.mapClass( ISlideshowModule, SlideshowModule );
-			
-			// will need collections to use modules
-			injector.mapClass( ArrayList, ArrayList );
-			
-			// maps a signal for SWFAddress
 			signalCommandMap.mapSignalClass( ModifyApplicationState, ChangeApplicationStateCommand );
 
 			mediatorMap.mapView( MainContainerView, MainContainerViewMediator );

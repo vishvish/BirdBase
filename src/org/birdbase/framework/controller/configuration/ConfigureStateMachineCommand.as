@@ -1,10 +1,10 @@
 package org.birdbase.framework.controller.configuration
 {
 	import org.birdbase.application.controller.ApplicationBootstrapCommand;
+	import org.birdbase.application.controller.ApplicationLoadModulesCommand;
 	import org.birdbase.framework.controller.AppConfigStateConstants;
 	import org.birdbase.framework.controller.abstract.BirdbaseCommand;
 	import org.birdbase.framework.controller.assets.LoadAssetsCommand;
-	
 	import org.robotlegs.utilities.statemachine.FSMInjector;
 	import org.robotlegs.utilities.statemachine.StateEvent;
 	import org.robotlegs.utilities.statemachine.StateMachine;
@@ -39,11 +39,11 @@ package org.birdbase.framework.controller.configuration
 			commandMap.mapEvent( AppConfigStateConstants.CONFIGURE_LOCALIZATION, ConfigureLocalizationCommand, StateEvent, true );
 			commandMap.mapEvent( AppConfigStateConstants.LOAD_ASSETS, LoadAssetsCommand, StateEvent, true );
 			commandMap.mapEvent( AppConfigStateConstants.CONFIGURE_VIEWS, ConfigureViewsCommand, StateEvent, true );
+			commandMap.mapEvent( AppConfigStateConstants.FAIL, ConfigurationFailedCommand, StateEvent, true );
 			
 			// This is the connection between BirdBase and your application
-			commandMap.mapEvent( AppConfigStateConstants.GO, ApplicationBootstrapCommand, StateEvent, true );
-
-			commandMap.mapEvent( AppConfigStateConstants.FAIL, ConfigurationFailedCommand, StateEvent, true );
+			commandMap.mapEvent( AppConfigStateConstants.BOOT_APPLICATION, ApplicationBootstrapCommand, StateEvent, true );
+			commandMap.mapEvent( AppConfigStateConstants.BOOT_APPLICATION_MODULES, ApplicationLoadModulesCommand, StateEvent, true );
 
 			smInjector.inject( sm );
 			
