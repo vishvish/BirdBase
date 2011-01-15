@@ -1,7 +1,9 @@
 package org.birdbase.application.view
 {
+	import com.tfto.text.BasicTextField;
+	
+	import flash.display.Sprite;
 	import flash.text.TextField;
-	import flash.text.TextFormat;
 
 	/**
 	 *	// TODO ThirdView 
@@ -30,6 +32,8 @@ package org.birdbase.application.view
 		 */
 		protected var textTF:TextField;
 		
+		public var slideshowHolder:Sprite;
+		
 		/**
 		 *	// TODO ThirdView 
 		 */
@@ -47,11 +51,15 @@ package org.birdbase.application.view
 		{
 //			trace("ThirdView main");
 			cleanup();
-			textTF = new TextField();
-			textTF.defaultTextFormat = new TextFormat("Arial",13,0x0);
+			textTF = new BasicTextField();
 			textTF.width = 500;
 			textTF.text = "This is the third view of the application. You've already selected: "+option1+" and "+option2+".";
 			addChild(textTF);
+			
+			slideshowHolder = new Sprite();
+			slideshowHolder.x = 10;
+			slideshowHolder.y = 140;
+			addChild( slideshowHolder );
 		}
 	}
 }

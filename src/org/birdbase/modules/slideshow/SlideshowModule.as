@@ -1,5 +1,7 @@
 package org.birdbase.modules.slideshow
 {
+	import flash.display.Sprite;
+	
 	import org.as3commons.collections.ArrayList;
 	import org.as3commons.collections.framework.core.ArrayListIterator;
 	import org.as3commons.logging.ILogger;
@@ -10,7 +12,7 @@ package org.birdbase.modules.slideshow
 	import org.robotlegs.core.IInjector;
 	import org.robotlegs.utilities.modular.core.IModuleContext;
 	
-	public class SlideshowModule implements ISlideshowModule
+	public class SlideshowModule extends Sprite implements ISlideshowModule
 	{
 		[Inject]
 		public var list:ArrayList;
@@ -54,7 +56,7 @@ package org.birdbase.modules.slideshow
 		public function set parentInjector( value:IInjector ):void
 		{
 //			this.parentInjector = value;
-//			context = new SlideshowContext( this., value );
+			context = new SlideshowContext( this, value );
 		}
 
 		public function dispose():void

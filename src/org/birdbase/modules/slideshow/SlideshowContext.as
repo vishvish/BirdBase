@@ -31,7 +31,6 @@ package org.birdbase.modules.slideshow
 			injector.mapClass( ISlideshowModule, SlideshowModule );
 			injector.mapSingleton( LoadSlideshow );
 			
-			
 			injector.mapClass( SortedList, SortedList );
 			injector.mapClass( SortedListIterator, SortedListIterator );
 			injector.mapClass( ArrayList, ArrayList );
