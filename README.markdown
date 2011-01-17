@@ -3,9 +3,9 @@
 1.	Clone the repo
 		git clone git@github.com:vishvish/BirdBase.git
 
-1.	Checkout v0.2.0
+1.	Checkout v0.2.1
 		git tag -l
-		git checkout v0.2.0
+		git checkout v0.2.1
 		
 1.	Install Ruby on your system
 
