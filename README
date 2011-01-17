@@ -1,3 +1,32 @@
+# Quickstart:
+
+1.	Clone the repo
+		git clone git@github.com:vishvish/BirdBase.git
+
+1.	Checkout v0.2.0
+		git tag -l
+		git checkout v0.2.0
+		
+1.	Install Ruby on your system
+
+1.	Install the thor gem from here: https://github.com/wycats/thor/
+
+1.	From the BirdBase scripts directory (BirdBase/scripts), run the thor installation:
+		thor birdbase:app:install <YOUR_APP_NAME> <YOUR_PACKAGE_NAME>
+		
+		e.g.
+		
+		thor birdbase:app:install sampleApp com.example
+		
+	Will install and configure an application called "sampleApp" with ActionScript files in /src/com/example/sampleApp
+	
+1.	Boot up Flash Builder, point it to the src folder, add the libs directory, and run Main.as
+
+1.	Be careful that Flash Builder doesn't overwrite the contents of your html-template folder. If it does, git revert it.
+
+------------------------------------------
+
+
 BirdBase is an application framework, built from a number of reasonably-established tools.
 
 It:
