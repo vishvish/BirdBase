@@ -6,9 +6,6 @@ package org.birdbase.application.controller
 	import org.birdbase.framework.controller.AppConfigStateConstants;
 	import org.birdbase.framework.model.PreferencesModel;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
-	import org.birdbase.modules.slideshow.SlideshowContext;
-	import org.birdbase.modules.slideshow.controller.LoadSlideshowCommand;
-	import org.birdbase.modules.slideshow.signals.LoadSlideshow;
 	import org.osflash.signals.Signal;
 	import org.robotlegs.mvcs.SignalCommand;
 	import org.robotlegs.utilities.statemachine.StateEvent;
@@ -43,15 +40,8 @@ package org.birdbase.application.controller
 		override public function execute():void
 		{
 			logger.info( "ApplicationBootstrapCommand::execute" );
-			
 			logger.info( "Birdbase is handing control over to the Application: Booting..." );
-			logger.info( "Author: " + pm.getProperty( "application.author" ) );
-			logger.info( "Version: " + pm.getProperty( "application.version" ) );
-
 			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.BOOT_APPLICATION_COMPLETE ) );
-			
-//			signalCommandMap.mapSignalClass( LoadSlideshow, LoadSlideshowCommand );
-			
 			var view:MainContainerView = new MainContainerView();
 			contextView.addChild( view );
 			var s:Signal = new Signal();
@@ -60,9 +50,6 @@ package org.birdbase.application.controller
 				signalCommandMap.mapSignal( swfAddress.change, ApplicationStateChangedCommand );
 			});
 			view.show( s );
-			
-//			var slideshowContext:SlideshowContext = new SlideshowContext( contextView, injector );
-//			injector.mapValue( SlideshowContext, slideshowContext );
 		}
 		
 	}

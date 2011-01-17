@@ -23,10 +23,6 @@ package org.birdbase.application.controller
 		override public function execute():void
 		{
 			logger.info( "ApplicationLoadModulesCommand::execute" );
-			
-//			var slideshowContext:SlideshowContext = new SlideshowContext( contextView, injector );
-//			injector.mapValue( SlideshowContext, slideshowContext );
-			
 			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.BOOT_APPLICATION_MODULES_COMPLETE ) );
 		}
 	}

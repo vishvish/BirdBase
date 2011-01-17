@@ -4,13 +4,10 @@ package org.birdbase.application.model
 	
 	public final class ApplicationModel extends BirdbaseApplicationModel
 	{
-		/**
-		 *	// TODO option1 
-		 */
+		// REMOVE IN YOUR APPLICATION
 		public var option1:String;
-		/**
-		 *	// TODO option2 
-		 */
+
+		// REMOVE IN YOUR APPLICATION
 		public var option2:String;
 		
 		public function ApplicationModel()

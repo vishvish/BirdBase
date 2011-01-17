@@ -1,11 +1,9 @@
 package org.birdbase.application.controller.state
 {
+	import org.as3commons.logging.ILogger;
 	import org.birdbase.application.model.ApplicationModel;
-	import org.birdbase.framework.model.BirdbaseApplicationModel;
 	import org.birdbase.framework.model.ViewStateModel;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
-	
-	import org.as3commons.logging.ILogger;
 	import org.robotlegs.mvcs.SignalCommand;
 
 	/**
@@ -45,6 +43,7 @@ package org.birdbase.application.controller.state
 			var url:String = "/" + viewState.viewName + "?";
 			
 			// update url with application options
+			// REMOVE/CHANGE FOR YOUR APPLICATION
 			if( appModel.option1 != null )
 			{
 				url += "op1=" + appModel.option1;

@@ -1,11 +1,9 @@
 package org.birdbase.application.controller.state
 {
+	import org.as3commons.logging.ILogger;
 	import org.birdbase.application.model.ApplicationModel;
-	import org.birdbase.framework.model.BirdbaseApplicationModel;
 	import org.birdbase.framework.model.ViewStateModel;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
-	
-	import org.as3commons.logging.ILogger;
 	import org.robotlegs.mvcs.SignalCommand;
 
 	/**
@@ -44,10 +42,11 @@ package org.birdbase.application.controller.state
 			logger.info( "SWFAddress::" + swfAddress.getValue() );
 			
 			// this is where you configure your swfaddress option parameters
+			// REMOVE/CHANGE FOR YOUR APPLICATION
 			appModel.option1 = swfAddress.getParameter("op1") as String;
 			appModel.option2 = swfAddress.getParameter("op2") as String;
 					
-			viewState.viewName = swfAddress.getPath().substr(1);
+			viewState.viewName = swfAddress.getPath().substr( 1 );
 		}
 	}
 }
