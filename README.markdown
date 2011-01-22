@@ -12,9 +12,21 @@
 		
 1.	Install Ruby on your system
 
-1.	Install the thor gem from here: https://github.com/wycats/thor/
+	RVM [http://rvm.beginrescueend.com](http://rvm.beginrescueend.com/) is your friend - it lets you run and manage multiple Ruby versions and sets of gems.
+	
+	Install either Ruby 1.8.7 or 1.9.2
+	
+	e.g. with RVM
+	
+		rvm install 1.9.2-head
+		
+	Will install the latest 1.9.2 version.
+
+1.	Install the thor gem from here: [Thor @ Github](https://github.com/wycats/thor/)
 
 1.	From the BirdBase scripts directory (BirdBase/scripts), run the thor installation:
+
+		cd scripts
 
 		thor birdbase:app:install <YOUR_APP_NAME> <YOUR_PACKAGE_NAME>
 		
@@ -25,6 +37,14 @@
 	Will install and configure an application called "sampleApp" with ActionScript files in
 		
 		/src/com/example/sampleApp
+		
+	Troubleshooting: if you get this error:
+	
+		birdbase/gems/thor-0.14.6/lib/thor/runner.rb:34:in `method_missing': undefined method `start' for nil:NilClass (NoMethodError)
+		
+	Then make sure you're in the /scripts directory
+	
+		cd scripts
 	
 1.	Boot up Flash Builder, point it to the `src` folder, add the `libs` directory, and run 
 	
