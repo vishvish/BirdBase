@@ -11,6 +11,7 @@ package <%= @package %>.view.mediators
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.signals.*;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
+	import org.birdbase.framework.view.*;
 	import org.osflash.signals.Signal;
 	import org.osflash.signals.natives.NativeSignal;
 

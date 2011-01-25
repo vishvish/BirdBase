@@ -4,6 +4,7 @@ package <%= @package %>.view
 	import com.tfto.text.BasicTextField;
 	
 	import flash.text.TextFieldAutoSize;
+	import org.birdbase.framework.view.AbstractTransitioningView;
 
 	/**
 	 *	// TODO SecondView 

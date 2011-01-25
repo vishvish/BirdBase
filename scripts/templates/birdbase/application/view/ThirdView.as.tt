@@ -4,6 +4,7 @@ package <%= @package %>.view
 	
 	import flash.display.Sprite;
 	import flash.text.TextField;
+	import org.birdbase.framework.view.AbstractTransitioningView;
 
 	/**
 	 *	// TODO ThirdView 
