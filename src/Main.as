@@ -1,6 +1,6 @@
 package
 {
-	import org.birdbase.demoApplication.MainContext;
+	import com.vishvish.demoApplication.MainContext;
 	
 	import flash.display.Sprite;
 	

@@ -1,7 +1,7 @@
 package org.birdbase.framework.controller.configuration
 {
-	import org.birdbase.demoApplication.controller.ApplicationBootstrapCommand;
-	import org.birdbase.demoApplication.controller.ApplicationLoadModulesCommand;
+	import com.vishvish.demoApplication.controller.ApplicationBootstrapCommand;
+	import com.vishvish.demoApplication.controller.ApplicationLoadModulesCommand;
 	import org.birdbase.framework.controller.AppConfigStateConstants;
 	import org.birdbase.framework.controller.abstract.BirdbaseCommand;
 	import org.birdbase.framework.controller.assets.LoadAssetsCommand;
