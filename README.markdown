@@ -42,13 +42,9 @@
 	
 		birdbase/gems/thor-0.14.6/lib/thor/runner.rb:34:in `method_missing': undefined method `start' for nil:NilClass (NoMethodError)
 		
-	Then make sure you're in the /scripts directory
+	Then make sure you're in the /scripts directory: `cd scripts`
 	
-		cd scripts
-	
-1.	Boot up Flash Builder, point it to the `src` folder, add the `libs` directory, and run 
-	
-		Main.as is your application entry point
+1.	Boot up Flash Builder, point it to the `src` folder, add the `libs` directory, and run `Main.as` as your application entry point
 
 1.	Be careful that Flash Builder doesn't overwrite the contents of your html-template folder. If it does, `git revert` it.
 
@@ -67,7 +63,9 @@
 * 	Loads assets based on the configuration.
 *	Provides dead-easy access to assets in a SWF. No more creating classes for assets or mapping names. Builds on
 Justin Windle's DynamicSprite. Lovely.
+
 		Now: ball = new DynamicSprite( "ball" );
+
 *	Allows runtime swapping of the asset library: watch all your assets change on stage the instant it loads.
 
 ## TODO
