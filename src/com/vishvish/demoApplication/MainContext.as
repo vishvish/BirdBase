@@ -1,15 +1,17 @@
 package com.vishvish.demoApplication
 {
-	import flash.display.DisplayObjectContainer;
-	
 	import com.vishvish.demoApplication.controller.state.ChangeApplicationStateCommand;
 	import com.vishvish.demoApplication.model.ApplicationModel;
 	import com.vishvish.demoApplication.view.*;
 	import com.vishvish.demoApplication.view.mediators.*;
+	
+	import flash.display.DisplayObjectContainer;
+	
 	import org.birdbase.framework.BirdbaseContext;
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.service.*;
 	import org.birdbase.framework.signals.*;
+	import org.birdbase.modules.navigation.NavigationModule;
 	import org.birdbase.modules.slideshow.SlideshowModule;
 	
 	/**
@@ -49,10 +51,9 @@ package com.vishvish.demoApplication
 			// models
 			injector.mapSingleton( ApplicationModel );
 			injector.mapSingleton( SlideshowModule );
-			
+
 			// modules
 			viewMap.mapType( SlideshowModule );
-			
 			
 			mediatorMap.mapView( MainContainerView, MainContainerViewMediator );
 			mediatorMap.mapView( FirstView, FirstViewMediator );

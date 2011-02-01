@@ -4,6 +4,7 @@ package com.vishvish.demoApplication.view
 	import com.bit101.components.Text;
 	
 	import org.birdbase.framework.view.AbstractTransitioningView;
+	import org.birdbase.modules.navigation.NavigationModule;
 	import org.birdbase.modules.slideshow.SlideshowModule;
 
 	/**
@@ -34,7 +35,7 @@ package com.vishvish.demoApplication.view
 		override public function main():void
 		{
 			cleanup();
-			textTF = new Text( this, 0, 120 );
+			textTF = new Text( this, 0, 140 );
 			textTF.width = 450;
 			addChild( textTF );
 			
@@ -44,7 +45,9 @@ package com.vishvish.demoApplication.view
 			redButton = new PushButton( this, 110, 60, "Button 2" );
 			addChild( redButton );
 			
-			addChild( slideshow );
+//			addChild( slideshow );
+//			
+//			addChild( navigation );
 		}
 	}
 }

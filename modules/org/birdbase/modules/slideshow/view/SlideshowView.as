@@ -16,7 +16,7 @@ package org.birdbase.modules.slideshow.view
 		{
 			trace( "SlideshowView::main" );
 			this.graphics.beginFill( 0xFFFF00, 0.5 );
-			this.graphics.drawCircle( 200, 100, 50 );
+			this.graphics.drawCircle( 400, 100, 50 );
 			this.graphics.endFill();
 		}
 

@@ -101,7 +101,7 @@ package org.birdbase.framework.model
 		 *	
 		 *	@return int	
 		 */
-		private function getPropertyIndex(name:String):int
+		protected function getPropertyIndex(name:String):int
 		{
 			var n:int = _props.length;
 			while (--n > -1) {

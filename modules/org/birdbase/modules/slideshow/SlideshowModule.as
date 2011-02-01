@@ -2,10 +2,11 @@ package org.birdbase.modules.slideshow
 {
 	import flash.display.Sprite;
 	
+	import org.birdbase.framework.modules.*;
 	import org.robotlegs.core.IInjector;
 	import org.robotlegs.utilities.modular.core.IModuleContext;
 	
-	public class SlideshowModule extends Sprite implements ISlideshowModule
+	public class SlideshowModule extends Sprite implements IBirdbaseModule
 	{
 		protected var context:IModuleContext;
 		
@@ -18,6 +19,21 @@ package org.birdbase.modules.slideshow
 		public function dispose():void
 		{
 			context = null;
+		}
+		
+		public function init( data:Array ):void
+		{
+			
+		}
+
+		public function get configuration():IBirdbaseModuleConfiguration
+		{
+			// TODO Auto-generated method stub
+		}
+
+		public function set configuration(value:IBirdbaseModuleConfiguration):void
+		{
+			// TODO Auto-generated method stub
 		}
 	}
 }

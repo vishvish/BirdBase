@@ -42,6 +42,7 @@ package org.birdbase.framework
 			injector.mapSingleton( PreferencesModel );
 			injector.mapSingleton( PreferencesService );
 			injector.mapSingleton( L10nModel );
+			injector.mapSingleton( L10nYAMLModel );
 			injector.mapSingleton( L10nService );
 			
 			commandMap.mapEvent( ContextEvent.STARTUP_COMPLETE, ConfigureStateMachineCommand, ContextEvent, true );

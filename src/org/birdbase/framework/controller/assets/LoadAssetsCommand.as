@@ -60,7 +60,7 @@ package org.birdbase.framework.controller.assets
 
 		private function handleProgress( signal:LoaderSignal ):void
 		{
-			logger.debug( "handleprogress " + signal.loader.data );
+			logger.debug( "LoadAssetsCommand::handleprogress " + signal.loader.data );
 		}
 
 		private function handleError( signal:ErrorSignal ):void

@@ -1,9 +1,12 @@
 package com.vishvish.demoApplication.view.mediators
 {
+	import com.vishvish.demoApplication.view.FirstView;
+	
 	import flash.events.MouseEvent;
 	
-	import com.vishvish.demoApplication.view.FirstView;
+	import org.birdbase.framework.model.L10nModel;
 	import org.birdbase.framework.view.AbstractBirdbaseMediator;
+	import org.birdbase.modules.navigation.NavigationModule;
 	import org.birdbase.modules.slideshow.SlideshowModule;
 	import org.osflash.signals.natives.NativeSignal;
 
@@ -28,6 +31,9 @@ package com.vishvish.demoApplication.view.mediators
 		
 		[Inject]
 		public var slideshow:SlideshowModule;
+		
+		[Inject]
+		public var l10n:L10nModel;
 		
 		/**
 		 *	// TODO FirstViewMediator 
@@ -65,7 +71,7 @@ package com.vishvish.demoApplication.view.mediators
 		protected function selectBluePill( e:MouseEvent ):void
 		{
 			appModel.option1 = "blue";
-			viewState.viewName = "view2";
+			viewState.viewName = "blog";
 			modifyApplicationState.dispatch();
 		}
 		
@@ -79,7 +85,7 @@ package com.vishvish.demoApplication.view.mediators
 		protected function selectRedPill( e:MouseEvent ):void
 		{
 			appModel.option1 = "red";
-			viewState.viewName = "view2";
+			viewState.viewName = "blog";
 			modifyApplicationState.dispatch();
 		}	
 	}

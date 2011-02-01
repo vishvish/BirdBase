@@ -1,13 +1,20 @@
 package com.vishvish.demoApplication.view.mediators
 {
+	import com.bit101.components.PushButton;
 	import com.greensock.TweenMax;
 	import com.greensock.easing.Quart;
+	import org.birdbase.framework.action.Action;
+	import org.birdbase.framework.action.ActionSignal;
+	import org.birdbase.framework.action.IActionable;
+	import org.birdbase.framework.action.INavigationActionable;
+	import com.vishvish.demoApplication.controller.NavigationButton;
+	import com.vishvish.demoApplication.view.*;
 	
 	import flash.display.DisplayObject;
 	import flash.events.MouseEvent;
+	import flash.utils.Dictionary;
 	
 	import org.as3commons.logging.ILogger;
-	import com.vishvish.demoApplication.view.*;
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.signals.*;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
@@ -44,7 +51,7 @@ package com.vishvish.demoApplication.view.mediators
 		public var pm:PreferencesModel;
 		
 		[Inject]
-		public var l10n:L10nModel;
+		public var l10n:L10nYAMLModel;
 		
 		[Inject]
 		public var logger:ILogger;
@@ -76,12 +83,24 @@ package com.vishvish.demoApplication.view.mediators
 		{
 			logger.debug( "MainUIMediator::onRegister" );
 			viewStateChanged.add( onViewStateChange );
-//			slideshowLoaded.add( onSlideshowLoaded );
 			
 			view.main();
 			
-			view.tagline.text = l10n.getProperty( "tagline" );
-			view.toggleAssetButton.label = l10n.getProperty( "swap-assets" );
+			var navigationArray:Array = [];
+			var navMap:Array = l10n.map.nav
+			
+			for( var i:int = 0; i < navMap.length; i++ )
+			{
+				var item:Object = Dictionary( navMap[i] ).item;
+				var action:Action = new Action( item.destination, item.label )
+				navigationArray.push( action );
+			}
+			
+			view.buildNavigation( navigationArray );
+			
+			
+			view.tagline.text = l10n.map.tagline;
+			view.toggleAssetButton.label = l10n.map.swap_assets;
 			
 			// set up the toggling of the asset library
 			pm.setProperty( "dynamic-library", "assets.swf" );
@@ -89,12 +108,32 @@ package com.vishvish.demoApplication.view.mediators
 			toggleAssetSignal.add( updateDynamicLib );
 			
 			views = {};
-			views[ "" ] = FirstView;
-			views[ "view2" ] = SecondView;
-			views[ "view3" ] = ThirdView;
+			views[ "home" ] = FirstView;
+			views[ "blog" ] = SecondView;
+			views[ "about" ] = ThirdView;
 			
 			var ns:NativeSignal = new NativeSignal( view.logo, MouseEvent.CLICK, MouseEvent );
 			ns.add(gotoHome);
+//
+			var signal:NativeSignal = new NativeSignal( view, MouseEvent.CLICK, MouseEvent );
+			signal.add( viewPressed );
+			
+		}
+
+		private function viewPressed( e:MouseEvent ):void
+		{
+			// did someone just press a navigation button?
+			if( e.target is INavigationActionable )
+			{
+				var destination:String = IActionable( e.target ).action.destination
+				logger.debug( "MainContainerViewMediator::viewPressed / Navigation --> " + destination );
+				//
+				swfAddress.setValue( destination );
+			}
+			else
+			{
+				logger.debug( "MainContainerViewMediator::viewPressed" );
+			}
 		}
 
 		private function updateDynamicLib( evt:MouseEvent ):void
@@ -112,7 +151,7 @@ package com.vishvish.demoApplication.view.mediators
 		protected function gotoHome( evt:MouseEvent ):void
 		{	
 //			trace("GotoHome");
-			swfAddress.setValue( "/" );
+			swfAddress.setValue( "home" );
 		}
 		/**
 		 *	// TODO onViewStateChange 

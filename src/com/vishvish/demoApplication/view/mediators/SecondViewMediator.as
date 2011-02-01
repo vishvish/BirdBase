@@ -60,7 +60,7 @@ package com.vishvish.demoApplication.view.mediators
 		protected function selectYellowPill(e:MouseEvent):void
 		{
 			appModel.option2 = "yellow";
-			viewState.viewName = "view3";
+			viewState.viewName = "about";
 			modifyApplicationState.dispatch();
 		}
 		
@@ -74,7 +74,7 @@ package com.vishvish.demoApplication.view.mediators
 		protected function selectPurplePill(e:MouseEvent):void
 		{
 			appModel.option2 = "purple";
-			viewState.viewName = "view3";
+			viewState.viewName = "about";
 			modifyApplicationState.dispatch();
 		}	
 	}
