@@ -1,0 +1,15 @@
+nav:
+    - item:
+        destination:    home
+        label:          Go Home
+        view:           FirstView
+    - item:
+        destination:    blog
+        label:          Blog and News
+        view:           SecondView
+    - item:
+        destination:    about
+        label:          About Us
+        view:           ThirdView
+tagline: This is a tagline, right here.
+swap_assets: Swap those assets!

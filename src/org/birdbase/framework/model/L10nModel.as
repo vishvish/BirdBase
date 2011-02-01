@@ -16,7 +16,7 @@ package org.birdbase.framework.model
 		/**
 		 *	// TODO _l10nFilename 
 		 */
-		private var _l10nFilename:String = "l10n.properties";
+		protected var _l10nFilename:String = "l10n.properties";
 
 		/**
 		 *	// TODO L10nModel 

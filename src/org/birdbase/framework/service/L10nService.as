@@ -1,16 +1,18 @@
 package org.birdbase.framework.service
 {
-	import org.birdbase.framework.controller.AppConfigStateConstants;
-	import org.birdbase.framework.model.L10nModel;
-	import org.birdbase.framework.utils.FlashVarsManager;
-	import org.birdbase.framework.utils.PropertiesParser;
-	
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
+	import flash.utils.Dictionary;
 	
 	import org.as3commons.logging.ILogger;
+	import org.as3yaml.YAML;
+	import org.birdbase.framework.controller.AppConfigStateConstants;
+	import org.birdbase.framework.model.L10nModel;
+	import org.birdbase.framework.model.L10nYAMLModel;
+	import org.birdbase.framework.utils.FlashVarsManager;
+	import org.birdbase.framework.utils.PropertiesParser;
 	import org.robotlegs.mvcs.Actor;
 	import org.robotlegs.utilities.statemachine.StateEvent;
 	
@@ -31,10 +33,7 @@ package org.birdbase.framework.service
 		public var fm:FlashVarsManager;
 		
 		[Inject]
-		/**
-		 *	// TODO model 
-		 */
-		public var model:L10nModel;
+		public var model:L10nYAMLModel;
 		
 		[Inject]
 		/**
@@ -60,11 +59,11 @@ package org.birdbase.framework.service
 		{
 			model.locale = 
 				fm.vars( "locale" ) 
-				? fm.vars( "locale" ) : "en_GB";
+				? fm.vars( "locale" ) : model.locale;
 			
 			model.l10nFilename = 
 				fm.vars( "l10nFilename" ) 
-				? fm.vars( "l10nFilename" ) : "l10n.properties";
+				? fm.vars( "l10nFilename" ) : model.l10nFilename;
 			
 			var preferences:URLRequest = new URLRequest( "assets/" + model.locale + "/" + model.l10nFilename );
 			var loader:URLLoader = new URLLoader();
@@ -93,10 +92,18 @@ package org.birdbase.framework.service
 		 *	
 		 *	@return void	
 		 */
-		private function handleComplete(event:Event):void
+		private function disabled_handleComplete(event:Event):void
 		{
-			model.props = PropertiesParser.parse( URLLoader( event.target ).data );
-			logger.debug( "L10nService::loaded" );
+//			model.props = PropertiesParser.parse( URLLoader( event.target ).data );
+			logger.debug( "L10nService::loaded PROPS" );
+			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.CONFIGURE_LOCALIZATION_COMPLETE ) );
+		}
+
+		private function handleComplete( event:Event ) : void
+		{
+			var map:Dictionary = YAML.decode( event.target.data ) as Dictionary;
+			model.map = map;
+			logger.debug( "L10nService::loaded YAML" );
 			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.CONFIGURE_LOCALIZATION_COMPLETE ) );
 		}
 	}
