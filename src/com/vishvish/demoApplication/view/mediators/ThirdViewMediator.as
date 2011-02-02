@@ -34,8 +34,8 @@ package com.vishvish.demoApplication.view.mediators
 		 */
 		override public function onRegister():void
 		{
-			view.option1 = appModel.option1;
-			view.option2 = appModel.option2;
+			view.option1 = appModel.map.itemFor( "option1" );
+			view.option2 = appModel.map.itemFor( "option2" );
 			view.main();
 		}	
 	}

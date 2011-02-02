@@ -1,7 +1,8 @@
 package com.vishvish.demoApplication.controller.state
 {
-	import org.as3commons.logging.ILogger;
 	import com.vishvish.demoApplication.model.ApplicationModel;
+	
+	import org.as3commons.logging.ILogger;
 	import org.birdbase.framework.model.ViewStateModel;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
 	import org.robotlegs.mvcs.SignalCommand;
@@ -38,22 +39,17 @@ package com.vishvish.demoApplication.controller.state
 		 */
 		override public function execute():void
 		{
-			logger.debug( "ChangeApplicationStateCommand: execute" );
-
 			var url:String = "/" + viewState.viewName + "?";
+			var mapContents:Array = appModel.map.keysToArray();
 			
-			// update url with application options
-			// REMOVE/CHANGE FOR YOUR APPLICATION
-			if( appModel.option1 != null )
+			for( var i:int = 0; i < mapContents.length; i++ )
 			{
-				url += "op1=" + appModel.option1;
+				var item:* = appModel.map.itemFor( mapContents[ i ] );
+				if( item )
+				{
+					url += appModel.map.keysToArray()[ i ] + "=" + item + "&";
+				}
 			}
-
-			if( appModel.option2 != null )
-			{
-				url += "&op2=" + appModel.option2;
-			}
-					
 			swfAddress.setValue( url );
 		}
 	}

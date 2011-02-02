@@ -40,7 +40,7 @@ package com.vishvish.demoApplication.view.mediators
 		 */
 		override public function onRegister():void
 		{
-			view.option1 = appModel.option1;
+			view.option1 = appModel.map.itemFor( "option1" );;
 			view.main();
 			
 			var ns:NativeSignal = new NativeSignal(view.yellowButton,MouseEvent.CLICK,MouseEvent);
@@ -59,7 +59,7 @@ package com.vishvish.demoApplication.view.mediators
 		 */
 		protected function selectYellowPill(e:MouseEvent):void
 		{
-			appModel.option2 = "yellow";
+			appModel.addParameter( "option2", "yellow" );
 			viewState.viewName = "about";
 			modifyApplicationState.dispatch();
 		}
@@ -73,7 +73,7 @@ package com.vishvish.demoApplication.view.mediators
 		 */
 		protected function selectPurplePill(e:MouseEvent):void
 		{
-			appModel.option2 = "purple";
+			appModel.addParameter( "option2", "purple" );
 			viewState.viewName = "about";
 			modifyApplicationState.dispatch();
 		}	

@@ -1,7 +1,8 @@
 package com.vishvish.demoApplication.controller.state
 {
-	import org.as3commons.logging.ILogger;
 	import com.vishvish.demoApplication.model.ApplicationModel;
+	
+	import org.as3commons.logging.ILogger;
 	import org.birdbase.framework.model.ViewStateModel;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
 	import org.robotlegs.mvcs.SignalCommand;
@@ -32,20 +33,22 @@ package com.vishvish.demoApplication.controller.state
 		public var swfAddress:SWFAddress;
 		
 		/**
-		 *	// TODO execute 
+		 *	// TODO execute
 		 *	
 		 *	@return void	
 		 */
 		override public function execute():void
 		{
-			logger.debug( "ApplicationStateChangedCommand: execute" );
-			logger.info( "SWFAddress::" + swfAddress.getValue() );
+			logger.debug( "ApplicationStateChangedCommand::execute --> SWFAddress" + swfAddress.getValue() );
 			
-			// this is where you configure your swfaddress option parameters
-			// REMOVE/CHANGE FOR YOUR APPLICATION
-			appModel.option1 = swfAddress.getParameter("op1") as String;
-			appModel.option2 = swfAddress.getParameter("op2") as String;
-					
+			for( var i:Number = 0; i < swfAddress.getParameterNames().length; i++ )
+			{
+				if( swfAddress.getParameterNames()[ i ] != null )
+				{
+					appModel.addParameter( swfAddress.getParameterNames()[ i ], swfAddress.getParameter( swfAddress.getParameterNames()[ i ] ) );
+				}
+			}
+			
 			viewState.viewName = swfAddress.getPath().substr( 1 );
 		}
 	}
