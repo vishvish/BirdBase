@@ -1,8 +1,7 @@
 package org.birdbase.framework.controller.configuration
 {
-	import org.birdbase.framework.controller.AppConfigStateConstants;
+	import org.birdbase.framework.controller.FiniteStateMachineConfiguration;
 	import org.birdbase.framework.controller.abstract.BirdbaseCommand;
-	
 	import org.robotlegs.utilities.statemachine.StateEvent;
 	
 	/**
@@ -42,7 +41,7 @@ package org.birdbase.framework.controller.configuration
 			mediatorMap.mapView( SecondView, SecondViewMediator );
 			mediatorMap.mapView( ThirdView, ThirdViewMediator );*/
 
-			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.CONFIGURE_VIEWS_COMPLETE ) );
-		}
+			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.CONFIGURE_VIEWS_COMPLETE ) );
+		}3
 	}
 }

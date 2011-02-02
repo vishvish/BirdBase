@@ -1,10 +1,9 @@
 package org.birdbase.framework.controller.configuration
 {
-	import org.birdbase.framework.controller.AppConfigStateConstants;
+	import org.as3commons.logging.ILogger;
+	import org.birdbase.framework.controller.FiniteStateMachineConfiguration;
 	import org.birdbase.framework.controller.assets.UpdateDynamicLibraryCommand;
 	import org.birdbase.framework.signals.UpdateDynamicLibrary;
-	
-	import org.as3commons.logging.ILogger;
 	import org.robotlegs.mvcs.SignalCommand;
 	import org.robotlegs.utilities.statemachine.StateEvent;
 	
@@ -43,7 +42,7 @@ package org.birdbase.framework.controller.configuration
 			
 			signalCommandMap.mapSignalClass( UpdateDynamicLibrary, UpdateDynamicLibraryCommand );
 
-			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.CONFIGURE_COMMANDS_COMPLETE ) );
+			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.CONFIGURE_COMMANDS_COMPLETE ) );
 		}
 	}
 }

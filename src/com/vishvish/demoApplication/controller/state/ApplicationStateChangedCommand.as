@@ -8,11 +8,7 @@ package com.vishvish.demoApplication.controller.state
 	import org.robotlegs.mvcs.SignalCommand;
 
 	/**
-	 *	// TODO ApplicationStateChangedCommand 
-	 *	
-	 *	// TODO @example 
-	 *	
-	 *	// TODO @exampleText 
+	 *	ApplicationStateChangedCommand handles swfaddress changes and maps the parameters into the ApplicationModel.
 	 *	
 	 *	@author 	Vish Vishvanath
 	 *	@email 		vish.vishvanath@gmail.com
@@ -33,10 +29,8 @@ package com.vishvish.demoApplication.controller.state
 		public var swfAddress:SWFAddress;
 		
 		/**
-		 *	// TODO execute
-		 *	
-		 *	@return void	
-		 */
+		 * @inherit 
+		 */		
 		override public function execute():void
 		{
 			logger.debug( "ApplicationStateChangedCommand::execute --> SWFAddress" + swfAddress.getValue() );

@@ -4,8 +4,7 @@ package com.vishvish.demoApplication.controller
 	import com.vishvish.demoApplication.view.MainContainerView;
 	
 	import org.as3commons.logging.ILogger;
-	import org.birdbase.framework.controller.AppConfigStateConstants;
-	import org.birdbase.framework.model.PreferencesModel;
+	import org.birdbase.framework.controller.configuration.ConfigureStateMachineCommand;
 	import org.birdbase.framework.model.PreferencesModel;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
 	import org.osflash.signals.Signal;
@@ -13,11 +12,9 @@ package com.vishvish.demoApplication.controller
 	import org.robotlegs.utilities.statemachine.StateEvent;
 
 	/**
-	 *	// TODO ApplicationBootstrapCommand 
-	 *	
-	 *	// TODO @example 
-	 *	
-	 *	// TODO @exampleText 
+	 *	ApplicationBootstrapCommand is a point of contact between the BirdBase framework and the application.
+	 *	BirdBase will execute this command once configuration and localized strings are loaded and all other framework
+	 *	commands have been run to support the application.
 	 *	
 	 *	@author 	Vish Vishvanath
 	 *	@email 		vish.vishvanath@gmail.com
@@ -35,15 +32,12 @@ package com.vishvish.demoApplication.controller
 		public var swfAddress:SWFAddress;
 		
 		/**
-		 *	// TODO execute 
-		 *	
-		 *	@return void	
+		 * @inherit 
 		 */
 		override public function execute():void
 		{
-			logger.info( "ApplicationBootstrapCommand::execute" );
-			logger.info( "Birdbase is handing control over to the Application: Booting..." );
-			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.BOOT_APPLICATION_COMPLETE ) );
+			logger.info( "Birdbase is handing over control: ApplicationBootstrapCommand::Booting..." );
+			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.BOOT_APPLICATION_COMPLETE ) );
 			
 			var view:MainContainerView = new MainContainerView();
 			
@@ -57,7 +51,5 @@ package com.vishvish.demoApplication.controller
 			
 			view.show( s );
 		}
-		
-		
 	}
 }

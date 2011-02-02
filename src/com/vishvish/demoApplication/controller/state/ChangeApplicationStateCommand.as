@@ -8,11 +8,8 @@ package com.vishvish.demoApplication.controller.state
 	import org.robotlegs.mvcs.SignalCommand;
 
 	/**
-	 *	// TODO ChangeApplicationStateCommand 
-	 *	
-	 *	// TODO @example 
-	 *	
-	 *	// TODO @exampleText 
+	 *	ChangeApplicationStateCommand changes the application's state to reflect the ApplicationModel. Switches
+	 *	swfaddress to the appropriate URL.
 	 *	
 	 *	@author 	Vish Vishvanath
 	 *	@email 		vish.vishvanath@gmail.com
@@ -33,9 +30,7 @@ package com.vishvish.demoApplication.controller.state
 		public var swfAddress:SWFAddress;
 		
 		/**
-		 *	// TODO execute 
-		 *	
-		 *	@return void	
+		 * @inherit 
 		 */
 		override public function execute():void
 		{

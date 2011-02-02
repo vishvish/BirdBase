@@ -8,11 +8,9 @@ package org.birdbase.framework.service
 	
 	import org.as3commons.logging.ILogger;
 	import org.as3yaml.YAML;
-	import org.birdbase.framework.controller.AppConfigStateConstants;
-	import org.birdbase.framework.model.L10nModel;
+	import org.birdbase.framework.controller.configuration.ConfigureStateMachineCommand;
 	import org.birdbase.framework.model.L10nModel;
 	import org.birdbase.framework.utils.FlashVarsManager;
-	import org.birdbase.framework.utils.PropertiesParser;
 	import org.robotlegs.mvcs.Actor;
 	import org.robotlegs.utilities.statemachine.StateEvent;
 	
@@ -73,14 +71,7 @@ package org.birdbase.framework.service
 			loader.load( preferences );
 		}
 		
-		/**
-		 *	// TODO handleError 
-		 *	
-		 *	@param event 
-		 *	
-		 *	@return void	
-		 */
-		private function handleError(event:IOErrorEvent):void
+		private function handleError( event:IOErrorEvent ):void
 		{
 			logger.error( event.text );
 		}
@@ -90,7 +81,7 @@ package org.birdbase.framework.service
 			var map:Dictionary = YAML.decode( event.target.data ) as Dictionary;
 			model.map = map;
 			logger.debug( "L10nService::loaded YAML" );
-			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.CONFIGURE_LOCALIZATION_COMPLETE ) );
+			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.CONFIGURE_LOCALIZATION_COMPLETE ) );
 		}
 	}
 }

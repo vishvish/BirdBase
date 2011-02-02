@@ -6,7 +6,7 @@ package org.birdbase.modules.slideshow.service
 	import flash.net.URLRequest;
 	
 	import org.as3commons.logging.ILogger;
-	import org.birdbase.framework.controller.AppConfigStateConstants;
+	import org.birdbase.framework.controller.FiniteStateMachineConfiguration;
 	import org.birdbase.framework.utils.FlashVarsManager;
 	import org.birdbase.framework.utils.PropertiesParser;
 	import org.birdbase.modules.slideshow.model.SlideshowModel;
@@ -55,7 +55,7 @@ package org.birdbase.modules.slideshow.service
 		{
 			model.props = PropertiesParser.parse( URLLoader( event.target ).data );
 			logger.debug( "L10nService::loaded" );
-			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.CONFIGURE_LOCALIZATION_COMPLETE ) );
+			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, FiniteStateMachineConfiguration.CONFIGURE_LOCALIZATION_COMPLETE ) );
 		}
 	}
 }

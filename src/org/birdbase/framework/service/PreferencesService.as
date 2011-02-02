@@ -8,11 +8,9 @@ package org.birdbase.framework.service
 	
 	import org.as3commons.logging.ILogger;
 	import org.as3yaml.YAML;
-	import org.birdbase.framework.controller.AppConfigStateConstants;
-	import org.birdbase.framework.model.PreferencesModel;
+	import org.birdbase.framework.controller.configuration.ConfigureStateMachineCommand;
 	import org.birdbase.framework.model.PreferencesModel;
 	import org.birdbase.framework.utils.FlashVarsManager;
-	import org.birdbase.framework.utils.PropertiesParser;
 	import org.robotlegs.mvcs.Actor;
 	import org.robotlegs.utilities.statemachine.StateEvent;
 
@@ -100,7 +98,7 @@ package org.birdbase.framework.service
 			var map:Dictionary = YAML.decode( event.target.data ) as Dictionary;
 			model.loadPreferences( map );
 			logger.debug( "PreferencesService::loaded" );
-			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.CONFIGURE_PREFERENCES_COMPLETE ) );
+			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.CONFIGURE_PREFERENCES_COMPLETE ) );
 		}
 	}
 }

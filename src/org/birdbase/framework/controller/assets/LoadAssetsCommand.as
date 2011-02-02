@@ -4,8 +4,7 @@ package org.birdbase.framework.controller.assets
 	import org.assetloader.core.IAssetLoader;
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
-	import org.birdbase.framework.controller.AppConfigStateConstants;
-	import org.birdbase.framework.model.PreferencesModel;
+	import org.birdbase.framework.controller.configuration.ConfigureStateMachineCommand;
 	import org.birdbase.framework.model.PreferencesModel;
 	import org.robotlegs.mvcs.SignalCommand;
 	import org.robotlegs.utilities.statemachine.StateEvent;
@@ -76,7 +75,7 @@ package org.birdbase.framework.controller.assets
 				logger.debug( "LoadAssetsCommand::loaded: " + o );
 			}
 			logger.debug( "LoadAssetsCommand::handleComplete()" );
-			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.LOAD_ASSETS_COMPLETE ) );
+			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.LOAD_ASSETS_COMPLETE ) );
 		}
 	}
 }
