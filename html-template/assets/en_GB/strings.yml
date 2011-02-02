@@ -17,3 +17,18 @@ nav:
         view:           FourthView
 tagline: This is a tagline, right here.
 swap_assets: Swap those assets!
+
+external_links:
+    dzone:
+        name: dzone
+        destination: http://www.dzone.com/
+        label: DZone!
+    github:
+        name: github
+        destination: http://github.com/
+        label: github
+    birdbase:
+        name: birdbase
+        destination: http://www.birdbase.org/
+        label: BirdBase
+        

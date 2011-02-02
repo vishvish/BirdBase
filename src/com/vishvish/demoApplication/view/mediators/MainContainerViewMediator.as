@@ -2,6 +2,7 @@ package com.vishvish.demoApplication.view.mediators
 {
 	import com.greensock.TweenMax;
 	import com.greensock.easing.Quart;
+	import com.vishvish.demoApplication.IExternalLinkActionable;
 	import com.vishvish.demoApplication.view.*;
 	
 	import flash.display.DisplayObject;
@@ -86,13 +87,12 @@ package com.vishvish.demoApplication.view.mediators
 			
 			for( var i:int = 0; i < navMap.length; i++ )
 			{
-				var item:Object = Dictionary( navMap[i] ).item;
+				var item:Object = Dictionary( navMap[ i ] ).item;
 				var action:Action = new Action( item.destination, item.label )
 				navigationArray.push( action );
 			}
 			
 			view.buildNavigation( navigationArray );
-			
 			
 			view.tagline.text = l10n.map.tagline;
 			view.toggleAssetButton.label = l10n.map.swap_assets;
@@ -108,24 +108,40 @@ package com.vishvish.demoApplication.view.mediators
 			views[ "about" ] = ThirdView;
 			
 			var ns:NativeSignal = new NativeSignal( view.logo, MouseEvent.CLICK, MouseEvent );
-			ns.add(gotoHome);
-//
+			ns.add( gotoHome );
+
 			var signal:NativeSignal = new NativeSignal( view, MouseEvent.CLICK, MouseEvent );
 			signal.add( viewPressed );
-			
 		}
 
+		/**
+		 * This handler will pick up signals from its view and subviews. This is deliberate: the top-level view may
+		 * want to know this, and perform its own view actions.
+		 * 
+		 * @param e
+		 */
 		private function viewPressed( e:MouseEvent ):void
 		{
-			// did someone just press a navigation button?
-			if( e.target is INavigationActionable )
+			if( e.target is INavigationActionable ) // for navigation actions
 			{
-				var destination:String = IActionable( e.target ).action.destination
-				logger.debug( "MainContainerViewMediator::viewPressed / Navigation --> " + destination );
-				//
-				swfAddress.setValue( destination );
+				var action:Action = IActionable( e.target ).action;
+				if( action )
+				{
+					var destination:String = action.destination
+					logger.debug( "MainContainerViewMediator::viewPressed / INavigationActionable --> " + destination );
+					swfAddress.setValue( destination );
+				}
 			}
-			else
+			else if( e.target is IExternalLinkActionable ) // for external link actions
+			{
+				var action:Action = IActionable( e.target ).action;
+				if( action )
+				{
+					var destination:String = action.destination
+					logger.debug( "MainContainerViewMediator::viewPressed / IExternalLinkActionable --> " + destination );
+				}
+			}
+			else // everything else
 			{
 				logger.debug( "MainContainerViewMediator::viewPressed " + e.target.toString() );
 			}
@@ -191,12 +207,8 @@ package com.vishvish.demoApplication.view.mediators
 		protected function showView( newView:IView ):void
 		{
 			currentView = newView;
-
-//			Sprite( currentView ).alpha = 0;
-			
 			view.viewContainer.addChild( DisplayObject( currentView ) );
 			currentView.show( null );
-//			beginShow();
 		}
 		
 		private function beginShow():void

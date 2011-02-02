@@ -1,6 +1,7 @@
 package com.vishvish.demoApplication
 {
 	import com.vishvish.demoApplication.controller.state.ChangeApplicationStateCommand;
+	import com.vishvish.demoApplication.helpers.ViewHelper;
 	import com.vishvish.demoApplication.model.ApplicationModel;
 	import com.vishvish.demoApplication.view.*;
 	import com.vishvish.demoApplication.view.mediators.*;
@@ -50,6 +51,9 @@ package com.vishvish.demoApplication
 			// models
 			injector.mapSingleton( ApplicationModel );
 			injector.mapSingleton( SlideshowModule );
+			
+			// helpers
+			injector.mapSingleton( ViewHelper );
 
 			// modules
 			viewMap.mapType( SlideshowModule );

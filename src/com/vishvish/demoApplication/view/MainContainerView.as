@@ -2,19 +2,15 @@ package com.vishvish.demoApplication.view
 {
 	import com.bit101.components.PushButton;
 	import com.bit101.components.Text;
-	import org.birdbase.framework.action.Action;
-	import org.birdbase.framework.action.IActionable;
-	import com.vishvish.demoApplication.controller.NavigationButton;
+	import com.vishvish.demoApplication.view.components.NavigationButton;
 	
 	import flash.display.Sprite;
 	import flash.events.MouseEvent;
-	import flash.text.TextField;
-	import flash.text.TextFormat;
 	
 	import org.as3commons.logging.ILogger;
 	import org.as3commons.logging.LoggerFactory;
-	import org.birdbase.framework.model.L10nModel;
-	import org.birdbase.framework.service.L10nService;
+	import org.birdbase.framework.action.Action;
+	import org.birdbase.framework.action.INavigationActionable;
 	import org.birdbase.framework.utils.DynamicSprite;
 	import org.birdbase.framework.view.IView;
 	import org.osflash.signals.Signal;
@@ -119,9 +115,9 @@ package com.vishvish.demoApplication.view
 		
 		protected function navigationSelected( e:MouseEvent ):void
 		{
-			if( e.target is IActionable )
+			if( e.target is INavigationActionable )
 			{
-				logger.debug( IActionable( e.target ).action.destination );
+				logger.debug( INavigationActionable( e.target ).action.destination );
 			}
 		}
 		

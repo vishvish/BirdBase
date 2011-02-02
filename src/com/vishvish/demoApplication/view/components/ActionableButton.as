@@ -1,15 +1,17 @@
-package com.vishvish.demoApplication.controller
+package com.vishvish.demoApplication.view.components
 {
 	import com.bit101.components.PushButton;
+	
 	import flash.display.DisplayObjectContainer;
+	
 	import org.birdbase.framework.action.IAction;
-	import org.birdbase.framework.action.INavigationActionable;
+	import org.birdbase.framework.action.IActionable;
 
-	public class NavigationButton extends PushButton implements INavigationActionable
+	public class ActionableButton extends PushButton implements IActionable
 	{
-		private var _action:IAction;
+		protected var _action:IAction;
 		
-		public function NavigationButton( parent:DisplayObjectContainer = null, 
+		public function ActionableButton( parent:DisplayObjectContainer = null, 
 										  xpos:Number = 0, 
 										  ypos:Number = 0, 
 										  label:String = "Navigation Button", 
