@@ -46,7 +46,7 @@ package com.vishvish.demoApplication.view.mediators
 		public var pm:PreferencesModel;
 		
 		[Inject]
-		public var l10n:L10nYAMLModel;
+		public var l10n:L10nModel;
 		
 		[Inject]
 		public var logger:ILogger;
@@ -98,7 +98,7 @@ package com.vishvish.demoApplication.view.mediators
 			view.toggleAssetButton.label = l10n.map.swap_assets;
 			
 			// set up the toggling of the asset library
-			pm.setProperty( "dynamic-library", "assets.swf" );
+			pm.setPreference( "dynamicLibrary", "assets.swf" );
 			var toggleAssetSignal:NativeSignal = new NativeSignal( view.toggleAssetButton, MouseEvent.CLICK, MouseEvent );
 			toggleAssetSignal.add( updateDynamicLib );
 			
@@ -206,7 +206,7 @@ package com.vishvish.demoApplication.view.mediators
 		
 		protected function changeDynamicLibrary():void
 		{
-			pm.setProperty( "dynamic-library", "assets2.swf" );
+			pm.setPreference( "dynamicLibrary", "assets2.swf" );
 			updateDynamicLibrary.dispatch();
 		}
 	}

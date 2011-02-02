@@ -10,7 +10,7 @@ package org.birdbase.framework.service
 	import org.as3yaml.YAML;
 	import org.birdbase.framework.controller.AppConfigStateConstants;
 	import org.birdbase.framework.model.L10nModel;
-	import org.birdbase.framework.model.L10nYAMLModel;
+	import org.birdbase.framework.model.L10nModel;
 	import org.birdbase.framework.utils.FlashVarsManager;
 	import org.birdbase.framework.utils.PropertiesParser;
 	import org.robotlegs.mvcs.Actor;
@@ -33,7 +33,7 @@ package org.birdbase.framework.service
 		public var fm:FlashVarsManager;
 		
 		[Inject]
-		public var model:L10nYAMLModel;
+		public var model:org.birdbase.framework.model.L10nModel;
 		
 		[Inject]
 		/**
@@ -85,20 +85,6 @@ package org.birdbase.framework.service
 			logger.error( event.text );
 		}
 		
-		/**
-		 *	// TODO handleComplete 
-		 *	
-		 *	@param event 
-		 *	
-		 *	@return void	
-		 */
-		private function disabled_handleComplete(event:Event):void
-		{
-//			model.props = PropertiesParser.parse( URLLoader( event.target ).data );
-			logger.debug( "L10nService::loaded PROPS" );
-			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.CONFIGURE_LOCALIZATION_COMPLETE ) );
-		}
-
 		private function handleComplete( event:Event ) : void
 		{
 			var map:Dictionary = YAML.decode( event.target.data ) as Dictionary;

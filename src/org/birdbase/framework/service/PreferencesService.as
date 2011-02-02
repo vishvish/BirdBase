@@ -1,16 +1,18 @@
 package org.birdbase.framework.service
 {
-	import org.birdbase.framework.controller.AppConfigStateConstants;
-	import org.birdbase.framework.model.PreferencesModel;
-	import org.birdbase.framework.utils.FlashVarsManager;
-	import org.birdbase.framework.utils.PropertiesParser;
-	
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
+	import flash.utils.Dictionary;
 	
 	import org.as3commons.logging.ILogger;
+	import org.as3yaml.YAML;
+	import org.birdbase.framework.controller.AppConfigStateConstants;
+	import org.birdbase.framework.model.PreferencesModel;
+	import org.birdbase.framework.model.PreferencesModel;
+	import org.birdbase.framework.utils.FlashVarsManager;
+	import org.birdbase.framework.utils.PropertiesParser;
 	import org.robotlegs.mvcs.Actor;
 	import org.robotlegs.utilities.statemachine.StateEvent;
 
@@ -34,7 +36,7 @@ package org.birdbase.framework.service
 		/**
 		 *	// TODO model 
 		 */
-		public var model:PreferencesModel;
+		public var model:org.birdbase.framework.model.PreferencesModel;
 		
 		[Inject]
 		/**
@@ -64,7 +66,7 @@ package org.birdbase.framework.service
 			
 			model.preferencesFileName = 
 				fm.vars( "preferencesFileName" ) 
-				? fm.vars( "preferencesFileName" ) : "preferences.properties";
+				? fm.vars( "preferencesFileName" ) : "config.yml";
 
 			var preferences:URLRequest = new URLRequest( model.assetBasePath + model.preferencesFileName );
 			var loader:URLLoader = new URLLoader();
@@ -95,7 +97,8 @@ package org.birdbase.framework.service
 		 */
 		private function handleComplete(event:Event):void
 		{
-			model.props = PropertiesParser.parse( URLLoader( event.target ).data );
+			var map:Dictionary = YAML.decode( event.target.data ) as Dictionary;
+			model.loadPreferences( map );
 			logger.debug( "PreferencesService::loaded" );
 			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.CONFIGURE_PREFERENCES_COMPLETE ) );
 		}

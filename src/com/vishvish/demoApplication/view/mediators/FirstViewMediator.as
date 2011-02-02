@@ -5,6 +5,7 @@ package com.vishvish.demoApplication.view.mediators
 	import flash.events.MouseEvent;
 	
 	import org.birdbase.framework.model.L10nModel;
+	import org.birdbase.framework.model.L10nModel;
 	import org.birdbase.framework.view.AbstractBirdbaseMediator;
 	import org.birdbase.modules.navigation.NavigationModule;
 	import org.birdbase.modules.slideshow.SlideshowModule;
@@ -33,7 +34,7 @@ package com.vishvish.demoApplication.view.mediators
 		public var slideshow:SlideshowModule;
 		
 		[Inject]
-		public var l10n:L10nModel;
+		public var l10n:org.birdbase.framework.model.L10nModel;
 		
 		/**
 		 *	// TODO FirstViewMediator 

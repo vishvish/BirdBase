@@ -1,9 +1,11 @@
 package com.vishvish.demoApplication.controller
 {
-	import org.as3commons.logging.ILogger;
 	import com.vishvish.demoApplication.controller.state.ApplicationStateChangedCommand;
 	import com.vishvish.demoApplication.view.MainContainerView;
+	
+	import org.as3commons.logging.ILogger;
 	import org.birdbase.framework.controller.AppConfigStateConstants;
+	import org.birdbase.framework.model.PreferencesModel;
 	import org.birdbase.framework.model.PreferencesModel;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
 	import org.osflash.signals.Signal;
@@ -27,7 +29,7 @@ package com.vishvish.demoApplication.controller
 		public var logger:ILogger;
 		
 		[Inject]
-		public var pm:PreferencesModel;
+		public var pm:org.birdbase.framework.model.PreferencesModel;
 		
 		[Inject]
 		public var swfAddress:SWFAddress;

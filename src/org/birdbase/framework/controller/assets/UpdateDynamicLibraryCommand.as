@@ -4,6 +4,7 @@ package org.birdbase.framework.controller.assets
 	import org.assetloader.core.IAssetLoader;
 	import org.assetloader.signals.ErrorSignal;
 	import org.birdbase.framework.model.PreferencesModel;
+	import org.birdbase.framework.model.PreferencesModel;
 	import org.robotlegs.mvcs.SignalCommand;
 	
 	public class UpdateDynamicLibraryCommand extends SignalCommand
@@ -15,7 +16,7 @@ package org.birdbase.framework.controller.assets
 		public var assetLoader:IAssetLoader;
 		
 		[Inject]
-		public var pm:PreferencesModel;
+		public var pm:org.birdbase.framework.model.PreferencesModel;
 
 		public function UpdateDynamicLibraryCommand()
 		{
@@ -26,22 +27,22 @@ package org.birdbase.framework.controller.assets
 		{
 			logger.debug( "UpdateDynamicLibraryCommand::execute" );
 			
-			var newLibrary:String = pm.getProperty( "dynamic-library" ) ? pm.getProperty( "dynamic-library" ) : null;
+			var newLibrary:String = pm.getPreference( "dynamicLibrary" ) ? pm.getPreference( "dynamicLibrary" ) : null;
 			
 			if( !newLibrary )
 			{
 				logger.error( "The name of the Dynamic Library is not defined in the PreferencesModel. " +
 					"Add its name to the Model before triggering this Signal. " +
-					"e.g. pm.setProperty( 'dynamic-library', 'assets2.swf' )" );
+					"e.g. pm.setPreference( 'dynamicLibrary', 'assets2.swf' )" );
 			}
 			else
 			{
 				var newLibraryPath:String = pm.assetBasePath + newLibrary;
-				if( assetLoader.hasAsset( "dynamic-library" ) )
+				if( assetLoader.hasAsset( "dynamicLibrary" ) )
 				{
-					assetLoader.remove( "dynamic-library" );
+					assetLoader.remove( "dynamicLibrary" );
 				}
-				assetLoader.addLazy( "dynamic-library", newLibraryPath );
+				assetLoader.addLazy( "dynamicLibrary", newLibraryPath );
 				assetLoader.onError.add( handleError );
 				signalCommandMap.mapSignal( assetLoader.onComplete, RegisterDynamicLibraryCommand, true );
 				assetLoader.start();

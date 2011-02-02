@@ -24,9 +24,9 @@ package org.birdbase.framework.controller.assets
 		{
 			logger.debug( "RegisterDynamicLibraryCommand::execute" );
 			
-			if( assetLoader.getAsset( "dynamic-library" ) )
+			if( assetLoader.getAsset( "dynamicLibrary" ) )
 			{
-				DynamicSprite.update( "dynamic-library", assetLoader.getAsset( "dynamic-library" ) as MovieClip );
+				DynamicSprite.update( "dynamicLibrary", assetLoader.getAsset( "dynamicLibrary" ) as MovieClip );
 				logger.debug( "DynamicSprite successfully updated with dynamic library" );
 			}
 			else

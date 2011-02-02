@@ -6,6 +6,7 @@ package org.birdbase.framework.controller.assets
 	import org.assetloader.signals.LoaderSignal;
 	import org.birdbase.framework.controller.AppConfigStateConstants;
 	import org.birdbase.framework.model.PreferencesModel;
+	import org.birdbase.framework.model.PreferencesModel;
 	import org.robotlegs.mvcs.SignalCommand;
 	import org.robotlegs.utilities.statemachine.StateEvent;
 	
@@ -29,7 +30,7 @@ package org.birdbase.framework.controller.assets
 		public var assetLoader:IAssetLoader;
 		
 		[Inject]
-		public var pm:PreferencesModel;
+		public var pm:org.birdbase.framework.model.PreferencesModel;
 		
 		/**
 		 *	// TODO execute 
@@ -39,9 +40,9 @@ package org.birdbase.framework.controller.assets
 		override public function execute():void
 		{
 			logger.error( "LoadAssetsCommand::execute" );
-			logger.debug( "Loading from: " + pm.assetBasePath + pm.getProperty( "assetsFile" ) );
+			logger.debug( "Loading from: " + pm.assetBasePath + pm.getPreference( "assetsFile" ) );
 
-			assetLoader.addConfig( pm.assetBasePath + pm.getProperty( "assetsFile" ) );
+			assetLoader.addConfig( pm.assetBasePath + pm.getPreference( "assetsFile" ) );
 			assetLoader.onConfigLoaded.add( handleConfigLoaded );
 			
 			signalCommandMap.mapSignal( assetLoader.onComplete, RegisterDynamicLibraryCommand, true );

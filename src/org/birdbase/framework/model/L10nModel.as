@@ -1,46 +1,51 @@
 package org.birdbase.framework.model
 {
-	/**
-	 *	// TODO L10nModel 
-	 *	
-	 *	// TODO @example 
-	 *	
-	 *	// TODO @exampleText 
-	 *	
-	 *	@author 	Vish Vishvanath
-	 *	@email 		vish.vishvanath@gmail.com
-	 *	@since 		11 January 2011
-	 */
-	public class L10nModel extends BirdbaseApplicationModel
-	{
-		/**
-		 *	// TODO _l10nFilename 
-		 */
-		protected var _l10nFilename:String = "l10n.properties";
+	import flash.utils.Dictionary;
+	
+	import org.robotlegs.mvcs.Actor;
 
-		/**
-		 *	// TODO L10nModel 
-		 */
+	public class L10nModel extends Actor
+	{
+		private var _locale:String = "en_GB";
+
+		protected var _map:Dictionary;
+		
+		private var _l10nFilename:String = "strings.yml";
+
 		public function L10nModel()
 		{
 			super();
 		}
 		
-		/**
-		 * l10nFilename // TODO 
-		 */
+		public function get map():Dictionary
+		{
+			return _map;
+		}
+		
+		public function set map( value:Dictionary ):void
+		{
+			_map = value;
+		}
+
+		public function get locale():String
+		{
+			return _locale;
+		}
+
+		public function set locale(value:String):void
+		{
+			_locale = value;
+		}
+
 		public function get l10nFilename():String
 		{
 			return _l10nFilename;
 		}
-		
-		/**
-		 * @private
-		 */
-		public function set l10nFilename( value:String ):void
+
+		public function set l10nFilename(value:String):void
 		{
 			_l10nFilename = value;
 		}
-		
+
 	}
 }

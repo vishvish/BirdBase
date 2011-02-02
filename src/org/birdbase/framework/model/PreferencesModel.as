@@ -1,45 +1,40 @@
 package org.birdbase.framework.model
 {
-	/**
-	 *	// TODO PreferencesModel 
-	 *	
-	 *	// TODO @example 
-	 *	
-	 *	// TODO @exampleText 
-	 *	
-	 *	@author 	Vish Vishvanath
-	 *	@email 		vish.vishvanath@gmail.com
-	 *	@since 		11 January 2011
-	 */
-	public class PreferencesModel extends BirdbaseApplicationModel
+	import flash.utils.Dictionary;
+	
+	import org.robotlegs.mvcs.Actor;
+	
+	public class PreferencesModel extends Actor
 	{
-		/**
-		 *	// TODO _preferencesFileName 
-		 */
-		private var _preferencesFileName:String = "preferences.properties";
+		private var _locale:String = "en_GB";
 		
-		/**
-		 *	// TODO PreferencesModel 
-		 */
+		protected var _map:Dictionary;
+		
+		private var _preferencesFileName:String = "config.yml";
+		
 		public function PreferencesModel()
 		{
 			super();
 		}
-
-		/**
-		 * preferencesFileName // TODO 
-		 */
-		public function get preferencesFileName():String
+				
+		public function getPreference( key:String ):*
 		{
-			return _preferencesFileName;
+			return _map[ key ];
 		}
-
-		/**
-		 * @private
-		 */
-		public function set preferencesFileName( value:String ):void
+		
+		public function setPreference( key:String, value:* ):void
 		{
-			_preferencesFileName = value;
+			_map[ key ] = value;
+		}
+		
+		public function get locale():String
+		{
+			return _locale;
+		}
+		
+		public function set locale(value:String):void
+		{
+			_locale = value;
 		}
 		
 		public function get assetBasePath():String
@@ -47,6 +42,33 @@ package org.birdbase.framework.model
 			var result:String = "assets/" + this.locale + "/";
 			return result;
 		}
+		
+		/**
+		 * preferencesFileName // TODO 
+		 */
+		public function get preferencesFileName():String
+		{
+			return _preferencesFileName;
+		}
+		
+		/**
+		 * @private
+		 */
+		public function set preferencesFileName( value:String ):void
+		{
+			_preferencesFileName = value;
+		}
 
+		public function loadPreferences( map:Dictionary ):void
+		{
+			if( !_map )
+			{
+				_map = map
+			}
+			else
+			{
+				throw new Error( "Cannot load preferences more than once" );
+			}
+		}
 	}
 }
