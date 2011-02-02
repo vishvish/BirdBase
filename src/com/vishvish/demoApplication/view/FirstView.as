@@ -4,7 +4,6 @@ package com.vishvish.demoApplication.view
 	import com.bit101.components.Text;
 	
 	import org.birdbase.framework.view.AbstractTransitioningView;
-	import org.birdbase.modules.navigation.NavigationModule;
 	import org.birdbase.modules.slideshow.SlideshowModule;
 
 	/**

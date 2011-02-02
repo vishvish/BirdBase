@@ -1,9 +1,7 @@
 package org.birdbase.modules.slideshow.view.mediators
 {
 	import org.birdbase.framework.view.AbstractBirdbaseMediator;
-	import org.birdbase.modules.slideshow.ISlideshowModule;
 	import org.birdbase.modules.slideshow.view.SlideshowView;
-	import org.robotlegs.mvcs.Mediator;
 	
 	public class SlideshowMediator extends AbstractBirdbaseMediator
 	{

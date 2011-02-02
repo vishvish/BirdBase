@@ -25,15 +25,5 @@ package org.birdbase.modules.slideshow
 		{
 			
 		}
-
-		public function get configuration():IBirdbaseModuleConfiguration
-		{
-			// TODO Auto-generated method stub
-		}
-
-		public function set configuration(value:IBirdbaseModuleConfiguration):void
-		{
-			// TODO Auto-generated method stub
-		}
 	}
 }

@@ -1,7 +1,6 @@
 package org.birdbase.framework.controller.configuration
 {
 	import org.as3commons.logging.ILogger;
-	import org.birdbase.framework.controller.FiniteStateMachineConfiguration;
 	import org.birdbase.framework.controller.assets.UpdateDynamicLibraryCommand;
 	import org.birdbase.framework.signals.UpdateDynamicLibrary;
 	import org.robotlegs.mvcs.SignalCommand;

@@ -11,7 +11,6 @@ package com.vishvish.demoApplication
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.service.*;
 	import org.birdbase.framework.signals.*;
-	import org.birdbase.modules.navigation.NavigationModule;
 	import org.birdbase.modules.slideshow.SlideshowModule;
 	
 	/**

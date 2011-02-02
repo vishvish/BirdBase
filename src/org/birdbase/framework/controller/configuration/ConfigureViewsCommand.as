@@ -1,6 +1,5 @@
 package org.birdbase.framework.controller.configuration
 {
-	import org.birdbase.framework.controller.FiniteStateMachineConfiguration;
 	import org.birdbase.framework.controller.abstract.BirdbaseCommand;
 	import org.robotlegs.utilities.statemachine.StateEvent;
 	

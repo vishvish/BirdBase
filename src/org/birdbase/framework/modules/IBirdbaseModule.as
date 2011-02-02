@@ -5,8 +5,5 @@ package org.birdbase.framework.modules
 	public interface IBirdbaseModule extends IModule
 	{
 		function init( data:Array ):void;
-		
-		function get configuration():IBirdbaseModuleConfiguration;
-		function set configuration(value:IBirdbaseModuleConfiguration):void;
 	}
 }

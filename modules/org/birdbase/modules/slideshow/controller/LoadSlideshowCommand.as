@@ -2,12 +2,10 @@ package org.birdbase.modules.slideshow.controller
 {
 	import org.as3commons.collections.ArrayList;
 	import org.as3commons.logging.ILogger;
-	import org.assetloader.AssetLoader;
 	import org.assetloader.core.IAssetLoader;
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
 	import org.birdbase.framework.model.PreferencesModel;
-	import org.birdbase.modules.slideshow.ISlideshowModule;
 	import org.birdbase.modules.slideshow.signals.SlideshowLoaded;
 	import org.birdbase.modules.slideshow.view.SlideshowView;
 	import org.osflash.signals.Signal;
@@ -65,7 +63,7 @@ package org.birdbase.modules.slideshow.controller
 			for( var o:Object in data )
 			{
 				logger.debug( "LoadSlideshowCommand::loaded: " + o );
-				list.add( assetLoader.getAsset( o ) );
+				list.add( assetLoader.getAsset( o.toString() ) );
 			}
 			logger.debug( "LoadSlideshowCommand::handleComplete()" );
 			var ss:SlideshowLoaded = new SlideshowLoaded( list );
