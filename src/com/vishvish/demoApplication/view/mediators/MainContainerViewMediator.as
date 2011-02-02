@@ -1,13 +1,7 @@
 package com.vishvish.demoApplication.view.mediators
 {
-	import com.bit101.components.PushButton;
 	import com.greensock.TweenMax;
 	import com.greensock.easing.Quart;
-	import org.birdbase.framework.action.Action;
-	import org.birdbase.framework.action.ActionSignal;
-	import org.birdbase.framework.action.IActionable;
-	import org.birdbase.framework.action.INavigationActionable;
-	import com.vishvish.demoApplication.controller.NavigationButton;
 	import com.vishvish.demoApplication.view.*;
 	
 	import flash.display.DisplayObject;
@@ -15,6 +9,7 @@ package com.vishvish.demoApplication.view.mediators
 	import flash.utils.Dictionary;
 	
 	import org.as3commons.logging.ILogger;
+	import org.birdbase.framework.action.*;
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.signals.*;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
@@ -132,7 +127,7 @@ package com.vishvish.demoApplication.view.mediators
 			}
 			else
 			{
-				logger.debug( "MainContainerViewMediator::viewPressed" );
+				logger.debug( "MainContainerViewMediator::viewPressed " + e.target.toString() );
 			}
 		}
 
@@ -150,7 +145,6 @@ package com.vishvish.demoApplication.view.mediators
 		 */
 		protected function gotoHome( evt:MouseEvent ):void
 		{	
-//			trace("GotoHome");
 			swfAddress.setValue( "home" );
 		}
 		/**
@@ -161,6 +155,10 @@ package com.vishvish.demoApplication.view.mediators
 		protected function onViewStateChange():void
 		{
 			var viewName:String = viewState.viewName;
+			
+			// if it's empty, set it to the home page
+			if( viewName == "" ) viewName; // = "home";
+			
 			logger.debug( "MainUIMediator::onViewStateChanged: " + viewName );
 			
 			if( views.hasOwnProperty( viewName ) )

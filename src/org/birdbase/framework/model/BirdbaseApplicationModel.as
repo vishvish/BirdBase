@@ -45,9 +45,9 @@ package org.birdbase.framework.model
 		 */
 		public function getProperty( name:String, ...args:* ):String
 		{
-			var n		:int 	= _props.length;
-			var m		:int 	= args.length;
-			var value	:String = null;
+			var n:int = _props.length;
+			var m:int = args.length;
+			var value:String = null;
 			
 			while( --n > -1 )
 			{
@@ -55,11 +55,11 @@ package org.birdbase.framework.model
 				{
 					value = String(_props[n].value);
 					// replace any numerical tokens in the property with values passed in via the args parameter
-					while (--m > -1) value = value.split("{" + (m + 1) + "}").join(args[m]);
+					while ( --m > -1 ) value = value.split( "{" + ( m + 1 ) + "}" ).join( args[ m ] );
 				}
 			}
 			
-			if (value != null && (value == "" || value.length == 0)) value = "";
+			if ( value != null && ( value == "" || value.length == 0 ) ) value = "";
 			return value;
 		}
 		
@@ -71,13 +71,16 @@ package org.birdbase.framework.model
 		 *	
 		 *	@return void	
 		 */
-		public function setProperty(name:String, value:String):void
+		public function setProperty( name:String, value:String ):void
 		{
-			var i:int = getPropertyIndex(name);
-			if(i == -1){
+			var i:int = getPropertyIndex( name );
+			if( i == -1 )
+			{
 				_props.push( { name:name, value:value } );
-			} else {
-				_props[i] = { name:name, value:value };
+			}
+			else
+			{
+				_props[ i ] = { name:name, value:value };
 			}
 		}
 		
@@ -88,10 +91,10 @@ package org.birdbase.framework.model
 		 *	
 		 *	@return void	
 		 */
-		public function removeProperty(name:String):void
+		public function removeProperty( name:String ):void
 		{
-			var i:int = getPropertyIndex(name);
-			if (i != -1) _props.splice(i, 1);
+			var i:int = getPropertyIndex( name );
+			if ( i != -1 ) _props.splice( i, 1 );
 		}
 		
 		/**
@@ -104,8 +107,12 @@ package org.birdbase.framework.model
 		protected function getPropertyIndex(name:String):int
 		{
 			var n:int = _props.length;
-			while (--n > -1) {
-				if (String(_props[n].name) == name) return n;
+			while ( --n > -1 )
+			{
+				if ( String( _props[ n ].name ) == name )
+				{
+					return n;
+				}
 			}
 			return -1;
 		}
@@ -121,7 +128,7 @@ package org.birdbase.framework.model
 		/**
 		 * @private
 		 */
-		public function set props(value:Array):void
+		public function set props( value:Array ):void
 		{
 			_props = value;
 		}

@@ -21,7 +21,7 @@ package com.vishvish.demoApplication.model
 					_map.removeKey( key );
 				}
 			}
-			trace( "ApplicationModel::addParameter", key, item, _map.add( key, item ), _map.size );
+			logger.debug( [ "ApplicationModel::addParameter", key, item, _map.add( key, item ), _map.size ].toString() );
 		}
 		
 		public function get map():Map

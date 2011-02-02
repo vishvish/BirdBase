@@ -42,13 +42,17 @@ package com.vishvish.demoApplication.controller
 			logger.info( "ApplicationBootstrapCommand::execute" );
 			logger.info( "Birdbase is handing control over to the Application: Booting..." );
 			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, AppConfigStateConstants.BOOT_APPLICATION_COMPLETE ) );
+			
 			var view:MainContainerView = new MainContainerView();
+			
 			contextView.addChild( view );
+			
 			var s:Signal = new Signal();
 			s.add( function():void 
 			{
 				signalCommandMap.mapSignal( swfAddress.change, ApplicationStateChangedCommand );
 			});
+			
 			view.show( s );
 		}
 		

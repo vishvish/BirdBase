@@ -85,7 +85,7 @@ package com.vishvish.demoApplication.view
 			addChild( toggleAssetButton );
 
 			loadSlideshowButton = new PushButton( this, 850, 70, "Load Slideshow" );
-			addChild( loadSlideshowButton );
+//			addChild( loadSlideshowButton );
 
 			block = new DynamicSprite( "block" );
 			block.x = 400;

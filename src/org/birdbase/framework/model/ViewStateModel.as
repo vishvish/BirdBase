@@ -1,7 +1,6 @@
 package org.birdbase.framework.model
 {
 	import org.birdbase.framework.signals.ViewStateChanged;
-	
 	import org.robotlegs.mvcs.Actor;
 	
 	/**
@@ -17,11 +16,13 @@ package org.birdbase.framework.model
 	 */
 	public class ViewStateModel extends Actor
 	{
+		public static const HOME_VIEW_NAME:String = "home";
+
 		[Inject]
 		public var viewStateChanged:ViewStateChanged;
 		
 		/**
-		 *	// TODO _viewName 
+		 *	Defaults to "home" at start.
 		 */
 		protected var _viewName:String;
 		
@@ -33,10 +34,25 @@ package org.birdbase.framework.model
 			return _viewName;
 		}
 
+		/**
+		 * Sets the current viewname. If empty, take that to
+		 * represent "home".
+		 * 
+		 * @param val
+		 */
 		public function set viewName( val:String ):void
 		{	
 			var changed:Boolean = val != _viewName;
-			_viewName = val;
+
+			if( val == "" )
+			{
+				_viewName = ViewStateModel.HOME_VIEW_NAME;
+			}
+			else
+			{
+				_viewName = val;
+			}
+
 			if( changed )
 			{
 				viewStateChanged.dispatch();
