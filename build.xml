@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This build file provdes a close approximation of the build process 
+     and build settings inside Flash Builder, but it is not an exact copy.  
+     Please customize this file as necessary. -->
+<!-- Generated from project settings as of 2/2/11 4:22 PM -->
+<project name="BirdBase" default="build" basedir="/Users/vish/git/BirdBase">
+
+	<property name="FLEX_HOME" value="/Users/vish/projects/lib/flex_sdk_4.1.0.16076"/>
+	<property name="SDK_VERSION" value="4.1.0.16076"/>
+
+	<taskdef name="mxmlc" classname="flex.ant.MxmlcTask" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+	<taskdef name="compc" classname="flex.ant.CompcTask" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+	<taskdef name="html-wrapper" classname="flex.ant.HtmlWrapperTask" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+	<taskdef name="asdoc" classname="flex.ant.AsDocTask" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+
+	<property name="PROJECT_DIR" value="/Users/vish/git/BirdBase"/>
+	<property name="SOURCE_DIR" value="${PROJECT_DIR}/src"/>
+	<property name="MODULE_DIR" value="${PROJECT_DIR}/modules"/>
+	<property name="OUTPUT_DIR" value="${PROJECT_DIR}/bin-debug"/>
+	<property name="LOCALE" value="en_US"/>
+
+	<target name="build">
+		<antcall target="clean"/>
+		<antcall target="compile"/>
+		<antcall target="wrapper"/>
+		<antcall target="asdoc"/>
+	</target>
+
+	<target name="clean">
+		<delete includeemptydirs="true">
+			<fileset dir="${OUTPUT_DIR}" includes="**/*"/>
+		</delete>
+	</target>
+
+	<target name="compile">
+		<mxmlc 
+			file="${SOURCE_DIR}/Main.as"
+			output="${OUTPUT_DIR}/Main.swf"
+			locale="${LOCALE}"
+			static-rsls="false"
+			accessible="false">
+			<load-config filename="${FLEX_HOME}/frameworks/flex-config.xml"/>
+
+			<source-path path-element="${SOURCE_DIR}"/>
+			<source-path path-element="${MODULE_DIR}"/>
+
+			<library-path file="${FLEX_HOME}/frameworks/libs/flash-integration.swc" append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/utilities.swc" append="true"/>
+			<library-path file="${PROJECT_DIR}/libs" append="true"/>
+
+			<external-library-path file="${FLEX_HOME}/frameworks/libs/player/10.0/playerglobal.swc" append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/flash-integration.swc" append="true"/>
+			<library-path file="${FLEX_HOME}/frameworks/libs/utilities.swc" append="true"/>
+
+			<library-path dir="${PROJECT_DIR}/libs" includes="*" append="true"/>
+
+		</mxmlc>
+
+
+	</target>
+
+	<target name="wrapper">
+		<html-wrapper 
+			output="${OUTPUT_DIR}"
+			file="Main.html"
+			swf="Main"
+			history="true"
+			express-install="true"
+			version-detection="true"
+			version-major="10"
+			version-minor="0"
+			version-revision="0" />
+	</target>
+
+	<target name="asdoc">
+		<asdoc output="${OUTPUT_DIR}/asdoc" lenient="true" failonerror="false">
+			<doc-sources path-element="${SOURCE_DIR}"/>
+			<doc-sources path-element="${MODULE_DIR}"/>
+
+			<library-path dir="${PROJECT_DIR}/libs" includes="*" append="true"/>
+		</asdoc>
+	</target>
+
+</project>
