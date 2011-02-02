@@ -1,6 +1,6 @@
 package com.vishvish.demoApplication.view.components
 {
-	import com.vishvish.demoApplication.IExternalLinkActionable;
+	import org.birdbase.framework.action.IExternalLinkActionable;
 	
 	import flash.display.DisplayObjectContainer;
 	

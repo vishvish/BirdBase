@@ -2,7 +2,7 @@ package com.vishvish.demoApplication.view.mediators
 {
 	import com.greensock.TweenMax;
 	import com.greensock.easing.Quart;
-	import com.vishvish.demoApplication.IExternalLinkActionable;
+	import org.birdbase.framework.action.IExternalLinkActionable;
 	import com.vishvish.demoApplication.view.*;
 	
 	import flash.display.DisplayObject;
