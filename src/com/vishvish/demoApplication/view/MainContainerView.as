@@ -5,12 +5,8 @@ package com.vishvish.demoApplication.view
 	import com.vishvish.demoApplication.view.components.NavigationButton;
 	
 	import flash.display.Sprite;
-	import flash.events.MouseEvent;
 	
-	import org.as3commons.logging.ILogger;
-	import org.as3commons.logging.LoggerFactory;
 	import org.birdbase.framework.action.Action;
-	import org.birdbase.framework.action.INavigationActionable;
 	import org.birdbase.framework.utils.DynamicSprite;
 	import org.birdbase.framework.view.IView;
 	import org.osflash.signals.Signal;
@@ -28,9 +24,6 @@ package com.vishvish.demoApplication.view
 	 */
 	public class MainContainerView extends Sprite implements IView
 	{
-		[Inject]
-		public var logger:ILogger;
-		
 		/**
 		 *	// TODO viewContainer 
 		 */
@@ -57,7 +50,6 @@ package com.vishvish.demoApplication.view
 		public function MainContainerView()
 		{
 			super();
-			logger = LoggerFactory.getLogger( "com.tfto.birdbase" );
 		}
 		
 		/**
@@ -67,8 +59,6 @@ package com.vishvish.demoApplication.view
 		 */
 		public function main():void
 		{
-			logger.debug( "MainContainerView::main" );
-			
 			logo = new DynamicSprite( "logo" );
 			logo.x = 550;
 			logo.y = 5
@@ -81,7 +71,7 @@ package com.vishvish.demoApplication.view
 			addChild( toggleAssetButton );
 
 			loadSlideshowButton = new PushButton( this, 850, 70, "Load Slideshow" );
-//			addChild( loadSlideshowButton );
+			//addChild( loadSlideshowButton );
 
 			block = new DynamicSprite( "block" );
 			block.x = 400;
@@ -110,14 +100,6 @@ package com.vishvish.demoApplication.view
 				button.x = spacing;
 				spacing += button.width + 10;
 				button.action = action;
-			}
-		}
-		
-		protected function navigationSelected( e:MouseEvent ):void
-		{
-			if( e.target is INavigationActionable )
-			{
-				logger.debug( INavigationActionable( e.target ).action.destination );
 			}
 		}
 		

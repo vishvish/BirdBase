@@ -2,7 +2,6 @@ package com.vishvish.demoApplication.view.mediators
 {
 	import com.greensock.TweenMax;
 	import com.greensock.easing.Quart;
-	import org.birdbase.framework.action.IExternalLinkActionable;
 	import com.vishvish.demoApplication.view.*;
 	
 	import flash.display.DisplayObject;
@@ -11,6 +10,8 @@ package com.vishvish.demoApplication.view.mediators
 	
 	import org.as3commons.logging.ILogger;
 	import org.birdbase.framework.action.*;
+	import org.birdbase.framework.action.IExternalLinkActionable;
+	import com.vishvish.demoApplication.helpers.ViewHelper;
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.signals.*;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
@@ -52,6 +53,9 @@ package com.vishvish.demoApplication.view.mediators
 		[Inject]
 		public var logger:ILogger;
 
+		[Inject]
+		public var helper:ViewHelper;
+
 		/**
 		 *	// TODO views 
 		 */
@@ -82,18 +86,19 @@ package com.vishvish.demoApplication.view.mediators
 			
 			view.main();
 			
-			var navigationArray:Array = [];
-			var navMap:Array = l10n.map.nav
+			var navigationActions:Array = [];
+			var navigation:Array = helper.navigation;
 			
-			for( var i:int = 0; i < navMap.length; i++ )
+			for( var i:int = 0; i < navigation.length; i++ )
 			{
-				var item:Object = Dictionary( navMap[ i ] ).item;
+				var item:Object = Dictionary( navigation[ i ] ).item;
 				var action:Action = new Action( item.destination, item.label )
-				navigationArray.push( action );
+				navigationActions.push( action );
 			}
 			
-			view.buildNavigation( navigationArray );
+			view.buildNavigation( navigationActions );
 			
+			// TODO replace these calls with helper functions
 			view.tagline.text = l10n.map.tagline;
 			view.toggleAssetButton.label = l10n.map.swap_assets;
 			

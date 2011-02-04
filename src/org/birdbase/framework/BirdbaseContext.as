@@ -17,6 +17,8 @@ package org.birdbase.framework
 	
 	public class BirdbaseContext extends ModuleContext
 	{
+		public var logger:ILogger;
+		
 		public function BirdbaseContext( contextView:DisplayObjectContainer )
 		{
 			super( contextView );
@@ -24,7 +26,7 @@ package org.birdbase.framework
 		
 		override public function startup():void
 		{
-			var logger:ILogger = LoggerFactory.getLogger( "org.birdbase.framework" );
+			logger = LoggerFactory.getLogger( "org.birdbase.framework" );
 			injector.mapValue( ILogger, logger );
 
 			var fm:FlashVarsManager = new FlashVarsManager( contextView );
