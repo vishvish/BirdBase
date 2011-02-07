@@ -1,7 +1,7 @@
 package com.vishvish.demoApplication.view.mediators
 {
 	import org.birdbase.framework.action.IExternalLinkActionable;
-	import com.vishvish.demoApplication.helpers.ViewHelper;
+	import org.birdbase.framework.view.helpers.ViewHelper;
 	import com.vishvish.demoApplication.view.ThirdView;
 	
 	import flash.events.MouseEvent;

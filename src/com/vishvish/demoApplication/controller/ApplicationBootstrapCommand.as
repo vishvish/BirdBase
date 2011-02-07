@@ -1,10 +1,10 @@
 package com.vishvish.demoApplication.controller
 {
-	import com.vishvish.demoApplication.controller.state.ApplicationStateChangedCommand;
 	import com.vishvish.demoApplication.view.MainContainerView;
 	
 	import org.as3commons.logging.ILogger;
 	import org.birdbase.framework.controller.configuration.ConfigureStateMachineCommand;
+	import org.birdbase.framework.controller.state.ApplicationStateChangedCommand;
 	import org.birdbase.framework.model.BootstrapModel;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
 	import org.osflash.signals.Signal;

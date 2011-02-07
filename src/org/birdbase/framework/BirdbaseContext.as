@@ -43,6 +43,7 @@ package org.birdbase.framework
 			// services
 			injector.mapSingleton( BootstrapModel );
 			injector.mapSingleton( BootstrapService );
+			injector.mapSingleton( AssetModel );
 			injector.mapSingleton( ConfigurationModel );
 			injector.mapSingleton( ConfigurationService );
 			

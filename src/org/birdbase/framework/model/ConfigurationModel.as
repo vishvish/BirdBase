@@ -14,7 +14,7 @@ package org.birdbase.framework.model
 	 * @since 7 February 2011
 	 * 
 	 */
-	public class ConfigurationModel extends Actor
+	public final class ConfigurationModel extends ApplicationModel
 	{
 		protected var _configuration:Dictionary;
 		

@@ -9,6 +9,7 @@ package org.birdbase.framework.service
 	import org.as3commons.logging.ILogger;
 	import org.as3yaml.YAML;
 	import org.birdbase.framework.controller.configuration.ConfigureStateMachineCommand;
+	import org.birdbase.framework.model.AssetModel;
 	import org.birdbase.framework.model.BootstrapModel;
 	import org.birdbase.framework.utils.FlashVarsManager;
 	import org.robotlegs.mvcs.Actor;
@@ -28,6 +29,9 @@ package org.birdbase.framework.service
 		
 		[Inject]
 		public var model:BootstrapModel;
+		
+		[Inject]
+		public var assetModel:AssetModel;
 		
 		[Inject]
 		public var logger:ILogger;

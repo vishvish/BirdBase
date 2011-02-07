@@ -1,4 +1,4 @@
-package com.vishvish.demoApplication.helpers
+package org.birdbase.framework.view.helpers
 {
 	import flash.utils.Dictionary;
 	
@@ -10,20 +10,16 @@ package com.vishvish.demoApplication.helpers
 		public var pm:BootstrapModel;
 		
 		[Inject]
-		public var l10n:ConfigurationModel;
-		
-		public function ViewHelper()
-		{
-		}
+		public var cm:ConfigurationModel;
 		
 		public function get externalLinks():Dictionary
 		{
-			return l10n.conf.external_links as Dictionary;
+			return cm.conf.external_links as Dictionary;
 		}
 		
 		public function get navigation():Array
 		{
-			return l10n.conf.nav as Array;
+			return cm.conf.nav as Array;
 		}
 		
 		/**

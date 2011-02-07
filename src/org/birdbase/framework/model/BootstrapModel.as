@@ -11,7 +11,7 @@ package org.birdbase.framework.model
 	 * @author Vish Vishvanath
 	 * @since 7 February 2011
 	 */
-	public class BootstrapModel extends Actor
+	public final class BootstrapModel extends Actor
 	{
 		protected var _locale:String = "en_GB";
 		

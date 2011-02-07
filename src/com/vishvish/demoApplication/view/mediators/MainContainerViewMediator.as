@@ -2,7 +2,7 @@ package com.vishvish.demoApplication.view.mediators
 {
 	import com.greensock.TweenMax;
 	import com.greensock.easing.Quart;
-	import com.vishvish.demoApplication.helpers.ViewHelper;
+	import org.birdbase.framework.view.helpers.ViewHelper;
 	import com.vishvish.demoApplication.view.*;
 	import com.vishvish.demoApplication.view.mediators.abstract.MapNavigation;
 	
@@ -74,7 +74,6 @@ package com.vishvish.demoApplication.view.mediators
 			view.toggleAssetButton.label = config.conf.swap_assets;
 			
 			// set up the toggling of the asset library
-//			config.setPreference( "dynamicLibrary", "assets2.swf" );
 			var toggleAssetSignal:NativeSignal = new NativeSignal( view.toggleAssetButton, MouseEvent.CLICK, MouseEvent );
 			toggleAssetSignal.add( changeDynamicLibrary );
 			

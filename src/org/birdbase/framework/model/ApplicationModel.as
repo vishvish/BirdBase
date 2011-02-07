@@ -1,10 +1,14 @@
-package com.vishvish.demoApplication.model
+package org.birdbase.framework.model
 {
 	import org.as3commons.collections.Map;
-	import org.birdbase.framework.model.BirdbaseApplicationModel;
+	import org.as3commons.logging.ILogger;
+	import org.robotlegs.mvcs.Actor;
 	
-	public final class ApplicationModel extends BirdbaseApplicationModel
+	public class ApplicationModel extends Actor
 	{
+		[Inject]
+		public var logger:ILogger;
+
 		private var _map:Map = new Map();
 		
 		public function ApplicationModel()

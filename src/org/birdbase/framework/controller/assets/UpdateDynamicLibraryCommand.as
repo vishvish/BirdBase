@@ -46,7 +46,6 @@ package org.birdbase.framework.controller.assets
 				}
 				assetLoader.addLazy( "dynamicLibrary", newLibraryPath );
 				assetLoader.onError.add( handleError );
-				signalCommandMap.mapSignal( assetLoader.onComplete, RegisterDynamicLibraryCommand, true );
 				assetLoader.start();
 			}
 		}

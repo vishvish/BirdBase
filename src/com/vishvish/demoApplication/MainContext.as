@@ -1,8 +1,8 @@
 package com.vishvish.demoApplication
 {
-	import com.vishvish.demoApplication.controller.state.ChangeApplicationStateCommand;
-	import com.vishvish.demoApplication.helpers.ViewHelper;
-	import com.vishvish.demoApplication.model.ApplicationModel;
+	import org.birdbase.framework.controller.state.ChangeApplicationStateCommand;
+	import org.birdbase.framework.view.helpers.ViewHelper;
+	import org.birdbase.framework.model.ApplicationModel;
 	import com.vishvish.demoApplication.view.*;
 	import com.vishvish.demoApplication.view.mediators.*;
 	

@@ -1,7 +1,7 @@
 package com.vishvish.demoApplication.view.mediators.abstract
 {
-	import com.vishvish.demoApplication.helpers.ViewHelper;
-	import com.vishvish.demoApplication.model.ApplicationModel;
+	import org.birdbase.framework.view.helpers.ViewHelper;
+	import org.birdbase.framework.model.ApplicationModel;
 	
 	import org.as3commons.logging.ILogger;
 	import org.birdbase.framework.model.ConfigurationModel;

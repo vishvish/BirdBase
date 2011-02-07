@@ -1,8 +1,7 @@
-package com.vishvish.demoApplication.controller.state
+package org.birdbase.framework.controller.state
 {
-	import com.vishvish.demoApplication.model.ApplicationModel;
-	
 	import org.as3commons.logging.ILogger;
+	import org.birdbase.framework.model.ApplicationModel;
 	import org.birdbase.framework.model.ViewStateModel;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
 	import org.robotlegs.mvcs.SignalCommand;
