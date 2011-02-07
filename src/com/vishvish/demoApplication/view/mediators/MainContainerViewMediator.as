@@ -74,9 +74,9 @@ package com.vishvish.demoApplication.view.mediators
 			view.toggleAssetButton.label = config.conf.swap_assets;
 			
 			// set up the toggling of the asset library
-			config.setPreference( "dynamicLibrary", "assets.swf" );
+//			config.setPreference( "dynamicLibrary", "assets2.swf" );
 			var toggleAssetSignal:NativeSignal = new NativeSignal( view.toggleAssetButton, MouseEvent.CLICK, MouseEvent );
-			toggleAssetSignal.add( updateDynamicLib );
+			toggleAssetSignal.add( changeDynamicLibrary );
 			
 			var ns:NativeSignal = new NativeSignal( view.logo, MouseEvent.CLICK, MouseEvent );
 			ns.add( gotoHome );
@@ -118,11 +118,6 @@ package com.vishvish.demoApplication.view.mediators
 			}
 		}
 
-		private function updateDynamicLib( evt:MouseEvent ):void
-		{
-			updateDynamicLibrary.dispatch();
-		}
-		
 		/**
 		 *	// TODO gotoHome 
 		 *	
@@ -134,6 +129,7 @@ package com.vishvish.demoApplication.view.mediators
 		{	
 			swfAddress.setValue( "home" );
 		}
+
 		/**
 		 * onViewStateChange handles view state changes by string and kicks off the transition between the current view
 		 * and the new view.
@@ -184,7 +180,7 @@ package com.vishvish.demoApplication.view.mediators
 			TweenMax.to( currentView, 1, { alpha: 1, ease:Quart.easeOut } );
 		}
 		
-		protected function changeDynamicLibrary():void
+		protected function changeDynamicLibrary( e:MouseEvent ):void
 		{
 			config.setPreference( "dynamicLibrary", "assets2.swf" );
 			updateDynamicLibrary.dispatch();

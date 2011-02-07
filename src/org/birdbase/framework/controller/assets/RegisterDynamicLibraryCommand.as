@@ -4,6 +4,7 @@ package org.birdbase.framework.controller.assets
 	
 	import org.as3commons.logging.ILogger;
 	import org.assetloader.core.IAssetLoader;
+	import org.birdbase.framework.model.ConfigurationModel;
 	import org.birdbase.framework.utils.DynamicSprite;
 	import org.robotlegs.mvcs.SignalCommand;
 	
@@ -11,6 +12,9 @@ package org.birdbase.framework.controller.assets
 	{
 		[Inject]
 		public var logger:ILogger;
+		
+		[Inject]
+		public var cm:ConfigurationModel;
 		
 		[Inject(name="bootstrapLoader")]
 		public var assetLoader:IAssetLoader;

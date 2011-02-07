@@ -3,8 +3,7 @@ package org.birdbase.framework.controller.assets
 	import org.as3commons.logging.ILogger;
 	import org.assetloader.core.IAssetLoader;
 	import org.assetloader.signals.ErrorSignal;
-	import org.birdbase.framework.model.BootstrapModel;
-	import org.birdbase.framework.model.BootstrapModel;
+	import org.birdbase.framework.model.*;
 	import org.robotlegs.mvcs.SignalCommand;
 	
 	public class UpdateDynamicLibraryCommand extends SignalCommand
@@ -14,6 +13,9 @@ package org.birdbase.framework.controller.assets
 		
 		[Inject(name="bootstrapLoader")]
 		public var assetLoader:IAssetLoader;
+		
+		[Inject]
+		public var cm:ConfigurationModel;
 		
 		[Inject]
 		public var bm:BootstrapModel;
@@ -27,7 +29,7 @@ package org.birdbase.framework.controller.assets
 		{
 			logger.debug( "UpdateDynamicLibraryCommand::execute" );
 			
-			var newLibrary:String = bm.getPreference( "dynamicLibrary" ) ? bm.getPreference( "dynamicLibrary" ) : "assets.swf";
+			var newLibrary:String = cm.getPreference( "dynamicLibrary" ) ? cm.getPreference( "dynamicLibrary" ) : null;
 			
 			if( !newLibrary )
 			{
