@@ -1,10 +1,10 @@
 package org.birdbase.framework.controller.configuration
 {
 	import org.birdbase.framework.controller.abstract.BirdbaseCommand;
-	import org.birdbase.framework.service.ConfigurationService;
+	import org.birdbase.framework.service.BootstrapService;
 	
 	/**
-	 *	// TODO ConfigureLocalizationCommand 
+	 *	// TODO FrameworkBootstrapLoaderCommand 
 	 *	
 	 *	// TODO @example 
 	 *	
@@ -14,18 +14,18 @@ package org.birdbase.framework.controller.configuration
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class ConfigureLocalizationCommand extends BirdbaseCommand
+	public class FrameworkBootstrapLoaderCommand extends BirdbaseCommand
 	{
 		[Inject]
 		/**
-		 *	// TODO l10 
+		 *	// TODO ps 
 		 */
-		public var l10:ConfigurationService;
-		
+		public var ps:BootstrapService;
+
 		/**
-		 *	// TODO ConfigureLocalizationCommand 
+		 *	// TODO ConfigurePreferencesCommand 
 		 */
-		public function ConfigureLocalizationCommand()
+		public function FrameworkBootstrapLoaderCommand()
 		{
 			super();
 		}
@@ -37,7 +37,7 @@ package org.birdbase.framework.controller.configuration
 		 */
 		override public function execute():void
 		{
-			logger.debug( "ConfigureLocalizationCommand::execute" );
+			logger.debug( "FrameworkBootstrapLoaderCommand::execute" );
 		}
 	}
 }

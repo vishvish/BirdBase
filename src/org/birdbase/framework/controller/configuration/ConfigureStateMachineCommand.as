@@ -3,7 +3,7 @@ package org.birdbase.framework.controller.configuration
 	import com.vishvish.demoApplication.controller.*;
 	
 	import org.birdbase.framework.controller.abstract.BirdbaseCommand;
-	import org.birdbase.framework.controller.assets.LoadAssetsCommand;
+	import org.birdbase.framework.controller.assets.LoadDesignAssetsCommand;
 	import org.robotlegs.utilities.statemachine.*;
 	
 	/**
@@ -119,9 +119,9 @@ package org.birdbase.framework.controller.configuration
 			var sm:StateMachine = new StateMachine( eventDispatcher );
 
 			commandMap.mapEvent( ConfigureStateMachineCommand.CONFIGURE_COMMANDS, ConfigureCommandsCommand, StateEvent, true );
-			commandMap.mapEvent( ConfigureStateMachineCommand.CONFIGURE_PREFERENCES, ConfigurePreferencesCommand, StateEvent, true );
+			commandMap.mapEvent( ConfigureStateMachineCommand.CONFIGURE_PREFERENCES, FrameworkBootstrapLoaderCommand, StateEvent, true );
 			commandMap.mapEvent( ConfigureStateMachineCommand.CONFIGURE_LOCALIZATION, ConfigureLocalizationCommand, StateEvent, true );
-			commandMap.mapEvent( ConfigureStateMachineCommand.LOAD_ASSETS, LoadAssetsCommand, StateEvent, true );
+			commandMap.mapEvent( ConfigureStateMachineCommand.LOAD_ASSETS, LoadDesignAssetsCommand, StateEvent, true );
 			commandMap.mapEvent( ConfigureStateMachineCommand.CONFIGURE_VIEWS, ConfigureViewsCommand, StateEvent, true );
 			commandMap.mapEvent( ConfigureStateMachineCommand.FAIL, ConfigurationFailedCommand, StateEvent, true );
 			

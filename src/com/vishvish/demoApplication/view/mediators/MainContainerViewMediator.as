@@ -2,16 +2,15 @@ package com.vishvish.demoApplication.view.mediators
 {
 	import com.greensock.TweenMax;
 	import com.greensock.easing.Quart;
+	import com.vishvish.demoApplication.helpers.ViewHelper;
 	import com.vishvish.demoApplication.view.*;
+	import com.vishvish.demoApplication.view.mediators.abstract.MapNavigation;
 	
 	import flash.display.DisplayObject;
 	import flash.events.MouseEvent;
 	import flash.utils.Dictionary;
 	
-	import org.as3commons.logging.ILogger;
 	import org.birdbase.framework.action.*;
-	import org.birdbase.framework.action.IExternalLinkActionable;
-	import com.vishvish.demoApplication.helpers.ViewHelper;
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.signals.*;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
@@ -30,13 +29,10 @@ package com.vishvish.demoApplication.view.mediators
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class MainContainerViewMediator extends ApplicationMediator
+	public class MainContainerViewMediator extends MapNavigation
 	{
 		[Inject]
 		public var view:MainContainerView;
-		
-		[Inject]
-		public var viewStateChanged:ViewStateChanged;
 		
 		[Inject]
 		public var updateDynamicLibrary:UpdateDynamicLibrary;
@@ -44,46 +40,24 @@ package com.vishvish.demoApplication.view.mediators
 		[Inject]
 		public var swfAddress:SWFAddress;
 		
-		[Inject]
-		public var pm:PreferencesModel;
-		
-		[Inject]
-		public var l10n:L10nModel;
-		
-		[Inject]
-		public var logger:ILogger;
-
-		[Inject]
-		public var helper:ViewHelper;
-
-		/**
-		 *	// TODO views 
-		 */
-		protected var views:Object;
-		
-		/**
-		 *	// TODO currentView 
-		 */
-		protected var currentView:IView;
-				
-		/**
-		 *	// TODO MainUIMediator 
-		 */
 		public function MainContainerViewMediator()
 		{
 			super();
 		}
 
 		/**
-		 *	// TODO onRegister 
+		 * onRegister calls the superclass to map the view names to Classes, bootstraps the view and builds a primary
+		 * navigation.
 		 *	
 		 *	@return void	
 		 */
 		override public function onRegister():void
 		{
-			logger.debug( "MainUIMediator::onRegister" );
-			viewStateChanged.add( onViewStateChange );
+			super.onRegister();
 			
+			logger.debug( "MainUIMediator::onRegister" );
+			
+			viewStateChanged.add( onViewStateChange );
 			view.main();
 			
 			var navigationActions:Array = [];
@@ -99,18 +73,13 @@ package com.vishvish.demoApplication.view.mediators
 			view.buildNavigation( navigationActions );
 			
 			// TODO replace these calls with helper functions
-			view.tagline.text = l10n.map.tagline;
-			view.toggleAssetButton.label = l10n.map.swap_assets;
+			view.tagline.text = config.conf.tagline;
+			view.toggleAssetButton.label = config.conf.swap_assets;
 			
 			// set up the toggling of the asset library
-			pm.setPreference( "dynamicLibrary", "assets.swf" );
+			config.setPreference( "dynamicLibrary", "assets.swf" );
 			var toggleAssetSignal:NativeSignal = new NativeSignal( view.toggleAssetButton, MouseEvent.CLICK, MouseEvent );
 			toggleAssetSignal.add( updateDynamicLib );
-			
-			views = {};
-			views[ "home" ] = FirstView;
-			views[ "blog" ] = SecondView;
-			views[ "about" ] = ThirdView;
 			
 			var ns:NativeSignal = new NativeSignal( view.logo, MouseEvent.CLICK, MouseEvent );
 			ns.add( gotoHome );
@@ -169,18 +138,19 @@ package com.vishvish.demoApplication.view.mediators
 			swfAddress.setValue( "home" );
 		}
 		/**
-		 *	// TODO onViewStateChange 
+		 * onViewStateChange handles view state changes by string and kicks off the transition between the current view
+		 * and the new view.
 		 *	
 		 *	@return void	
 		 */
 		protected function onViewStateChange():void
 		{
-			var viewName:String = viewState.viewName;
-			
 			// if it's empty, set it to the home page
 			if( viewName == "" ) viewName; // = "home";
 			
-			logger.debug( "MainUIMediator::onViewStateChanged: " + viewName );
+			logger.debug( "MainNavigationMediator::onViewStateChanged: " + viewName );
+			
+			var viewName:String = viewState.viewName;
 			
 			if( views.hasOwnProperty( viewName ) )
 			{
@@ -201,14 +171,7 @@ package com.vishvish.demoApplication.view.mediators
 				}
 			}
 		}
-		
-		/**
-		 *	// TODO showView 
-		 *	
-		 *	@param newView 
-		 *	
-		 *	@return void	
-		 */
+
 		protected function showView( newView:IView ):void
 		{
 			currentView = newView;
@@ -216,6 +179,9 @@ package com.vishvish.demoApplication.view.mediators
 			currentView.show( null );
 		}
 		
+		/**
+		 * A very basic fade in tween to transition in the entire site view. 
+		 */		
 		private function beginShow():void
 		{
 			TweenMax.to( currentView, 1, { alpha: 1, ease:Quart.easeOut } );
@@ -223,7 +189,7 @@ package com.vishvish.demoApplication.view.mediators
 		
 		protected function changeDynamicLibrary():void
 		{
-			pm.setPreference( "dynamicLibrary", "assets2.swf" );
+			config.setPreference( "dynamicLibrary", "assets2.swf" );
 			updateDynamicLibrary.dispatch();
 		}
 	}

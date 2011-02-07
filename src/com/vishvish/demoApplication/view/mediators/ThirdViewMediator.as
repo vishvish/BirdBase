@@ -12,10 +12,11 @@ package com.vishvish.demoApplication.view.mediators
 	import org.as3commons.logging.ILogger;
 	import org.birdbase.framework.action.Action;
 	import org.birdbase.framework.action.IActionable;
-	import org.birdbase.framework.model.L10nModel;
-	import org.birdbase.framework.model.PreferencesModel;
+	import org.birdbase.framework.model.ConfigurationModel;
+	import org.birdbase.framework.model.BootstrapModel;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
 	import org.osflash.signals.natives.NativeSignal;
+	import com.vishvish.demoApplication.view.mediators.abstract.ApplicationMediator;
 
 	/**
 	 *	// TODO ThirdViewMediator 
@@ -38,15 +39,6 @@ package com.vishvish.demoApplication.view.mediators
 
 		[Inject]
 		public var swfAddress:SWFAddress;
-
-		[Inject]
-		public var pm:PreferencesModel;
-		
-		[Inject]
-		public var l10n:L10nModel;
-		
-		[Inject]
-		public var helper:ViewHelper;
 
 		/**
 		 *	// TODO ThirdViewMediator 

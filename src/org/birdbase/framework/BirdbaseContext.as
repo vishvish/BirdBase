@@ -41,10 +41,10 @@ package org.birdbase.framework
 			injector.mapSingleton( ViewStateChanged );
 			
 			// services
-			injector.mapSingleton( PreferencesModel );
-			injector.mapSingleton( PreferencesService );
-			injector.mapSingleton( L10nModel );
-			injector.mapSingleton( L10nService );
+			injector.mapSingleton( BootstrapModel );
+			injector.mapSingleton( BootstrapService );
+			injector.mapSingleton( ConfigurationModel );
+			injector.mapSingleton( ConfigurationService );
 			
 			commandMap.mapEvent( ContextEvent.STARTUP_COMPLETE, ConfigureStateMachineCommand, ContextEvent, true );
 			

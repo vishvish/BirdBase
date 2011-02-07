@@ -22,6 +22,8 @@ package com.vishvish.demoApplication.view
 		public var option1:String;
 		public var option2:String;
 		
+		public var contactView:ContactView;
+		
 		public var dzoneButton:ExternalLinkButton;
 		
 		/**

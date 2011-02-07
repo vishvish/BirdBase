@@ -1,0 +1,5 @@
+application:
+    version:    v0.21
+    author:     Vish Vishvanath <vish.vishvanath@gmail.com>
+    
+assetsFile: load.xml

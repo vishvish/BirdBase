@@ -1,6 +1,7 @@
 package com.vishvish.demoApplication
 {
 	import com.vishvish.demoApplication.controller.state.ChangeApplicationStateCommand;
+	import com.vishvish.demoApplication.helpers.ViewHelper;
 	import com.vishvish.demoApplication.model.ApplicationModel;
 	import com.vishvish.demoApplication.view.*;
 	import com.vishvish.demoApplication.view.mediators.*;
@@ -10,7 +11,6 @@ package com.vishvish.demoApplication
 	import org.as3commons.logging.ILogger;
 	import org.as3commons.logging.LoggerFactory;
 	import org.birdbase.framework.BirdbaseContext;
-	import com.vishvish.demoApplication.helpers.ViewHelper;
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.service.*;
 	import org.birdbase.framework.signals.*;
@@ -64,6 +64,7 @@ package com.vishvish.demoApplication
 			mediatorMap.mapView( FirstView, FirstViewMediator );
 			mediatorMap.mapView( SecondView, SecondViewMediator );
 			mediatorMap.mapView( ThirdView, ThirdViewMediator );
+			mediatorMap.mapView( ContactView, ContactViewMediator );
 
 			super.startup();
         }

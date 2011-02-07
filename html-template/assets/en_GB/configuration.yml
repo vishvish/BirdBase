@@ -8,6 +8,18 @@ nav:
         label:          Blog and News
         view:           SecondView
     - item:
+        destination:    blog
+        label:          Blog and News
+        view:           SecondView
+    - item:
+        destination:    blog
+        label:          Blog and News
+        view:           SecondView
+    - item:
+        destination:    blog
+        label:          Blog and News
+        view:           SecondView
+    - item:
         destination:    about
         label:          About Us
         view:           ThirdView

@@ -5,7 +5,7 @@ package org.birdbase.framework.controller.assets
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
 	import org.birdbase.framework.controller.configuration.ConfigureStateMachineCommand;
-	import org.birdbase.framework.model.PreferencesModel;
+	import org.birdbase.framework.model.BootstrapModel;
 	import org.robotlegs.mvcs.SignalCommand;
 	import org.robotlegs.utilities.statemachine.StateEvent;
 	
@@ -20,7 +20,7 @@ package org.birdbase.framework.controller.assets
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class LoadAssetsCommand extends SignalCommand
+	public class LoadDesignAssetsCommand extends SignalCommand
 	{
 		[Inject]
 		public var logger:ILogger;
@@ -29,19 +29,14 @@ package org.birdbase.framework.controller.assets
 		public var assetLoader:IAssetLoader;
 		
 		[Inject]
-		public var pm:org.birdbase.framework.model.PreferencesModel;
+		public var bm:BootstrapModel;
 		
-		/**
-		 *	// TODO execute 
-		 *	
-		 *	@return void	
-		 */
 		override public function execute():void
 		{
 			logger.error( "LoadAssetsCommand::execute" );
-			logger.debug( "Loading from: " + pm.assetBasePath + pm.getPreference( "assetsFile" ) );
+			logger.debug( "Loading from: " + bm.assetBasePath + bm.getPreference( "assetsFile" ) );
 
-			assetLoader.addConfig( pm.assetBasePath + pm.getPreference( "assetsFile" ) );
+			assetLoader.addConfig( bm.assetBasePath + bm.getPreference( "assetsFile" ) );
 			assetLoader.onConfigLoaded.add( handleConfigLoaded );
 			
 			signalCommandMap.mapSignal( assetLoader.onComplete, RegisterDynamicLibraryCommand, true );
@@ -51,7 +46,7 @@ package org.birdbase.framework.controller.assets
 		{
 			logger.debug( "LoadAssetsCommand::handleConfigLoaded " + signal.loader.id );
 			logger.debug( "LoadAssetsCommand::loadingAssets" );
-
+			
 			signal.loader.onProgress.add( handleProgress );
 			signal.loader.onComplete.add( handleComplete );
 			signal.loader.onError.add( handleError );
@@ -60,7 +55,7 @@ package org.birdbase.framework.controller.assets
 
 		private function handleProgress( signal:LoaderSignal ):void
 		{
-			logger.debug( "LoadAssetsCommand::handleprogress " + signal.loader.data );
+			logger.debug( "LoadAssetsCommand::handleprogress " + IAssetLoader( signal.loader ).stats.bytesLoaded );
 		}
 
 		private function handleError( signal:ErrorSignal ):void

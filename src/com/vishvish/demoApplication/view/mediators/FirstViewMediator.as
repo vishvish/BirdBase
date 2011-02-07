@@ -4,9 +4,10 @@ package com.vishvish.demoApplication.view.mediators
 	
 	import flash.events.MouseEvent;
 	
-	import org.birdbase.framework.model.L10nModel;
+	import org.birdbase.framework.model.ConfigurationModel;
 	import org.birdbase.modules.slideshow.SlideshowModule;
 	import org.osflash.signals.natives.NativeSignal;
+	import com.vishvish.demoApplication.view.mediators.abstract.ApplicationMediator;
 
 	/**
 	 *	// TODO FirstViewMediator 
@@ -22,16 +23,10 @@ package com.vishvish.demoApplication.view.mediators
 	public class FirstViewMediator extends ApplicationMediator
 	{
 		[Inject]
-		/**
-		 *	// TODO view 
-		 */
 		public var view:FirstView;
 		
 		[Inject]
 		public var slideshow:SlideshowModule;
-		
-		[Inject]
-		public var l10n:org.birdbase.framework.model.L10nModel;
 		
 		/**
 		 *	// TODO FirstViewMediator 

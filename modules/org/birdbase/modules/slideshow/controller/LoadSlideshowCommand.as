@@ -5,7 +5,7 @@ package org.birdbase.modules.slideshow.controller
 	import org.assetloader.core.IAssetLoader;
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
-	import org.birdbase.framework.model.PreferencesModel;
+	import org.birdbase.framework.model.BootstrapModel;
 	import org.birdbase.modules.slideshow.signals.SlideshowLoaded;
 	import org.birdbase.modules.slideshow.view.SlideshowView;
 	import org.osflash.signals.Signal;
@@ -17,7 +17,7 @@ package org.birdbase.modules.slideshow.controller
 		public var logger:ILogger;
 		
 		[Inject]
-		public var pm:PreferencesModel;
+		public var pm:BootstrapModel;
 		
 		[Inject]
 		public var assetLoader:IAssetLoader;

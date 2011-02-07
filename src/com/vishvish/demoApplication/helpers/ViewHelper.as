@@ -7,10 +7,10 @@ package com.vishvish.demoApplication.helpers
 	public class ViewHelper
 	{
 		[Inject]
-		public var pm:PreferencesModel;
+		public var pm:BootstrapModel;
 		
 		[Inject]
-		public var l10n:L10nModel;
+		public var l10n:ConfigurationModel;
 		
 		public function ViewHelper()
 		{
@@ -18,12 +18,12 @@ package com.vishvish.demoApplication.helpers
 		
 		public function get externalLinks():Dictionary
 		{
-			return l10n.map.external_links as Dictionary;
+			return l10n.conf.external_links as Dictionary;
 		}
 		
 		public function get navigation():Array
 		{
-			return l10n.map.nav as Array;
+			return l10n.conf.nav as Array;
 		}
 		
 		/**

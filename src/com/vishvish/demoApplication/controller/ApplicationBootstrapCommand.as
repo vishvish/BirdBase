@@ -5,7 +5,7 @@ package com.vishvish.demoApplication.controller
 	
 	import org.as3commons.logging.ILogger;
 	import org.birdbase.framework.controller.configuration.ConfigureStateMachineCommand;
-	import org.birdbase.framework.model.PreferencesModel;
+	import org.birdbase.framework.model.BootstrapModel;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
 	import org.osflash.signals.Signal;
 	import org.robotlegs.mvcs.SignalCommand;
@@ -26,7 +26,7 @@ package com.vishvish.demoApplication.controller
 		public var logger:ILogger;
 		
 		[Inject]
-		public var pm:org.birdbase.framework.model.PreferencesModel;
+		public var pm:org.birdbase.framework.model.BootstrapModel;
 		
 		[Inject]
 		public var swfAddress:SWFAddress;
