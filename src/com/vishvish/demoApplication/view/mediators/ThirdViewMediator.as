@@ -34,12 +34,6 @@ package com.vishvish.demoApplication.view.mediators
 		[Inject]
 		public var view:ThirdView;
 		
-		[Inject]
-		public var logger:ILogger;
-
-		[Inject]
-		public var swfAddress:SWFAddress;
-
 		/**
 		 *	// TODO ThirdViewMediator 
 		 */

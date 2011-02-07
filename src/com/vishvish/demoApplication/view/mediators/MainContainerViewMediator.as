@@ -37,9 +37,6 @@ package com.vishvish.demoApplication.view.mediators
 		[Inject]
 		public var updateDynamicLibrary:UpdateDynamicLibrary;
 		
-		[Inject]
-		public var swfAddress:SWFAddress;
-		
 		public function MainContainerViewMediator()
 		{
 			super();

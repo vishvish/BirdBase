@@ -9,9 +9,6 @@ package com.vishvish.demoApplication.view.mediators.abstract
 	public class MapNavigation extends ApplicationMediator
 	{
 		[Inject]
-		public var logger:ILogger;
-		
-		[Inject]
 		public var viewStateChanged:ViewStateChanged;
 		
 		protected var views:Object;
@@ -21,7 +18,6 @@ package com.vishvish.demoApplication.view.mediators.abstract
 		/**
 		 * MapNavigation is an abstract mediator that allows us to cleanly map view names (that we know from the
 		 * wireframes and from the yaml configuration) to concrete View Classes. 
-		 * 
 		 */
 		public function MapNavigation()
 		{
