@@ -8,6 +8,14 @@ package com.vishvish.demoApplication.view.mediators.abstract
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
 	import org.birdbase.framework.view.AbstractBirdbaseMediator;
 	
+	/**
+	 * Abstract superclass for mediators, holding application-level injected objects.
+	 * 
+	 * Models go here. ViewHelpers go here.
+	 *  
+	 * @author Vish Vishvanath
+	 * @since 7 February 2011
+	 */
 	public class ApplicationMediator extends AbstractBirdbaseMediator
 	{
 		[Inject]
