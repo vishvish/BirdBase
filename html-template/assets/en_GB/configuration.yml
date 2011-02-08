@@ -1,32 +1,49 @@
 nav:
     - item:
         destination:    home
-        label:          Go Home
+        label:          Home
         view:           FirstView
     - item:
-        destination:    blog
-        label:          Blog and News
+        destination:    media
+        label:          Media Section
         view:           SecondView
+    - item:
+        destination:    newsletter
+        label:          Newsletter Signup
+        view:           SecondView
+    - item:
+        destination:    download
+        label:          Download Section
+        view:           SecondView
+        - item:
+            destination:    trailer
+            label:          Trailer Section
+            view:           SecondView
+        - item:
+            destination:    screenshots
+            label:          Screenshots Section
+            view:           SecondView
+        - item:
+            destination:    wallpapers
+            label:          Wallpapers Section
+            view:           SecondView
     - item:
         destination:    blog
         label:          Blog and News
         view:           SecondView
     - item:
-        destination:    blog
-        label:          Blog and News
-        view:           SecondView
-    - item:
-        destination:    blog
-        label:          Blog and News
-        view:           SecondView
-    - item:
-        destination:    about
-        label:          About Us
+        destination:    community
+        label:          Community
         view:           ThirdView
     - item:
-        destination:    contact
-        label:          Contact Us
+        destination:    preorder
+        label:          Preorder
         view:           FourthView
+    - item:
+        destination:    buy
+        label:          Buy Now
+        view:           FourthView
+
 tagline: This is a tagline, right here.
 swap_assets: Swap those assets!
 

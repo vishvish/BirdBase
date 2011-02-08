@@ -27,24 +27,12 @@ package org.birdbase.framework.model
 		public function init():void
 		{
 			assetLoader.onConfigLoaded.add( onConfigLoaded );
-			assetLoader.onProgress.add( onProgress );
-			assetLoader.onOpen.add( onOpen );
 			assetLoader.onComplete.add( onComplete );
 		}
 		
 		private function onConfigLoaded( signal:LoaderSignal ):void
 		{
 			signal.loader.start();
-		}
-
-		private function onProgress( signal:LoaderSignal ):void
-		{
-			trace( "onProgress", signal.loader.stats.progress );
-		}
-
-		private function onOpen( signal:LoaderSignal ):void
-		{
-			trace( "onOpen", signal.loader.stats.progress );
 		}
 
 		private function onComplete( signal:LoaderSignal, data:* ):void
@@ -54,7 +42,9 @@ package org.birdbase.framework.model
 			{
 				logger.debug( "AssetModel::loaded: " + o );
 			}*/
-			logger.debug( "AssetModel::onComplete()" );
+//			assetLoader.onComplete.loader.stats.progress
+//			signal.dispatch();
+			logger.debug( "AssetModel::onComplete() " + assetLoader.onComplete.loader.stats.progress );
 
 			if( assetLoader.getAsset( "dynamicLibrary" ) )
 			{

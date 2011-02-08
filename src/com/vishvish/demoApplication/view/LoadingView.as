@@ -1,5 +1,8 @@
 package com.vishvish.demoApplication.view
 {
+	import com.bit101.components.ProgressBar;
+	import com.bit101.components.Text;
+	
 	import flash.display.Sprite;
 	
 	/**
@@ -15,48 +18,37 @@ package com.vishvish.demoApplication.view
 	 */
 	public class LoadingView extends Sprite
 	{
-		protected var _total:Number = 1;
+		protected var _loadingProgress:ProgressBar;
 		
 		protected var _progress:Number;
-		
-		protected var _percentLoaded:int;
-		
-		/**
-		 *	// TODO LoadingUI 
-		 */
+
 		public function LoadingView()
 		{
 			super();
 		}
 		
-		public function updateProgress( value:Number )
+		public function start():void
 		{
-			_progress = value;
-			_percentLoaded = ( _progress / _total ) * 100;
-			updateView();
+			_progress = 0;
+			_loadingProgress = new ProgressBar();
+			_loadingProgress.maximum = 100;
+			addChild( _loadingProgress );
 		}
 		
-		public function updateView():void
+		public function update( progress:Number ):void
 		{
-			
-		}
-		
-		public function reset():void
-		{
-			
-		}
-		
-		public function start( total:Number ):void
-		{
-			if( total > 0 )
-			{
-				_total = total;
-			}
+			trace( "LoadingView::update", progress );
+			_progress = progress;
+			_loadingProgress.value = _progress;
 		}
 		
 		public function stop():void
 		{
-			
+			if( _loadingProgress )
+			{
+				removeChild( _loadingProgress );
+				_loadingProgress = null;
+			}
 		}
 		
 	}

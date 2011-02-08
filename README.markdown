@@ -1,3 +1,42 @@
+# BirdBase
+
+...is named for the versatile Origami base fold, from which thousands of models begin, including the famous crane and the flapping bird.
+
+---
+
+# Outline
+
+BirdBase is an application framework built on RobotLegs, Signals, SWFAddress and AssetLoader.
+
+It was borne out of frustration with seeing the same old problems in agency after agency. Custom-written boilerplate code handed from one freelancer to the next, agencies with few, if any, senior developers able to deal with the production of work, and zero reuse of code.
+
+The architecture frameworks and underpinnings are all recognized within the ActionScript world, so there's already a decent pool of knowledge out there.
+
+There are things I want an application framework to do for me:
+
+1. Cheap Deep-linking. SWFAddress does a lot for us, and Signals works beautifully with it. It doesn't have to be complicated, not all Flash sites are enormous.
+
+1. View Transitions. Ways to smoothly go from view to view. It doesn't take a huge queue manager or transition manager or describing the lifecycle of a view transition in a state machine to do this. Unless it's incredibly complicated, we can probably handle it concisely.
+
+1. Bootstrap. I'm a bit particular about this. I want things to fire in a certain order, load configurations and preferences, design assets and do it in an orderly fashion, *and* be extendable. Thank you Joel Hooks and your Finite State Machine.
+
+1. Localization. Nuff Said. YAML gives us a way to hold data and structure easily. We use it.
+
+1. Dynamically load design assets. Broadly, there are two types of asset in a project. Design Assets and Rich Media Assets. Design Assets come out of a SWF file, and provide the look of the site. Button backgrounds, logos, fonts, boxes, all that stuff. Everything else is content-related, lives on a CDN and I consider a rich-media asset. Everything may vary from locale to locale, but design assets are responsible for the main look of the site and I want them to be ready when the application boots and also quickly switchable without reloading the entire application. DynamicSprite lets us do this. Load in a new SWF and change the whole look instantly. It's great.
+
+
+
+There are several things I'm staying away from.
+
+1. Infinitely configurable systems via XML. A common request for microsites is the ability to change layout and features across countries and in the future. I've witnessed hugely complicated XML-driven sites which *never* get updated or changed to that extent. A complete waste of time and money. I accept a certain level of customization is required, but sometimes it's just too much. I think ActionScript is the best place to make Flash do things.
+
+1. XML-to-object deserialization. I basically hate it. Classes and mappings have to be described in several places, force-compiled in anyway, and I've seen too-many of these systems lack clarity on what's happening where, what's triggering what, and chasing calls all around an application.
+
+1. Things that remind me of PureMVC. It was good at the time. We built a brilliantly successful game and site with it (Generation Green - Ecorangers) at LBi. The lifecycle is just convoluted, over-complicated and painful. And the diagram on the site is meaningless, pretentious, useless, unhelpful twaddle. I just want PureMVC to get out of my way. Thanks guys, it was good at the time, as I said, but it's an object lesson in how to muffle an application.
+
+1. 
+
+
 # Quickstart:
 
 1.	Clone the repo
@@ -10,45 +49,11 @@
 		
 		git checkout v0.2.1
 		
-1.	Install Ruby on your system
-
-	RVM [http://rvm.beginrescueend.com](http://rvm.beginrescueend.com/) is your friend - it lets you run and manage multiple Ruby versions and sets of gems.
-	
-	Install either Ruby 1.8.7 or 1.9.2
-	
-	e.g. with RVM
-	
-		rvm install 1.9.2-head
-		
-	Will install the latest 1.9.2 version.
-
-1.	Install the thor gem from here: [Thor @ Github](https://github.com/wycats/thor/)
-
-1.	From the BirdBase scripts directory (BirdBase/scripts), run the thor installation:
-
-		cd scripts
-
-		thor birdbase:app:install <YOUR_APP_NAME> <YOUR_PACKAGE_NAME>
-		
-		e.g.
-		
-		thor birdbase:app:install sampleApp com.example
-		
-	Will install and configure an application called "sampleApp" with ActionScript files in
-		
-		/src/com/example/sampleApp
-		
-	Troubleshooting: if you get this error:
-	
-		birdbase/gems/thor-0.14.6/lib/thor/runner.rb:34:in `method_missing': undefined method `start' for nil:NilClass (NoMethodError)
-		
-	Then make sure you're in the /scripts directory: `cd scripts`
-	
 1.	Boot up Flash Builder, point it to the `src` folder, add the `libs` directory, and run `Main.as` as your application entry point
 
 1.	Be careful that Flash Builder doesn't overwrite the contents of your html-template folder. If it does, `git revert` it.
 
-------------------------------------------
+---
 
 
 # BirdBase is an application framework...
@@ -67,31 +72,6 @@ Justin Windle's DynamicSprite. Lovely.
 		Now: ball = new DynamicSprite( "ball" );
 
 *	Allows runtime swapping of the asset library: watch all your assets change on stage the instant it loads.
-
-## TODO
-
-1. Framework bootstrap could be cleaner - running around building paths from locales, flashvars and preferences 
-has plenty of room for confusion.
-
-2. New views for everything.
-
-3. A way to get around the new TLF layout issues when using TLF on a textField in the Flash IDE and exporting that
-library. Text Fields seem to default to the TLF layout in the Flash IDE, but when exported, the whole thing chokes
-when being loaded in - there's a security issue involved, it seems.
-
-4. Fix a whole bunch of basic architectural annoyances, such as injector definition being in the application context,
-and ways to efficiently use multiple asset loaders.
-
-5. Finish the modules framework so application chunks can be re-used instantly. Much to figure out on this as modular framework is good but old and out-of-date. Partial implementation working but not decoupled properly.
-
-## TINGS
-
-
-
-Preferences are a place to hold info you may need later. Such as the name of the correct asset that you wish to load.
-
-This works cloned out of the box, follow the logger statements to see what's going on during bootstrap.
-
 
 ## CREDITS
 

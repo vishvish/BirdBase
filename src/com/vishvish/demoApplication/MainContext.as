@@ -1,19 +1,16 @@
 package com.vishvish.demoApplication
 {
-	import org.birdbase.framework.controller.state.ChangeApplicationStateCommand;
-	import org.birdbase.framework.view.helpers.ViewHelper;
-	import org.birdbase.framework.model.ApplicationModel;
 	import com.vishvish.demoApplication.view.*;
 	import com.vishvish.demoApplication.view.mediators.*;
 	
 	import flash.display.DisplayObjectContainer;
 	
-	import org.as3commons.logging.ILogger;
-	import org.as3commons.logging.LoggerFactory;
 	import org.birdbase.framework.BirdbaseContext;
+	import org.birdbase.framework.controller.state.ChangeApplicationStateCommand;
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.service.*;
 	import org.birdbase.framework.signals.*;
+	import org.birdbase.framework.view.helpers.ViewHelper;
 	import org.birdbase.modules.slideshow.SlideshowModule;
 	
 	/**
@@ -65,7 +62,7 @@ package com.vishvish.demoApplication
 			mediatorMap.mapView( SecondView, SecondViewMediator );
 			mediatorMap.mapView( ThirdView, ThirdViewMediator );
 			mediatorMap.mapView( ContactView, ContactViewMediator );
-
+			
 			super.startup();
         }
 	}

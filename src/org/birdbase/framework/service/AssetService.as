@@ -36,16 +36,15 @@ package org.birdbase.framework.service
 		public function init():void
 		{
 			assetLoader.addConfig( bm.assetBasePath + bm.getPreference( "assetsFile" ) );
-			assetLoader.onComplete.add( handleComplete );
-			assetLoader.onError.add( handleError );
+			assetLoader.onComplete.add( onComplete );
 		}
-		
-		private function handleError( signal:ErrorSignal ):void
+
+		private function onError( signal:ErrorSignal ):void
 		{
 			logger.error( signal.message );
 		}
 		
-		private function handleComplete( signal:LoaderSignal, data:* ):void
+		private function onComplete( signal:LoaderSignal, data:* ):void
 		{
 			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.LOAD_ASSETS_COMPLETE ) );
 		}
