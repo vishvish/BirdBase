@@ -36,7 +36,7 @@ package com.vishvish.demoApplication.controller
 		 */
 		override public function execute():void
 		{
-			logger.info( "Birdbase is handing over control: ApplicationBootstrapCommand::Booting..." );
+			logger.info( "Birdbase --> Application / ApplicationBootstrapCommand::Booting..." );
 			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.BOOT_APPLICATION_COMPLETE ) );
 			
 			var view:MainContainerView = new MainContainerView();

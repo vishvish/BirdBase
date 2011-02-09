@@ -5,9 +5,6 @@ package org.birdbase.framework.controller.assets
 	import org.assetloader.signals.ErrorSignal;
 	import org.assetloader.signals.LoaderSignal;
 	import org.birdbase.framework.controller.configuration.ConfigureStateMachineCommand;
-	import org.birdbase.framework.controller.load.LoadCompleteCommand;
-	import org.birdbase.framework.controller.load.LoadProgressCommand;
-	import org.birdbase.framework.controller.load.LoadStartCommand;
 	import org.birdbase.framework.model.BootstrapModel;
 	import org.robotlegs.mvcs.SignalCommand;
 	import org.robotlegs.utilities.statemachine.StateEvent;

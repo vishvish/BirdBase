@@ -11,8 +11,6 @@ package com.vishvish.demoApplication.view.mediators.abstract
 		[Inject]
 		public var viewStateChanged:ViewStateChanged;
 		
-		protected var views:Object;
-
 		protected var currentView:IView;
 
 		/**
@@ -29,10 +27,10 @@ package com.vishvish.demoApplication.view.mediators.abstract
 		 */
 		override public function onRegister():void
 		{
-			views = {};
-			views[ "home" ] = FirstView;
-			views[ "blog" ] = SecondView;
-			views[ "about" ] = ThirdView;
+			subViews = {};
+			subViews[ "home" ] = FirstView;
+			subViews[ "blog" ] = SecondView;
+			subViews[ "about" ] = ThirdView;
 		}
 	}
 }

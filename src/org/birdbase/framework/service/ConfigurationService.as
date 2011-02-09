@@ -44,10 +44,10 @@ package org.birdbase.framework.service
 			super();
 		}
 		
-		[PostConstruct]
 		/**
 		 * Triggered after construction. Finds the locale, finds the configuration and loads it.
 		 */
+		[PostConstruct]
 		public function init():void
 		{
 			model.configurationFilename = 
@@ -62,17 +62,24 @@ package org.birdbase.framework.service
 			loader.load( preferences );
 		}
 		
-		private function handleError( event:IOErrorEvent ):void
+		private function handleError( e:IOErrorEvent ):void
 		{
-			logger.error( event.text );
+			logger.error( e.text );
 		}
 		
-		private function handleComplete( event:Event ) : void
+		private function handleComplete( e:Event ) : void
 		{
-			var map:Dictionary = YAML.decode( event.target.data ) as Dictionary;
-			model.conf = map;
-			logger.debug( "L10nService::loaded YAML" );
-			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.CONFIGURE_LOCALIZATION_COMPLETE ) );
+			try
+			{
+				var map:Dictionary = YAML.decode( e.target.data ) as Dictionary;
+				model.conf = map;
+				logger.debug( "L10nService::loaded YAML" );
+				eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.CONFIGURE_LOCALIZATION_COMPLETE ) );
+			}
+			catch( e:Error )
+			{
+				logger.error( e.message );
+			}
 		}
 	}
 }

@@ -1,13 +1,15 @@
 package com.vishvish.demoApplication.view.mediators
 {
 	import com.vishvish.demoApplication.view.FirstView;
+	import com.vishvish.demoApplication.view.SecondView;
+	import com.vishvish.demoApplication.view.ThirdView;
+	import com.vishvish.demoApplication.view.mediators.abstract.ApplicationMediator;
 	
 	import flash.events.MouseEvent;
 	
 	import org.birdbase.framework.model.ConfigurationModel;
 	import org.birdbase.modules.slideshow.SlideshowModule;
 	import org.osflash.signals.natives.NativeSignal;
-	import com.vishvish.demoApplication.view.mediators.abstract.ApplicationMediator;
 
 	/**
 	 *	// TODO FirstViewMediator 
@@ -24,7 +26,7 @@ package com.vishvish.demoApplication.view.mediators
 	{
 		[Inject]
 		public var view:FirstView;
-		
+
 		[Inject]
 		public var slideshow:SlideshowModule;
 		
@@ -43,6 +45,10 @@ package com.vishvish.demoApplication.view.mediators
 		 */
 		override public function onRegister():void
 		{
+			subViews = {};
+			subViews[ "download" ] = SecondView;
+			subViews[ "trailer" ] = ThirdView;
+			
 			view.slideshow = slideshow;
 			
 			view.main();

@@ -16,7 +16,7 @@ package com.vishvish.demoApplication.view.mediators.abstract
 	 * @author Vish Vishvanath
 	 * @since 7 February 2011
 	 */
-	public class ApplicationMediator extends AbstractBirdbaseMediator
+	public class ApplicationMediator extends AbstractBirdbaseMediator implements IApplicationMediator
 	{
 		[Inject]
 		public var appModel:ApplicationModel;
@@ -32,10 +32,23 @@ package com.vishvish.demoApplication.view.mediators.abstract
 		
 		[Inject]
 		public var swfAddress:SWFAddress;
+		
+		protected var _subViews:Object;
 
 		public function ApplicationMediator()
 		{
 			super();
 		}
+
+		public function get subViews():Object
+		{
+			return _subViews;
+		}
+
+		public function set subViews(value:Object):void
+		{
+			_subViews = value;
+		}
+
 	}
 }

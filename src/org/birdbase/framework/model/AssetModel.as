@@ -44,19 +44,27 @@ package org.birdbase.framework.model
 			}*/
 //			assetLoader.onComplete.loader.stats.progress
 //			signal.dispatch();
-			logger.debug( "AssetModel::onComplete() " + assetLoader.onComplete.loader.stats.progress );
-
-			if( assetLoader.getAsset( "dynamicLibrary" ) )
-			{
-				DynamicSprite.update( "dynamicLibrary", assetLoader.getAsset( "dynamicLibrary" ) as MovieClip );
-				logger.debug( "DynamicSprite successfully updated with dynamic library" );
+			try {
+				logger.debug( "AssetModel::onComplete --> " + assetLoader.onComplete.loader.stats.progress );
+				if( assetLoader.getAsset( "dynamicLibrary" ) )
+				{
+					DynamicSprite.update( "dynamicLibrary", assetLoader.getAsset( "dynamicLibrary" ) as MovieClip );
+					logger.debug( "AssetModel::onComplete --> DynamicSprite updated" );
+				}
+				else
+				{
+					throw new Error( "AssetModel::onComplete --> Dynamic Library not found" );
+				}
+				
 			}
-			else
+			catch( e:Error )
 			{
-				logger.error( "Dynamic Library not found" );
-				throw new Error( "Dynamic Library not found" );
+					logger.error( e.message );
 			}
-			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.LOAD_ASSETS_COMPLETE ) );
+			finally
+			{
+				eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.LOAD_ASSETS_COMPLETE ) );
+			}
 		}
 
 	}

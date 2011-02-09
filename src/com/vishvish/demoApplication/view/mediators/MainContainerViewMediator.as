@@ -2,7 +2,6 @@ package com.vishvish.demoApplication.view.mediators
 {
 	import com.greensock.TweenMax;
 	import com.greensock.easing.Quart;
-	import org.birdbase.framework.view.helpers.ViewHelper;
 	import com.vishvish.demoApplication.view.*;
 	import com.vishvish.demoApplication.view.mediators.abstract.MapNavigation;
 	
@@ -15,6 +14,7 @@ package com.vishvish.demoApplication.view.mediators
 	import org.birdbase.framework.signals.*;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
 	import org.birdbase.framework.view.*;
+	import org.birdbase.framework.view.helpers.ViewHelper;
 	import org.osflash.signals.Signal;
 	import org.osflash.signals.natives.NativeSignal;
 
@@ -51,8 +51,6 @@ package com.vishvish.demoApplication.view.mediators
 		override public function onRegister():void
 		{
 			super.onRegister();
-			
-			logger.debug( "MainUIMediator::onRegister" );
 			
 			viewStateChanged.add( onViewStateChange );
 			view.main();
@@ -92,28 +90,31 @@ package com.vishvish.demoApplication.view.mediators
 		 */
 		private function viewPressed( e:MouseEvent ):void
 		{
+			var action:Action;
+			var destination:String;
+			
 			if( e.target is INavigationActionable ) // for navigation actions
 			{
-				var action:Action = IActionable( e.target ).action;
+				action = Action( IActionable( e.target ).action );
 				if( action )
 				{
-					var destination:String = action.destination
-					logger.debug( "MainContainerViewMediator::viewPressed / INavigationActionable --> " + destination );
+					destination = action.destination
+					logger.debug( "MainContainerViewMediator::viewPressed / Target: INavigationActionable --> " + destination );
 					swfAddress.setValue( destination );
 				}
 			}
 			else if( e.target is IExternalLinkActionable ) // for external link actions
 			{
-				var action:Action = IActionable( e.target ).action;
+				action = Action( IActionable( e.target ).action );
 				if( action )
 				{
-					var destination:String = action.destination
+					destination = action.destination
 					logger.debug( "MainContainerViewMediator::viewPressed / IExternalLinkActionable --> " + destination );
 				}
 			}
 			else // everything else
 			{
-				logger.debug( "MainContainerViewMediator::viewPressed " + e.target.toString() );
+				logger.debug( "MainContainerViewMediator::viewPressed / " + e.target.toString() );
 			}
 		}
 
@@ -137,31 +138,45 @@ package com.vishvish.demoApplication.view.mediators
 		 */
 		protected function onViewStateChange():void
 		{
-			// if it's empty, set it to the home page
-			if( viewName == "" ) viewName; // = "home";
-			
-			logger.debug( "MainNavigationMediator::onViewStateChanged: " + viewName );
-			
-			var viewName:String = viewState.viewName;
-			
-			if( views.hasOwnProperty( viewName ) )
-			{
-				if( views[ viewName ] is Class )
-				{
-					views[ viewName ] = new views[ viewName ];
-				}
+			try {
+				var viewName:String = viewState.viewName;
 				
-				if( currentView != null )
+				if( viewName )
 				{
-					var s:Signal = new Signal();
-					s.addOnce( function():void { view.viewContainer.removeChildAt( 0 ); showView( views[ viewName ] ); } );
-					currentView.hide( s );
+					if( subViews.hasOwnProperty( viewName ) )
+					{
+						if( subViews[ viewName ] is Class )
+						{
+							subViews[ viewName ] = new subViews[ viewName ];
+						}
+						
+						if( currentView != null )
+						{
+							var s:Signal = new Signal();
+							s.addOnce( function():void 
+							{ 
+								view.viewContainer.removeChildAt( 0 ); 
+								showView( subViews[ viewName ] ); 
+							});
+							currentView.hide( s );
+						}
+						else
+						{
+							showView( subViews[ viewName ] );
+						}
+					}
 				}
 				else
 				{
-					showView( views[ viewName ] );
+					throw new Error( "MainContainerViewMediator::onViewStateChanged --> Null view chosen." );
+					
 				}
 			}
+			catch( e:Error )
+			{
+				logger.error( e.message );
+			}
+			
 		}
 
 		protected function showView( newView:IView ):void

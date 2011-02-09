@@ -32,7 +32,7 @@ package org.birdbase.framework.controller.state
 		 */		
 		override public function execute():void
 		{
-			logger.debug( "ApplicationStateChangedCommand::execute --> SWFAddress" + swfAddress.getValue() );
+			//logger.debug( "ApplicationStateChangedCommand::execute --> SWFAddress" + swfAddress.getValue() );
 			
 			for( var i:Number = 0; i < swfAddress.getParameterNames().length; i++ )
 			{

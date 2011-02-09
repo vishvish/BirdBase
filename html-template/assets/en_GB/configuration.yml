@@ -3,6 +3,23 @@ nav:
         destination:    home
         label:          Home
         view:           FirstView
+        subviews:
+            - item:
+                destination:    download
+                label:          Download Section
+                view:           SecondView
+            - item:
+                destination:    trailer
+                label:          Trailer Section
+                view:           SecondView
+            - item:
+                destination:    screenshots
+                label:          Screenshots Section
+                view:           SecondView
+            - item:
+                destination:    wallpapers
+                label:          Wallpapers Section
+                view:           SecondView
     - item:
         destination:    media
         label:          Media Section
@@ -11,22 +28,6 @@ nav:
         destination:    newsletter
         label:          Newsletter Signup
         view:           SecondView
-    - item:
-        destination:    download
-        label:          Download Section
-        view:           SecondView
-        - item:
-            destination:    trailer
-            label:          Trailer Section
-            view:           SecondView
-        - item:
-            destination:    screenshots
-            label:          Screenshots Section
-            view:           SecondView
-        - item:
-            destination:    wallpapers
-            label:          Wallpapers Section
-            view:           SecondView
     - item:
         destination:    blog
         label:          Blog and News
