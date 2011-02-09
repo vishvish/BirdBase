@@ -45,7 +45,7 @@ package org.birdbase.framework.model
 //			assetLoader.onComplete.loader.stats.progress
 //			signal.dispatch();
 			try {
-				logger.debug( "AssetModel::onComplete --> " + assetLoader.onComplete.loader.stats.progress );
+//				logger.debug( "AssetModel::onComplete --> " + assetLoader.onComplete.loader.stats.progress );
 				if( assetLoader.getAsset( "dynamicLibrary" ) )
 				{
 					DynamicSprite.update( "dynamicLibrary", assetLoader.getAsset( "dynamicLibrary" ) as MovieClip );

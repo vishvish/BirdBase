@@ -33,9 +33,7 @@ package org.birdbase.framework.controller.assets
 		
 		override public function execute():void
 		{
-			logger.error( "LoadDesignAssetsCommand::execute" );
-			logger.debug( "Loading from: " + bm.assetBasePath + bm.getPreference( "assetsFile" ) );
-
+			logger.debug( "LoadDesignAssetsCommand::execute --> " + bm.assetBasePath + bm.getPreference( "assetsFile" ) );
 			assetLoader.addConfig( bm.assetBasePath + bm.getPreference( "assetsFile" ) );
 		}
 

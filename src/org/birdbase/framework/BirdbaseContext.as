@@ -1,7 +1,5 @@
 package org.birdbase.framework
 {
-	import com.vishvish.demoApplication.view.LoadingView;
-	
 	import flash.display.DisplayObjectContainer;
 	
 	import org.as3commons.logging.ILogger;
@@ -15,12 +13,13 @@ package org.birdbase.framework
 	import org.birdbase.framework.signals.ViewStateChanged;
 	import org.birdbase.framework.utils.FlashVarsManager;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
+	import org.birdbase.framework.view.BootstrapLoaderProgressView;
 	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.utilities.modular.mvcs.ModuleContext;
 	
 	public class BirdbaseContext extends ModuleContext
 	{
-		protected var _loadingView:LoadingView;
+		protected var _loaderProgressView:BootstrapLoaderProgressView;
 		
 		public var logger:ILogger;
 		
@@ -28,9 +27,9 @@ package org.birdbase.framework
 		{
 			super( contextView );
 			
-			_loadingView = new LoadingView();
+			_loaderProgressView = new BootstrapLoaderProgressView();
 			
-			this.contextView.addChild( _loadingView );
+			this.contextView.addChild( _loaderProgressView );
 			
 		}
 		
@@ -49,8 +48,6 @@ package org.birdbase.framework
 			
 			injector.mapValue( IAssetLoader, bootstrapLoader, "bootstrapLoader" );
 			injector.mapClass( IAssetLoader, AssetLoader );
-			
-			_loadingView
 			
 			// view state
 			injector.mapSingleton( SWFAddress );
@@ -73,20 +70,26 @@ package org.birdbase.framework
 
 		private function onOpen( signal:LoaderSignal ):void
 		{
-			_loadingView.x = 800;
-			_loadingView.y = 400;
-			_loadingView.start();
+			_loaderProgressView.start();
 		}
 		
 		private function onProgress( signal:LoaderSignal ):void
 		{
-			_loadingView.update( signal.loader.stats.progress );
+			_loaderProgressView.update( signal.loader.stats.progress );
 		}
 		
 		private function onComplete( signal:LoaderSignal, data:* ):void
 		{
-			_loadingView.update( signal.loader.stats.progress );
-			_loadingView.stop();
+			_loaderProgressView.update( signal.loader.stats.progress );
+			var callback:Function = function():void
+			{
+				if( contextView.contains( _loaderProgressView ) )
+				{
+					contextView.removeChild( _loaderProgressView );
+					_loaderProgressView = null;
+				}
+			}
+			_loaderProgressView.stop( callback );
 		}
 	}
 }

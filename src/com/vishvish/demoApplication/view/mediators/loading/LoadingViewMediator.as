@@ -1,6 +1,6 @@
 package com.vishvish.demoApplication.view.mediators.loading
 {
-	import com.vishvish.demoApplication.view.LoadingView;
+	import org.birdbase.framework.view.BootstrapLoaderProgressView;
 	import com.vishvish.demoApplication.view.mediators.abstract.ApplicationMediator;
 	
 	import org.assetloader.signals.LoaderSignal;
@@ -11,7 +11,7 @@ package com.vishvish.demoApplication.view.mediators.loading
 	public class LoadingViewMediator extends ApplicationMediator
 	{
 		[Inject]
-		public var view:LoadingView;
+		public var view:BootstrapLoaderProgressView;
 		
 		[Inject]
 		public var assetService:AssetService;
