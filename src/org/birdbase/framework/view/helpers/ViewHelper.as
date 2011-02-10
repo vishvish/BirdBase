@@ -21,7 +21,12 @@ package org.birdbase.framework.view.helpers
 		{
 			return cm.conf.nav as Array;
 		}
-		
+
+		public function get nav():*
+		{
+			return cm.conf.nav;
+		}
+
 		/**
 		 * A helper function that return the localized string.
 		 * 

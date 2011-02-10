@@ -3,3 +3,4 @@ application:
     author:     Vish Vishvanath <vish.vishvanath@gmail.com>
     
 assetsFile: load.xml
+viewpath: com.vishvish.demoApplication.view

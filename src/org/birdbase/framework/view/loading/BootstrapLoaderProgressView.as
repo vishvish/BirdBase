@@ -1,4 +1,4 @@
-package org.birdbase.framework.view
+package org.birdbase.framework.view.loading
 {
 	import com.bit101.components.ProgressBar;
 	import com.bit101.components.Text;
@@ -47,7 +47,7 @@ package org.birdbase.framework.view
 		
 		public function update( progress:Number ):void
 		{
-			logger.info( this.name + " LoadingView::update " + progress );
+//			logger.info( this.name + " LoadingView::update " + progress );
 			_progress = progress;
 			_loadingProgress.value = _progress;
 		}

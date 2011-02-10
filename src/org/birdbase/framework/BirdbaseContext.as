@@ -13,7 +13,7 @@ package org.birdbase.framework
 	import org.birdbase.framework.signals.ViewStateChanged;
 	import org.birdbase.framework.utils.FlashVarsManager;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
-	import org.birdbase.framework.view.BootstrapLoaderProgressView;
+	import org.birdbase.framework.view.loading.BootstrapLoaderProgressView;
 	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.utilities.modular.mvcs.ModuleContext;
 	

@@ -8,6 +8,7 @@ package com.vishvish.demoApplication.view.mediators
 	import flash.display.DisplayObject;
 	import flash.events.MouseEvent;
 	import flash.utils.Dictionary;
+	import flash.utils.getDefinitionByName;
 	
 	import org.birdbase.framework.action.*;
 	import org.birdbase.framework.model.*;
@@ -37,6 +38,9 @@ package com.vishvish.demoApplication.view.mediators
 		[Inject]
 		public var updateDynamicLibrary:UpdateDynamicLibrary;
 		
+		[Inject]
+		public var bm:BootstrapModel;
+		
 		public function MainContainerViewMediator()
 		{
 			super();
@@ -65,6 +69,8 @@ package com.vishvish.demoApplication.view.mediators
 				navigationActions.push( action );
 			}
 			
+			mapNav( helper.navigation );
+			
 			view.buildNavigation( navigationActions );
 			
 			// TODO replace these calls with helper functions
@@ -80,6 +86,57 @@ package com.vishvish.demoApplication.view.mediators
 
 			var signal:NativeSignal = new NativeSignal( view, MouseEvent.CLICK, MouseEvent );
 			signal.add( viewPressed );
+		}
+		
+		private function mapNav( nav:Array ):void
+		{
+			var i:int = 0;
+			while( i < nav.length )
+			{
+				iterateDictionary( nav[ i ] );
+				i++;
+			}
+		}
+		
+		protected function iterateDictionary( d:Dictionary, parent:String = null ):void
+		{
+			for each( var item:* in d )
+			{
+				try
+				{
+					trace( "Item:", "/", parent, "/", item.label, "-->", item.view );
+					getView( item.view );
+					
+					if( item.subviews )
+					{
+						for each( var subview:* in item.subviews )
+						{
+							iterateDictionary( subview, item.label );
+						}
+					}
+				}
+				catch( e:Error )
+				{
+					logger.error( e.message );
+				}
+				finally
+				{
+					
+				}
+			}
+		}
+		
+		protected function getView( name:String ):void
+		{
+			try
+			{
+				var c:Class = getDefinitionByName( bm.getPreference( "viewpath" ) + "." + name ) as Class;
+//				logger.debug( "Found Class " + c );
+			}
+			catch( e:Error )
+			{
+				logger.error( e.message );
+			}
 		}
 
 		/**

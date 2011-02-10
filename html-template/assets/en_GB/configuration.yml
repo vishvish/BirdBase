@@ -16,6 +16,23 @@ nav:
                 destination:    screenshots
                 label:          Screenshots Section
                 view:           SecondView
+                subviews:
+                    - item:
+                        destination:    download
+                        label:          Download Section
+                        view:           SecondView
+                    - item:
+                        destination:    trailer
+                        label:          Trailer Section
+                        view:           SecondView
+                    - item:
+                        destination:    screenshots
+                        label:          Screenshots Section
+                        view:           SecondView
+                    - item:
+                        destination:    wallpapers
+                        label:          Wallpapers Section
+                        view:           SecondView
             - item:
                 destination:    wallpapers
                 label:          Wallpapers Section
@@ -24,6 +41,11 @@ nav:
         destination:    media
         label:          Media Section
         view:           SecondView
+        subviews:
+            - item:
+                destination:    mediadownload
+                label:          Media Download Section
+                view:           SecondView
     - item:
         destination:    newsletter
         label:          Newsletter Signup
@@ -36,6 +58,23 @@ nav:
         destination:    community
         label:          Community
         view:           ThirdView
+        subviews:
+            - item:
+                destination:    download
+                label:          Download Section
+                view:           SecondView
+            - item:
+                destination:    trailer
+                label:          Trailer Section
+                view:           SecondView
+            - item:
+                destination:    screenshots
+                label:          Screenshots Section
+                view:           SecondView
+            - item:
+                destination:    wallpapers
+                label:          Wallpapers Section
+                view:           SecondView
     - item:
         destination:    preorder
         label:          Preorder
