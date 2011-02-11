@@ -1,4 +1,4 @@
-package com.vishvish.demoApplication.view
+package com.vishvish.demoApplication.view.master
 {
 	import com.bit101.components.PushButton;
 	import com.bit101.components.Text;
@@ -22,7 +22,7 @@ package com.vishvish.demoApplication.view
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class MainContainerView extends Sprite implements IView
+	public class MasterContainerView extends Sprite implements IView
 	{
 		/**
 		 *	// TODO viewContainer 
@@ -47,7 +47,7 @@ package com.vishvish.demoApplication.view
 		/**
 		 *	// TODO MainUI 
 		 */
-		public function MainContainerView()
+		public function MasterContainerView()
 		{
 			super();
 		}

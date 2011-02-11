@@ -1,8 +1,7 @@
-package com.vishvish.demoApplication.view.mediators
+package com.vishvish.demoApplication.view
 {
 	import flash.events.MouseEvent;
 	
-	import com.vishvish.demoApplication.view.SecondView;
 	import org.birdbase.framework.view.AbstractBirdbaseMediator;
 	import org.osflash.signals.natives.NativeSignal;
 	import com.vishvish.demoApplication.view.mediators.abstract.ApplicationMediator;

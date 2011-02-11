@@ -11,6 +11,7 @@ package org.birdbase.framework.service
 	import org.birdbase.framework.controller.configuration.ConfigureStateMachineCommand;
 	import org.birdbase.framework.model.BootstrapModel;
 	import org.birdbase.framework.model.ConfigurationModel;
+	import org.birdbase.framework.model.NavigationModel;
 	import org.birdbase.framework.utils.FlashVarsManager;
 	import org.robotlegs.mvcs.Actor;
 	import org.robotlegs.utilities.statemachine.StateEvent;
@@ -31,7 +32,10 @@ package org.birdbase.framework.service
 		public var bm:BootstrapModel;
 		
 		[Inject]
-		public var model:ConfigurationModel;
+		public var bootstrapModel:ConfigurationModel;
+		
+		[Inject]
+		public var navigationModel:NavigationModel;
 		
 		[Inject]
 		public var logger:ILogger;
@@ -50,11 +54,11 @@ package org.birdbase.framework.service
 		[PostConstruct]
 		public function init():void
 		{
-			model.configurationFilename = 
+			bootstrapModel.configurationFilename = 
 				fm.vars( "configurationFilename" ) 
-				? fm.vars( "configurationFilename" ) : model.configurationFilename;
+				? fm.vars( "configurationFilename" ) : bootstrapModel.configurationFilename;
 			
-			var preferences:URLRequest = new URLRequest( "assets/" + bm.locale + "/" + model.configurationFilename );
+			var preferences:URLRequest = new URLRequest( "assets/" + bm.locale + "/" + bootstrapModel.configurationFilename );
 			var loader:URLLoader = new URLLoader();
 			
 			loader.addEventListener( Event.COMPLETE, handleComplete );
@@ -72,7 +76,8 @@ package org.birdbase.framework.service
 			try
 			{
 				var map:Dictionary = YAML.decode( e.target.data ) as Dictionary;
-				model.conf = map;
+				bootstrapModel.conf = map;
+				navigationModel.navigation = map.nav;
 				logger.debug( "L10nService::loaded YAML" );
 				eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.CONFIGURE_LOCALIZATION_COMPLETE ) );
 			}

@@ -57,10 +57,14 @@ package org.birdbase.framework
 			// services
 			injector.mapSingleton( BootstrapModel );
 			injector.mapSingleton( BootstrapService );
+			
 			injector.mapSingleton( AssetModel );
 			injector.mapSingleton( AssetService );
+			
 			injector.mapSingleton( ConfigurationModel );
 			injector.mapSingleton( ConfigurationService );
+			
+			injector.mapSingleton( NavigationModel );
 			
 			commandMap.mapEvent( ContextEvent.STARTUP_COMPLETE, ConfigureStateMachineCommand, ContextEvent, true );
 			
@@ -86,7 +90,6 @@ package org.birdbase.framework
 				if( contextView.contains( _loaderProgressView ) )
 				{
 					contextView.removeChild( _loaderProgressView );
-					_loaderProgressView = null;
 				}
 			}
 			_loaderProgressView.stop( callback );

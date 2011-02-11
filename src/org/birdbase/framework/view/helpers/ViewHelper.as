@@ -2,7 +2,9 @@ package org.birdbase.framework.view.helpers
 {
 	import flash.utils.Dictionary;
 	
+	import org.as3commons.lang.ClassUtils;
 	import org.birdbase.framework.model.*;
+	import org.birdbase.framework.view.IView;
 
 	public class ViewHelper
 	{
@@ -10,21 +12,30 @@ package org.birdbase.framework.view.helpers
 		public var pm:BootstrapModel;
 		
 		[Inject]
-		public var cm:ConfigurationModel;
+		public var navigationModel:NavigationModel;
+		
+		[Inject]
+		public var configurationModel:ConfigurationModel;
 		
 		public function get externalLinks():Dictionary
 		{
-			return cm.conf.external_links as Dictionary;
+			return configurationModel.conf.external_links as Dictionary;
 		}
 		
 		public function get navigation():Array
 		{
-			return cm.conf.nav as Array;
+			return navigationModel.navigation;
 		}
 
 		public function get nav():*
 		{
-			return cm.conf.nav;
+			return configurationModel.conf.nav;
+		}
+		
+		public function getView( name:String ):IView
+		{
+			var viewRef:Class = navigationModel.getView( name );
+			return ClassUtils.newInstance( viewRef );
 		}
 
 		/**

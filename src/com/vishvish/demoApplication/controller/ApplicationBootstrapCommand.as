@@ -1,6 +1,6 @@
 package com.vishvish.demoApplication.controller
 {
-	import com.vishvish.demoApplication.view.MainContainerView;
+	import com.vishvish.demoApplication.view.master.MasterContainerView;
 	
 	import org.as3commons.logging.ILogger;
 	import org.birdbase.framework.controller.configuration.ConfigureStateMachineCommand;
@@ -39,7 +39,7 @@ package com.vishvish.demoApplication.controller
 			logger.info( "Birdbase --> Application / ApplicationBootstrapCommand::Booting..." );
 			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.BOOT_APPLICATION_COMPLETE ) );
 			
-			var view:MainContainerView = new MainContainerView();
+			var view:MasterContainerView = new MasterContainerView();
 			
 			contextView.addChild( view );
 			

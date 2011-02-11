@@ -9,8 +9,7 @@ package org.birdbase.framework.service
 	import org.as3commons.logging.ILogger;
 	import org.as3yaml.YAML;
 	import org.birdbase.framework.controller.configuration.ConfigureStateMachineCommand;
-	import org.birdbase.framework.model.AssetModel;
-	import org.birdbase.framework.model.BootstrapModel;
+	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.utils.FlashVarsManager;
 	import org.robotlegs.mvcs.Actor;
 	import org.robotlegs.utilities.statemachine.StateEvent;
@@ -28,11 +27,11 @@ package org.birdbase.framework.service
 		public var fm:FlashVarsManager;
 		
 		[Inject]
-		public var model:BootstrapModel;
+		public var bootstrapModel:BootstrapModel;
 		
 		[Inject]
 		public var assetModel:AssetModel;
-		
+
 		[Inject]
 		public var logger:ILogger;
 
@@ -44,15 +43,15 @@ package org.birdbase.framework.service
 		[PostConstruct]
 		public function init():void
 		{
-			model.locale = 
+			bootstrapModel.locale = 
 				fm.vars( "locale" ) 
 				? fm.vars( "locale" ) : "en_GB";
 			
-			model.bootstrap = 
+			bootstrapModel.bootstrap = 
 				fm.vars( "bootstrapFilename" ) 
 				? fm.vars( "bootstrapFilename" ) : "bootstrap.yml";
 
-			var preferences:URLRequest = new URLRequest( model.assetBasePath + model.bootstrap );
+			var preferences:URLRequest = new URLRequest( bootstrapModel.assetBasePath + bootstrapModel.bootstrap );
 			var loader:URLLoader = new URLLoader();
 			
 			loader.addEventListener( Event.COMPLETE, handleComplete );
@@ -68,7 +67,7 @@ package org.birdbase.framework.service
 		private function handleComplete(event:Event):void
 		{
 			var map:Dictionary = YAML.decode( event.target.data ) as Dictionary;
-			model.load( map );
+			bootstrapModel.load( map );
 			logger.debug( "BootstrapService::loaded" );
 			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.CONFIGURE_PREFERENCES_COMPLETE ) );
 		}

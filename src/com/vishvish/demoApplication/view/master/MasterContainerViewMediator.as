@@ -1,21 +1,19 @@
-package com.vishvish.demoApplication.view.mediators
+package com.vishvish.demoApplication.view.master
 {
 	import com.greensock.TweenMax;
 	import com.greensock.easing.Quart;
 	import com.vishvish.demoApplication.view.*;
-	import com.vishvish.demoApplication.view.mediators.abstract.MapNavigation;
+	import com.vishvish.demoApplication.view.mediators.abstract.ApplicationMediator;
 	
 	import flash.display.DisplayObject;
 	import flash.events.MouseEvent;
 	import flash.utils.Dictionary;
-	import flash.utils.getDefinitionByName;
 	
+	import org.as3commons.lang.ClassUtils;
 	import org.birdbase.framework.action.*;
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.signals.*;
-	import org.birdbase.framework.utils.swfaddress.SWFAddress;
 	import org.birdbase.framework.view.*;
-	import org.birdbase.framework.view.helpers.ViewHelper;
 	import org.osflash.signals.Signal;
 	import org.osflash.signals.natives.NativeSignal;
 
@@ -30,18 +28,20 @@ package com.vishvish.demoApplication.view.mediators
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class MainContainerViewMediator extends MapNavigation
+	public class MasterContainerViewMediator extends ApplicationMediator
 	{
 		[Inject]
-		public var view:MainContainerView;
+		public var viewStateChanged:ViewStateChanged;
+		
+		protected var currentView:IView;
+
+		[Inject]
+		public var view:MasterContainerView;
 		
 		[Inject]
 		public var updateDynamicLibrary:UpdateDynamicLibrary;
 		
-		[Inject]
-		public var bm:BootstrapModel;
-		
-		public function MainContainerViewMediator()
+		public function MasterContainerViewMediator()
 		{
 			super();
 		}
@@ -59,6 +59,8 @@ package com.vishvish.demoApplication.view.mediators
 			viewStateChanged.add( onViewStateChange );
 			view.main();
 			
+			// Top-level navigation buttons
+			
 			var navigationActions:Array = [];
 			var navigation:Array = helper.navigation;
 			
@@ -68,8 +70,6 @@ package com.vishvish.demoApplication.view.mediators
 				var action:Action = new Action( item.destination, item.label )
 				navigationActions.push( action );
 			}
-			
-			mapNav( helper.navigation );
 			
 			view.buildNavigation( navigationActions );
 			
@@ -88,57 +88,6 @@ package com.vishvish.demoApplication.view.mediators
 			signal.add( viewPressed );
 		}
 		
-		private function mapNav( nav:Array ):void
-		{
-			var i:int = 0;
-			while( i < nav.length )
-			{
-				iterateDictionary( nav[ i ] );
-				i++;
-			}
-		}
-		
-		protected function iterateDictionary( d:Dictionary, parent:String = null ):void
-		{
-			for each( var item:* in d )
-			{
-				try
-				{
-					trace( "Item:", "/", parent, "/", item.label, "-->", item.view );
-					getView( item.view );
-					
-					if( item.subviews )
-					{
-						for each( var subview:* in item.subviews )
-						{
-							iterateDictionary( subview, item.label );
-						}
-					}
-				}
-				catch( e:Error )
-				{
-					logger.error( e.message );
-				}
-				finally
-				{
-					
-				}
-			}
-		}
-		
-		protected function getView( name:String ):void
-		{
-			try
-			{
-				var c:Class = getDefinitionByName( bm.getPreference( "viewpath" ) + "." + name ) as Class;
-//				logger.debug( "Found Class " + c );
-			}
-			catch( e:Error )
-			{
-				logger.error( e.message );
-			}
-		}
-
 		/**
 		 * This handler will pick up signals from its view and subviews. This is deliberate: the top-level view may
 		 * want to know this, and perform its own view actions.
@@ -156,7 +105,7 @@ package com.vishvish.demoApplication.view.mediators
 				if( action )
 				{
 					destination = action.destination
-					logger.debug( "MainContainerViewMediator::viewPressed / Target: INavigationActionable --> " + destination );
+					logger.debug( "MasterContainerViewMediator::viewPressed / Target: INavigationActionable --> " + destination );
 					swfAddress.setValue( destination );
 				}
 			}
@@ -166,12 +115,12 @@ package com.vishvish.demoApplication.view.mediators
 				if( action )
 				{
 					destination = action.destination
-					logger.debug( "MainContainerViewMediator::viewPressed / IExternalLinkActionable --> " + destination );
+					logger.debug( "MasterContainerViewMediator::viewPressed / IExternalLinkActionable --> " + destination );
 				}
 			}
 			else // everything else
 			{
-				logger.debug( "MainContainerViewMediator::viewPressed / " + e.target.toString() );
+				logger.debug( "MasterContainerViewMediator::viewPressed / " + e.target.toString() );
 			}
 		}
 
@@ -196,44 +145,27 @@ package com.vishvish.demoApplication.view.mediators
 		protected function onViewStateChange():void
 		{
 			try {
-				var viewName:String = viewState.viewName;
+				var newView:IView = helper.getView( viewState.viewName );
 				
-				if( viewName )
+				if( currentView != null )
 				{
-					if( subViews.hasOwnProperty( viewName ) )
-					{
-						if( subViews[ viewName ] is Class )
-						{
-							subViews[ viewName ] = new subViews[ viewName ];
-						}
-						
-						if( currentView != null )
-						{
-							var s:Signal = new Signal();
-							s.addOnce( function():void 
-							{ 
-								view.viewContainer.removeChildAt( 0 ); 
-								showView( subViews[ viewName ] ); 
-							});
-							currentView.hide( s );
-						}
-						else
-						{
-							showView( subViews[ viewName ] );
-						}
-					}
+					var s:Signal = new Signal();
+					s.addOnce( function():void 
+					{ 
+						view.viewContainer.removeChildAt( 0 ); 
+						showView( newView ); 
+					});
+					currentView.hide( s );
 				}
 				else
 				{
-					throw new Error( "MainContainerViewMediator::onViewStateChanged --> Null view chosen." );
-					
+					showView( newView );
 				}
 			}
 			catch( e:Error )
 			{
-				logger.error( e.message );
+				logger.error( "MasterContainerViewMediator::onViewStateChanged " + e.message );
 			}
-			
 		}
 
 		protected function showView( newView:IView ):void

@@ -1,12 +1,15 @@
 package com.vishvish.demoApplication.view.mediators.abstract
 {
-	import org.birdbase.framework.view.helpers.ViewHelper;
-	import org.birdbase.framework.model.ApplicationModel;
+	import flash.utils.Dictionary;
+	import flash.utils.getDefinitionByName;
 	
 	import org.as3commons.logging.ILogger;
+	import org.birdbase.framework.model.ApplicationModel;
+	import org.birdbase.framework.model.BootstrapModel;
 	import org.birdbase.framework.model.ConfigurationModel;
 	import org.birdbase.framework.utils.swfaddress.SWFAddress;
 	import org.birdbase.framework.view.AbstractBirdbaseMediator;
+	import org.birdbase.framework.view.helpers.ViewHelper;
 	
 	/**
 	 * Abstract superclass for mediators, holding application-level injected objects.
@@ -20,6 +23,9 @@ package com.vishvish.demoApplication.view.mediators.abstract
 	{
 		[Inject]
 		public var appModel:ApplicationModel;
+		
+		[Inject]
+		public var bm:BootstrapModel;
 
 		[Inject]
 		public var config:ConfigurationModel;
@@ -33,22 +39,9 @@ package com.vishvish.demoApplication.view.mediators.abstract
 		[Inject]
 		public var swfAddress:SWFAddress;
 		
-		protected var _subViews:Object;
-
 		public function ApplicationMediator()
 		{
 			super();
 		}
-
-		public function get subViews():Object
-		{
-			return _subViews;
-		}
-
-		public function set subViews(value:Object):void
-		{
-			_subViews = value;
-		}
-
 	}
 }

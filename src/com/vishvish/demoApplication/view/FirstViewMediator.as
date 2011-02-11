@@ -1,8 +1,5 @@
-package com.vishvish.demoApplication.view.mediators
+package com.vishvish.demoApplication.view
 {
-	import com.vishvish.demoApplication.view.FirstView;
-	import com.vishvish.demoApplication.view.SecondView;
-	import com.vishvish.demoApplication.view.ThirdView;
 	import com.vishvish.demoApplication.view.mediators.abstract.ApplicationMediator;
 	
 	import flash.events.MouseEvent;
@@ -45,9 +42,9 @@ package com.vishvish.demoApplication.view.mediators
 		 */
 		override public function onRegister():void
 		{
-			subViews = {};
-			subViews[ "download" ] = SecondView;
-			subViews[ "trailer" ] = ThirdView;
+//			subViews = {};
+//			subViews[ "download" ] = SecondView;
+//			subViews[ "trailer" ] = ThirdView;
 			
 			view.slideshow = slideshow;
 			
