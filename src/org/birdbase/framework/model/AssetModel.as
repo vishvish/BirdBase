@@ -12,7 +12,7 @@ package org.birdbase.framework.model
 	
 	public class AssetModel extends Actor
 	{
-		[Inject]
+		[Inject(name="birdbase")]
 		public var logger:ILogger;
 
 		[Inject(name="bootstrapLoader")]

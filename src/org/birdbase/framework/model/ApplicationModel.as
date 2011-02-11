@@ -6,7 +6,7 @@ package org.birdbase.framework.model
 	
 	public class ApplicationModel extends Actor
 	{
-		[Inject]
+		[Inject(name="birdbase")]
 		public var logger:ILogger;
 
 		private var _map:Map = new Map();

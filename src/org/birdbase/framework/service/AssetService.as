@@ -25,7 +25,7 @@ package org.birdbase.framework.service
 		[Inject]
 		public var assetLoader:IAssetLoader;
 		
-		[Inject]
+		[Inject(name="birdbase")]
 		public var logger:ILogger;
 
 		public function init():void

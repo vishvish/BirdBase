@@ -30,7 +30,7 @@ package com.vishvish.demoApplication.view.mediators.abstract
 		[Inject]
 		public var helper:ViewHelper;
 
-		[Inject]
+		[Inject(name="application")]
 		public var logger:ILogger;
 		
 		[Inject]

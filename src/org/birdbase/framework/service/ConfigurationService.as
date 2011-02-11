@@ -37,7 +37,7 @@ package org.birdbase.framework.service
 		[Inject]
 		public var navigationModel:NavigationModel;
 		
-		[Inject]
+		[Inject(name="birdbase")]
 		public var logger:ILogger;
 		
 		/**

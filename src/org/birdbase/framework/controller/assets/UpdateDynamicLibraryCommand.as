@@ -8,7 +8,7 @@ package org.birdbase.framework.controller.assets
 	
 	public class UpdateDynamicLibraryCommand extends SignalCommand
 	{
-		[Inject]
+		[Inject(name="birdbase")]
 		public var logger:ILogger;
 		
 		[Inject(name="bootstrapLoader")]

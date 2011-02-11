@@ -32,7 +32,7 @@ package org.birdbase.framework.service
 		[Inject]
 		public var assetModel:AssetModel;
 
-		[Inject]
+		[Inject(name="birdbase")]
 		public var logger:ILogger;
 
 		public function BootstrapService()

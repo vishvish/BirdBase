@@ -22,7 +22,7 @@ package com.vishvish.demoApplication.controller
 	 */
 	public class ApplicationBootstrapCommand extends SignalCommand
 	{
-		[Inject]
+		[Inject(name="application")]
 		public var logger:ILogger;
 		
 		[Inject]

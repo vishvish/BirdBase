@@ -16,7 +16,7 @@ package org.birdbase.framework.controller.abstract
 	 */
 	public class BirdbaseCommand extends Command
 	{
-		[Inject]
+		[Inject(name="birdbase")]
 		public var logger:ILogger;
 		
 		/**

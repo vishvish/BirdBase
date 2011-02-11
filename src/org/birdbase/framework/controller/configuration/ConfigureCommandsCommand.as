@@ -19,7 +19,7 @@ package org.birdbase.framework.controller.configuration
 	 */
 	public class ConfigureCommandsCommand extends SignalCommand
 	{
-		[Inject]
+		[Inject(name="birdbase")]
 		public var logger:ILogger;
 		
 		/**

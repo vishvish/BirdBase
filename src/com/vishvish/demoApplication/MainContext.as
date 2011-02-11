@@ -7,6 +7,8 @@ package com.vishvish.demoApplication
 	
 	import flash.display.DisplayObjectContainer;
 	
+	import org.as3commons.logging.ILogger;
+	import org.as3commons.logging.LoggerFactory;
 	import org.birdbase.framework.BirdbaseContext;
 	import org.birdbase.framework.controller.state.ChangeApplicationStateCommand;
 	import org.birdbase.framework.model.*;
@@ -47,6 +49,9 @@ package com.vishvish.demoApplication
 		 */
 		override public function startup():void
         {
+			logger = LoggerFactory.getLogger( "com.vishvish.demoApplication" );
+			injector.mapValue( ILogger, logger, "application" );
+
 			signalCommandMap.mapSignalClass( ModifyApplicationState, ChangeApplicationStateCommand );
 
 			// models

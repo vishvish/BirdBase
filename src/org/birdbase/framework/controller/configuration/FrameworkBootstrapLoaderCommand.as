@@ -17,9 +17,6 @@ package org.birdbase.framework.controller.configuration
 	public class FrameworkBootstrapLoaderCommand extends BirdbaseCommand
 	{
 		[Inject]
-		/**
-		 *	// TODO ps 
-		 */
 		public var ps:BootstrapService;
 
 		/**

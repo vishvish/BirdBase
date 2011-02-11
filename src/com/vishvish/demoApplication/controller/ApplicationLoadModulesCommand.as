@@ -15,7 +15,7 @@ package com.vishvish.demoApplication.controller
 	 */
 	public class ApplicationLoadModulesCommand extends SignalCommand
 	{
-		[Inject]
+		[Inject(name="application")]
 		public var logger:ILogger;
 
 		public function ApplicationLoadModulesCommand()

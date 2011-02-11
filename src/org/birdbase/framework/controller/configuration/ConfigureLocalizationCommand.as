@@ -17,9 +17,6 @@ package org.birdbase.framework.controller.configuration
 	public class ConfigureLocalizationCommand extends BirdbaseCommand
 	{
 		[Inject]
-		/**
-		 *	// TODO l10 
-		 */
 		public var l10:ConfigurationService;
 		
 		/**

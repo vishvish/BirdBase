@@ -16,7 +16,7 @@ package org.birdbase.framework.controller.state
 	 */
 	public class ChangeApplicationStateCommand extends SignalCommand
 	{	
-		[Inject]
+		[Inject(name="birdbase")]
 		public var logger:ILogger;
 		
 		[Inject]

@@ -7,6 +7,7 @@ package org.birdbase.framework
 	import org.assetloader.AssetLoader;
 	import org.assetloader.core.IAssetLoader;
 	import org.assetloader.signals.LoaderSignal;
+	import org.birdbase.framework.controller.abstract.BirdbaseCommand;
 	import org.birdbase.framework.controller.configuration.ConfigureStateMachineCommand;
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.service.*;
@@ -36,7 +37,7 @@ package org.birdbase.framework
 		override public function startup():void
 		{
 			logger = LoggerFactory.getLogger( "org.birdbase.framework" );
-			injector.mapValue( ILogger, logger );
+			injector.mapValue( ILogger, logger, "birdbase" );
 
 			var fm:FlashVarsManager = new FlashVarsManager( contextView );
 			injector.mapValue( FlashVarsManager, fm );
@@ -53,6 +54,7 @@ package org.birdbase.framework
 			injector.mapSingleton( SWFAddress );
 			injector.mapSingleton( ViewStateModel );
 			injector.mapSingleton( ViewStateChanged );
+			injector.mapSingleton( BirdbaseCommand );
 			
 			// services
 			injector.mapSingleton( BootstrapModel );

@@ -24,6 +24,7 @@ package org.birdbase.framework.view.loading
 		protected var _loadingProgress:ProgressBar;
 		
 		protected var _progress:Number;
+
 		private var logger:ILogger;
 
 		public function BootstrapLoaderProgressView()
