@@ -2,15 +2,10 @@ package org.birdbase.framework.model
 {
 	import com.vishvish.demoApplication.view.*;
 	
-	import de.polygonal.ds.TreeNode;
-	
 	import flash.utils.Dictionary;
-	import flash.utils.describeType;
 	import flash.utils.getDefinitionByName;
 	
-	import org.as3commons.lang.ClassUtils;
 	import org.as3commons.logging.ILogger;
-	import org.birdbase.framework.view.IView;
 	import org.robotlegs.mvcs.Actor;
 	
 	public class NavigationModel extends Actor

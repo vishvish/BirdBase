@@ -28,11 +28,6 @@ package org.birdbase.framework.service
 		[Inject]
 		public var logger:ILogger;
 
-		public function AssetService()
-		{
-			
-		}
-		
 		public function init():void
 		{
 			assetLoader.addConfig( bm.assetBasePath + bm.getPreference( "assetsFile" ) );

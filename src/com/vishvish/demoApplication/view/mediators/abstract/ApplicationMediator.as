@@ -1,8 +1,5 @@
 package com.vishvish.demoApplication.view.mediators.abstract
 {
-	import flash.utils.Dictionary;
-	import flash.utils.getDefinitionByName;
-	
 	import org.as3commons.logging.ILogger;
 	import org.birdbase.framework.model.ApplicationModel;
 	import org.birdbase.framework.model.BootstrapModel;

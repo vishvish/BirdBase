@@ -16,16 +16,35 @@ package org.birdbase.framework.model
 			super();
 		}
 		
+		/**
+		 * Adds a data parameter to the model.
+		 *  
+		 * @param key
+		 * @param item
+		 * @param override
+		 * 
+		 */
 		public function addParameter( key:String, item:*, override:Boolean = true ):void
 		{
-			if( override )
+			try
 			{
-				if( _map.hasKey( key ) )
+				if( override )
 				{
-					_map.removeKey( key );
+					if( _map.hasKey( key ) )
+					{
+						_map.removeKey( key );
+					}
 				}
+				_map.add( key, item );
 			}
-			logger.debug( [ "ApplicationModel::addParameter", key, item, _map.add( key, item ), _map.size ].toString() );
+			catch( e:Error )
+			{
+				logger.error( e.message );
+			}
+			finally
+			{
+				logger.debug( [ "ApplicationModel::addParameter", key, item, _map.size ].toString() );
+			}
 		}
 		
 		public function get map():Map

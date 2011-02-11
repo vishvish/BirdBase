@@ -1,8 +1,6 @@
 package org.birdbase.framework.model
 {
 	import flash.utils.Dictionary;
-	
-	import org.robotlegs.mvcs.Actor;
 
 	/**
 	 * The ConfigurationModel holds all the information relating to data and structure of the site. This information
