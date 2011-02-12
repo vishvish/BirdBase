@@ -2,9 +2,9 @@ package com.vishvish.demoApplication.view
 {
 	import com.bit101.components.PushButton;
 	import com.bit101.components.Text;
+	import com.bit101.components.VBox;
 	
 	import org.birdbase.framework.view.AbstractTransitioningView;
-	import org.birdbase.modules.slideshow.SlideshowModule;
 
 	/**
 	 *	// TODO FirstView 
@@ -19,12 +19,13 @@ package com.vishvish.demoApplication.view
 	 */
 	public class FirstView extends AbstractTransitioningView
 	{
-		public var blueButton:PushButton;
-		public var redButton:PushButton;
+		protected var _container:VBox;
 		
-		protected var textTF:Text;
+		public var pushbuttonA:PushButton;
 		
-		public var slideshow:SlideshowModule;
+		public var pushbuttonB:PushButton;
+		
+		public var textTF:Text;
 		
 		public function FirstView()
 		{
@@ -34,19 +35,11 @@ package com.vishvish.demoApplication.view
 		override public function main():void
 		{
 			cleanup();
-			textTF = new Text( this, 0, 140 );
-			textTF.width = 450;
-			addChild( textTF );
 			
-			blueButton = new PushButton( this, 0, 60, "Button 1" );
-			addChild( blueButton );
-			
-			redButton = new PushButton( this, 110, 60, "Button 2" );
-			addChild( redButton );
-			
-//			addChild( slideshow );
-//			
-//			addChild( navigation );
+			_container = new VBox( this );
+			textTF = new Text( _container );
+			pushbuttonA = new PushButton( _container );
+			pushbuttonB = new PushButton( _container );
 		}
 	}
 }

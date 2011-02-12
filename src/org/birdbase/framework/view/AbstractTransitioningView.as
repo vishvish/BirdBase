@@ -1,5 +1,6 @@
 package org.birdbase.framework.view
 {
+	import com.bit101.components.Text;
 	import com.greensock.TweenLite;
 	
 	import flash.display.Sprite;
@@ -11,6 +12,7 @@ package org.birdbase.framework.view
 		public function AbstractTransitioningView()
 		{
 			super();
+			
 			this.alpha = 0;
 		}
 

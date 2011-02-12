@@ -42,18 +42,17 @@ package com.vishvish.demoApplication.view
 		 */
 		override public function onRegister():void
 		{
-//			subViews = {};
-//			subViews[ "download" ] = SecondView;
-//			subViews[ "trailer" ] = ThirdView;
-			
-			view.slideshow = slideshow;
-			
 			view.main();
 			
-			var ns:NativeSignal = new NativeSignal( view.blueButton, MouseEvent.CLICK, MouseEvent );
+			// send text
+			view.textTF.text = config.conf.lorem;
+			view.pushbuttonA.label = config.conf.bluebutton;
+			view.pushbuttonB.label = config.conf.redbutton;
+			
+			var ns:NativeSignal = new NativeSignal( view.pushbuttonA, MouseEvent.CLICK, MouseEvent );
 			ns.add( selectBluePill );
 			
-			ns = new NativeSignal( view.redButton, MouseEvent.CLICK, MouseEvent );
+			ns = new NativeSignal( view.pushbuttonB, MouseEvent.CLICK, MouseEvent );
 			ns.add( selectRedPill );
 		}
 		

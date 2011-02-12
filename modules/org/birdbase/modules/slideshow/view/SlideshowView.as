@@ -1,5 +1,7 @@
 package org.birdbase.modules.slideshow.view
 {
+	import com.bit101.components.Text;
+	
 	import flash.display.Sprite;
 	
 	import org.birdbase.framework.view.IView;
@@ -7,6 +9,8 @@ package org.birdbase.modules.slideshow.view
 	
 	public class SlideshowView extends Sprite implements IView
 	{
+		protected var _viewTitle:Text;
+
 		public function SlideshowView()
 		{
 			super();
@@ -29,5 +33,16 @@ package org.birdbase.modules.slideshow.view
 		{
 			// TODO Auto-generated method stub
 		}
+
+		public function get viewTitle():Text
+		{
+			return _viewTitle;
+		}
+		
+		public function set viewTitle(value:Text):void
+		{
+			_viewTitle = value;
+		}
+		
 	}
 }

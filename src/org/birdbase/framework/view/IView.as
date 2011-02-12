@@ -1,5 +1,7 @@
 package org.birdbase.framework.view
 {
+	import com.bit101.components.Text;
+	
 	import org.osflash.signals.Signal;
 	
 	/**
@@ -36,6 +38,7 @@ package org.birdbase.framework.view
 		 *	
 		 *	// TODO @return 
 		 */
-		function hide(signal:Signal):void;		
+		function hide(signal:Signal):void;
+
 	}
 }

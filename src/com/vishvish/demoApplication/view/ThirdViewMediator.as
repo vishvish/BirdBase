@@ -41,22 +41,24 @@ package com.vishvish.demoApplication.view
 			super();
 		}
 		
-		/**
-		 *	// TODO onRegister 
-		 *	
-		 *	@return void	
-		 */
 		override public function onRegister():void
 		{
-			view.option1 = appModel.map.itemFor( "option1" );
-			view.option2 = appModel.map.itemFor( "option2" );
 			view.main();
 			
+			var option1:String = appModel.map.itemFor( "option1" );
+			var option2:String = appModel.map.itemFor( "option2" );
+
 			var links:Dictionary = helper.externalLinks;
 			if( links != null )
 			{
-				view.dzoneButton.action = new Action( links.dzone.destination, links.dzone.label );
+				view.linkButton.action = new Action( links.dzone.destination, links.dzone.label );
 			}
+
+			view.textTF.text = "This is the third view of the application. You've already selected: " + 
+				option1 + 
+				" and " + 
+				option2 + 
+				".";
 
 			var signal:NativeSignal = new NativeSignal( view, MouseEvent.CLICK, MouseEvent );
 			signal.add( viewPressed );

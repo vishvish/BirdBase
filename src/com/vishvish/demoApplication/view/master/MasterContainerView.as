@@ -1,7 +1,10 @@
 package com.vishvish.demoApplication.view.master
 {
+	import com.bit101.components.HBox;
+	import com.bit101.components.Panel;
 	import com.bit101.components.PushButton;
 	import com.bit101.components.Text;
+	import com.bit101.components.VBox;
 	import com.vishvish.demoApplication.view.components.NavigationButton;
 	
 	import flash.display.Sprite;
@@ -24,25 +27,21 @@ package com.vishvish.demoApplication.view.master
 	 */
 	public class MasterContainerView extends Sprite implements IView
 	{
-		/**
-		 *	// TODO viewContainer 
-		 */
+		protected var _viewTitle:Text;
+
 		public var viewContainer:Sprite;
 		
-		public var navigationContainer:Sprite;
+		public var navigationContainer:HBox;
 		
-		/**
-		 *	// TODO logo 
-		 */
 		public var logo:DynamicSprite;
 		
 		public var block:DynamicSprite;
 		
-		public var tagline:Text;
-		
-		public var toggleAssetButton:PushButton;
-		
-		public var loadSlideshowButton:PushButton;
+//		public var tagline:Text;
+//		
+//		public var toggleAssetButton:PushButton;
+//		
+//		public var loadSlideshowButton:PushButton;
 		
 		/**
 		 *	// TODO MainUI 
@@ -59,34 +58,35 @@ package com.vishvish.demoApplication.view.master
 		 */
 		public function main():void
 		{
-			logo = new DynamicSprite( "logo" );
-			logo.x = 550;
-			logo.y = 5
-			addChild( logo );
-			
-			tagline = new Text( this, 0, 30 );
-			addChild( tagline );
-			
-			toggleAssetButton = new PushButton( this, 850, 30, "Toggle Assets" );
-			addChild( toggleAssetButton );
-
-			loadSlideshowButton = new PushButton( this, 850, 70, "Load Slideshow" );
-			//addChild( loadSlideshowButton );
-
-			block = new DynamicSprite( "block" );
-			block.x = 400;
-			block.y = 50;
-			addChild( block );
-			
 			viewContainer = new Sprite();
 			viewContainer.x = 0;
-			viewContainer.y = 90;
+			viewContainer.y = 60;
 			addChild( viewContainer );
+			
+			navigationContainer = new HBox( this )
+			
+			var vbox:VBox = new VBox( viewContainer, 0, 25 );
+			vbox.spacing = 15;
 
-			navigationContainer = new Sprite();
-			navigationContainer.x = 0;
-			navigationContainer.y = 0;
-			addChild( navigationContainer );
+//			tagline = new Text( vbox );
+//			toggleAssetButton = new PushButton( vbox );
+//			loadSlideshowButton = new PushButton( vbox );
+
+			block = new DynamicSprite( "block" );
+//			navigationContainer.addChild( block );
+			
+			logo = new DynamicSprite( "logo" );
+//			logo.x = 550;
+//			logo.y = 5
+			navigationContainer.addChild( logo );
+			
+//			vbox.addChild( tagline );
+			
+			//, null, null, "Toggle Assets" );
+//			vbox.addChild( toggleAssetButton );
+
+			//addChild( loadSlideshowButton );
+
 		}
 		
 		public function buildNavigation( data:Array ):void
@@ -96,9 +96,7 @@ package com.vishvish.demoApplication.view.master
 			for( var i:int = 0; i < data.length; i++ )
 			{
 				var action:Action = Action( data[ i ] );
-				var button:NavigationButton = new NavigationButton( navigationContainer, 0, 0, null );
-				button.x = spacing;
-				spacing += button.width + 10;
+				var button:NavigationButton = new NavigationButton( navigationContainer );
 				button.action = action;
 			}
 		}
@@ -127,6 +125,16 @@ package com.vishvish.demoApplication.view.master
 		{
 			if( callback )
 				callback.dispatch();
+		}
+
+		public function get viewTitle():Text
+		{
+			return _viewTitle;
+		}
+		
+		public function set viewTitle(value:Text):void
+		{
+			_viewTitle = value;
 		}
 	}
 }

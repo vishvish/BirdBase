@@ -73,12 +73,12 @@ package com.vishvish.demoApplication.view.master
 			view.buildNavigation( navigationActions );
 			
 			// TODO replace these calls with helper functions
-			view.tagline.text = config.conf.tagline;
-			view.toggleAssetButton.label = config.conf.swap_assets;
+//			view.tagline.text = config.conf.tagline;
+//			view.toggleAssetButton.label = config.conf.swap_assets;
 			
 			// set up the toggling of the asset library
-			var toggleAssetSignal:NativeSignal = new NativeSignal( view.toggleAssetButton, MouseEvent.CLICK, MouseEvent );
-			toggleAssetSignal.add( changeDynamicLibrary );
+//			var toggleAssetSignal:NativeSignal = new NativeSignal( view.toggleAssetButton, MouseEvent.CLICK, MouseEvent );
+//			toggleAssetSignal.add( changeDynamicLibrary );
 			
 			var ns:NativeSignal = new NativeSignal( view.logo, MouseEvent.CLICK, MouseEvent );
 			ns.add( gotoHome );
@@ -150,8 +150,13 @@ package com.vishvish.demoApplication.view.master
 				{
 					var s:Signal = new Signal();
 					s.addOnce( function():void 
-					{ 
-						view.viewContainer.removeChildAt( 0 ); 
+					{
+						// FIXME might be a little hardcore
+						while( view.viewContainer.numChildren > 0 )
+						{
+							view.viewContainer.removeChildAt( 0 );
+						}
+						//view.viewContainer.removeChild( DisplayObject( currentView ) ); 
 						showView( newView ); 
 					});
 					currentView.hide( s );

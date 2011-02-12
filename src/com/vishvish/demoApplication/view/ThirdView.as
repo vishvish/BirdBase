@@ -1,6 +1,7 @@
 package com.vishvish.demoApplication.view
 {
 	import com.bit101.components.Text;
+	import com.bit101.components.VBox;
 	import com.vishvish.demoApplication.view.components.ExternalLinkButton;
 	
 	import org.birdbase.framework.action.Action;
@@ -19,17 +20,11 @@ package com.vishvish.demoApplication.view
 	 */
 	public class ThirdView extends AbstractTransitioningView
 	{
-		public var option1:String;
-		public var option2:String;
+		protected var _container:VBox;
 		
-		public var contactView:ContactView;
+		public var linkButton:ExternalLinkButton;
 		
-		public var dzoneButton:ExternalLinkButton;
-		
-		/**
-		 *	// TODO textTF 
-		 */
-		protected var textTF:Text;
+		public var textTF:Text;
 		
 		/**
 		 *	// TODO ThirdView 
@@ -47,13 +42,10 @@ package com.vishvish.demoApplication.view
 		override public function main():void
 		{
 			cleanup();
-			textTF = new Text( this, 0, 120 );
-			textTF.text = "This is the third view of the application. You've already selected: " + option1 + " and " + option2 + ".";
-			addChild( textTF );
-			
-			dzoneButton = new ExternalLinkButton( this, 100, 100 );
-			addChild( dzoneButton );
-			
+
+			_container = new VBox( this );
+			textTF = new Text( _container );
+			linkButton = new ExternalLinkButton( _container );
 		}
 	}
 }

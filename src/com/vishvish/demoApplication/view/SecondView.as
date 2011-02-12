@@ -2,6 +2,7 @@ package com.vishvish.demoApplication.view
 {
 	import com.bit101.components.PushButton;
 	import com.bit101.components.Text;
+	import com.bit101.components.VBox;
 	
 	import org.birdbase.framework.view.AbstractTransitioningView;
 
@@ -18,13 +19,13 @@ package com.vishvish.demoApplication.view
 	 */
 	public class SecondView extends AbstractTransitioningView
 	{
-		public var yellowButton:PushButton;
-
-		public var purpleButton:PushButton;
+		protected var _container:VBox;
 		
-		public var option1:String;
+		public var pushbuttonA:PushButton;
 		
-		protected var textTF:Text;
+		public var pushbuttonB:PushButton;
+		
+		public var textTF:Text;
 				
 		public function SecondView()
 		{
@@ -34,17 +35,11 @@ package com.vishvish.demoApplication.view
 		override public function main():void
 		{
 			cleanup();
-			textTF = new Text( this, 0, 120 );
-			textTF.html = true;
-			textTF.width = 450;
-			textTF.text = "This is the second view of the application.<br/>You've already selected: "+option1+".<br/>Choose an option below.";
-			addChild(textTF);
-			
-			yellowButton = new PushButton( this, 0, 80, "Button 3" );
-			addChild( yellowButton );
-			
-			purpleButton = new PushButton( this, 110, 80, "Button 4" );
-			addChild( purpleButton );
+
+			_container = new VBox( this );
+			textTF = new Text( _container );
+			pushbuttonA = new PushButton( _container );
+			pushbuttonB = new PushButton( _container );
 		}
 	}
 }

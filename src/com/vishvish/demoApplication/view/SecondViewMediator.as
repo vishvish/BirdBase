@@ -40,14 +40,20 @@ package com.vishvish.demoApplication.view
 		 */
 		override public function onRegister():void
 		{
-			view.option1 = appModel.map.itemFor( "option1" );;
 			view.main();
+			view.pushbuttonA.label = config.conf.yellowbutton;
+			view.pushbuttonB.label = config.conf.purplebutton;
 			
-			var ns:NativeSignal = new NativeSignal(view.yellowButton,MouseEvent.CLICK,MouseEvent);
-			ns.add(selectYellowPill);
+			var ns:NativeSignal = new NativeSignal( view.pushbuttonA, MouseEvent.CLICK, MouseEvent );
+			ns.add( selectYellowPill );
 			
-			ns = new NativeSignal(view.purpleButton,MouseEvent.CLICK,MouseEvent);
-			ns.add(selectPurplePill);
+			ns = new NativeSignal( view.pushbuttonB, MouseEvent.CLICK, MouseEvent );
+			ns.add( selectPurplePill );
+			
+			view.textTF.text = "This is the second view of the application." +
+				"<br/>You've already selected: " + 
+				appModel.map.itemFor( "option1" ) + 
+				".<br/>Choose an option below.";
 		}
 		
 		/**
@@ -60,7 +66,7 @@ package com.vishvish.demoApplication.view
 		protected function selectYellowPill(e:MouseEvent):void
 		{
 			appModel.addParameter( "option2", "yellow" );
-			viewState.viewName = "about";
+			viewState.viewName = "community";
 			modifyApplicationState.dispatch();
 		}
 		
@@ -74,7 +80,7 @@ package com.vishvish.demoApplication.view
 		protected function selectPurplePill(e:MouseEvent):void
 		{
 			appModel.addParameter( "option2", "purple" );
-			viewState.viewName = "about";
+			viewState.viewName = "community";
 			modifyApplicationState.dispatch();
 		}	
 	}
