@@ -37,6 +37,9 @@ package org.birdbase.framework.service
 		[Inject]
 		public var navigationModel:NavigationModel;
 		
+		[Inject]
+		public var textService:TextService;
+		
 		[Inject(name="birdbase")]
 		public var logger:ILogger;
 		
@@ -78,6 +81,8 @@ package org.birdbase.framework.service
 				var map:Dictionary = YAML.decode( e.target.data ) as Dictionary;
 				bootstrapModel.conf = map;
 				navigationModel.navigation = map.nav;
+				textService.strings = map.strings;
+				
 				logger.debug( "L10nService::loaded YAML" );
 				eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, ConfigureStateMachineCommand.CONFIGURE_LOCALIZATION_COMPLETE ) );
 			}

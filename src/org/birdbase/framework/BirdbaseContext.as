@@ -10,6 +10,7 @@ package org.birdbase.framework
 	import org.birdbase.framework.controller.abstract.BirdbaseCommand;
 	import org.birdbase.framework.controller.configuration.ConfigureStateMachineCommand;
 	import org.birdbase.framework.model.*;
+	import org.birdbase.framework.model.lists.UpdatableTextComponentList;
 	import org.birdbase.framework.service.*;
 	import org.birdbase.framework.signals.ViewStateChanged;
 	import org.birdbase.framework.utils.FlashVarsManager;
@@ -49,6 +50,9 @@ package org.birdbase.framework
 			
 			injector.mapValue( IAssetLoader, bootstrapLoader, "bootstrapLoader" );
 			injector.mapClass( IAssetLoader, AssetLoader );
+			
+			injector.mapSingleton( TextService );
+			injector.mapClass( UpdatableTextComponentList, UpdatableTextComponentList );
 			
 			// view state
 			injector.mapSingleton( SWFAddress );

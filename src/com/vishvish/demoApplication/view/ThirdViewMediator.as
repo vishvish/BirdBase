@@ -1,21 +1,15 @@
 package com.vishvish.demoApplication.view
 {
-	import org.birdbase.framework.action.IExternalLinkActionable;
-	import org.birdbase.framework.view.helpers.ViewHelper;
+	import com.vishvish.demoApplication.view.mediators.abstract.ApplicationMediator;
 	
 	import flash.events.MouseEvent;
-	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.utils.Dictionary;
 	
-	import org.as3commons.logging.ILogger;
 	import org.birdbase.framework.action.Action;
 	import org.birdbase.framework.action.IActionable;
-	import org.birdbase.framework.model.ConfigurationModel;
-	import org.birdbase.framework.model.BootstrapModel;
-	import org.birdbase.framework.utils.swfaddress.SWFAddress;
+	import org.birdbase.framework.action.IExternalLinkActionable;
 	import org.osflash.signals.natives.NativeSignal;
-	import com.vishvish.demoApplication.view.mediators.abstract.ApplicationMediator;
 
 	/**
 	 *	// TODO ThirdViewMediator 

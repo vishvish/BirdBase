@@ -4,7 +4,8 @@ package com.vishvish.demoApplication.view
 	
 	import flash.events.MouseEvent;
 	
-	import org.birdbase.framework.model.ConfigurationModel;
+	import org.birdbase.framework.service.ITextUpdatable;
+	import org.birdbase.framework.service.TextService;
 	import org.birdbase.modules.slideshow.SlideshowModule;
 	import org.osflash.signals.natives.NativeSignal;
 
@@ -21,6 +22,9 @@ package com.vishvish.demoApplication.view
 	 */
 	public class FirstViewMediator extends ApplicationMediator
 	{
+		[Inject]
+		public var textService:TextService;
+		
 		[Inject]
 		public var view:FirstView;
 
@@ -44,16 +48,16 @@ package com.vishvish.demoApplication.view
 		{
 			view.main();
 			
-			// send text
-			view.textTF.text = config.conf.lorem;
-			view.pushbuttonA.label = config.conf.bluebutton;
-			view.pushbuttonB.label = config.conf.redbutton;
-			
 			var ns:NativeSignal = new NativeSignal( view.pushbuttonA, MouseEvent.CLICK, MouseEvent );
 			ns.add( selectBluePill );
 			
 			ns = new NativeSignal( view.pushbuttonB, MouseEvent.CLICK, MouseEvent );
 			ns.add( selectRedPill );
+			
+			// register all text-containing components
+			textService.register( "tagline", view.textTF );
+			textService.register( "bluebutton", view.pushbuttonA );
+			textService.register( "redbutton", view.pushbuttonB );
 		}
 		
 		/**
