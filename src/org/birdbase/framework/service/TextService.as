@@ -52,7 +52,7 @@ package org.birdbase.framework.service
 				}
 				else
 				{
-					logger.debug( "TextService::register --> registering " + key );
+					logger.debug( "TextService::register --> registering " + key + " [ " + args.toString() + " ]" );
 					registeredComponents.addComponent( key, item, args );
 					
 					// if the strings are loaded when the component registers, update it straight away.

@@ -71,7 +71,6 @@ package org.birdbase.framework.model.lists
 		
 		private function createUpdateableComponent( item:ITextIsUpdateable, ...args ):IUpdateableTextListComponent
 		{
-			trace( "createUpdateableComponent", item, args );
 			return new UpdateableTextListComponent( item, args );
 		}
 	}

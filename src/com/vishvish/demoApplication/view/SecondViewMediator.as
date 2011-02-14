@@ -52,7 +52,10 @@ package com.vishvish.demoApplication.view
 			ns = new NativeSignal( view.pushbuttonB, MouseEvent.CLICK, MouseEvent );
 			ns.add( selectPurplePill );
 			
-			textService.register( view.textTF, "secondviewselected", appModel.map.itemFor( "option1" ), appModel.map.itemFor( "option1" ), appModel.map.itemFor( "option1" ) );
+			textService.register( view.textTF, "secondviewselected", 
+				appModel.map.itemFor( "option1" ), 
+				appModel.map.itemFor( "option1" ), 
+				appModel.map.itemFor( "option1" ) );
 		}
 		
 		/**

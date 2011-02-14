@@ -40,6 +40,7 @@ package com.vishvish.demoApplication.view
 
 			_container = new VBox( this );
 			textTF = new AbstractUpdateableText( _container );
+			textTF.html = true;
 			pushbuttonA = new AbstractPushButton( _container );
 			pushbuttonB = new AbstractPushButton( _container );
 		}

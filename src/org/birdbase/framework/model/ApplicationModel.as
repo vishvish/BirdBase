@@ -43,7 +43,7 @@ package org.birdbase.framework.model
 			}
 			finally
 			{
-				logger.debug( [ "ApplicationModel::addParameter", key, item, _map.size ].toString() );
+//				logger.debug( [ "ApplicationModel::addParameter", key, item, _map.size ].toString() );
 			}
 		}
 		

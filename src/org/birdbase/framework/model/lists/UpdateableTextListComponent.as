@@ -32,7 +32,6 @@ package org.birdbase.framework.model.lists
 		{
 			this.item = item;
 			this.args = args;
-			trace( "UpdateableTextComponent", item, args );
 		}
 	}
 }
