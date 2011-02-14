@@ -4,7 +4,7 @@ package org.birdbase.framework.view.components
 	
 	import flash.display.DisplayObjectContainer;
 	
-	import org.birdbase.framework.service.ITextUpdateable;
+	import org.birdbase.framework.service.ITextIsUpdateable;
 	
 	/**
 	 *	Modifies the MinimalComps PushButton to implement ITextUpdatable.
@@ -13,7 +13,7 @@ package org.birdbase.framework.view.components
 	 * 	@sinced	13 February 2011
 	 * 
 	 */
-	public class AbstractPushButton extends PushButton implements ITextUpdateable
+	public class AbstractPushButton extends PushButton implements ITextIsUpdateable
 	{
 		public function AbstractPushButton( parent:DisplayObjectContainer=null, xpos:Number=0, ypos:Number=0, defaultHandler:Function=null )
 		{

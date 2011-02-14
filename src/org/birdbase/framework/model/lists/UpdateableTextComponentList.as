@@ -1,7 +1,7 @@
 package org.birdbase.framework.model.lists
 {
 	import org.as3commons.collections.Map;
-	import org.birdbase.framework.service.ITextUpdateable;
+	import org.birdbase.framework.service.ITextIsUpdateable;
 	
 	/**
 	 *	This list maps text-containing components to the id keys of the strings they are interested in displaying.
@@ -25,12 +25,12 @@ package org.birdbase.framework.model.lists
 		 * 	@return 
 		 * 
 		 */
-		public function addComponent( key:String, item:ITextUpdateable, ...args ):uint
+		public function addComponent( key:String, item:ITextIsUpdateable, ...args ):uint
 		{
 			try
 			{
 				
-				if( item is ITextUpdateable )
+				if( item is ITextIsUpdateable )
 				{
 					super.add( key, createUpdateableComponent( item ) );
 					return _size;
@@ -57,9 +57,9 @@ package org.birdbase.framework.model.lists
 		 * 	@return 
 		 * 
 		 */
-		public function removeComponent( item:ITextUpdateable ):Boolean
+		public function removeComponent( item:ITextIsUpdateable ):Boolean
 		{
-			if( item is ITextUpdateable && has( item ) )
+			if( item is ITextIsUpdateable && has( item ) )
 			{
 				return super.remove( item );
 			}
@@ -69,10 +69,10 @@ package org.birdbase.framework.model.lists
 			}
 		}
 		
-		private function createUpdateableComponent( item:ITextUpdateable, ...args ):IUpdateableTextComponent
+		private function createUpdateableComponent( item:ITextIsUpdateable, ...args ):IUpdateableTextListComponent
 		{
 			trace( "createUpdateableComponent", item, args );
-			return new UpdateableTextComponent( item, args );
+			return new UpdateableTextListComponent( item, args );
 		}
 	}
 }

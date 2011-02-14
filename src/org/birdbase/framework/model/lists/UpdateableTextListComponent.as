@@ -1,19 +1,19 @@
 package org.birdbase.framework.model.lists
 {
-	import org.birdbase.framework.service.ITextUpdateable;
+	import org.birdbase.framework.service.ITextIsUpdateable;
 
-	public class UpdateableTextComponent implements IUpdateableTextComponent
+	public class UpdateableTextListComponent implements IUpdateableTextListComponent
 	{
-		private var _item:ITextUpdateable;
+		private var _item:ITextIsUpdateable;
 		
 		private var _args:Array;
 		
-		public function get item():ITextUpdateable
+		public function get item():ITextIsUpdateable
 		{
 			return _item;
 		}
 
-		public function set item(value:ITextUpdateable):void
+		public function set item(value:ITextIsUpdateable):void
 		{
 			_item = value;
 		}
@@ -28,7 +28,7 @@ package org.birdbase.framework.model.lists
 			_args = value;
 		}
 
-		public function UpdateableTextComponent( item:ITextUpdateable, ...args )
+		public function UpdateableTextListComponent( item:ITextIsUpdateable, ...args )
 		{
 			this.item = item;
 			this.args = args;

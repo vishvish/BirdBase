@@ -4,9 +4,9 @@ package org.birdbase.framework.view.components
 	
 	import flash.display.DisplayObjectContainer;
 	
-	import org.birdbase.framework.service.ITextUpdateable;
+	import org.birdbase.framework.service.ITextIsUpdateable;
 	
-	public class AbstractUpdateableText extends Text implements ITextUpdateable
+	public class AbstractUpdateableText extends Text implements ITextIsUpdateable
 	{
 		public function AbstractUpdateableText( parent:DisplayObjectContainer=null, xpos:Number=0, ypos:Number=0 )
 		{

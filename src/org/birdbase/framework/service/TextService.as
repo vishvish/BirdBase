@@ -4,7 +4,7 @@ package org.birdbase.framework.service
 	
 	import org.as3commons.collections.framework.IMapIterator;
 	import org.as3commons.logging.ILogger;
-	import org.birdbase.framework.model.lists.IUpdateableTextComponent;
+	import org.birdbase.framework.model.lists.IUpdateableTextListComponent;
 	import org.birdbase.framework.model.lists.UpdateableTextComponentList;
 	import org.birdbase.framework.utils.Sprintf;
 	import org.robotlegs.mvcs.Actor;
@@ -41,9 +41,9 @@ package org.birdbase.framework.service
 		 *	@return 
 		 * 
 		 */
-		public function register( item:ITextUpdateable, key:String, ...args ):Boolean
+		public function register( item:ITextIsUpdateable, key:String, ...args ):Boolean
 		{
-			if( item is ITextUpdateable )
+			if( item is ITextIsUpdateable )
 			{
 				if( registeredComponents.has( item ) )
 				{
@@ -76,9 +76,9 @@ package org.birdbase.framework.service
 			}
 		}
 
-		public function unregister( item:ITextUpdateable ):Boolean
+		public function unregister( item:ITextIsUpdateable ):Boolean
 		{
-			if( item is ITextUpdateable )
+			if( item is ITextIsUpdateable )
 			{
 				if( registeredComponents.has( item ) )
 				{
@@ -101,7 +101,7 @@ package org.birdbase.framework.service
 				while( registeredComponents.iterator().hasNext() )
 				{
 					var key:String = IMapIterator( registeredComponents.iterator().next() ).key as String;
-					var component:IUpdateableTextComponent = IMapIterator( registeredComponents.iterator().next() ) as IUpdateableTextComponent;
+					var component:IUpdateableTextListComponent = IMapIterator( registeredComponents.iterator().next() ) as IUpdateableTextListComponent;
 					
 					var string:String = _strings[ key ];
 

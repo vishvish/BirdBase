@@ -4,7 +4,7 @@ package com.vishvish.demoApplication.view
 	
 	import flash.events.MouseEvent;
 	
-	import org.birdbase.framework.service.ITextUpdateable;
+	import org.birdbase.framework.service.ITextIsUpdateable;
 	import org.birdbase.framework.service.TextService;
 	import org.birdbase.modules.slideshow.SlideshowModule;
 	import org.osflash.signals.natives.NativeSignal;

@@ -4,8 +4,8 @@ package org.birdbase.framework.service
 
 	public interface ITextService
 	{
-		function register( item:ITextUpdateable, key:String, ...args ):Boolean;
-		function unregister( item:ITextUpdateable ):Boolean;
+		function register( item:ITextIsUpdateable, key:String, ...args ):Boolean;
+		function unregister( item:ITextIsUpdateable ):Boolean;
 		
 		function set strings( d:Dictionary ):void;
 	}
