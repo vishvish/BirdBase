@@ -1,4 +1,4 @@
-# NOTE / 14 Febuary 2011
+# NOTE / 14 February 2011
 
 Public development of BirdBase is slowing, because we are building at least one production site with the framework. We expect to launch version 1.0 of the framework as the site goes live - makes sense, really.
 
