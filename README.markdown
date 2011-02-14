@@ -1,3 +1,21 @@
+# NOTE / 14 Febuary 2011
+
+Public development of BirdBase is slowing, because we are building at least one production site with the framework. We expect to launch version 1.0 of the framework as the site goes live - makes sense, really.
+
+Looking for Flash/AS3 developers to work with me - I have a load of work right now in London and am looking for decent people. Drop me a line via Github.
+
+# Recent Updates
+
+TextService - register your text view component with it and it will be automatically populated with the appropriate text. Also works with Sprintf for string replacement. Try it out.
+
+Preloader for context.
+
+Views and Sub-views - parsed from the YAML - but subviews are not fully implemented yet.
+
+Using MinimalComps everywhere to quickly create a demo app, but easily discarded.
+
+Removed the script-based application generator. We'll put it back when the framework is more production-ready. In the meantime, the demo app is in the repo.
+
 # BirdBase
 
 ...is named for the versatile Origami base fold, from which thousands of models begin, including the famous crane and the flapping bird.
