@@ -4,7 +4,9 @@ package org.birdbase.framework.service
 	
 	import org.as3commons.collections.framework.IMapIterator;
 	import org.as3commons.logging.ILogger;
-	import org.birdbase.framework.model.lists.UpdatableTextComponentList;
+	import org.birdbase.framework.model.lists.IUpdateableTextComponent;
+	import org.birdbase.framework.model.lists.UpdateableTextComponentList;
+	import org.birdbase.framework.utils.Sprintf;
 	import org.robotlegs.mvcs.Actor;
 
 	/**
@@ -21,7 +23,7 @@ package org.birdbase.framework.service
 		public var logger:ILogger;
 		
 		[Inject]
-		public var registeredComponents:UpdatableTextComponentList;
+		public var registeredComponents:UpdateableTextComponentList;
 		
 		protected var _strings:Dictionary;
 
@@ -39,33 +41,44 @@ package org.birdbase.framework.service
 		 *	@return 
 		 * 
 		 */
-		public function register( key:String, item:ITextUpdatable ):Boolean
+		public function register( item:ITextUpdateable, key:String, ...args ):Boolean
 		{
-			if( item is ITextUpdatable )
+			if( item is ITextUpdateable )
 			{
 				if( registeredComponents.has( item ) )
 				{
-					logger.warn( "TextService::updateComponents --> This component " + item + " is already registered" );
+					logger.warn( "TextService::register --> This component " + item + " is already registered" );
 					return false;
 				}
 				else
 				{
-					registeredComponents.add( key, item );
+					logger.debug( "TextService::register --> registering " + key );
+					registeredComponents.addComponent( key, item, args );
 					
 					// if the strings are loaded when the component registers, update it straight away.
 					if( _strings )
 					{
-						item.text = _strings[ key ];
+						if( args.length > 0 )
+						{
+							item.text = Sprintf( _strings[ key], args );
+						}
+						else
+						{
+							item.text = _strings[ key ];
+						}
 					}
 					return true;
 				}
 			}
-			return false;
+			else
+			{
+				return false;
+			}
 		}
 
-		public function unregister( item:ITextUpdatable ):Boolean
+		public function unregister( item:ITextUpdateable ):Boolean
 		{
-			if( item is ITextUpdatable )
+			if( item is ITextUpdateable )
 			{
 				if( registeredComponents.has( item ) )
 				{
@@ -88,9 +101,18 @@ package org.birdbase.framework.service
 				while( registeredComponents.iterator().hasNext() )
 				{
 					var key:String = IMapIterator( registeredComponents.iterator().next() ).key as String;
-					var item:ITextUpdatable = IMapIterator( registeredComponents.iterator().next() ) as ITextUpdatable;
+					var component:IUpdateableTextComponent = IMapIterator( registeredComponents.iterator().next() ) as IUpdateableTextComponent;
 					
-					item.text = _strings[ key ];
+					var string:String = _strings[ key ];
+
+					if( component.args.length > 0 )
+					{
+						component.item.text = Sprintf( string, component.args );
+					}
+					else
+					{
+						component.item.text = string;
+					}
 				}
 				logger.info( "TextService::updateComponents --> Finished updating " + registeredComponents.size + " components." );
 			}

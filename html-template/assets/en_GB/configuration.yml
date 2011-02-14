@@ -90,8 +90,9 @@ strings:
     redbutton: A Red Button!
     yellowbutton: A Yellow Button!
     purplebutton: A Purple Button!
-    tagline: This is a tagline, right here.
+    tagline: This is a tagline, right here. Good Morning %s!
     swap_assets: Swap those assets!
+    secondviewselected: This is the second view of the %s application. Hurrah for the colour %s! Some more %s would really brighten up this view.
 
 external_links:
     dzone:

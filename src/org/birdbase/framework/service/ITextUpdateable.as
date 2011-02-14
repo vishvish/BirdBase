@@ -8,7 +8,7 @@ package org.birdbase.framework.service
 	 * 	@since	13 February 2011
 	 * 
 	 */
-	public interface ITextUpdatable
+	public interface ITextUpdateable
 	{
 		function set text( value:String ):void;
 	}

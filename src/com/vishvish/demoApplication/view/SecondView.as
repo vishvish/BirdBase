@@ -5,6 +5,8 @@ package com.vishvish.demoApplication.view
 	import com.bit101.components.VBox;
 	
 	import org.birdbase.framework.view.AbstractTransitioningView;
+	import org.birdbase.framework.view.components.AbstractPushButton;
+	import org.birdbase.framework.view.components.AbstractUpdateableText;
 
 	/**
 	 *	// TODO SecondView 
@@ -21,11 +23,11 @@ package com.vishvish.demoApplication.view
 	{
 		protected var _container:VBox;
 		
-		public var pushbuttonA:PushButton;
+		public var pushbuttonA:AbstractPushButton;
 		
-		public var pushbuttonB:PushButton;
+		public var pushbuttonB:AbstractPushButton;
 		
-		public var textTF:Text;
+		public var textTF:AbstractUpdateableText;
 				
 		public function SecondView()
 		{
@@ -37,9 +39,9 @@ package com.vishvish.demoApplication.view
 			cleanup();
 
 			_container = new VBox( this );
-			textTF = new Text( _container );
-			pushbuttonA = new PushButton( _container );
-			pushbuttonB = new PushButton( _container );
+			textTF = new AbstractUpdateableText( _container );
+			pushbuttonA = new AbstractPushButton( _container );
+			pushbuttonB = new AbstractPushButton( _container );
 		}
 	}
 }

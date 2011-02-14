@@ -88,7 +88,7 @@ package org.birdbase.framework.service
 			}
 			catch( e:Error )
 			{
-				logger.error( e.message );
+				logger.error( "ConfigurationService::Error --> " + e.message );
 			}
 		}
 	}

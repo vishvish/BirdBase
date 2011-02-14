@@ -4,7 +4,7 @@ package com.vishvish.demoApplication.view
 	
 	import flash.events.MouseEvent;
 	
-	import org.birdbase.framework.service.ITextUpdatable;
+	import org.birdbase.framework.service.ITextUpdateable;
 	import org.birdbase.framework.service.TextService;
 	import org.birdbase.modules.slideshow.SlideshowModule;
 	import org.osflash.signals.natives.NativeSignal;
@@ -55,9 +55,9 @@ package com.vishvish.demoApplication.view
 			ns.add( selectRedPill );
 			
 			// register all text-containing components
-			textService.register( "tagline", view.textTF );
-			textService.register( "bluebutton", view.pushbuttonA );
-			textService.register( "redbutton", view.pushbuttonB );
+			textService.register( view.textTF, "tagline", "Vish" );
+			textService.register( view.pushbuttonA, "bluebutton" );
+			textService.register( view.pushbuttonB, "redbutton" );
 		}
 		
 		/**

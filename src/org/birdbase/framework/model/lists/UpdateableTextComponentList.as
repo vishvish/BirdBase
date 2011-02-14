@@ -1,7 +1,7 @@
 package org.birdbase.framework.model.lists
 {
 	import org.as3commons.collections.Map;
-	import org.birdbase.framework.service.ITextUpdatable;
+	import org.birdbase.framework.service.ITextUpdateable;
 	
 	/**
 	 *	This list maps text-containing components to the id keys of the strings they are interested in displaying.
@@ -10,9 +10,9 @@ package org.birdbase.framework.model.lists
 	 * 	@since	13 February 2011
 	 * 
 	 */
-	public class UpdatableTextComponentList extends Map
+	public class UpdateableTextComponentList extends Map
 	{
-		public function UpdatableTextComponentList()
+		public function UpdateableTextComponentList()
 		{
 			super();
 		}
@@ -25,18 +25,19 @@ package org.birdbase.framework.model.lists
 		 * 	@return 
 		 * 
 		 */
-		public function addComponent( key:String, item:ITextUpdatable ):uint
+		public function addComponent( key:String, item:ITextUpdateable, ...args ):uint
 		{
 			try
 			{
-				if( item is ITextUpdatable )
+				
+				if( item is ITextUpdateable )
 				{
-					super.add( key, item );
+					super.add( key, createUpdateableComponent( item ) );
 					return _size;
 				}
 				else
 				{
-					throw new Error( "UpdatableTextComponentList::add --> You cannot add an item that does not implement ITextUpdatable to this list" );
+					throw new Error( "UpdateableTextComponentList::add --> You cannot add an item that does not implement ITextUpdateable to this list" );
 				}
 			}
 			catch( e:Error )
@@ -56,9 +57,9 @@ package org.birdbase.framework.model.lists
 		 * 	@return 
 		 * 
 		 */
-		public function removeComponent( item:ITextUpdatable ):Boolean
+		public function removeComponent( item:ITextUpdateable ):Boolean
 		{
-			if( item is ITextUpdatable && has( item ) )
+			if( item is ITextUpdateable && has( item ) )
 			{
 				return super.remove( item );
 			}
@@ -66,6 +67,12 @@ package org.birdbase.framework.model.lists
 			{
 				return false;
 			}
+		}
+		
+		private function createUpdateableComponent( item:ITextUpdateable, ...args ):IUpdateableTextComponent
+		{
+			trace( "createUpdateableComponent", item, args );
+			return new UpdateableTextComponent( item, args );
 		}
 	}
 }
