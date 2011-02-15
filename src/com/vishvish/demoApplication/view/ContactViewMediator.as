@@ -1,11 +1,8 @@
 package com.vishvish.demoApplication.view
 {
-	import org.birdbase.framework.view.helpers.ViewHelper;
-	
-	import org.as3commons.logging.ILogger;
-	import org.birdbase.framework.model.*;
-	import org.birdbase.framework.utils.swfaddress.SWFAddress;
 	import com.vishvish.demoApplication.view.mediators.abstract.ApplicationMediator;
+	
+	import org.birdbase.framework.model.*;
 
 	public class ContactViewMediator extends ApplicationMediator
 	{

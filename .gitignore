@@ -5,3 +5,7 @@ bin-debug
 /bin-release/
 disabled
 /.sourceMate
+/modules/collections/
+/src/com/addicted2flash/
+/src/com/asual/
+/src/com/epologee/
