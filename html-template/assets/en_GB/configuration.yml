@@ -2,79 +2,40 @@ nav:
     - item:
         destination:    home
         label:          Home
-        view:           FirstView
-        subviews:
-            - item:
-                destination:    download
-                label:          Download Section
-                view:           SecondView
-            - item:
-                destination:    trailer
-                label:          Trailer Section
-                view:           SecondView
-            - item:
-                destination:    screenshots
-                label:          Screenshots Section
-                view:           SecondView
-                subviews:
-                    - item:
-                        destination:    download
-                        label:          Download Section
-                        view:           SecondView
-                    - item:
-                        destination:    trailer
-                        label:          Trailer Section
-                        view:           SecondView
-                    - item:
-                        destination:    screenshots
-                        label:          Screenshots Section
-                        view:           SecondView
-                    - item:
-                        destination:    wallpapers
-                        label:          Wallpapers Section
-                        view:           SecondView
-            - item:
-                destination:    wallpapers
-                label:          Wallpapers Section
-                view:           SecondView
+        view:           HomeView
     - item:
         destination:    media
         label:          Media Section
-        view:           SecondView
+        view:           MediaView
         subviews:
             - item:
-                destination:    mediadownload
-                label:          Media Download Section
-                view:           SecondView
+                destination:    mediatrailer
+                label:          Media Trailer Section
+                view:           MediaTrailerView
+            - item:
+                destination:    mediascreenshots
+                label:          Media Screenshots Section
+                view:           MediaScreenshotsView
+            - item:
+                destination:    mediawallpapers
+                label:          Media Wallpapers Section
+                view:           MediaWallpapersView
     - item:
         destination:    newsletter
         label:          Newsletter Signup
-        view:           SecondView
+        view:           NewsletterView
     - item:
-        destination:    blog
-        label:          Blog and News
-        view:           SecondView
+        destination:    download
+        label:          Download Section
+        view:           DownloadView
+    - item:
+        destination:    news
+        label:          Weblog/News
+        view:           NewsView
     - item:
         destination:    community
         label:          Community
-        view:           ThirdView
-        subviews:
-            - item:
-                destination:    download
-                label:          Download Section
-                view:           SecondView
-            - item:
-                destination:    trailer
-                label:          Trailer Section
-                view:           SecondView
-            - item:
-                destination:    screenshots
-                label:          Screenshots Section
-                view:           SecondView
-            - item:
-                destination:    wallpapers
-                label:          Wallpapers Section
-                view:           SecondView
+        view:           CommunityView
     - item:
         destination:    preorder
         label:          Preorder

@@ -60,17 +60,21 @@ package com.vishvish.demoApplication.view.master
 			
 			// Top-level navigation buttons
 			
-			var navigationActions:Array = [];
-			var navigation:Array = helper.navigation;
-			
-			for( var i:int = 0; i < navigation.length; i++ )
-			{
-				var item:Object = Dictionary( navigation[ i ] ).item;
-				var action:Action = new Action( item.destination, item.label )
-				navigationActions.push( action );
-			}
-			
-			view.buildNavigation( navigationActions );
+//			var navigationActions:Array = [];
+//			var navigation:Array = helper.navigation;
+//			
+//			for( var i:int = 0; i < navigation.length; i++ )
+//			{
+//				var item:Object = Dictionary( navigation[ i ] ).item;
+//				var action:Action = new Action( item.destination, item.label )
+//				navigationActions.push( action );
+//			}
+//			
+//			view.buildNavigation( navigationActions );
+			var navigation:NavigationView = new NavigationView();
+			navigation.helper = helper;
+			view.addChild( navigation );
+			navigation.buildNavigation();
 			
 			// TODO replace these calls with helper functions
 //			view.tagline.text = config.conf.tagline;

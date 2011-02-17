@@ -31,17 +31,12 @@ package com.vishvish.demoApplication.view.master
 
 		public var viewContainer:Sprite;
 		
-		public var navigationContainer:HBox;
-		
 		public var logo:DynamicSprite;
 		
 		public var block:DynamicSprite;
 		
-//		public var tagline:Text;
-//		
-//		public var toggleAssetButton:PushButton;
-//		
-//		public var loadSlideshowButton:PushButton;
+		public var navigation:NavigationView;
+		
 		
 		/**
 		 *	// TODO MainUI 
@@ -63,7 +58,7 @@ package com.vishvish.demoApplication.view.master
 			viewContainer.y = 60;
 			addChild( viewContainer );
 			
-			navigationContainer = new HBox( this )
+//			navigationContainer = new HBox( this )
 			
 			var vbox:VBox = new VBox( viewContainer, 0, 25 );
 			vbox.spacing = 15;
@@ -78,7 +73,7 @@ package com.vishvish.demoApplication.view.master
 			logo = new DynamicSprite( "logo" );
 //			logo.x = 550;
 //			logo.y = 5
-			navigationContainer.addChild( logo );
+//			navigationContainer.addChild( logo );
 			
 //			vbox.addChild( tagline );
 			
@@ -96,8 +91,8 @@ package com.vishvish.demoApplication.view.master
 			for( var i:int = 0; i < data.length; i++ )
 			{
 				var action:Action = Action( data[ i ] );
-				var button:NavigationButton = new NavigationButton( navigationContainer );
-				button.action = action;
+//				var button:NavigationButton = new NavigationButton( navigationContainer );
+//				button.action = action;
 			}
 		}
 		

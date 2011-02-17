@@ -1,8 +1,7 @@
 package com.vishvish.demoApplication
 {
 	import com.vishvish.demoApplication.view.*;
-	import com.vishvish.demoApplication.view.master.MasterContainerView;
-	import com.vishvish.demoApplication.view.master.MasterContainerViewMediator;
+	import com.vishvish.demoApplication.view.master.*;
 	import com.vishvish.demoApplication.view.mediators.*;
 	
 	import flash.display.DisplayObjectContainer;
@@ -64,10 +63,11 @@ package com.vishvish.demoApplication
 			// modules
 			viewMap.mapType( SlideshowModule );
 			
+			mediatorMap.mapView( NavigationView, NavigationViewMediator );
 			mediatorMap.mapView( MasterContainerView, MasterContainerViewMediator );
-			mediatorMap.mapView( FirstView, FirstViewMediator );
-			mediatorMap.mapView( SecondView, SecondViewMediator );
-			mediatorMap.mapView( ThirdView, ThirdViewMediator );
+			mediatorMap.mapView( HomeView, HomeViewMediator );
+			mediatorMap.mapView( MediaView, MediaViewMediator );
+			mediatorMap.mapView( NewsletterView, NewsletterViewMediator );
 			mediatorMap.mapView( ContactView, ContactViewMediator );
 			
 			super.startup();
