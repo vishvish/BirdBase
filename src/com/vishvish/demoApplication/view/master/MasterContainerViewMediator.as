@@ -11,6 +11,7 @@ package com.vishvish.demoApplication.view.master
 	
 	import org.birdbase.framework.action.*;
 	import org.birdbase.framework.model.*;
+	import org.birdbase.framework.service.TextService;
 	import org.birdbase.framework.signals.*;
 	import org.birdbase.framework.view.*;
 	import org.osflash.signals.Signal;
@@ -29,6 +30,9 @@ package com.vishvish.demoApplication.view.master
 	 */
 	public class MasterContainerViewMediator extends ApplicationMediator
 	{
+		[Inject]
+		public var textService:TextService;
+
 		[Inject]
 		public var viewStateChanged:ViewStateChanged;
 		
@@ -58,36 +62,21 @@ package com.vishvish.demoApplication.view.master
 			viewStateChanged.add( onViewStateChange );
 			view.main();
 			
-			// Top-level navigation buttons
-			
-//			var navigationActions:Array = [];
-//			var navigation:Array = helper.navigation;
-//			
-//			for( var i:int = 0; i < navigation.length; i++ )
-//			{
-//				var item:Object = Dictionary( navigation[ i ] ).item;
-//				var action:Action = new Action( item.destination, item.label )
-//				navigationActions.push( action );
-//			}
-//			
-//			view.buildNavigation( navigationActions );
 			var navigation:NavigationView = new NavigationView();
 			navigation.helper = helper;
 			view.addChild( navigation );
 			navigation.buildNavigation();
 			
-			// TODO replace these calls with helper functions
-//			view.tagline.text = config.conf.tagline;
-//			view.toggleAssetButton.label = config.conf.swap_assets;
+			textService.register( view.toggleAssetButton, "swap_assets" );
 			
 			// set up the toggling of the asset library
-//			var toggleAssetSignal:NativeSignal = new NativeSignal( view.toggleAssetButton, MouseEvent.CLICK, MouseEvent );
-//			toggleAssetSignal.add( changeDynamicLibrary );
+			var toggleAssetSignal:NativeSignal = new NativeSignal( view.toggleAssetButton, MouseEvent.CLICK, MouseEvent );
+			toggleAssetSignal.add( changeDynamicLibrary );
 			
 			var ns:NativeSignal = new NativeSignal( view.logo, MouseEvent.CLICK, MouseEvent );
 			ns.add( gotoHome );
 
-			var signal:NativeSignal = new NativeSignal( view, MouseEvent.CLICK, MouseEvent );
+			var signal:NativeSignal = new NativeSignal( navigation, MouseEvent.CLICK, MouseEvent );
 			signal.add( viewPressed );
 		}
 		
@@ -121,12 +110,14 @@ package com.vishvish.demoApplication.view.master
 					logger.debug( "MasterContainerViewMediator::viewPressed / IExternalLinkActionable --> " + destination );
 				}
 			}
-			else // everything else
+			else
 			{
-				logger.debug( "MasterContainerViewMediator::viewPressed / " + e.target.toString() );
+				// anything that makes it's way in here should be handled already by something else.
+				// this is a catch-all
+				// logger.debug( "MasterContainerViewMediator::viewPressed / " + e.target.toString() );
 			}
 		}
-
+		
 		/**
 		 *	// TODO gotoHome 
 		 *	

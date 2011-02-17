@@ -7,7 +7,7 @@ package com.vishvish.demoApplication.view.components
 	import org.birdbase.framework.action.IAction;
 	import org.birdbase.framework.action.IActionable;
 
-	public class ActionableButton extends PushButton implements IActionable
+	public class ActionableButton extends PushButton implements IActionableButton
 	{
 		protected var _action:IAction;
 		
@@ -32,6 +32,11 @@ package com.vishvish.demoApplication.view.components
 			{
 				this.label = action.label;
 			}
+		}
+
+		public function set text( value:String ):void
+		{
+			this.label = value;
 		}
 	}
 }

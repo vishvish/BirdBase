@@ -4,11 +4,13 @@ package com.vishvish.demoApplication.view
 	
 	import flash.events.MouseEvent;
 	import flash.net.URLRequest;
+	import flash.net.navigateToURL;
 	import flash.utils.Dictionary;
 	
 	import org.birdbase.framework.action.Action;
 	import org.birdbase.framework.action.IActionable;
 	import org.birdbase.framework.action.IExternalLinkActionable;
+	import org.birdbase.framework.utils.ExternalUrl;
 	import org.osflash.signals.natives.NativeSignal;
 
 	/**
@@ -68,10 +70,7 @@ package com.vishvish.demoApplication.view
 					var destination:String = IActionable( e.target ).action.destination
 					logger.debug( "ThirdViewMediator::viewPressed / IExternalLinkActionable --> " + destination );
 					
-					// TODO: Hand over all external loading to a Util class.
-					var urlRequest:URLRequest = new URLRequest( destination );
-					
-//					swfAddress.setValue( destination );
+					ExternalUrl.openURL( destination );
 				}
 			}
 			else
