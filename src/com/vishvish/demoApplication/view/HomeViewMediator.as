@@ -20,13 +20,13 @@ package com.vishvish.demoApplication.view
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class FirstViewMediator extends ApplicationMediator
+	public class HomeViewMediator extends ApplicationMediator
 	{
 		[Inject]
 		public var textService:TextService;
 		
 		[Inject]
-		public var view:FirstView;
+		public var view:HomeView;
 
 		[Inject]
 		public var slideshow:SlideshowModule;
@@ -34,7 +34,7 @@ package com.vishvish.demoApplication.view
 		/**
 		 *	// TODO FirstViewMediator 
 		 */
-		public function FirstViewMediator()
+		public function HomeViewMediator()
 		{
 			super();
 		}
@@ -70,7 +70,7 @@ package com.vishvish.demoApplication.view
 		protected function selectBluePill( e:MouseEvent ):void
 		{
 			appModel.addParameter( "option1", "blue" );
-			viewState.viewName = "blog";
+			viewState.viewName = "media";
 			modifyApplicationState.dispatch();
 		}
 		
@@ -84,7 +84,7 @@ package com.vishvish.demoApplication.view
 		protected function selectRedPill( e:MouseEvent ):void
 		{
 			appModel.addParameter( "option1", "red" );
-			viewState.viewName = "blog";
+			viewState.viewName = "media";
 			modifyApplicationState.dispatch();
 		}	
 	}

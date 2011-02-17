@@ -22,15 +22,15 @@ package com.vishvish.demoApplication.view
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class ThirdViewMediator extends ApplicationMediator
+	public class NewsletterViewMediator extends ApplicationMediator
 	{
 		[Inject]
-		public var view:ThirdView;
+		public var view:NewsletterView;
 		
 		/**
 		 *	// TODO ThirdViewMediator 
 		 */
-		public function ThirdViewMediator()
+		public function NewsletterViewMediator()
 		{
 			super();
 		}

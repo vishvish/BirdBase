@@ -19,7 +19,7 @@ package com.vishvish.demoApplication.view
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class FirstView extends AbstractTransitioningView
+	public class HomeView extends AbstractTransitioningView
 	{
 		protected var _container:VBox;
 		
@@ -29,7 +29,7 @@ package com.vishvish.demoApplication.view
 		
 		public var textTF:AbstractUpdateableText;
 		
-		public function FirstView()
+		public function HomeView()
 		{
 			super();
 		}

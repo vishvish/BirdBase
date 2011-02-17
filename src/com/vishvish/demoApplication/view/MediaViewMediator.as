@@ -18,18 +18,18 @@ package com.vishvish.demoApplication.view
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class SecondViewMediator extends ApplicationMediator
+	public class MediaViewMediator extends ApplicationMediator
 	{
 		[Inject]
 		public var textService:TextService;
 
 		[Inject]
-		public var view:SecondView;
+		public var view:MediaView;
 				
 		/**
 		 *	// TODO SecondViewMediator 
 		 */
-		public function SecondViewMediator()
+		public function MediaViewMediator()
 		{
 			super();
 		}
@@ -68,7 +68,7 @@ package com.vishvish.demoApplication.view
 		protected function selectYellowPill(e:MouseEvent):void
 		{
 			appModel.addParameter( "option2", "yellow" );
-			viewState.viewName = "community";
+			viewState.viewName = "newsletter";
 			modifyApplicationState.dispatch();
 		}
 		
@@ -82,7 +82,7 @@ package com.vishvish.demoApplication.view
 		protected function selectPurplePill(e:MouseEvent):void
 		{
 			appModel.addParameter( "option2", "purple" );
-			viewState.viewName = "community";
+			viewState.viewName = "newsletter";
 			modifyApplicationState.dispatch();
 		}	
 	}

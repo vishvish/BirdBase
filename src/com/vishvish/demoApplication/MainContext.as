@@ -63,7 +63,6 @@ package com.vishvish.demoApplication
 			// modules
 			viewMap.mapType( SlideshowModule );
 			
-			mediatorMap.mapView( NavigationView, NavigationViewMediator );
 			mediatorMap.mapView( MasterContainerView, MasterContainerViewMediator );
 			mediatorMap.mapView( HomeView, HomeViewMediator );
 			mediatorMap.mapView( MediaView, MediaViewMediator );

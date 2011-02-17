@@ -17,7 +17,7 @@ package com.vishvish.demoApplication.view
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		11 January 2011
 	 */
-	public class ThirdView extends AbstractTransitioningView
+	public class NewsletterView extends AbstractTransitioningView
 	{
 		protected var _container:VBox;
 		
@@ -28,7 +28,7 @@ package com.vishvish.demoApplication.view
 		/**
 		 *	// TODO ThirdView 
 		 */
-		public function ThirdView()
+		public function NewsletterView()
 		{
 			super();
 		}
