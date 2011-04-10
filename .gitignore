@@ -1,2 +1,6 @@
 /.rvmrc
 /doc/
+/.actionScriptProperties
+/.flexLibProperties
+/.project
+/.settings/
