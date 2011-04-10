@@ -39,9 +39,8 @@ Builds on the work of (but not limited to)
 *	Team RobotLegs - Shaun Smith, and Joel Hooks for the Finite State Machine
 *	Till Schneidereit for SwiftSuspenders. That and Hamburg folk rock.
 *	Matan Uberstein - thanks for AssetLoader
-*	Robert Penner (and implicitly C# events + QT signals) - AS3 Signals
-*	Team AS3-Commons - thanks for the logging
-*	Kilometer0 Team - thanks for the SWFAddress and Signals integration
+*	Robert Penner (and implicitly C# events + QT signals) - AS3 Signals.
+*	Team AS3-Commons - thanks for the reflection and the collections.
 *	Justin Windle - nice work on Dynamic Sprite
 *	Eric-Paul Lecluse - thanks for the Navigator library, and for all your time and advice.
 *	Mischa Williamson - tip-top advice and coding.
