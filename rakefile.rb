@@ -10,22 +10,19 @@ def configure t
   t.library_path << 'lib'
   t.source_path << 'src'
   t.include_sources << 'src'
-  t.default_frame_rate = 31
   t.optimize = true
-  t.target_player = '10.1'
-  t.default_background_color = '0x000000'
-  t.default_size = '1152,720'
+  t.target_player = '10.0'
 end
 
 compc "bin/birdbase-#{version}.swc" do |t|
   configure t
-  t.debug = true
+  t.debug = false
   t.define_conditional << 'CONFIG::release,true'
   t.define_conditional << 'CONFIG::debug,false'
 end
 
 
-desc "Compile and run the debug swf"
+desc "Compile and run the debug swc"
 task :swc => "bin/birdbase-#{version}.swc"
 
 desc "Generate documentation at doc/"
