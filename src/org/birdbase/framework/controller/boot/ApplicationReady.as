@@ -3,6 +3,9 @@ package org.birdbase.framework.controller.boot
 	import com.asual.swfaddress.*;
 	import com.epologee.navigator.integration.swfaddress.SWFAddressNavigator;
 	
+	import flash.utils.clearTimeout;
+	import flash.utils.setTimeout;
+	
 	import org.birdbase.framework.controller.navigation.*;
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.signals.*;
@@ -25,6 +28,10 @@ package org.birdbase.framework.controller.boot
 		
 		[Inject]
 		public var configurationModel:IConfigurationModel;
+		
+		protected var _state:String;
+
+		private var _timeout:uint;
 
 		public function ApplicationReady()
 		{
@@ -38,14 +45,20 @@ package org.birdbase.framework.controller.boot
 		{
 			commandMap.mapEvent( SWFAddressEvent.EXTERNAL_CHANGE, InternalChangeCommand, SWFAddressEvent );
 
-			var state:String = SWFAddress.getPath();
-			if( state == "/" )
+			_state = SWFAddress.getPath();
+			if( _state == "/" )
 			{
-				state = Preferences.restricted.getPreference( "home_view" );
+				_state = Preferences.restricted.getPreference( "home_view" );
 			}
-			navigator.start( state );
-			navigator.requestNewState( state );
-			status( "Navigation State: " + state );
+			navigator.start( "/" );
+			_timeout = setTimeout( onComplete, 1000 );
+		}
+		
+		private function onComplete():void
+		{
+			clearTimeout( _timeout );
+			navigator.request( _state );
+			status( "Navigation State: " + _state );
 		}
 	}
 }
