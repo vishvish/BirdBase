@@ -4,7 +4,7 @@ require 'bundler/setup'
 require 'rake/clean'
 require 'flashsdk'
 
-version = 0.5
+version = "0.5.1"
 
 def configure t
   t.library_path << 'lib'
