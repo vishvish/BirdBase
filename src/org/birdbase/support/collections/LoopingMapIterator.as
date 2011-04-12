@@ -19,6 +19,12 @@ package org.birdbase.support.collections
 			super( map );
 		}
 		
+
+		public function get currentIndex():Number
+		{
+			return _currentIndex;
+		}
+
 		/**
 		 * The number of items in the map. 
 		 * @return 
