@@ -34,6 +34,7 @@ package org.birdbase.framework.controller.navigation
 		
 		override public function execute():void
 		{
+			info();
 			if( navigator.startState )
 			{
 				navigator.request( _event.path );
