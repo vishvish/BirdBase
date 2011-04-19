@@ -29,11 +29,11 @@ package org.birdbase.framework.controller.core
 		{
 			status();
 			
-			var publicPreferences:IPreferencesModel = new PreferencesModel();
-			var privatePreferences:IPreferencesModel = new PreferencesModel();
-			Preferences.restricted = privatePreferences;
-			Preferences.unrestricted = publicPreferences;
-			injector.mapSingletonOf( Preferences, Preferences );
+			var publicPreferences:ISettingsModel = new SettingsModel();
+			var privatePreferences:ISettingsModel = new SettingsModel();
+			Settings.restricted = privatePreferences;
+			Settings.unrestricted = publicPreferences;
+			injector.mapSingletonOf( Settings, Settings );
 			
 			onComplete();
 		}

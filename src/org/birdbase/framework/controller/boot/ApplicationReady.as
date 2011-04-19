@@ -49,7 +49,7 @@ package org.birdbase.framework.controller.boot
 			_state = SWFAddress.getPath();
 			if( _state == "/" )
 			{
-				_state = Preferences.restricted.getPreference( "home_view" );
+				_state = Settings.restricted.getSetting( "home_view" );
 			}
 			navigator.start( "/" );
 			_timeout = setTimeout( onComplete, 1000 );

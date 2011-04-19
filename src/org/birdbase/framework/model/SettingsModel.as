@@ -12,11 +12,11 @@ package org.birdbase.framework.model
 	 * @since	10 March 2011
 	 * 
 	 */
-	public class PreferencesModel implements IPreferencesModel
+	public class SettingsModel implements ISettingsModel
 	{
 		protected var _map:IMap;
 		
-		public function PreferencesModel()
+		public function SettingsModel()
 		{
 			_map = new Map();
 		}
@@ -24,7 +24,7 @@ package org.birdbase.framework.model
 		/**
 		 * @inheritDoc
 		 */
-		public function getPreference( key:String ):*
+		public function getSetting( key:String ):*
 		{
 			try
 			{
@@ -42,7 +42,7 @@ package org.birdbase.framework.model
 		/**
 		 * @inheritDoc
 		 */
-		public function setPreference( key:String, item:*, pOverride:Boolean = true ):void
+		public function setSetting( key:String, item:*, pOverride:Boolean = true ):void
 		{
 //			notice( "Setting " + key + "(" + item + ") Into preferences. " ); 
 			try
@@ -65,7 +65,7 @@ package org.birdbase.framework.model
 		/**
 		 * @inheritDoc
 		 */
-		public function clearPreference( key:String ):void
+		public function clearSetting( key:String ):void
 		{
 			if( _map.hasKey( key ) )
 			{
@@ -80,7 +80,7 @@ package org.birdbase.framework.model
 		{
 			for( var key:String in d )
 			{
-				setPreference( key, d[ key ] );
+				setSetting( key, d[ key ] );
 			}
 		}
 	}

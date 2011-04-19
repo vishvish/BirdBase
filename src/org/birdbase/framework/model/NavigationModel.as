@@ -117,7 +117,7 @@ package org.birdbase.framework.model
 		{
 			try
 			{
-				var fqcn:String = Preferences.restricted.getPreference( "view_package" ) + "::" + view
+				var fqcn:String = Settings.restricted.getSetting( "view_package" ) + "::" + view
 				var c:Class = getDefinitionByName( fqcn ) as Class;
 				_viewClassMap.add( destination, c );
 				_viewDestinationMap.add( c, destination );
@@ -175,9 +175,9 @@ package org.birdbase.framework.model
 			{
 				for( var key:String in e.parameters )
 				{
-					if( Preferences.unrestricted.getPreference( key ) != e.parameters[ key ] )
+					if( Settings.unrestricted.getSetting( key ) != e.parameters[ key ] )
 					{
-						Preferences.unrestricted.setPreference( key, e.parameters[ key ] );
+						Settings.unrestricted.setSetting( key, e.parameters[ key ] );
 						debug( "Changing preference: " + key + " -> " + e.parameters[ key ] );
 					}
 					else
@@ -202,7 +202,7 @@ package org.birdbase.framework.model
 			{
 				for( var key:String in e.parameters )
 				{
-					Preferences.unrestricted.setPreference( key, e.parameters[ key ] );
+					Settings.unrestricted.setSetting( key, e.parameters[ key ] );
 					debug( key, e.parameters[ key ] );
 				}
 			}

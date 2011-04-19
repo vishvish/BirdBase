@@ -33,9 +33,9 @@ package org.birdbase.framework.model
 			assetLoader.onError.add( onError );
 			assetLoader.onComplete.add( onComplete );
 			
-			var BASE:String = 				Preferences.restricted.getPreference( "base" );
-			var DYNAMIC_LIBRARY:String = 	Preferences.restricted.getPreference( "dynamic_library" );
-			var assets:Array = 				Preferences.restricted.getPreference( "assets" );
+			var BASE:String = 				Settings.restricted.getSetting( "base" );
+			var DYNAMIC_LIBRARY:String = 	Settings.restricted.getSetting( "dynamic_library" );
+			var assets:Array = 				Settings.restricted.getSetting( "assets" );
 			
 			var loaderConfig:XML =
 				<loader base={BASE} preventCache="true" >	

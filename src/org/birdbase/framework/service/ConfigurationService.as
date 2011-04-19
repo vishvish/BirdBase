@@ -85,8 +85,8 @@ package org.birdbase.framework.service
 		
 		private function setPreferences( d:Dictionary ):void
 		{
-			Preferences.restricted.setValues( d.restricted );
-			Preferences.unrestricted.setValues( d.unrestricted );
+			Settings.restricted.setValues( d.restricted );
+			Settings.unrestricted.setValues( d.unrestricted );
 		}
 		
 		private function setNavigation( d:Dictionary ):void

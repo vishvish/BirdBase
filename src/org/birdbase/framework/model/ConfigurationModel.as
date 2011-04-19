@@ -17,13 +17,11 @@ package org.birdbase.framework.model
 	 */
 	public final class ConfigurationModel extends Actor implements IConfigurationModel
 	{
+		protected var _configurationFilename:String = "configuration.yml";
+
 		protected var _configuration:Dictionary;
 
 		protected var _map:Map = new Map();
-
-		protected var _preferences:Dictionary = new Dictionary();
-		
-		protected var _configurationFilename:String = "configuration.yml";
 
 		public function ConfigurationModel()
 		{
@@ -97,26 +95,6 @@ package org.birdbase.framework.model
 			}
 		}
 		
-		private function get preferences():Dictionary
-		{
-			return _preferences;
-		}
-		
-		private function set preferences( value:Dictionary ):void
-		{
-			_preferences = value;
-		}
-		
-		private function getPreference( key:String ):*
-		{
-			return _preferences[ key ];
-		}
-		
-		private function setPreference( key:String, value:* ):void
-		{
-			_preferences[ key ] = value;
-		}
-
 		private function get map():Map
 		{
 			return _map;
