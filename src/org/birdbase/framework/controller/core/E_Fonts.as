@@ -10,7 +10,7 @@ package org.birdbase.framework.controller.core
 	import org.assetloader.loaders.SWFLoader;
 	import org.assetloader.signals.*;
 	import org.birdbase.framework.controller.boot.BootManagement;
-	import org.birdbase.framework.model.Preferences;
+	import org.birdbase.framework.model.Settings;
 	import org.robotlegs.mvcs.Command;
 	import org.robotlegs.utilities.statemachine.StateEvent;
 	
@@ -37,8 +37,8 @@ package org.birdbase.framework.controller.core
 		override public function execute():void
 		{
 			status();
-			var fontPath:String = Preferences.restricted.getPreference( "base" )
-				+ Preferences.restricted.getPreference( "fonts_file" );
+			var fontPath:String = Settings.restricted.getSetting( "base" )
+				+ Settings.restricted.getSetting( "fonts_file" );
 			
 			_swfloader = new SWFLoader( new URLRequest(	fontPath ), DEFAULT_FONTS_NAME );	
 			_swfloader.onComplete.add( handleComplete );

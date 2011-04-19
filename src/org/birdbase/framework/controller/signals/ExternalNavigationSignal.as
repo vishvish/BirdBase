@@ -1,4 +1,4 @@
-package org.birdbase.framework.signals
+package org.birdbase.framework.controller.signals
 {
 	import org.osflash.signals.Signal;
 	

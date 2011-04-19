@@ -13,17 +13,14 @@ package org.birdbase.framework.model
 	 * 
 	 * @author	Vish Vishvanath
 	 * @since	7 February 2011
-	 * 
 	 */
 	public final class ConfigurationModel extends Actor implements IConfigurationModel
 	{
+		protected var _configurationFilename:String = "configuration.yml";
+
 		protected var _configuration:Dictionary;
 
 		protected var _map:Map = new Map();
-
-		protected var _preferences:Dictionary = new Dictionary();
-		
-		protected var _configurationFilename:String = "configuration.yml";
 
 		public function ConfigurationModel()
 		{
@@ -72,54 +69,6 @@ package org.birdbase.framework.model
 					return conf.unrestricted[ id ];
 					break;
 			}
-		}
-
-		private function addParameter( key:String, item:*, pOverride:Boolean = true ):void
-		{
-			try
-			{
-				if( pOverride )
-				{
-					if( _map.hasKey( key ) )
-					{
-						_map.removeKey( key );
-					}
-				}
-				_map.add( key, item );
-			}
-			catch( e:Error )
-			{
-				error( e.message );
-			}
-			finally
-			{
-				debug( [ key, item, _map.size ].toString() );
-			}
-		}
-		
-		private function get preferences():Dictionary
-		{
-			return _preferences;
-		}
-		
-		private function set preferences( value:Dictionary ):void
-		{
-			_preferences = value;
-		}
-		
-		private function getPreference( key:String ):*
-		{
-			return _preferences[ key ];
-		}
-		
-		private function setPreference( key:String, value:* ):void
-		{
-			_preferences[ key ] = value;
-		}
-
-		private function get map():Map
-		{
-			return _map;
 		}
 	}
 }

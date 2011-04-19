@@ -1,7 +1,6 @@
 package org.birdbase.framework.model
 {
 	import com.asual.swfaddress.*;
-	import com.epologee.navigator.integration.swfaddress.SWFAddressNavigator;
 	
 	import flash.utils.Dictionary;
 	import flash.utils.getDefinitionByName;
@@ -28,9 +27,6 @@ package org.birdbase.framework.model
 		[Inject]
 		public var cm:IConfigurationModel;
 		
-		[Inject]
-		public var navigator:SWFAddressNavigator;
-		
 		protected var _navigation:Array;
 		
 		protected var _viewClassMap:Map;
@@ -47,9 +43,6 @@ package org.birdbase.framework.model
 		{
 			_viewClassMap = new Map();
 			_viewDestinationMap = new Map();
-			
-			SWFAddress.addEventListener( SWFAddressEvent.EXTERNAL_CHANGE, onUnrestrictedChange );
-			SWFAddress.addEventListener( SWFAddressEvent.INTERNAL_CHANGE, onUnrestrictedChange );
 		}
 		
 		/**
@@ -117,7 +110,7 @@ package org.birdbase.framework.model
 		{
 			try
 			{
-				var fqcn:String = Preferences.restricted.getPreference( "view_package" ) + "::" + view
+				var fqcn:String = Settings.restricted.getSetting( "view_package" ) + "::" + view
 				var c:Class = getDefinitionByName( fqcn ) as Class;
 				_viewClassMap.add( destination, c );
 				_viewDestinationMap.add( c, destination );
@@ -160,53 +153,6 @@ package org.birdbase.framework.model
 					
 				}
 			}
-		}
-		
-		/**
-		 * Saves all parameters in the UNRESTRICTED zone.
-		 * 
-		 * @deprecated
-		 * 
-		 * @param e
-		 */
-		private function onUnrestrictedChange( e:SWFAddressEvent ):void
-		{
-			if( e.parameterNames.length > 0 )
-			{
-				for( var key:String in e.parameters )
-				{
-					if( Preferences.unrestricted.getPreference( key ) != e.parameters[ key ] )
-					{
-						Preferences.unrestricted.setPreference( key, e.parameters[ key ] );
-						debug( "Changing preference: " + key + " -> " + e.parameters[ key ] );
-					}
-					else
-					{
-						break;
-					}
-				}
-			}
-			dispatch( e );
-		}
-		
-		/**
-		 * Saves all parameters in the RESTRICTED zone.
-		 * 
-		 * @deprecated
-		 * 
-		 * @param e
-		 */
-		private function onRestrictedChange( e:SWFAddressEvent ):void
-		{
-			if( e.parameterNames.length > 0 )
-			{
-				for( var key:String in e.parameters )
-				{
-					Preferences.unrestricted.setPreference( key, e.parameters[ key ] );
-					debug( key, e.parameters[ key ] );
-				}
-			}
-			dispatch( e );
 		}
 	}
 }

@@ -129,9 +129,9 @@ package org.birdbase.framework.controller.boot
 			var sm:StateMachine = new StateMachine( eventDispatcher );
 			smInjector.inject( sm );
 			
-			sm.eventDispatcher.addEventListener( StateEvent.ACTION, handleStateEvent );
+			/*sm.eventDispatcher.addEventListener( StateEvent.ACTION, handleStateEvent );
 			sm.eventDispatcher.addEventListener( StateEvent.CANCEL, handleStateEvent );
-			sm.eventDispatcher.addEventListener( StateEvent.CHANGED, handleStateEvent );
+			sm.eventDispatcher.addEventListener( StateEvent.CHANGED, handleStateEvent );*/
 			
 			commandMap.mapEvent( BootManagement.CONFIGURE_PREFERENCES,	A_Preferences, StateEvent, true );
 			commandMap.mapEvent( BootManagement.CONFIGURE_NAVIGATOR, 	B_Navigator, StateEvent, true );
@@ -146,9 +146,13 @@ package org.birdbase.framework.controller.boot
 			eventDispatcher.dispatchEvent( new StateEvent( StateEvent.ACTION, BootManagement.STARTED ) );
 		}
 
+		/**
+		 * Turn the event listening back on above if you want to see what's happening within the StateMachine. 
+		 * @param e
+		 */
 		private function handleStateEvent( e:StateEvent ):void
 		{
-			//notice( e );
+			notice( e );
 		}
 	}
 }

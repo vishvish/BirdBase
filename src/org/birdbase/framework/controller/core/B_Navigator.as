@@ -6,7 +6,7 @@ package org.birdbase.framework.controller.core
 	
 	import org.birdbase.framework.controller.boot.BootManagement;
 	import org.birdbase.framework.controller.navigation.*;
-	import org.birdbase.framework.signals.*;
+	import org.birdbase.framework.controller.signals.*;
 	import org.robotlegs.mvcs.Command;
 	import org.robotlegs.utilities.statemachine.StateEvent;
 	
@@ -15,7 +15,6 @@ package org.birdbase.framework.controller.core
 	 *  
 	 * @author	Vish Vishvanath
 	 * @since	31 March 2011
-	 * 
 	 */
 	public class B_Navigator extends Command
 	{
@@ -35,6 +34,7 @@ package org.birdbase.framework.controller.core
 
 			injector.mapValue( SWFAddressNavigator, navigator );
 			
+			// signals to be dispatched when SWFAddress tells us.
 			injector.mapSingletonOf( InternalNavigationSignal, InternalNavigationSignal );
 			injector.mapSingletonOf( ExternalNavigationSignal, ExternalNavigationSignal );
 			

@@ -3,17 +3,14 @@ package org.birdbase.framework
 	import flash.display.Sprite;
 	import flash.events.*;
 	
-	import logmeister.LogMeister;
-	import logmeister.connectors.TrazzleConnector;
-	
 	import org.assetloader.AssetLoader;
 	import org.assetloader.core.IAssetLoader;
 	import org.assetloader.signals.*;
 	import org.birdbase.framework.controller.boot.BootManagement;
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.service.*;
-	import org.birdbase.support.utils.FlashVarsManager;
 	import org.birdbase.support.loading.*;
+	import org.birdbase.support.utils.FlashVarsManager;
 	import org.robotlegs.base.ContextEvent;
 	import org.robotlegs.mvcs.SignalContext;
 	
@@ -43,11 +40,6 @@ package org.birdbase.framework
 		 */
 		override public function startup():void
 		{
-			var connector:TrazzleConnector = new TrazzleConnector( contextView.stage, "org.birdbase", false );
-			
-			// comment out this next line for a production build
-			LogMeister.addLogger( connector );
-
 			var fm:FlashVarsManager = new FlashVarsManager( contextView );
 			injector.mapValue( FlashVarsManager, fm );
 			

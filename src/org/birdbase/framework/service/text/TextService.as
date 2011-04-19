@@ -17,7 +17,7 @@ package org.birdbase.framework.service.text
 	public class TextService extends Actor implements ITextService
 	{
 		[Inject]
-		public var registeredComponents:ListOfUpdateableTextComponents;
+		public var registeredComponents:UpdateableTextComponentList;
 
 		protected var _strings:Dictionary;
 
@@ -102,8 +102,8 @@ package org.birdbase.framework.service.text
 				while( registeredComponents.iterator().hasNext() )
 				{
 					var key:String = IMapIterator( registeredComponents.iterator().next() ).key as String;
-					var component:IUpdateableTextListComponent 
-						= IMapIterator( registeredComponents.iterator().next() ) as IUpdateableTextListComponent;
+					var component:IUpdateableTextComponent 
+						= IMapIterator( registeredComponents.iterator().next() ) as IUpdateableTextComponent;
 					
 					var string:String = _strings[ key ];
 

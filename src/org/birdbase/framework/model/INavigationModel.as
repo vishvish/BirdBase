@@ -1,6 +1,5 @@
 package org.birdbase.framework.model
 {
-	import org.birdbase.support.utils.IInit;
 
 	/**
 	 * Describes a model which stores definitions about the application structure and maps views to their names.
@@ -8,7 +7,7 @@ package org.birdbase.framework.model
 	 * @author	Vish Vishvanath
 	 * @since	31 March 2011
 	 */
-	public interface INavigationModel extends IInit
+	public interface INavigationModel extends IModel
 	{
 		/**
 		 * Returns a concrete class for a given view name.

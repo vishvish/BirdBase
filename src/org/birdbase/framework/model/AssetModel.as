@@ -33,9 +33,9 @@ package org.birdbase.framework.model
 			assetLoader.onError.add( onError );
 			assetLoader.onComplete.add( onComplete );
 			
-			var BASE:String = 				Preferences.restricted.getPreference( "base" );
-			var DYNAMIC_LIBRARY:String = 	Preferences.restricted.getPreference( "dynamic_library" );
-			var assets:Array = 				Preferences.restricted.getPreference( "assets" );
+			var BASE:String = 				Settings.restricted.getSetting( "base" );
+			var DYNAMIC_LIBRARY:String = 	Settings.restricted.getSetting( "dynamic_library" );
+			var assets:Array = 				Settings.restricted.getSetting( "assets" );
 			
 			var loaderConfig:XML =
 				<loader base={BASE} preventCache="true" >	
@@ -79,7 +79,6 @@ package org.birdbase.framework.model
 		protected function onError( signal:ErrorSignal ):void
 		{
 			error( signal.message + " / " + signal.loader.request );
-			//throw new Error( signal.message );
 		}
 
 		/**
@@ -87,7 +86,6 @@ package org.birdbase.framework.model
 		 */
 		protected function onComplete( signal:LoaderSignal, data:* ):void
 		{
-			// prints out all assets as they are loaded - might be useful during testing.
 			for( var s:String in data )
 			{				
 				if( s.indexOf( "dynamic" ) == 0 )
