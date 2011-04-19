@@ -43,8 +43,8 @@ package org.birdbase.framework.controller.boot
 		 */
 		override public function execute():void
 		{
-			commandMap.mapEvent( SWFAddressEvent.EXTERNAL_CHANGE, ExternalChangeCommand, SWFAddressEvent );
-			commandMap.mapEvent( SWFAddressEvent.INTERNAL_CHANGE, InternalChangeCommand, SWFAddressEvent );
+			commandMap.mapEvent( SWFAddressEvent.EXTERNAL_CHANGE, ExternalSWFAddressChangeCommand, SWFAddressEvent );
+			commandMap.mapEvent( SWFAddressEvent.INTERNAL_CHANGE, InternalSWFAddressChangeCommand, SWFAddressEvent );
 
 			_state = SWFAddress.getPath();
 			if( _state == "/" )

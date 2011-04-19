@@ -3,7 +3,7 @@ package org.birdbase.framework.controller.navigation
 	import com.asual.swfaddress.SWFAddressEvent;
 	import com.epologee.navigator.integration.swfaddress.SWFAddressNavigator;
 	
-	import org.birdbase.framework.signals.InternalNavigationSignal;
+	import org.birdbase.framework.controller.signals.InternalNavigationSignal;
 	import org.robotlegs.mvcs.SignalCommand;
 	
 	/**
@@ -16,7 +16,7 @@ package org.birdbase.framework.controller.navigation
 	 * @since	23 February 2011
 	 * 
 	 */
-	public class InternalChangeCommand extends SignalCommand
+	public class InternalSWFAddressChangeCommand extends SignalCommand
 	{
 		[Inject]
 		public var navigator:SWFAddressNavigator;
@@ -26,7 +26,7 @@ package org.birdbase.framework.controller.navigation
 		
 		private var _event:SWFAddressEvent;
 		
-		public function InternalChangeCommand( e:SWFAddressEvent )
+		public function InternalSWFAddressChangeCommand( e:SWFAddressEvent )
 		{
 			super();
 			_event = e;

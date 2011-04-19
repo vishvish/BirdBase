@@ -1,6 +1,6 @@
 package org.birdbase.framework.service
 {
-	import org.birdbase.support.utils.IInit;
+	import org.birdbase.framework.model.IModel;
 
 	/**
 	 * Describes a Configuration Service.
@@ -9,7 +9,7 @@ package org.birdbase.framework.service
 	 * @since	31 March 2011
 	 * 
 	 */
-	public interface IConfigurationService extends IInit
+	public interface IConfigurationService extends IModel
 	{
 	}
 }

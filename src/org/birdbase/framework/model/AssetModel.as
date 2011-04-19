@@ -79,7 +79,6 @@ package org.birdbase.framework.model
 		protected function onError( signal:ErrorSignal ):void
 		{
 			error( signal.message + " / " + signal.loader.request );
-			//throw new Error( signal.message );
 		}
 
 		/**
@@ -87,7 +86,6 @@ package org.birdbase.framework.model
 		 */
 		protected function onComplete( signal:LoaderSignal, data:* ):void
 		{
-			// prints out all assets as they are loaded - might be useful during testing.
 			for( var s:String in data )
 			{				
 				if( s.indexOf( "dynamic" ) == 0 )

@@ -9,12 +9,12 @@ package org.birdbase.framework.service.text
 	 * 	@since	13 February 2011
 	 * 
 	 */
-	public class ListOfUpdateableTextComponents extends Map
+	public class UpdateableTextComponentList extends Map
 	{
 		/**
 		 *	UpdateableTextComponentList TODO
 		 */
-		public function ListOfUpdateableTextComponents()
+		public function UpdateableTextComponentList()
 		{
 			super();
 		}
@@ -79,7 +79,7 @@ package org.birdbase.framework.service.text
 		 *	
 		 *	@return IUpdateableTextListComponent	
 		 */
-		private function createUpdateableComponent( item:IHaveUpdateableText, ...args ):IUpdateableTextListComponent
+		private function createUpdateableComponent( item:IHaveUpdateableText, ...args ):IUpdateableTextComponent
 		{
 			return new UpdateableTextComponent( item, args );
 		}

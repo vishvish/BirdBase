@@ -13,7 +13,6 @@ package org.birdbase.framework.model
 	 * 
 	 * @author	Vish Vishvanath
 	 * @since	7 February 2011
-	 * 
 	 */
 	public final class ConfigurationModel extends Actor implements IConfigurationModel
 	{
@@ -70,34 +69,6 @@ package org.birdbase.framework.model
 					return conf.unrestricted[ id ];
 					break;
 			}
-		}
-
-		private function addParameter( key:String, item:*, pOverride:Boolean = true ):void
-		{
-			try
-			{
-				if( pOverride )
-				{
-					if( _map.hasKey( key ) )
-					{
-						_map.removeKey( key );
-					}
-				}
-				_map.add( key, item );
-			}
-			catch( e:Error )
-			{
-				error( e.message );
-			}
-			finally
-			{
-				debug( [ key, item, _map.size ].toString() );
-			}
-		}
-		
-		private function get map():Map
-		{
-			return _map;
 		}
 	}
 }

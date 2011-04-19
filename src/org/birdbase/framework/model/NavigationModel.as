@@ -1,7 +1,6 @@
 package org.birdbase.framework.model
 {
 	import com.asual.swfaddress.*;
-	import com.epologee.navigator.integration.swfaddress.SWFAddressNavigator;
 	
 	import flash.utils.Dictionary;
 	import flash.utils.getDefinitionByName;
@@ -28,9 +27,6 @@ package org.birdbase.framework.model
 		[Inject]
 		public var cm:IConfigurationModel;
 		
-		[Inject]
-		public var navigator:SWFAddressNavigator;
-		
 		protected var _navigation:Array;
 		
 		protected var _viewClassMap:Map;
@@ -47,9 +43,6 @@ package org.birdbase.framework.model
 		{
 			_viewClassMap = new Map();
 			_viewDestinationMap = new Map();
-			
-			SWFAddress.addEventListener( SWFAddressEvent.EXTERNAL_CHANGE, onUnrestrictedChange );
-			SWFAddress.addEventListener( SWFAddressEvent.INTERNAL_CHANGE, onUnrestrictedChange );
 		}
 		
 		/**
@@ -160,53 +153,6 @@ package org.birdbase.framework.model
 					
 				}
 			}
-		}
-		
-		/**
-		 * Saves all parameters in the UNRESTRICTED zone.
-		 * 
-		 * @deprecated
-		 * 
-		 * @param e
-		 */
-		private function onUnrestrictedChange( e:SWFAddressEvent ):void
-		{
-			if( e.parameterNames.length > 0 )
-			{
-				for( var key:String in e.parameters )
-				{
-					if( Settings.unrestricted.getSetting( key ) != e.parameters[ key ] )
-					{
-						Settings.unrestricted.setSetting( key, e.parameters[ key ] );
-						debug( "Changing preference: " + key + " -> " + e.parameters[ key ] );
-					}
-					else
-					{
-						break;
-					}
-				}
-			}
-			dispatch( e );
-		}
-		
-		/**
-		 * Saves all parameters in the RESTRICTED zone.
-		 * 
-		 * @deprecated
-		 * 
-		 * @param e
-		 */
-		private function onRestrictedChange( e:SWFAddressEvent ):void
-		{
-			if( e.parameterNames.length > 0 )
-			{
-				for( var key:String in e.parameters )
-				{
-					Settings.unrestricted.setSetting( key, e.parameters[ key ] );
-					debug( key, e.parameters[ key ] );
-				}
-			}
-			dispatch( e );
 		}
 	}
 }

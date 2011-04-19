@@ -39,7 +39,7 @@ package org.birdbase.framework.controller.core
 			
 			// map classes
 			
-			injector.mapClass( ListOfUpdateableTextComponents, ListOfUpdateableTextComponents );
+			injector.mapClass( UpdateableTextComponentList, UpdateableTextComponentList );
 			
 			// end
 			

@@ -4,7 +4,7 @@ package org.birdbase.framework.view
 	import flash.display.Sprite;
 	import flash.text.*;
 	
-	import org.birdbase.framework.signals.*;
+	import org.birdbase.framework.controller.signals.*;
 	
 	/**
 	 *	Basic View. Inherit this view to use simple transitions and callbacks.

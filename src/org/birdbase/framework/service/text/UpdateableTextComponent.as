@@ -13,7 +13,7 @@ package org.birdbase.framework.service.text
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		22 February 2011
 	 */
-	public class UpdateableTextComponent implements IUpdateableTextListComponent
+	public class UpdateableTextComponent implements IUpdateableTextComponent
 	{
 		/**
 		 *	_item TODO
