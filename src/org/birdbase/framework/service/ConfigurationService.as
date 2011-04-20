@@ -9,10 +9,10 @@ package org.birdbase.framework.service
 	import org.as3yaml.YAML;
 	import org.birdbase.framework.controller.boot.BootManagement;
 	import org.birdbase.framework.model.*;
+	import org.birdbase.framework.service.text.ITextService;
 	import org.birdbase.support.utils.FlashVarsManager;
 	import org.robotlegs.mvcs.Actor;
 	import org.robotlegs.utilities.statemachine.StateEvent;
-	import org.birdbase.framework.service.text.ITextService;
 	
 	/**
 	 *	The ConfigurationService loads the data and structural information for the site from a YAML file.
@@ -22,6 +22,9 @@ package org.birdbase.framework.service
 	 */
 	public class ConfigurationService extends Actor implements IConfigurationService
 	{
+		[Inject]
+		public var settings:Settings;
+		
 		[Inject]
 		public var fm:FlashVarsManager;
 		
@@ -85,8 +88,7 @@ package org.birdbase.framework.service
 		
 		private function setPreferences( d:Dictionary ):void
 		{
-			Settings.restricted.setValues( d.restricted );
-			Settings.unrestricted.setValues( d.unrestricted );
+			settings.setValues( d );
 		}
 		
 		private function setNavigation( d:Dictionary ):void
