@@ -4,7 +4,6 @@ package org.birdbase.framework.controller.core
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.service.*;
 	import org.birdbase.framework.service.text.*;
-	import org.birdbase.framework.signals.*;
 	import org.robotlegs.mvcs.SignalCommand;
 	import org.robotlegs.utilities.statemachine.StateEvent;
 	
@@ -35,7 +34,7 @@ package org.birdbase.framework.controller.core
 			injector.mapSingletonOf( INavigationModel, NavigationModel );
 			injector.mapSingletonOf( IConfigurationService, ConfigurationService );
 			injector.mapSingletonOf( ITextService, TextService );
-			injector.mapSingletonOf( IRSSModel, RSSModel );
+
 			
 			// map classes
 			

@@ -52,23 +52,5 @@ package org.birdbase.framework.model
 		{
 			_configurationFilename = value;
 		}
-
-		/**
-		 * @inheritDoc
-		 */
-		public function getConfigurationById( id:String, restricted:Boolean = false ):*
-		{
-			warn( "You may be better off using the local space.restricted/unrestricted rather than" +
-				" injecting a configuration model into your view or mediator" );
-			switch( restricted )
-			{
-				case true:
-					return conf.restricted[ id ];
-					break;
-				case false:
-					return conf.unrestricted[ id ];
-					break;
-			}
-		}
 	}
 }

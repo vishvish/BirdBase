@@ -23,6 +23,8 @@ package org.birdbase.framework.controller.core
 	 */
 	public class E_Fonts extends Command
 	{
+		[Inject]
+		public var settings:Settings;
 		/**
 		* 	The default name used for the bootstrap load process
 		* 	to indicate a swf file contains fonts.
@@ -37,8 +39,8 @@ package org.birdbase.framework.controller.core
 		override public function execute():void
 		{
 			status();
-			var fontPath:String = Settings.restricted.getSetting( "base" )
-				+ Settings.restricted.getSetting( "fonts_file" );
+			var fontPath:String = settings.getSetting( "base" )
+				+ settings.getSetting( "fonts_file" );
 			
 			_swfloader = new SWFLoader( new URLRequest(	fontPath ), DEFAULT_FONTS_NAME );	
 			_swfloader.onComplete.add( handleComplete );

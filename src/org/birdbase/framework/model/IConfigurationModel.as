@@ -22,17 +22,5 @@ package org.birdbase.framework.model
 		 */
 		function get conf():Dictionary;
 		function set conf( value:Dictionary ):void;
-
-		/**
-		 * Returns the configuration value by its ID.
-		 * 
-		 * @deprecated
-		 * 
-		 * @param id
-		 * @param restricted
-		 * @return 
-		 */
-		[Deprecated]
-		function getConfigurationById( id:String, restricted:Boolean=false ):*;
 	}
 }

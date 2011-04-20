@@ -18,6 +18,9 @@ package org.birdbase.framework.model
 	 */
 	public class AssetModel extends Actor implements IAssetModel
 	{
+		[Inject]
+		public var settings:Settings;
+
 		[Inject(name="loaded")]
 		public var assetLoader:IAssetLoader;
 
@@ -33,9 +36,9 @@ package org.birdbase.framework.model
 			assetLoader.onError.add( onError );
 			assetLoader.onComplete.add( onComplete );
 			
-			var BASE:String = 				Settings.restricted.getSetting( "base" );
-			var DYNAMIC_LIBRARY:String = 	Settings.restricted.getSetting( "dynamic_library" );
-			var assets:Array = 				Settings.restricted.getSetting( "assets" );
+			var BASE:String = 				settings.getSetting( "base" );
+			var DYNAMIC_LIBRARY:String = 	settings.getSetting( "dynamic_library" );
+			var assets:Array = 				settings.getSetting( "assets" );
 			
 			var loaderConfig:XML =
 				<loader base={BASE} preventCache="true" >	

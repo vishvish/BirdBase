@@ -8,8 +8,6 @@ package org.birdbase.framework.controller.boot
 	
 	import org.birdbase.framework.controller.navigation.*;
 	import org.birdbase.framework.model.*;
-	import org.birdbase.framework.signals.*;
-	import org.osflash.signals.Signal;
 	import org.robotlegs.mvcs.SignalCommand;
 	
 	/**
@@ -23,6 +21,9 @@ package org.birdbase.framework.controller.boot
 	 */
 	public class ApplicationReady extends SignalCommand
 	{
+		[Inject]
+		public var settings:Settings;
+
 		[Inject]
 		public var navigator:SWFAddressNavigator;
 		
@@ -49,7 +50,7 @@ package org.birdbase.framework.controller.boot
 			_state = SWFAddress.getPath();
 			if( _state == "/" )
 			{
-				_state = Settings.restricted.getSetting( "home_view" );
+				_state = settings.getSetting( "home_view" );
 			}
 			navigator.start( "/" );
 			_timeout = setTimeout( onComplete, 1000 );

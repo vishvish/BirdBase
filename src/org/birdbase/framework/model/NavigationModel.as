@@ -25,6 +25,9 @@ package org.birdbase.framework.model
 	public class NavigationModel extends Actor implements INavigationModel
 	{
 		[Inject]
+		public var settings:Settings;
+
+		[Inject]
 		public var cm:IConfigurationModel;
 		
 		protected var _navigation:Array;
@@ -110,7 +113,7 @@ package org.birdbase.framework.model
 		{
 			try
 			{
-				var fqcn:String = Settings.restricted.getSetting( "view_package" ) + "::" + view
+				var fqcn:String = settings.getSetting( "view_package" ) + "::" + view
 				var c:Class = getDefinitionByName( fqcn ) as Class;
 				_viewClassMap.add( destination, c );
 				_viewDestinationMap.add( c, destination );

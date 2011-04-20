@@ -29,10 +29,6 @@ package org.birdbase.framework.controller.core
 		{
 			status();
 			
-			var publicPreferences:ISettingsModel = new SettingsModel();
-			var privatePreferences:ISettingsModel = new SettingsModel();
-			Settings.restricted = privatePreferences;
-			Settings.unrestricted = publicPreferences;
 			injector.mapSingletonOf( Settings, Settings );
 			
 			onComplete();
