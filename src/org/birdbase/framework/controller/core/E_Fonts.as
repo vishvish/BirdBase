@@ -39,8 +39,7 @@ package org.birdbase.framework.controller.core
 		override public function execute():void
 		{
 			status();
-			var fontPath:String = settings.getSetting( "base" )
-				+ settings.getSetting( "fonts_file" );
+			var fontPath:String = settings.getSetting( "fonts_file" );
 			
 			_swfloader = new SWFLoader( new URLRequest(	fontPath ), DEFAULT_FONTS_NAME );	
 			_swfloader.onComplete.add( handleComplete );
