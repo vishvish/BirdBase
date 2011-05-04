@@ -58,17 +58,9 @@ package org.birdbase.framework.service
 				? fm.configuration
 				: configurationModel.configurationFilename;
 			
-			var configURL:String;
+			var configURL:String = configurationModel.configurationFilename;
 			
-			if( configurationModel.configurationFilename.indexOf( "http://" ) != -1
-			|| configurationModel.configurationFilename.indexOf( "https://" ) != -1 )
-			{
-				configURL = configurationModel.configurationFilename;
-			}
-			else
-			{
-				configURL = "assets/" + fm.locale + "/" + configurationModel.configurationFilename;
-			}
+			debug( configURL );
 			
 			var loader:URLLoader = new URLLoader();
 			loader.addEventListener( Event.COMPLETE, handleComplete );
