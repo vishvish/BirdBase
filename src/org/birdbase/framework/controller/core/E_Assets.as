@@ -17,7 +17,7 @@ package org.birdbase.framework.controller.core
 	 * @author 	Vish Vishvanath
 	 * @since 	11 January 2011
 	 */
-	public class F_Assets extends Command
+	public class E_Assets extends Command
 	{
 		[Inject]
 		public var assetModel:IAssetModel;

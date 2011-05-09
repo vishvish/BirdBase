@@ -47,15 +47,10 @@ package org.birdbase.framework.controller.boot
 				</state>
 		
 				<state name={CONFIGURING_SERVICES} changed={CONFIGURE_SERVICES}>
-					<transition action={CONFIGURING_SERVICES_COMPLETE} target={LOADING_FONTS} />
+					<transition action={CONFIGURING_SERVICES_COMPLETE} target={LOADING_ASSETS} />
 					<transition action={CONFIGURING_SERVICES_FAILED} target={FAILING} />
 				</state>
 		
-				<state name={LOADING_FONTS} changed={LOAD_FONTS}>
-					<transition action={LOAD_FONTS_COMPLETE} target={LOADING_ASSETS} />
-					<transition action={LOAD_FONTS_FAILED} target={FAILING} />
-				</state>
-
 				<state name={LOADING_ASSETS} changed={LOAD_ASSETS}>
 					<transition action={LOAD_ASSETS_COMPLETE} target={STARTING_APPLICATION} />
 					<transition action={LOAD_ASSETS_FAILED} target={FAILING} />
@@ -105,11 +100,6 @@ package org.birdbase.framework.controller.boot
 		public static const CONFIGURING_PREFERENCES_COMPLETE:String	= "action/configure/preferences/complete";
 		public static const CONFIGURING_PREFERENCES_FAILED:String	= "action/configure/preferences/failed";
 		
-		public static const LOADING_FONTS:String         			= "state/loading/fonts";
-		public static const LOAD_FONTS:String           			= "event/load/fonts";
-		public static const LOAD_FONTS_COMPLETE:String  			= "action/load/fonts/complete";
-		public static const LOAD_FONTS_FAILED:String    			= "action/load/fonts/failed";
-
 		public static const LOADING_ASSETS:String         			= "state/loading/assets";
 		public static const LOAD_ASSETS:String           			= "event/load/assets";
 		public static const LOAD_ASSETS_COMPLETE:String  			= "action/load/assets/complete";
@@ -137,8 +127,7 @@ package org.birdbase.framework.controller.boot
 			commandMap.mapEvent( BootManagement.CONFIGURE_NAVIGATOR, 	B_Navigator, StateEvent, true );
 			commandMap.mapEvent( BootManagement.CONFIGURE_MODELS, 		C_Models, StateEvent, true );
 			commandMap.mapEvent( BootManagement.CONFIGURE_SERVICES, 	D_Services, StateEvent, true );
-			commandMap.mapEvent( BootManagement.LOAD_FONTS, 			E_Fonts, StateEvent, true );
-			commandMap.mapEvent( BootManagement.LOAD_ASSETS, 			F_Assets, StateEvent, true );
+			commandMap.mapEvent( BootManagement.LOAD_ASSETS, 			E_Assets, StateEvent, true );
 			
 			commandMap.mapEvent( BootManagement.GO, 					ApplicationReady, StateEvent, true );
 			commandMap.mapEvent( BootManagement.FAIL, 					ApplicationFault, StateEvent, true );
