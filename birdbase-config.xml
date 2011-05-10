@@ -19,7 +19,7 @@
       <context-root>context-path</context-root>
       -->
       <!-- compiler.debug: generates a movie that is suitable for debugging-->
-      <debug>true</debug>
+      <debug>false</debug>
       <!-- compiler.defaults-css-files usage:
       <defaults-css-files>
          <filename>string</filename>
@@ -159,25 +159,6 @@
          <qualified-type-selectors>boolean</qualified-type-selectors>
          -->
       </mxml>
-      <namespaces>
-         <!-- compiler.namespaces.namespace: Specify a URI to associate with a manifest of components for use as MXML elements-->
-         <namespace>
-            <uri>http://ns.adobe.com/mxml/2009</uri>
-            <manifest>mxml-2009-manifest.xml</manifest>
-         </namespace>
-         <namespace>
-            <uri>library://ns.adobe.com/flex/spark</uri>
-            <manifest>spark-manifest.xml</manifest>
-         </namespace>
-         <namespace>
-            <uri>library://ns.adobe.com/flex/mx</uri>
-            <manifest>mx-manifest.xml</manifest>
-         </namespace>
-         <namespace>
-            <uri>http://www.adobe.com/2006/mxml</uri>
-            <manifest>mxml-manifest.xml</manifest>
-         </namespace>
-      </namespaces>
       <!-- compiler.omit-trace-statements: toggle whether trace statements are omitted-->
       <omit-trace-statements>true</omit-trace-statements>
       <!-- compiler.optimize: Enable post-link SWF optimization-->
@@ -218,9 +199,9 @@
       <!-- compiler.strict: runs the AS3 compiler in strict error checking mode.-->
       <strict>true</strict>
       <!-- compiler.theme: list of CSS or SWC files to apply as a theme-->
-      <theme>
+      <!-- <theme>
          <filename>themes/Spark/spark.css</filename>
-      </theme>
+      </theme> -->
       <!-- compiler.use-resource-bundle-metadata: determines whether resources bundles are included in the application.-->
       <use-resource-bundle-metadata>false</use-resource-bundle-metadata>
       <!-- compiler.verbose-stacktraces: save callstack information to the SWF for debugging-->
