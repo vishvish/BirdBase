@@ -51,17 +51,6 @@
          </extension>
          -->
       </extensions>
-      <!-- compiler.external-library-path: list of SWC files or directories to compile against but to omit from linking-->
-      <external-library-path>
-         <path-element>/Users/vish/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/player/10.1/playerglobal.swc</path-element>
-         <path-element>/Users/vish/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/framework.swc</path-element>
-         <path-element>/Users/vish/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/textLayout.swc</path-element>
-         <path-element>/Users/vish/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/spark.swc</path-element>
-         <path-element>/Users/vish/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/sparkskins.swc</path-element>
-         <path-element>/Users/vish/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/rpc.swc</path-element>
-         <path-element>/Users/vish/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/osmf.swc</path-element>
-         <path-element>/Users/vish/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/mx/mx.swc</path-element>
-      </external-library-path>
       <fonts>
          <!-- compiler.fonts.advanced-anti-aliasing: enables advanced anti-aliasing for embedded fonts, which provides greater clarity for small fonts.-->
          <advanced-anti-aliasing>true</advanced-anti-aliasing>
@@ -131,16 +120,6 @@
       -->
       <!-- compiler.keep-generated-actionscript: save temporary source files generated during MXML compilation-->
       <keep-generated-actionscript>false</keep-generated-actionscript>
-      <!-- compiler.library-path: list of SWC files or directories that contain SWC files-->
-      <library-path>
-         <path-element>/Users/vish/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/datavisualization.swc</path-element>
-         <path-element>/Users/vish/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/flash-integration.swc</path-element>
-         <path-element>/Users/vish/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/spark_dmv.swc</path-element>
-         <path-element>/Users/vish/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/libs/utilities.swc</path-element>
-         <path-element>/Users/vish/Applications/Adobe Flash Builder Burrito/sdks/4.5.0/frameworks/locale/{locale}</path-element>
-         <path-element>/Users/vish/projects/Birdbase/lib</path-element>
-      </library-path>
-      <!-- compiler.locale: specifies the locale for internationalization-->
       <locale>
          <locale-element>en_US</locale-element>
       </locale>
@@ -192,10 +171,6 @@
       <!-- compiler.show-unused-type-selector-warnings: toggle whether warnings generated from unused CSS type selectors are displayed-->
       <show-unused-type-selector-warnings>true</show-unused-type-selector-warnings>
       <!-- compiler.source-path: list of path elements that form the roots of ActionScript class hierarchies-->
-      <source-path>
-         <path-element>/Users/vish/projects/Birdbase/src</path-element>
-         <path-element>/Users/vish/projects/Birdbase/src</path-element>
-      </source-path>
       <!-- compiler.strict: runs the AS3 compiler in strict error checking mode.-->
       <strict>true</strict>
       <!-- compiler.theme: list of CSS or SWC files to apply as a theme-->
