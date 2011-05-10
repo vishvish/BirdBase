@@ -11,6 +11,7 @@ def configure t
   t.source_path << 'src'
   t.include_sources << 'src'
   t.optimize = true
+  t.load_config << 'birdbase-config.xml'
   t.target_player = '10.1'
 end
 
@@ -19,6 +20,7 @@ compc "bin/birdbase-#{version}.swc" do |t|
   t.debug = false
   t.define_conditional << 'CONFIG::release,true'
   t.define_conditional << 'CONFIG::debug,false'
+  t.pkg_name    = 'flex4'
 end
 
 
