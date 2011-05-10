@@ -6,12 +6,21 @@ require 'flashsdk'
 
 version = "0.7.5"
 
+# NOTE
+# 
+# in the configure method below there is a load_config hook.
+# 
+# There is a sample birdbase-config-sample.xml provided in the source tree.
+#
+# Uncomment below to use and optimize. There is further optimization possible - currently our copy of birdbase.swc weighs in at 228K
+
+
 def configure t
   t.library_path << 'lib'
   t.source_path << 'src'
   t.include_sources << 'src'
   t.optimize = true
-  t.load_config << 'birdbase-config.xml'
+  # t.load_config << 'birdbase-config-sample.xml'
   t.target_player = '10.1'
 end
 
