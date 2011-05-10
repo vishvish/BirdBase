@@ -2,46 +2,39 @@
 
 BirdBase is a versatile framework built atop RobotLegs and other libraries to provide a fairly comprehensive and straightforward way to build a Flash microsite.
 
-## Features
+## Get Started
 
-*	Deep-linking with easy browser integration, view transitions, and an easy-to-use router to link URLs to View classes.
-*	Bootstrap Management using a State Machine.
-*	Asset loading with preloader and on-demand, per mediator.
-*	Localization support with dynamic string replacement.
-*	DynamicSprite integration for easy access to objects in a SWF.
-*	Simple VideoPlayer integration with OSMF (Open Source Media Framework).
+### Building from source
 
-## BirdBase is now a SWC library.
+1. Clone source
 
----
+		git clone git@github.com:vishvish/BirdBase.git
 
+1. Flash Builder
 
-## ...built from a number of reasonably-established tools.
+ * Import from filesystem as Flex Library
+ * Add `lib` directory: `Project Properties > Flex Library Build Path > Library`
 
-*	RobotLegs + SwiftSuspenders: so you get a lightweight MVC structure and DI.
-* 	SWFAddress: for deep-linking and browser navigation.
-*	Eric-Paul Lecluse's marvellous AS3-Navigator library.
-* 	Joel Hooks' Finite State Machine.
-* 	Provides Bootstrap control for loading preferences/configuration.
-* 	Provides localization out of the box.
-* 	Loads assets based on the configuration.
-*	Provides dead-easy access to assets in a SWF. No more creating classes for assets or mapping names. Builds on
-Justin Windle's DynamicSprite. Lovely.
+1. Project Sprouts, assuming you have a Ruby install on your system
 
-		Now: ball = new DynamicSprite( "ball" );
+	1. `gem install flashsdk --pre`
+	1. `cd BirdBase`
+	1. `rake swc`
 
-*	Allows runtime swapping of the asset library: watch all your assets change on stage the instant it loads.
+### Documentation
 
-## CREDITS
+API docs of the ActionScript: [http://api.birdbase.org](http://api.birdbase.org)
 
-Builds on the work of (but not limited to)
+PDFs:
 
-*	Team RobotLegs - Shaun Smith, and Joel Hooks for the Finite State Machine
-*	Till Schneidereit for SwiftSuspenders. That and Hamburg folk rock.
-*	Matan Uberstein - thanks for AssetLoader
-*	Robert Penner (and implicitly C# events + QT signals) - AS3 Signals.
-*	Team AS3-Commons - thanks for the reflection and the collections.
-*	Justin Windle - nice work on Dynamic Sprite
-*	Eric-Paul Lecluse - thanks for the Navigator library, and for all your time and advice.
-*	Mischa Williamson - tip-top advice and coding.
+ * Developer's Guide & Book of Configuration: [http://birdbase.org/documentation/](http://birdbase.org/documentation/)
 
+There is a demo application in progress here: [https://github.com/vishvish/BirdBase-Demo-Site](https://github.com/vishvish/BirdBase-Demo-Site)
+
+And there are guide posts being created regularly on the website.
+
+So far:
+
+ 1. [Creating an Embedded Font Library](http://birdbase.org/2011/05/font-library/)
+ 1. Understanding BirdBase. #1: Bootstrap - coming soon
+ 1. Understanding BirdBase. #2: Navigation part 1 - coming soon
