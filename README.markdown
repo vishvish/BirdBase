@@ -36,5 +36,5 @@ And there are guide posts being created regularly on the website.
 So far:
 
  1. [Creating an Embedded Font Library](http://birdbase.org/2011/05/font-library/)
- 1. Understanding BirdBase. #1: Bootstrap - coming soon
+ 1. [Understanding BirdBase. #1: Bootstrap](http://birdbase.org/2011/05/understanding-birdbase-1-bootstrap/)
  1. Understanding BirdBase. #2: Navigation part 1 - coming soon
