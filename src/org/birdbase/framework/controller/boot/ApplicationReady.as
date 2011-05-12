@@ -59,7 +59,6 @@ package org.birdbase.framework.controller.boot
 		private function onComplete():void
 		{
 			clearTimeout( _timeout );
-			navigator.request( _state );
 			status( "Navigation State: " + _state );
 		}
 	}
