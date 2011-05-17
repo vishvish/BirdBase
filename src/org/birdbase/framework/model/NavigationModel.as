@@ -1,7 +1,5 @@
 package org.birdbase.framework.model
 {
-	import com.asual.swfaddress.*;
-	
 	import flash.utils.Dictionary;
 	import flash.utils.getDefinitionByName;
 	

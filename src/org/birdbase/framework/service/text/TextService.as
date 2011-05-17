@@ -116,11 +116,11 @@ package org.birdbase.framework.service.text
 						component.item.setText( string );
 					}
 				}
-				debug( "Finished updating " + registeredComponents.size + " components." );
+				info( "Finished updating " + registeredComponents.size + " components." );
 			}
 			else
 			{
-				debug( "Not updating text components." );
+				warn( "Not updating text components." );
 			}
 		}
 		

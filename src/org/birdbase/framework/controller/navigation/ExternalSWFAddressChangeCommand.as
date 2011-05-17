@@ -1,6 +1,7 @@
 package org.birdbase.framework.controller.navigation
 {
 	import com.asual.swfaddress.SWFAddressEvent;
+	import com.epologee.navigator.INavigator;
 	import com.epologee.navigator.integration.swfaddress.SWFAddressNavigator;
 	
 	import org.birdbase.framework.controller.signals.ExternalNavigationSignal;
@@ -11,7 +12,7 @@ package org.birdbase.framework.controller.navigation
 		private var _event:SWFAddressEvent;
 
 		[Inject]
-		public var navigator:SWFAddressNavigator;
+		public var navigator:INavigator;
 
 		[Inject]
 		public var navigationSignal:ExternalNavigationSignal;
@@ -25,10 +26,7 @@ package org.birdbase.framework.controller.navigation
 		override public function execute():void
 		{
 			info( _event.path );
-			if( navigator.startState )
-			{
-				navigator.request( _event.path );
-			}
+			navigator.request( _event.path );
 			navigationSignal.dispatch();
 		}
 	}

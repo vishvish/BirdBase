@@ -26,7 +26,6 @@ package org.birdbase.framework.controller.core
 		override public function execute():void
 		{
 			status();
-			onComplete();
 		}
 		
 		private function onComplete():void

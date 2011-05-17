@@ -1,9 +1,6 @@
 package org.birdbase.framework.controller.core
 {
-	import flash.display.DisplayObject;
-	
 	import org.assetloader.core.IAssetLoader;
-	import org.assetloader.signals.LoaderSignal;
 	import org.birdbase.framework.model.IAssetModel;
 	import org.birdbase.support.loading.ILoaderView;
 	import org.robotlegs.mvcs.Command;
@@ -33,24 +30,6 @@ package org.birdbase.framework.controller.core
 		override public function execute():void
 		{
 			status();
-		}
-		
-		private function onComplete( s:LoaderSignal, data:* ):void
-		{
-			info();
-			try
-			{
-				contextView.removeChild( loaderView as DisplayObject );
-				loaderView = null;
-			}
-			catch( e:Error )
-			{
-				error( e );
-			}
-			finally
-			{
-				// IAssetModel fires the complete event once it has loaded the design assets
-			}
 		}
 	}
 }

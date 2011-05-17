@@ -1,6 +1,7 @@
 package org.birdbase.framework.controller.core
 {
 	import com.asual.swfaddress.SWFAddress;
+	import com.epologee.navigator.INavigator;
 	import com.epologee.navigator.integration.robotlegs.mapping.*;
 	import com.epologee.navigator.integration.swfaddress.SWFAddressNavigator;
 	
@@ -30,9 +31,9 @@ package org.birdbase.framework.controller.core
 		{
 			status();
 			
-			var navigator:SWFAddressNavigator = new SWFAddressNavigator();
+			var navigator:INavigator = new SWFAddressNavigator();
 
-			injector.mapValue( SWFAddressNavigator, navigator );
+			injector.mapValue( INavigator, navigator );
 			
 			// signals to be dispatched when SWFAddress tells us.
 			injector.mapSingletonOf( InternalNavigationSignal, InternalNavigationSignal );

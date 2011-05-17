@@ -60,8 +60,6 @@ package org.birdbase.framework.service
 			
 			var configURL:String = configurationModel.configurationFilename;
 			
-			debug( configURL );
-			
 			var loader:URLLoader = new URLLoader();
 			loader.addEventListener( Event.COMPLETE, handleComplete );
 			loader.addEventListener( IOErrorEvent.IO_ERROR, handleError );

@@ -1,10 +1,8 @@
 package org.birdbase.framework.controller.boot
 {
-	import com.asual.swfaddress.*;
-	import com.epologee.navigator.integration.swfaddress.SWFAddressNavigator;
-	
-	import flash.utils.clearTimeout;
-	import flash.utils.setTimeout;
+	import com.asual.swfaddress.SWFAddress;
+	import com.asual.swfaddress.SWFAddressEvent;
+	import com.epologee.navigator.INavigator;
 	
 	import org.birdbase.framework.controller.navigation.*;
 	import org.birdbase.framework.model.*;
@@ -25,7 +23,7 @@ package org.birdbase.framework.controller.boot
 		public var settings:Settings;
 
 		[Inject]
-		public var navigator:SWFAddressNavigator;
+		public var navigator:INavigator;
 		
 		[Inject]
 		public var configurationModel:IConfigurationModel;
@@ -47,19 +45,12 @@ package org.birdbase.framework.controller.boot
 			commandMap.mapEvent( SWFAddressEvent.EXTERNAL_CHANGE, ExternalSWFAddressChangeCommand, SWFAddressEvent );
 			commandMap.mapEvent( SWFAddressEvent.INTERNAL_CHANGE, InternalSWFAddressChangeCommand, SWFAddressEvent );
 
-			_state = SWFAddress.getPath();
+			_state = SWFAddress.getValue();
 			if( _state == "/" )
 			{
 				_state = settings.getSetting( "home_view" );
 			}
-			navigator.start( "/" );
-			_timeout = setTimeout( onComplete, 1000 );
-		}
-		
-		private function onComplete():void
-		{
-			clearTimeout( _timeout );
-			status( "Navigation State: " + _state );
+			navigator.start( _state );
 		}
 	}
 }
