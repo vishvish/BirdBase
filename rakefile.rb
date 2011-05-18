@@ -4,7 +4,7 @@ require 'bundler/setup'
 require 'rake/clean'
 require 'flashsdk'
 
-version = "0.8"
+version = "0.8.1"
 
 # NOTE
 # 
@@ -21,6 +21,7 @@ def configure t
   t.include_sources << 'src'
   t.optimize = true
   # t.load_config << 'birdbase-config-sample.xml'
+  # t.load_config << 'birdbase-config.xml'
   t.target_player = '10.1'
 end
 
