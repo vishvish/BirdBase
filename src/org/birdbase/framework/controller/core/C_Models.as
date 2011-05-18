@@ -34,7 +34,6 @@ package org.birdbase.framework.controller.core
 			injector.mapSingletonOf( INavigationModel, NavigationModel );
 			injector.mapSingletonOf( IConfigurationService, ConfigurationService );
 			injector.mapSingletonOf( ITextService, TextService );
-
 			
 			// map classes
 			

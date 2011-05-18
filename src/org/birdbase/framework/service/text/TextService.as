@@ -18,7 +18,7 @@ package org.birdbase.framework.service.text
 	{
 		[Inject]
 		public var registeredComponents:UpdateableTextComponentList;
-
+		
 		protected var _strings:Dictionary;
 
 		public function TextService()

@@ -50,7 +50,7 @@ package org.birdbase.framework.controller.boot
 			{
 				_state = settings.getSetting( "home_view" );
 			}
-			navigator.start( _state );
+			navigator.start( "", _state );
 		}
 	}
 }
