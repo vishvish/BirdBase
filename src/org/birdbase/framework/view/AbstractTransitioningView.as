@@ -46,7 +46,7 @@ package org.birdbase.framework.view
 				removeChild( titleField );
 			}else if( value != null && titleField != null  )
 			{
-				titleField.text = value.toUpperCase();
+				titleField.text = value; //.toUpperCase();
 			}
 			
 			_title = value;

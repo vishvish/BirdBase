@@ -16,7 +16,7 @@ package org.birdbase.framework.model
 	 */
 	public final class ConfigurationModel extends Actor implements IConfigurationModel
 	{
-		protected var _configurationFilename:String = "configuration.yml";
+		protected var _configurationFilename:String = "resources/configuration.yml";
 
 		protected var _configuration:Dictionary;
 
