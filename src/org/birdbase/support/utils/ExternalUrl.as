@@ -19,7 +19,7 @@ package org.birdbase.support.utils
 		 * @param args
 		 * 
 		 */
-		public static function openURL( destination:String, target:String = "_top" ):void
+		public static function openURL( destination:String, target:String = "_blank" ):void
 		{
 			var urlRequest:URLRequest = new URLRequest( destination );
 			navigateToURL( urlRequest, target );

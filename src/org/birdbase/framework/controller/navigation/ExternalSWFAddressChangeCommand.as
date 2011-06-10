@@ -2,12 +2,11 @@ package org.birdbase.framework.controller.navigation
 {
 	import com.asual.swfaddress.SWFAddressEvent;
 	import com.epologee.navigator.INavigator;
-	import com.epologee.navigator.integration.swfaddress.SWFAddressNavigator;
 	
 	import org.birdbase.framework.controller.signals.ExternalNavigationSignal;
-	import org.robotlegs.mvcs.SignalCommand;
+	import org.robotlegs.mvcs.Command;
 	
-	public class ExternalSWFAddressChangeCommand extends SignalCommand
+	public class ExternalSWFAddressChangeCommand extends Command
 	{
 		private var _event:SWFAddressEvent;
 

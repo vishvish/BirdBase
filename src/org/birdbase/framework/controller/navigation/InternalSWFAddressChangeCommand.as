@@ -4,7 +4,7 @@ package org.birdbase.framework.controller.navigation
 	import com.epologee.navigator.INavigator;
 	
 	import org.birdbase.framework.controller.signals.InternalNavigationSignal;
-	import org.robotlegs.mvcs.SignalCommand;
+	import org.robotlegs.mvcs.Command;
 	
 	/**
 	 * Runs whenever SWFAddress reports an external change, such as a URL being typed into the browser.
@@ -16,7 +16,7 @@ package org.birdbase.framework.controller.navigation
 	 * @since	23 February 2011
 	 * 
 	 */
-	public class InternalSWFAddressChangeCommand extends SignalCommand
+	public class InternalSWFAddressChangeCommand extends Command
 	{
 		[Inject]
 		public var navigator:INavigator;

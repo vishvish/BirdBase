@@ -30,7 +30,7 @@ package org.birdbase.framework.controller.core
 		
 		private function onComplete():void
 		{
-			debug( "Redundant as IConfigurationService will be firing the onComplete event" );
+			//debug( "Redundant as IConfigurationService will be firing the onComplete event" );
 			// IConfigurationService fires complete event
 		}
 	}
