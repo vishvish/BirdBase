@@ -18,7 +18,7 @@ package org.birdbase.framework.service.text
 	{
 		[Inject]
 		public var registeredComponents:UpdateableTextComponentList;
-
+		
 		protected var _strings:Dictionary;
 
 		public function TextService()
@@ -38,7 +38,7 @@ package org.birdbase.framework.service.text
 			
 			if( registeredComponents.has( item ) )
 			{
-				warn( "This component " + item + " is already registered" );
+				//warn( "This component " + item + " is already registered" );
 			}
 			else
 			{			
@@ -60,10 +60,10 @@ package org.birdbase.framework.service.text
 					
 						return true;
 					}else{
-						error( "No string available for key '" + key + "'." );
+						//error( "No string available for key '" + key + "'." );
 					}
 				}else{
-					error( "No string information available." );
+					//error( "No string information available." );
 				}
 			}
 			
@@ -84,7 +84,7 @@ package org.birdbase.framework.service.text
 				}
 				else
 				{
-					warn( "This component " + item + " is not registered" );
+					//warn( "This component " + item + " is not registered" );
 					return false;
 				}
 			}
@@ -116,11 +116,11 @@ package org.birdbase.framework.service.text
 						component.item.setText( string );
 					}
 				}
-				info( "Finished updating " + registeredComponents.size + " components." );
+				//info( "Finished updating " + registeredComponents.size + " components." );
 			}
 			else
 			{
-				warn( "Not updating text components." );
+				//warn( "Not updating text components." );
 			}
 		}
 		

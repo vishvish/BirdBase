@@ -6,7 +6,7 @@ package org.birdbase.framework.controller.boot
 	
 	import org.birdbase.framework.controller.navigation.*;
 	import org.birdbase.framework.model.*;
-	import org.robotlegs.mvcs.SignalCommand;
+	import org.robotlegs.mvcs.Command;
 	
 	/**
 	 * Triggered once BootManagement hands over the application to the user.
@@ -17,7 +17,7 @@ package org.birdbase.framework.controller.boot
 	 * @author	Vish Vishvanath
 	 * @since	03 March 2011
 	 */
-	public class ApplicationReady extends SignalCommand
+	public class ApplicationReady extends Command
 	{
 		[Inject]
 		public var settings:Settings;
@@ -50,7 +50,7 @@ package org.birdbase.framework.controller.boot
 			{
 				_state = settings.getSetting( "home_view" );
 			}
-			navigator.start( _state );
+			navigator.start( "", _state );
 		}
 	}
 }

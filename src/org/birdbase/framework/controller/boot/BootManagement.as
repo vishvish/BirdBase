@@ -1,7 +1,7 @@
 package org.birdbase.framework.controller.boot
 {
 	import org.birdbase.framework.controller.core.*;
-	import org.robotlegs.mvcs.SignalCommand;
+	import org.robotlegs.mvcs.Command;
 	import org.robotlegs.utilities.statemachine.*;
 	
 	/**
@@ -21,7 +21,7 @@ package org.birdbase.framework.controller.boot
 	 * @author 	Vish Vishvanath
 	 * @since 	11 January 2011
 	 */
-	public class BootManagement extends SignalCommand
+	public class BootManagement extends Command
 	{
 		public static const FSM:XML = 
 			<fsm initial={STARTING}>

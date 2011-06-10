@@ -2,12 +2,10 @@ package org.birdbase.support.utils
 {
 	import flash.display.DisplayObject;
 	
-	import com.ffsys.core.AbstractFlashVars;
-	
 	/**
 	* 	Manages the flash variables for the application.
 	*/
-	dynamic public class FlashVarsManager extends AbstractFlashVars
+	dynamic public class FlashVarsManager
 	{
 		private var _bootstrap:String;
 		private var _configuration:String;
@@ -21,7 +19,11 @@ package org.birdbase.support.utils
 		*/
 		public function FlashVarsManager( root:DisplayObject )
 		{
-			super( root );
+			super();
+			
+			bootstrap = root.loaderInfo.parameters.bootstrap;
+			configuration = root.loaderInfo.parameters.configuration;
+			locale = root.loaderInfo.parameters.locale;
 		}
 		
 		/**

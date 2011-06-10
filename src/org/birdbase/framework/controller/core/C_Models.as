@@ -4,7 +4,7 @@ package org.birdbase.framework.controller.core
 	import org.birdbase.framework.model.*;
 	import org.birdbase.framework.service.*;
 	import org.birdbase.framework.service.text.*;
-	import org.robotlegs.mvcs.SignalCommand;
+	import org.robotlegs.mvcs.Command;
 	import org.robotlegs.utilities.statemachine.StateEvent;
 	
 	/**
@@ -13,7 +13,7 @@ package org.birdbase.framework.controller.core
 	 * @author	Vish Vishvanath
 	 * @since	31 March 2011
 	 */
-	public class C_Models extends SignalCommand
+	public class C_Models extends Command
 	{
 		public function C_Models()
 		{
@@ -34,7 +34,6 @@ package org.birdbase.framework.controller.core
 			injector.mapSingletonOf( INavigationModel, NavigationModel );
 			injector.mapSingletonOf( IConfigurationService, ConfigurationService );
 			injector.mapSingletonOf( ITextService, TextService );
-
 			
 			// map classes
 			
