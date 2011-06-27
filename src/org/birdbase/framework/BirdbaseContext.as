@@ -15,7 +15,7 @@ package org.birdbase.framework
 	import org.birdbase.support.loading.*;
 	import org.birdbase.support.utils.FlashVarsManager;
 	import org.robotlegs.base.ContextEvent;
-	import org.robotlegs.mvcs.SignalContext;
+	import org.robotlegs.mvcs.Context;
 	
 	/**
 	 *	Root context of the BirdBase framework.
@@ -24,7 +24,7 @@ package org.birdbase.framework
 	 *	@email 		vish.vishvanath@gmail.com
 	 *	@since 		22 February 2011
 	 */
-	public class BirdbaseContext extends SignalContext implements ISteppedLoad
+	public class BirdbaseContext extends Context implements ISteppedLoad
 	{
 		public var assetLoader:IAssetLoader = new AssetLoader();
 		
