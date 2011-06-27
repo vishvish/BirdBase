@@ -4,7 +4,7 @@ require 'bundler/setup'
 require 'rake/clean'
 require 'flashsdk'
 
-version = "0.8.2"
+version = "0.8.3"
 
 # NOTE
 # 
