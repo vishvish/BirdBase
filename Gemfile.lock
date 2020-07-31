@@ -6,7 +6,7 @@ GEM
     flashsdk (1.0.23.pre)
       sprout (>= 1.1.8.pre)
     open4 (1.0.1)
-    rake (0.8.7)
+    rake (13.0.1)
     rubyzip (0.9.4)
     sprout (1.1.10.pre)
       archive-tar-minitar (= 0.5.2)
